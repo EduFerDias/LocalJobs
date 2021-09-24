@@ -1,6 +1,4 @@
-## Localjobs - Athena TI - TCC
-
-## Localjobs - Athena TI - TCC
+# Localjobs - Athena TI - TCC
 
 **Edu: 1 e 2 ok**
 **Matheus: Pagina 10 ok**
