@@ -7,7 +7,7 @@
 
 
 ```
-Tem que atualizar o trelo!!!
+Tem que atualizar o trello!!!
 ```
 
 
