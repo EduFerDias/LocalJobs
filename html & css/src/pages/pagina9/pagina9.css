@@ -76,14 +76,6 @@ body {
 
 
 
-/* resto do codigo da página */ 
-
-.f10-tudo {
-    background-image: url("../../assets/images/pagina 9,10,11,12/f10-fundo.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 0% 0%;
-}
 
 /* input e select do filtro */ 
 
@@ -95,15 +87,12 @@ body {
 .f10-pesquisa {
     justify-content: center;
     display: flex;
-    margin-top: 4rem;
     background-color: white;
     border-radius: 8px;
-    padding-left: 30px;
-    padding-right: 10px;
+    padding-left: 5px;
     align-items: center;
-    width: 700px;
+    width: 680px;
     height: 50px;
-    margin-bottom: 3rem;
 }
 
 select {
@@ -111,7 +100,7 @@ select {
     outline: none;
     border: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
+    font-size: 0.8em;
     color:rgba(95, 103, 121, 1)
 }
 input {
@@ -120,7 +109,7 @@ input {
     border: none;
     width: 195px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
+    font-size: 0.8em;
 }
 
 
@@ -131,7 +120,7 @@ input {
 
 .f10-textofiltro {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em;
+    font-size: 1.5em;
     color: white;
     margin-top: 3rem;
     margin-left: 6rem;
@@ -172,15 +161,18 @@ hr {
     color: white;
     font-family: 'Montserrat', sans-serif;
     margin-top: 1.5em;
-    margin-left: 4em;
-    font-size: 1.8em;
+    margin-left: 5.7em;
+    font-size: 1.2em;
     margin-bottom: 1.5em;
     text-shadow: 1px 1px 1px black;
+    flex-direction: row;
+    display: flex;
 }
 
 
 .f10-box {
     margin-left:2.5em;
+    margin-bottom: 2.5em;
     height: 8em;
     width: 20em;
     padding: 1em;
@@ -265,7 +257,7 @@ hr {
 }
 
 .f10-boxes {
-    flex-direction: row;
+    flex-wrap: wrap;
     display: flex;
     margin-left: 4.5em;
 }

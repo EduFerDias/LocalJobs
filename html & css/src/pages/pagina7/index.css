@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+body {
+  margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  cursor: default;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(95, 103, 121);
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #107AD1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.Tela-7 {
+  display: flex;
+  flex-direction: column;
+
+  background-image: url("../../assets/images/pagina 5,6,7/ImagemFundo-t5.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #fff;
+
+  color: #fff;
+
+  font-family: Montserrat;
+  min-height: 100vh;
+  min-width: 1200px;
+}
+
+.cabecalho-t7 {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: rgba(95, 103, 121, 0.7);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+
+  height: 90px;
+
+  padding: 0em 4em 0px 4em;
+}
+
+.just-t7 {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.logo-t7 img {
+  width: 75px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.logo-t7 {
+  margin-right: 2em;
+}
+
+.DirecionarLogin-t7 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+.NomeSite-t7 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+
+  cursor: pointer;
+}
