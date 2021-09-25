@@ -10,20 +10,6 @@ body {
   cursor: default;
 }
 
-::-webkit-scrollbar-track {
-  background-color: rgb(95, 103, 121);
-}
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: #107AD1;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
 .Tela-7 {
   display: flex;
   flex-direction: column;
@@ -93,4 +79,127 @@ body {
   font-size: 25px;
 
   cursor: pointer;
+}
+
+.conteudo-t7 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.CaixaAlerta-t7 {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(5, 0, 0, 0.6);
+  width: 370px;
+  height: 380px;
+  border-radius: 12px;
+}
+
+.cadeado-t7 {
+  text-align: center;
+}
+
+.cadeado-t7 img {
+  width: 110px;
+  height: 110px;
+
+  text-align: center;
+}
+
+.TituloConteudo-t7 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.TextoConteudo-t7 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+
+  margin: 0px 0px 10px 0px;
+
+  color: #ffffff;
+
+  width: 260px;
+}
+
+.reenviar-t7 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+
+  color: #fff;
+
+  margin: 0px 0px 20px 0px;
+}
+
+b {
+  cursor: pointer;
+}
+
+input {
+  width: 300px;
+  height: 50px;
+
+  background: #31343e;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  margin: 0px 0px 7px 0px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+
+  color: #ffffff;
+
+  border: none;
+
+  cursor: text;
+}
+
+.cfmrCodigo-t7 button {
+  width: 300px;
+  height: 50px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+
+  text-align: center;
+
+  color: #ffffff;
+
+  background: #107ad1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  border: none;
+}
+
+.cfmrCodigo-t7 {
+  margin: 0px 0px 10px 0px;
 }
