@@ -99,7 +99,7 @@
     border: none;
     border-radius: 10px;
     padding: 1em 0.345em;
-    margin: 10px 0px;
+    margin: 0.625rem 0px;
     font-family: Montserrat-regular;
     font-size: 1em;
 }
@@ -138,8 +138,8 @@
     background-image: url("../../assets/images/p3-25243\ 1.png");
     background-repeat: no-repeat;
     background-position: right center;
-    width: 168px;
-    background-size: 15px 15px;
+    width: 10.5rem;
+    background-size: 1rem 1rem;
     box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -152,9 +152,9 @@
     background-image: url("../../assets/images/p3-Phone.png");
     background-repeat: no-repeat;
     background-position: 10px center;
-    width: 182px;
-    background-size: 30px 30px;
-    padding-left: 40px;
+    width: 11.375rem;
+    background-size: 1.875rem 1.875rem;
+    padding-left: 2.5rem;
     margin: 0px 0px 0px 5px;
 }
 .button{
