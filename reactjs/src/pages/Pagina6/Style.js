@@ -1,6 +1,17 @@
 import styled from "styled-components";
 
 const Pagina6 = styled.div`
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(./assets/fonts/Montserrat-Regular.ttf);
+}
+
 * {
   box-sizing: border-box;
   cursor: default;

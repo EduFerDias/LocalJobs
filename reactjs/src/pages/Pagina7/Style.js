@@ -1,6 +1,17 @@
 import styled from "styled-components";
 
 const Pagina7 = styled.div`
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(./assets/fonts/Montserrat-Regular.ttf);
+}
+
 * {
   box-sizing: border-box;
   cursor: default;
@@ -119,7 +130,7 @@ const Pagina7 = styled.div`
 }
 
 .TextoConteudo-t7 {
-  font-family: Montserrat;
+  font-family: Montserrat-Regular;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
@@ -134,7 +145,7 @@ const Pagina7 = styled.div`
 }
 
 .reenviar-t7 {
-  font-family: Montserrat;
+  font-family: Montserrat-Regular;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
