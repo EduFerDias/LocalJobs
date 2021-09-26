@@ -1,6 +1,6 @@
 # Localjobs - Athena TI - TCC
 
-**Edu: 1 e 2 ok**
+**Edu: 1,2,3 e 4 OK eu to dando um jeito no react**
 **Matheus: Pagina 10 ok**
 
 
