@@ -1,4 +1,4 @@
-import Conteudo from "../Pagina10";
+import Conteudo from "./Style";
 
 export default function Pagina10 (){
     return(
