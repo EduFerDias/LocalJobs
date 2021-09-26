@@ -1,42 +1,13 @@
-@font-face {
-    font-family: Montserrat-regular;
-    src: url("../../assets/fonts/Montserrat-Regular.ttf");
-}
-@font-face {
-    font-family: Montserrat-Medium;
-    src: url("../../assets/fonts/Montserrat-Medium.ttf");
-}
-@font-face {
-    font-family: Montserrat-semiBold;
-    src: url("../../assets/fonts/Montserrat-SemiBold.ttf");
-}
-@font-face {
-    font-family: Montserrat-Bold;
-    src: url("../../assets/fonts/Montserrat-Bold.ttf");
-}
+import styled from "styled-components";
 
+const Pagina2 = styled.div`
 .faixa1{
-    background-image: url("../../assets/images/p1-estaiada.png");
+    background-image: url("./assets/images/Cadastro e Login/p1-estaiada.png");
     height: 100vh;
     background-repeat: no-repeat;
     background-size: 100vw;
     background-attachment:fixed;
 }
-
-::-webkit-scrollbar-track {
-    background-color: rgb(95, 103, 121);
-}
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-thumb {
-    background: #107AD1;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-}
-
 .cabecalho, .user-interac, .pic{
     display: flex;
     flex-direction: row;
@@ -138,3 +109,5 @@
     border-radius: 4px;
     margin-bottom: 0px;
 }
+`
+export default Pagina2;

@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css" />
-        <link rel="stylesheet" href="../comum.css" />
-        <title>Localjobs</title>
-    </head>
-    <body>
+import Conteudo from "./Style"
+
+export default function Pagina2 (){
+    return(
+    <Conteudo>
         <div class="faixa1">
             <div class="cabecalho">
                 <div class="logo">
-                    <img src="../../assets/images/logo.png" alt="">
+                    <img src="./assets/images/Cadastro e Login/logo.png" alt=""/>
                     Local<span class="dark">jobs</span>
                 </div>
     
                 <div class="user-interac">
                     <div class="pic">
-                        <img src="../../assets/images/p1-Group 5.png" alt=""/>
+                        <img src="./assets/images/Cadastro e Login/p1-Group 5.png" alt=""/>
                         <div class="login">Entrar</div>
                     </div>
                     <div class="detalhe">&nbsp;</div>
@@ -28,7 +22,7 @@
             <div class="corpo">
                 <div class="botoes">
                     <button class="login-empre">
-                        <img src="../../assets/images/p1-client-company 1.png" alt="" >
+                        <img src="./assets/images/Cadastro e Login/p1-client-company 1.png" alt="" />
     
                         <div class="button-text">
                             Cadastro para empresas
@@ -37,7 +31,7 @@
                     </button>
     
                     <button class="login-usu">
-                        <img src="../../assets/images/p1-1693755 1.png" alt="" >
+                        <img src="./assets/images/Cadastro e Login/p1-1693755 1.png" alt="" />
     
                         <div class="button-text">
                             Cadastro para desempregados 
@@ -48,5 +42,7 @@
     
             </div>
         </div>        
-    </body>
-</html>
+
+    </Conteudo>
+    );
+}
