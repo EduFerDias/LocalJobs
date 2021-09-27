@@ -168,9 +168,6 @@ button Link{
     margin-left: 0.625em;
     text-decoration: none;
 }
-a{
-    text-decoration: none;
-}
 
 .button-text hr{
     border: 2.5px solid white;
