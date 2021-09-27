@@ -74,6 +74,35 @@ export default function Pagina9 (){
                                     </div>
                                 </div>
 
+                                <div class="f10-box">
+                                    <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-fotoperfil.png" alt=""/> </div>
+                                    <div class="f10-texto">
+                                        <div class="f10-filtronome">Nome</div>
+                                        <div class="f10-cidade">Cidade</div>
+                                        <div class="f10-profissao">Profissão<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
+                                        <div class="f10-data">04/20</div>
+                                    </div>
+                                </div>
+
+                                <div class="f10-box">
+                                    <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-fotoperfil.png" alt=""/> </div>
+                                    <div class="f10-texto">
+                                        <div class="f10-filtronome">Nome</div>
+                                        <div class="f10-cidade">Cidade</div>
+                                        <div class="f10-profissao">Profissão<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
+                                        <div class="f10-data">04/20</div>
+                                    </div>
+                                </div>
+
+                                <div class="f10-box">
+                                    <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-fotoperfil.png" alt=""/> </div>
+                                    <div class="f10-texto">
+                                        <div class="f10-filtronome">Nome</div>
+                                        <div class="f10-cidade">Cidade</div>
+                                        <div class="f10-profissao">Profissão<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
+                                        <div class="f10-data">04/20</div>
+                                    </div>
+                                </div>
                             
 
                                 
