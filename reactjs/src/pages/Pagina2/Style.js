@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 const Pagina2 = styled.div`
+
+button Link{
+    text-decoration: none;
+}
+
 .faixa1{
     background-image: url("./assets/images/Cadastro e Login/p1-estaiada.png");
     height: 100vh;

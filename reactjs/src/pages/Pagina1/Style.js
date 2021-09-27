@@ -2,6 +2,10 @@ import styled from "styled-components"
 
 const Pagina1 = styled.div`
 
+button Link{
+    text-decoration: none;
+}
+
 .faixa1{
     background-image: url("./assets/images/Cadastro e Login/p1-carteira-de-trabalho-primeiro-emprego-contratar-contratacao-1608066576426_v2_1920x1280\ 2.png");
     background-repeat: no-repeat;
