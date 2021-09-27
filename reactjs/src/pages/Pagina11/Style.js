@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const Pagina11 = styled.div`
+
+background-color: #404756;
+
+
 .f10-cabecario {
     display: flex;
     flex-direction: row;
