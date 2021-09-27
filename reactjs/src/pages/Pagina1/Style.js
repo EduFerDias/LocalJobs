@@ -82,9 +82,6 @@ button Link{
     padding-top: 33px;
     padding-bottom: 72px;
 }
-Link{
-    text-decoration: none;
-}
 .f1-titulo{
     font-family: Montserrat-Bold;
     color: white;
@@ -158,6 +155,8 @@ Link{
     color: white;
     border:none;
     border-radius: 15px;
+    text-decoration: none;
+
 }
 .login-empre img, .login-usu img{
     height: 108px;
