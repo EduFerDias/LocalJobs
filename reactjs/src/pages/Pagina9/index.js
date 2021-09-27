@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Conteudo from "./Style";
+
 
 export default function Pagina9 (){
     return(

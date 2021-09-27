@@ -1,4 +1,5 @@
 import Conteudo from './Style'
+import { Link } from 'react-router-dom';
 
 export default function Pagina12 (){
     return(
