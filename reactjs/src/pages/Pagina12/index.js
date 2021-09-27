@@ -3,13 +3,13 @@ export default function Pagina12 (){
         <div class="f10-tudo">
         <div class="f10-cabecario">
             <div class="f10-parte1">
-                <div class="f10-logo"><img src="../../assets/images/pagina 9,10,11,12/f10-logo.png" /></div>
+                <div class="f10-logo"><img src="../../assets/images/pagina 9,10,11,12/f10-logo.png" alt=""/></div>
                 <div class="f10-nome">LocalJobs</div>
             </div>
 
             <div class="f10-pesquisa2">
                 <div class="f10-pesquisa">
-                    <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-cargo.png"/></div>
+                    <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-cargo.png" alt=""/></div>
 
                     <select name="select" >
                         <option value="valor1" selected>Todas áreas</option>
@@ -17,10 +17,10 @@ export default function Pagina12 (){
                     </select>
                     <hr size="30" />
                     <input class="f10-cargo" type="search" placeholder="Digite Um Cargo" />
-                    <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png"/></div>
+                    <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
                     <hr size="30" />
                     <input class="f10-cidade" type="search" placeholder="Digite Uma Cidade" />
-                    <div class="f10-lupa"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png"/></div>
+                    <div class="f10-lupa"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@ export default function Pagina12 (){
             <div class="f10-setas">
                 <div class="f10-boxes">
                     <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png"/> </div>
+                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
                         <div class="f10-texto">
                             <div class="f10-filtronome">Empresa</div>
                             <div class="f10-cidade">Cidade</div>
@@ -49,7 +49,7 @@ export default function Pagina12 (){
                     </div>
 
                     <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png"/> </div>
+                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
                         <div class="f10-texto">
                             <div class="f10-filtronome">Empresa</div>
                             <div class="f10-cidade">Cidade</div>
@@ -59,7 +59,7 @@ export default function Pagina12 (){
                     </div>
 
                     <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png"/> </div>
+                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
                         <div class="f10-texto">
                             <div class="f10-filtronome">Empresa</div>
                             <div class="f10-cidade">Cidade</div>
@@ -69,7 +69,7 @@ export default function Pagina12 (){
                     </div>
 
                     <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png"/> </div>
+                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
                         <div class="f10-texto">
                             <div class="f10-filtronome">Empresa</div>
                             <div class="f10-cidade">Cidade</div>
@@ -79,7 +79,7 @@ export default function Pagina12 (){
                     </div>
 
                     <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png"/> </div>
+                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
                         <div class="f10-texto">
                             <div class="f10-filtronome">Empresa</div>
                             <div class="f10-cidade">Cidade</div>
@@ -89,7 +89,7 @@ export default function Pagina12 (){
                     </div>
 
                     <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png"/> </div>
+                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
                         <div class="f10-texto">
                             <div class="f10-filtronome">Empresa</div>
                             <div class="f10-cidade">Cidade</div>
