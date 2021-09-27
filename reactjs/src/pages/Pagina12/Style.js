@@ -7,7 +7,7 @@ const Pagina12 = styled.div`
 .f10-cabecario {
     display: flex;
     flex-direction: row;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat-Bold', sans-serif;
     font-size: 1.3em;
     color: white;
     justify-content: space-between;
@@ -74,7 +74,7 @@ select {
     background-color: white;
     outline: none;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat-Bold', sans-serif;
     font-size: 0.8em;
     color:rgba(95, 103, 121, 1)
 }
@@ -83,7 +83,7 @@ input {
     outline: none;
     border: none;
     width: 195px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat-Bold', sans-serif;
     font-size: 0.8em;
 }
 
@@ -94,7 +94,7 @@ input {
 }
 
 .f10-textofiltro {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat-Bold', sans-serif;
     font-size: 1.5em;
     color: white;
     margin-top: 3rem;
@@ -128,13 +128,13 @@ hr {
 .f10-box {
     background-color: #5F6779;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat-Bold, sans-serif;
 }
 
 
 .f10-filtro1 {
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat-Bold, sans-serif;
     margin-top: 1.5em;
     margin-left: 5.7em;
     font-size: 1.2em;
@@ -161,11 +161,11 @@ hr {
 }
 
 .f10-cidade {
-    font-family: Regular;
+    font-family: Montserrat-regular;
 }
 
 .f10-data {
-    font-family: Regular ;
+    font-family: Montserrat-regular ;
 }
 
 .f10-profissao {
@@ -258,13 +258,13 @@ hr {
 
 .f10-redesbaixo {
     font-size: 1rem;
-    font-family: Regular;
+    font-family: Montserrat-regular;
     color: white;
 }
 
 .f10-navegacao {
     font-size: 1rem;
-    font-family: Montserrat;
+    font-family: Montserrat-Bold;
     color: white;
     flex-direction: column;
     display: flex;
@@ -272,7 +272,7 @@ hr {
 
 .f10-navegacaobaixo {
     font-size: 1rem;
-    font-family: Regular;
+    font-family: Montserrat-regular;
     color: white;
     
 }
@@ -292,7 +292,7 @@ hr {
 .f10-textobaixo {
     margin-left: 2rem;
     font-size: 1.5rem;
-    font-family: Montserrat;
+    font-family: Montserrat-Bold;
     color: white;
 }
 
@@ -309,7 +309,7 @@ hr {
 .f10-navegacao2{
     margin-bottom: 3rem;
     font-size: 1.5rem;
-    font-family: Montserrat;
+    font-family: Montserrat-Bold;
     color: white;
     flex-direction: column;
     display: flex;
@@ -318,7 +318,7 @@ hr {
 .f10-redes2 {
     margin-bottom: 2rem;
     font-size: 1.5rem;
-    font-family: Montserrat;
+    font-family: Montserrat-Bold;
     color: white;
     flex-direction: column;
     display: flex;
