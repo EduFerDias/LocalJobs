@@ -22,7 +22,7 @@ export default function Pagina2 (){
             </div>
             <div class="corpo">
             <div className="botoes">
-                <Link to="/Cadastro-empresa">
+                <Link to="/cadastro-empresa">
                     <button className="login-empre">
                         <img src="./assets/images/Cadastro e Login/p1-client-company 1.png" alt="" />
 
@@ -32,7 +32,7 @@ export default function Pagina2 (){
                             </div>
                     </button>
                 </Link>
-                <Link to="/Cadastro-candidato">
+                <Link to="/cadastro-candidato">
                     <button className="login-usu">
                         <img src="./assets/images/Cadastro e Login/p1-1693755 1.png" alt="" />
 

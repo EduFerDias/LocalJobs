@@ -17,7 +17,7 @@ export default function Pagina1 (){
                                     <div className="login">Entrar</div>
                                 </div>
                                 <div className="detalhe">&nbsp;</div>
-                                <Link to="/Cadastros"><button className="criar-conta">Criar Conta</button></Link>
+                                <Link to="/cadastros"><button className="criar-conta">Criar Conta</button></Link>
                             </div>
                         </div>
                         <div className="corpo">
@@ -43,7 +43,7 @@ export default function Pagina1 (){
 
                     <div className="faixa-3">
                         <div className="botoes">
-                            <Link to="/Cadastro-empresa">
+                            <Link to="/cadastro-empresa">
                                 <button className="login-empre">
                                     <img src="./assets/images/Cadastro e Login/p1-client-company 1.png" alt="" />
 
@@ -53,7 +53,7 @@ export default function Pagina1 (){
                                     </div>
                                 </button>
                             </Link>
-                            <Link to="/Cadastro-candidato">
+                            <Link to="/cadastro-candidato">
                                 <button className="login-usu">
                                     <img src="./assets/images/Cadastro e Login/p1-1693755 1.png" alt="" />
 

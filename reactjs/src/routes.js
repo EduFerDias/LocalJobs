@@ -17,9 +17,9 @@ export default function Rotas (){
         <BrowserRouter>
             <Switch>
                 <Route path="/" component={Pagina1} exact={true}/>
-                <Route path="/Cadastros" component={Pagina2} />
-                <Route path="/Cadastro-empresa" component={Pagina3} />
-                <Route path="/Cadastro-candidato" component={Pagina4} />
+                <Route path="/cadastros" component={Pagina2} />
+                <Route path="/cadastro-empresa" component={Pagina3} />
+                <Route path="/cadastro-candidato" component={Pagina4} />
                 <Route path="/esqueceu-senha" component={Pagina5} />
                 <Route path="/pagina7" component={Pagina7} />
                 <Route path="/page9" component={Pagina9} />
