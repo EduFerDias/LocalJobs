@@ -1,10 +1,23 @@
 import styled from "styled-components";
 
 const Pagina5 = styled.div`
+
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(./assets/fonts/Montserrat-Regular.ttf);
+}
+
+
+
 * {
     box-sizing: border-box;
     cursor: default;
-  }
+}
   
 
   display: flex;
@@ -120,7 +133,7 @@ const Pagina5 = styled.div`
 }
 
 .TextoConteudo-t5 {
-  font-family: Montserrat;
+  font-family: Montserrat-Regular;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
