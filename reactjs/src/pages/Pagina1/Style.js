@@ -155,7 +155,6 @@ button Link{
     color: white;
     border:none;
     border-radius: 15px;
-    text-decoration: none;
 
 }
 .login-empre img, .login-usu img{
@@ -167,7 +166,7 @@ button Link{
     font-size: 2em;
     padding-top: 1rem;
     margin-left: 0.625em;
-
+    text-decoration: none;
 }
 
 .button-text hr{
