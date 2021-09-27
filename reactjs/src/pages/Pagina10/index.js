@@ -72,8 +72,8 @@ export default function Pagina10 (){
                             </div>
                         </div>
                         <div class="carousel-controls testimonial-carousel-controls">
-                            <a class="prev" onclick="plusSlides(-1)" href="https://www.elhombre.com.br/wp-content/uploads/2014/11/crash-test-dummies-el-hombre-1280x720.jpg">&nbsp;</a>
-                            <a class="next" onclick="plusSlides(1)" href="https://www.elhombre.com.br/wp-content/uploads/2014/11/crash-test-dummies-el-hombre-1280x720.jpg">&nbsp;</a>
+                            <div class="prev" onclick="plusSlides(-1)" ></div>
+                            <div class="next" onclick="plusSlides(1)" ></div>
                         </div>
                     </div>
 
@@ -112,8 +112,8 @@ export default function Pagina10 (){
                             </div>
                         </div>
                         <div class="carousel-controls testimonial-carousel-controls">
-                            <a class="prev" onclick="plusSlides(-1)" href="https://www.elhombre.com.br/wp-content/uploads/2014/11/crash-test-dummies-el-hombre-1280x720.jpg">&bnsp;</a>
-                            <a class="next" onclick="plusSlides(1)" href="https://www.elhombre.com.br/wp-content/uploads/2014/11/crash-test-dummies-el-hombre-1280x720.jpg">&bnsp;</a>
+                            <div class="prev" onclick="plusSlides(-1)" ></div>
+                            <div class="next" onclick="plusSlides(1)" ></div>
                         </div>
                     </div>
                     
@@ -152,8 +152,8 @@ export default function Pagina10 (){
                             </div>
                         </div>
                         <div class="carousel-controls testimonial-carousel-controls">
-                            <a class="prev" onclick="plusSlides(-1)" href="https://www.elhombre.com.br/wp-content/uploads/2014/11/crash-test-dummies-el-hombre-1280x720.jpg">&bnsp;</a>
-                            <a class="next" onclick="plusSlides(1)" href="https://www.elhombre.com.br/wp-content/uploads/2014/11/crash-test-dummies-el-hombre-1280x720.jpg">&bnsp;</a>
+                            <div class="prev" onclick="plusSlides(-1)" ></div>
+                            <div class="next" onclick="plusSlides(1)" ></div>
                         </div>
                     </div>
                 </div> 
