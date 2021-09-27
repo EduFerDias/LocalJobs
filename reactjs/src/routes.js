@@ -11,7 +11,6 @@ import Pagina10 from "./pages/Pagina10";
 import Pagina11 from "./pages/Pagina11";
 import Pagina12 from "./pages/Pagina12";
 
-//                 <Route path="/page10" component={Pagina10} />
 
 export default function Rotas (){
     return(
@@ -24,6 +23,7 @@ export default function Rotas (){
                 <Route path="/esqueceu-senha" component={Pagina5} />
                 <Route path="/pagina7" component={Pagina7} />
                 <Route path="/page9" component={Pagina9} />
+                <Route path="/page10" component={Pagina10} />
                 <Rotas path="/page11" component={Pagina11} />
                 <Rotas path="/page12" component={Pagina12} />
                 <Route path="*" component={Pagina6}/>
