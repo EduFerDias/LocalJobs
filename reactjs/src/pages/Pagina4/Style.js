@@ -137,7 +137,13 @@ const Pagina4 = styled.div`
     border-radius: 9px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 5px;
+    width: 100%;
 }
+
+.button a{
+    width: 100%;
+}
+
 
 .f1-conta{
     display: flex;
