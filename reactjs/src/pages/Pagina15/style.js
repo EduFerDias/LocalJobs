@@ -2,7 +2,8 @@ import styled from "styled-components"
 
 const Pagina15 = styled.div`
 
-   background-color: #404756; 
+    background-color: #404756; 
+    font-family: Montserrat-regular;
 
 .container{
     margin: 2em 3em 4em 3em;
