@@ -2,13 +2,23 @@ import styled from "styled-components";
 
 const Pagina9 = styled.div`
 
-    background-color: #404756;
+background-color: #404756;
+
+@font-face {
+    font-family: Montserrat;
+    src: url(./assets/fonts/Montserrat-Bold.ttf);
+  }
+  
+  @font-face {
+    font-family: Regular;
+    src: url(./assets/fonts/Montserrat-Regular.ttf);
+}
 
 
 .f10-cabecario {
     display: flex;
     flex-direction: row;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 1.3em;
     color: white;
     justify-content: space-between;
@@ -38,6 +48,7 @@ const Pagina9 = styled.div`
     width: auto;
     margin-left: 3em;
     margin-right: 1em;
+    cursor: pointer;
 }
 .f10-imagem img {
     height: 25px;
@@ -48,9 +59,12 @@ const Pagina9 = styled.div`
     background-color:#7F8694 ;
     border-radius: 100%;
     padding: 1rem;
+    cursor: pointer;
 }
 
-
+.f10-nome {
+    cursor: pointer;
+}
 
 
 /* input e select do filtro */ 
@@ -75,7 +89,7 @@ select {
     background-color: white;
     outline: none;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 0.8em;
     color:rgba(95, 103, 121, 1)
 }
@@ -84,7 +98,7 @@ input {
     outline: none;
     border: none;
     width: 195px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 0.8em;
 }
 
@@ -95,7 +109,7 @@ input {
 }
 
 .f10-textofiltro {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 1.5em;
     color: white;
     margin-top: 3rem;
@@ -114,6 +128,7 @@ input {
     width: 29px;
     height: 29px;
     margin-right: 1em;
+    cursor: pointer;
 }
 
 hr {
@@ -129,13 +144,13 @@ hr {
 .f10-box {
     background-color: #5F6779;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
 }
 
 
 .f10-filtro1 {
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     margin-top: 1.5em;
     margin-left: 5.7em;
     font-size: 1.2em;
@@ -167,18 +182,22 @@ hr {
 
 .f10-data {
     font-family: Regular ;
+    cursor: pointer;
 }
 
 .f10-profissao {
     justify-content: row;
     display: flex;
+    cursor: pointer;
 }
 
 .f10-barra {
     margin-left: 10px;
     margin-right: 10px;
 }
-
+.f10-filtronome {
+    cursor: pointer;
+}
 .f10-fotofiltro img {
     margin-right: 2rem;
     height: 3.5rem;
@@ -188,6 +207,7 @@ hr {
     padding: 1rem;
     margin-left: 1rem;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
 
 .prev, .next {
@@ -261,6 +281,7 @@ hr {
     font-size: 1rem;
     font-family: Regular;
     color: white;
+    cursor: pointer;
 }
 
 .f10-navegacao {
@@ -269,18 +290,21 @@ hr {
     color: white;
     flex-direction: column;
     display: flex;
+    cursor: pointer;
 }
 
 .f10-navegacaobaixo {
     font-size: 1rem;
     font-family: Regular;
     color: white;
+    cursor: pointer;
     
 }
 
 .f10-redes {
     margin-bottom: 2rem;
     margin-left: 3rem;
+    cursor: pointer;
 }
 
 .f10-imagembaixo {
@@ -288,6 +312,7 @@ hr {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 .f10-textobaixo {
@@ -295,6 +320,7 @@ hr {
     font-size: 1.5rem;
     font-family: Montserrat;
     color: white;
+    cursor: pointer;
 }
 
 .f10-rodape {

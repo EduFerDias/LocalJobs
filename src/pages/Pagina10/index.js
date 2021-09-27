@@ -1,4 +1,4 @@
-import Conteudo from "../Pagina10";
+import Conteudo from "./Style";
 
 export default function Pagina10 (){
     return(
@@ -72,8 +72,8 @@ export default function Pagina10 (){
                             </div>
                         </div>
                         <div class="carousel-controls testimonial-carousel-controls">
-                            <a class="prev" onclick="plusSlides(-1)"></a>
-                            <a class="next" onclick="plusSlides(1)"></a>
+                            <a class="prev" onclick="plusSlides(-1)" href="">&bnsp;</a>
+                            <a class="next" onclick="plusSlides(1)" href="">&bnsp;</a>
                         </div>
                     </div>
 
@@ -112,8 +112,8 @@ export default function Pagina10 (){
                             </div>
                         </div>
                         <div class="carousel-controls testimonial-carousel-controls">
-                            <a class="prev" onclick="plusSlides(-1)"></a>
-                            <a class="next" onclick="plusSlides(1)"></a>
+                            <a class="prev" onclick="plusSlides(-1)" href="">&bnsp;</a>
+                            <a class="next" onclick="plusSlides(1)" href="">&bnsp;</a>
                         </div>
                     </div>
                     
@@ -152,8 +152,8 @@ export default function Pagina10 (){
                             </div>
                         </div>
                         <div class="carousel-controls testimonial-carousel-controls">
-                            <a class="prev" onclick="plusSlides(-1)"></a>
-                            <a class="next" onclick="plusSlides(1)"></a>
+                            <a class="prev" onclick="plusSlides(-1)" href="">&bnsp;</a>
+                            <a class="next" onclick="plusSlides(1)" href="">&bnsp;</a>
                         </div>
                     </div>
                 </div> 

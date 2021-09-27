@@ -6,7 +6,7 @@ const Pagina10 = styled.div`
     .f10-cabecario {
     display: flex;
     flex-direction: row;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 1.3em;
     color: white;
     justify-content: space-between;
@@ -17,6 +17,7 @@ const Pagina10 = styled.div`
     align-content: center;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 }
+
 
 
 .f10-parte1 {
@@ -84,7 +85,7 @@ select {
     background-color: white;
     outline: none;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 1.1em;
     color:rgba(95, 103, 121, 1)
 }
@@ -93,7 +94,7 @@ input {
     outline: none;
     border: none;
     width: 195px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 1.1em;
 }
 
@@ -104,7 +105,7 @@ input {
 }
 
 .f10-textofiltro {
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     font-size: 2.5em;
     color: white;
     margin-top: 3rem;
@@ -138,13 +139,13 @@ hr {
 .f10-box {
     background-color: #5F6779;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
 }
 
 
 .f10-filtro1 {
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Montserrat;
     margin-top: 1.5em;
     margin-left: 4em;
     font-size: 1.8em;
