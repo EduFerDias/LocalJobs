@@ -5,7 +5,7 @@ export default function Pagina6(){
         <Conteudo>
         <div class="cabecalho-t6">
           <div class="divisao-t6">
-            <div class="logo-t6"> <img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </div>
+            <div class="logo-t6">  <Link to="/"><img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </Link></div>
             <div class="nmSite-t6"> LocalJobs </div>
           </div>
           <div class="divisao-t6">

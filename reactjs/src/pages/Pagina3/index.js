@@ -6,7 +6,7 @@ export default function Pagina3(){
         <Conteudo>
             <div class="cabecalho">
                 <div class="logo">
-                    <img src="./assets/images/Cadastro e Login/logo.png" alt=""/>
+                    <Link to="/"><img src="./assets/images/Cadastro e Login/logo.png" alt=""/></Link>
                     Localjobs
                 </div>
 

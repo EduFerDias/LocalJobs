@@ -7,7 +7,7 @@ export default function Pagina5 (){
         <div class="cabecalho-t5">
           <div class="just-t5">
             <div class="logo-t5">
-              <img src="./assets/images/pagina 5,6,7/logo.png" alt="" />
+            <Link to="/">  <img src="./assets/images/pagina 5,6,7/logo.png" alt="" /></Link>
             </div>
             <div class="NomeSite-t5">LocalJobs</div>
           </div>

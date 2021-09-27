@@ -6,7 +6,7 @@ export default function Pagina11 (){
         <Conteudo>
         <div class="f10-cabecario">
             <div class="f10-parte1">
-                <div class="f10-logo"><img src="../../assets/images/pagina 9,10,11,12/f10-logo.png" alt=""/></div>
+                <div class="f10-logo"> <Link to="/"><img src="../../assets/images/pagina 9,10,11,12/f10-logo.png" alt=""/></Link></div>
                 <div class="f10-nome">LocalJobs</div>
             </div>
 

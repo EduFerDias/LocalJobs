@@ -6,7 +6,7 @@ export default function Pagina4 (){
     <Conteudo>
         <div class="cabecalho">
             <div class="logo">
-                <img src="./assets/images/Cadastro e Login/logo.png" alt="" />
+                <Link to="/"><img src="./assets/images/Cadastro e Login/logo.png" alt="" /></Link>
                 Localjobs
             </div>
 
@@ -46,7 +46,6 @@ export default function Pagina4 (){
                 <div class="f1-conta">
                     Já possui conta? &nbsp; <span>faça o login</span>
                     <div class="sobre">Sobre nós</div>
-                    <Link to="/esqueceu-senha">acessar tela de esqueceu a senha (provisório)</Link>
                 </div>
 
             </div>
