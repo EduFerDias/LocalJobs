@@ -24,8 +24,8 @@ export default function Rotas (){
                 <Route path="/pagina7" component={Pagina7} />
                 <Route path="/page9" component={Pagina9} />
                 <Route path="/page10" component={Pagina10} />
-                <Rotas path="/page11" component={Pagina11} />
-                <Rotas path="/page12" component={Pagina12} />
+                <Route path="/page11" component={Pagina11} />
+                <Route path="/page12" component={Pagina12} />
                 <Route path="*" component={Pagina6}/>
             </Switch>
         </BrowserRouter>
