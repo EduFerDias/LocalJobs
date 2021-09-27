@@ -151,8 +151,8 @@ export default function Pagina11 (){
                     </div>
                 </div>
                 <div class="carousel-controls testimonial-carousel-controls">
-                    <div class="prev" onclick="plusSlides(-1)" >&nbsp;</div>
-                    <div class="next" onclick="plusSlides(1)" >&nbsp;</div>
+                    <div class="prev" onclick="plusSlides(-1)" ></div>
+                    <div class="next" onclick="plusSlides(1)" ></div>
                 </div>
             </div>
 
