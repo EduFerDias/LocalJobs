@@ -6,9 +6,6 @@ const Pagina4 = styled.div`
     background-repeat: no-repeat;
     background-attachment:fixed;
 
-    a{
-        width: 100%;
-    }
 .cabecalho, .user-interac, .pic{
     display: flex;
     flex-direction: row;
@@ -140,7 +137,13 @@ const Pagina4 = styled.div`
     border-radius: 9px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 5px;
+    width: 100%;
 }
+
+a{
+    width: 100%;
+}
+
 
 .f1-conta{
     display: flex;
