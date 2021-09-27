@@ -7,7 +7,7 @@ export default function Pagina14 () {
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
-                        <img src="imagem-usuario.png" alt="asda"/>
+                        <img src="./assets/images/Pagina14/imagem-usuario.png" alt="asda"/>
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">Nome</p>
@@ -36,9 +36,9 @@ export default function Pagina14 () {
                 <div class="baixo-painel">
                     <div class="redes-sociais">
                         <p>Redes Sociais</p>
-                        <div class="rede-social"><img src="linkedin.png" alt="linkedin" /> <div>/candidatousuario</div></div>
-                        <div class="rede-social"><img src="instagram.png" alt="instagram" /><div>@candidatousuario</div></div>
-                        <div class="rede-social"><img src="twitter.png" alt="twitter" /><div>@candidatousuario</div></div>
+                        <div class="rede-social"><img src="./assets/images/Pagina14/linkedin.png" alt="linkedin" /> <div>/candidatousuario</div></div>
+                        <div class="rede-social"><img src="./assets/images/Pagina14/instagram.png" alt="instagram" /><div>@candidatousuario</div></div>
+                        <div class="rede-social"><img src="./assets/images/Pagina14/twitter.png" alt="twitter" /><div>@candidatousuario</div></div>
                     </div>
                     <div class="idiomas">
                         <h1>Idiomas</h1>
@@ -61,12 +61,12 @@ export default function Pagina14 () {
                 <h1>Mensagem</h1>
                 <div class="box-mensagem">
                     <div class="usuario-chat">
-                        <img src="img-chat.png" alt="img-chat"/>
+                        <img src="./assets/images/Pagina14/img-chat.png" alt="img-chat"/>
                         <h1>Usuário</h1>
                     </div>
                     <div class="box-mensagem-baixo">
                         <input type="text" placeholder="Enviar Mensagem" />
-                        <img src="enviar.png" alt="enviar" />                   
+                        <img src="./assets/images/Pagina14/enviar.png" alt="enviar" />                   
                     </div>            
                 </div>
                 

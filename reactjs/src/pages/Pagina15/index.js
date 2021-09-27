@@ -7,7 +7,7 @@ export default function Pagina15(){
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
-                        <img src="imagemempresa.png" alt="asda"/>
+                        <img src="./assets/images/Pagina15/imagemempresa.png" alt="asda"/>
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">Profissão - área</p>
@@ -64,12 +64,12 @@ export default function Pagina15(){
                                 <h1>Mensagem</h1>
                                 <div class="box-mensagem">
                                     <div class="usuario-chat">
-                                        <img src="usuarioempresa.png" alt="img-chat"/>
+                                        <img src="./assets/images/Pagina15/usuarioempresa.png" alt="img-chat"/>
                                         <h1>Usuário</h1>
                                     </div>
                                     <div class="box-mensagem-baixo">
                                         <input type="text" placeholder="Enviar Mensagem"/>
-                                        <img src="enviar.png" alt="enviar"/>                   
+                                        <img src="./assets/images/Pagina15/enviar.png" alt="enviar"/>                   
                                     </div>            
                                 </div>  
                             </div>
@@ -112,7 +112,7 @@ export default function Pagina15(){
                         </div>
 
                         <div class="enviar-curriculo-linkedin">
-                            Enviar Linkedin <img src="linkedin.png" alt="linkedin"/>
+                            Enviar Linkedin <img src="./assets/images/Pagina15/linkedin.png" alt="linkedin"/>
                         </div>
 
                     </div>
