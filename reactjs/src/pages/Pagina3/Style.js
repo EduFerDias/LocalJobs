@@ -140,7 +140,7 @@ background-attachment:fixed;
     width: 100%;
 }
 
-a{
+.button a{
     width: 100%;
 }
 

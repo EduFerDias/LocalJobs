@@ -140,7 +140,7 @@ const Pagina4 = styled.div`
     width: 100%;
 }
 
-a{
+.button a{
     width: 100%;
 }
 
