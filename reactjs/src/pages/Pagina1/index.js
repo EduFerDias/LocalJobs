@@ -17,7 +17,7 @@ export default function Pagina1 (){
                                     <div className="login">Entrar</div>
                                 </div>
                                 <div className="detalhe">&nbsp;</div>
-                                <button className="criar-conta"><Link to="/Cadastros">Criar Conta</Link></button>
+                                <Link to="/Cadastros"><button className="criar-conta">Criar Conta</button></Link>
                             </div>
                         </div>
                         <div className="corpo">
