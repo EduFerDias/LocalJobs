@@ -328,3 +328,5 @@ hr {
     
 }
 `
+
+export default Pagina11
