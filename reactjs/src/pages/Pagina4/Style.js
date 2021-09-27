@@ -6,6 +6,9 @@ const Pagina4 = styled.div`
     background-repeat: no-repeat;
     background-attachment:fixed;
 
+    a{
+        width: 100%;
+    }
 .cabecalho, .user-interac, .pic{
     display: flex;
     flex-direction: row;
