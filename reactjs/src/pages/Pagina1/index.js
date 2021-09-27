@@ -32,7 +32,9 @@ export default function Pagina1 (){
                         <div className="f2-text">
                             <div className="f2-titulo">LocalJobs para Empresas</div>
                             <div className="f2-paragraph">Use o LocalJobs para achar profissionais qualificados para sua empresa.</div>
-                            <button className="f2-button">Contrate Aqui!</button>
+                            <Link to="/Cadastro-empresa">
+                                <button className="f2-button">Contrate Aqui!</button>
+                            </Link>
                         </div>
                         <div className="f2-img">
                             <img src="./assets/images/Cadastro e Login/p1-tipos-de-empresas 1.png" alt="" />
@@ -41,23 +43,26 @@ export default function Pagina1 (){
 
                     <div className="faixa-3">
                         <div className="botoes">
-                            <button className="login-empre">
-                                <img src="./assets/images/Cadastro e Login/p1-client-company 1.png" alt="" />
+                            <Link to="/Cadastro-empresa">
+                                <button className="login-empre">
+                                    <img src="./assets/images/Cadastro e Login/p1-client-company 1.png" alt="" />
 
-                                <div className="button-text">
-                                    Cadastro para empresas
-                                    <hr/>
-                                </div>
-                            </button>
+                                    <div className="button-text">
+                                        Cadastro para empresas
+                                        <hr/>
+                                    </div>
+                                </button>
+                            </Link>
+                            <Link to="/Cadastro-candidato">
+                                <button className="login-usu">
+                                    <img src="./assets/images/Cadastro e Login/p1-1693755 1.png" alt="" />
 
-                            <button className="login-usu">
-                                <img src="./assets/images/Cadastro e Login/p1-1693755 1.png" alt="" />
-
-                                <div className="button-text">
-                                    Cadastro para desempregados 
-                                    <hr/>
-                                </div>
-                            </button>
+                                    <div className="button-text">
+                                        Cadastro para desempregados 
+                                        <hr/>
+                                    </div>
+                                </button>
+                            </Link>
                         </div>
                     </div>
 

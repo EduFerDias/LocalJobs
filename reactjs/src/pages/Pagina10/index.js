@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Conteudo from "./Style";
 
 export default function Pagina10 (){
@@ -31,7 +32,7 @@ export default function Pagina10 (){
                             <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
                             <hr size="30" />
                             <input class="f10-cidade" type="search" placeholder="Digite Uma Cidade" />
-                            <div class="f10-lupa"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
+                            <div class="f10-lupa"><Link to="/page9"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></Link></div>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Conteudo from "./Style";
 
 export default function Pagina5 (){
@@ -24,10 +25,10 @@ export default function Pagina5 (){
               que possa voltar a acessar a sua conta.
             </div>
             <div class="EnviarNoNumero">
-              <button>Enviar código no numero de celular</button>
+              <Link to="/pagina7">  <button>Enviar código no numero de celular</button> </Link>
             </div>
             <div class="EnviarNoEmail">
-              <button>Enviar código no email</button>
+              <Link to="/pagina7">  <button>Enviar código no email</button> </Link>
             </div>
           </div>
         </div>

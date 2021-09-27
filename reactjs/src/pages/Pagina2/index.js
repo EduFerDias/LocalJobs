@@ -1,4 +1,5 @@
 import Conteudo from "./Style"
+import { Link } from "react-router-dom";
 
 export default function Pagina2 (){
     return(
@@ -20,25 +21,29 @@ export default function Pagina2 (){
                 </div>
             </div>
             <div class="corpo">
-                <div class="botoes">
-                    <button class="login-empre">
+            <div className="botoes">
+                <Link to="/Cadastro-empresa">
+                    <button className="login-empre">
                         <img src="./assets/images/Cadastro e Login/p1-client-company 1.png" alt="" />
-    
-                        <div class="button-text">
-                            Cadastro para empresas
-                            <hr/>
-                        </div>
+
+                            <div className="button-text">
+                                Cadastro para empresas
+                                <hr/>
+                            </div>
                     </button>
-    
-                    <button class="login-usu">
+                </Link>
+                <Link to="/Cadastro-candidato">
+                    <button className="login-usu">
                         <img src="./assets/images/Cadastro e Login/p1-1693755 1.png" alt="" />
-    
-                        <div class="button-text">
+
+                        <div className="button-text">
                             Cadastro para desempregados 
-                            <hr/>
+                             <hr/>
                         </div>
                     </button>
-                </div>
+                </Link>
+            </div>
+
     
             </div>
         </div>        

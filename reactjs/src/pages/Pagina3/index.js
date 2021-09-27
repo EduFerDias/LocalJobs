@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Conteudo from "./Style"
 
 export default function Pagina3(){
@@ -41,10 +42,10 @@ export default function Pagina3(){
                         <input type="text" placeholder="Email"/>
                         <input type="password" placeholder="Senha"/> 
                         <input type="password" placeholder="Confirmar senha"/> 
-                        <button class="button">Cadastrar</button>
+                        <Link to="/page10"><button class="button">Cadastrar</button></Link>
                     </form>
                     <div class="f1-conta">
-                        Já possui conta? &nbsp; <span> faça o login</span>
+                        Já possui conta? &nbsp; <span>faça o login</span>
                         <div class="sobre">Sobre nós</div>
                     </div>
 

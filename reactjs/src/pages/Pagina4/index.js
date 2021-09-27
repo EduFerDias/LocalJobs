@@ -1,4 +1,5 @@
 import Conteudo from "./Style";
+import { Link } from "react-router-dom";
 
 export default function Pagina4 (){
     return(
@@ -40,11 +41,12 @@ export default function Pagina4 (){
                     <input type="text" placeholder="Email"/>
                     <input type="password" placeholder="Senha"/> 
                     <input type="password" placeholder="Confirmar senha"/> 
-                    <button class="button">Cadastrar</button>
+                    <Link to="/page11"><button class="button">Cadastrar</button></Link>
                 </form>
                 <div class="f1-conta">
-                    Já possui conta? &nbsp; <span> faça o login</span>
+                    Já possui conta? &nbsp; <span>faça o login</span>
                     <div class="sobre">Sobre nós</div>
+                    <Link to="/esqueceu-senha">acessar tela de esqueceu a senha (provisório)</Link>
                 </div>
 
             </div>
