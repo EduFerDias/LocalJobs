@@ -60,7 +60,7 @@ const Pagina15 = styled.div`
     padding-top: 1em;
     min-width: 13em;
     font-size: 21px;
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
 }
 
 .cab-esquerda{
@@ -70,7 +70,7 @@ const Pagina15 = styled.div`
 
 .nm{
     font-size: 60px;
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
 }
 
 .pr{
@@ -83,13 +83,13 @@ const Pagina15 = styled.div`
 }
 
 .painel-central h1{
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
     font-size: 80px;
 }
 
 .caracteristicas h1{
     font-size: 50px;
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
 }
 
 .caracteristicas p{
@@ -126,7 +126,7 @@ const Pagina15 = styled.div`
 }
 
 .caracteristicas-direita h1{
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
     font-size: 40px;
 }
 
@@ -149,19 +149,19 @@ const Pagina15 = styled.div`
 }
 
 .box-dados-empresa span{
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
 }
 
 .dados-empresa h1{
     font-size: 60px;
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
     margin-left: 1em;
 }
 
 
 .div-mensagem{
     font-size: 60px;
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
     margin-top: 2em;
 }
 
@@ -172,7 +172,7 @@ const Pagina15 = styled.div`
 
 .usuario-chat h1{
     font-size: 50px;
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
     margin-left: 0.5em;
 }
 
@@ -227,7 +227,7 @@ const Pagina15 = styled.div`
     border-radius: 20px;
     margin-left: 1em;
     font-size: 70px;
-    font-family: Monteserrat-Bold;
+    font-family: Montserrat-Bold;
     text-align: center;
     margin-top: 1em;
     min-width: 44vw;
