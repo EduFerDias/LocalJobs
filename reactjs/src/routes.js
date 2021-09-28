@@ -30,10 +30,12 @@ export default function Rotas (){
                 <Route path="/page10" component={Pagina10} />
                 <Route path="/page11" component={Pagina11} />
                 <Route path="/page12" component={Pagina12} />
-                <Route path="/page14" component={Pagina14} />
-                <Route path="/page15" component={Pagina15} />
                 <Route path="*" component={Pagina6}/>
             </Switch>
         </BrowserRouter>
     );
 }
+/*
+                <Route path="/page14" component={Pagina14} />
+                <Route path="/page15" component={Pagina15} />
+*/
