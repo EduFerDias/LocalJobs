@@ -11,9 +11,10 @@ import Pagina9 from "./pages/Pagina9";
 import Pagina10 from "./pages/Pagina10";
 import Pagina11 from "./pages/Pagina11";
 import Pagina12 from "./pages/Pagina12";
+/*
 import Pagina14 from "./pages/Pagina14";
 import Pagina15 from "./pages/Pagina15";
-
+*/
 
 export default function Rotas (){
     return(
