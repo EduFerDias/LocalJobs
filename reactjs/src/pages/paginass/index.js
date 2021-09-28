@@ -10,11 +10,11 @@ export default function pagina (){
                 <Link to="/cadastro-candidato">Cadastro Candidato</Link>
                 <Link to="/cadastros">Cadastro</Link>
                 <Link to="/esqueceu-senha">Esqueceu Senha</Link>
-                <Link to="/pagina7">Página 7</Link>
-                <Link to="/page9">Página 9</Link>
-                <Link to="/page10">Página 10</Link>
-                <Link to="/page11">Página 11</Link>
-                <Link to="/page12">Página 12</Link>
+                <Link to="/pagina7">Codigo de recuperação</Link>
+                <Link to="/page9">Busca(Empresa)</Link>
+                <Link to="/page10">Home(Empresa)</Link>
+                <Link to="/page11">Home(Candidato)</Link>
+                <Link to="/page12">Busca(Candidato)</Link>
                 <Link to="/*">404 Not Found</Link>
             </div>
         </Conteudo>
