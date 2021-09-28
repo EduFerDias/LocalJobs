@@ -14,6 +14,8 @@ import Pagina12 from "./pages/Pagina12";
 /*
 import Pagina14 from "./pages/Pagina14";
 import Pagina15 from "./pages/Pagina15";
+
+As pgs 15 e 14 Presizam de uma revisao
 */
 
 export default function Rotas (){
