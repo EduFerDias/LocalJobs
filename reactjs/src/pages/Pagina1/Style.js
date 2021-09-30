@@ -10,6 +10,8 @@ button Link{
     background-image: url("./assets/images/Cadastro e Login/p1-carteira-de-trabalho-primeiro-emprego-contratar-contratacao-1608066576426_v2_1920x1280\ 2.png");
     background-repeat: no-repeat;
     background-size: 100vw;
+    background-attachment: fixed;
+    height: 80vw;
 }
 .cabecalho, .user-interac, .pic{
     display: flex;
