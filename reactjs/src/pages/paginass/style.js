@@ -37,6 +37,7 @@ div {
     background-color: #fff;
 
     align-items: center;
+    backdrop-filter: blur(2px);
 }
   
 button {
