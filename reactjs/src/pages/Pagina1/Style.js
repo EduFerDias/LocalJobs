@@ -11,7 +11,7 @@ button Link{
     background-repeat: no-repeat;
     background-size: 100vw;
     background-attachment: fixed;
-    height: 50vw;
+    height: 30vw;
 }
 .cabecalho, .user-interac, .pic{
     display: flex;
