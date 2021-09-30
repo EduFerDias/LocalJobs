@@ -6,9 +6,7 @@
 
 **REACT**
 
-Paginas 1,2,3 e 4 ok
-
-Paginas 5, 6, 7, 9 e 10 Problemas com a fonte
+Paginas 1,2,3, 4,5, 6, 7, 9 e 10ok
 
 Paginas 11 e 12 Não inplementadas
 
