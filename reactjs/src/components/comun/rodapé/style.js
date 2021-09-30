@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Rodape = styled.div`
-    background-color: #374957;
+    background-color: #404756;
     padding-top: 104px;
 
 .f4-conteudo{
@@ -39,8 +39,8 @@ const Rodape = styled.div`
     padding-right: 15px;
 }
 .facebook img{
-    height: 16px;
-    padding-right: 21px;
+    height: 20px;
+    padding-right: 17px;
 }
 .insta img{
     padding-top: 10px;

@@ -1,27 +1,16 @@
 import { Link } from "react-router-dom";
+import Logo2 from "../../components/comun/Logo2";
 import Conteudo from "./Style"
+import Cabecalho2 from "../../components/comun/cabecalho2";
+
 
 export default function Pagina3(){
     return(
         <Conteudo>
-            <div class="cabecalho">
-                <div class="logo">
-                    <Link to="/"><img src="./assets/images/Cadastro e Login/logo.png" alt=""/></Link>
-                    Localjobs
-                </div>
-
-                <div class="user-interac">
-                    <div class="pic">
-                        <div class="login">Login</div>
-                    </div>
-                </div>
-            </div>
+            <Cabecalho2 />
             <div class="corpo">
                 <div class="form">
-                    <div class="logo2">
-                        <img src="./assets/images/Cadastro e Login/logo.png" alt="" />
-                        <div class="nome">Local<span class="dark">jobs</span></div>    
-                    </div>
+                    <Logo2 />
                     <form>
                         <input type="text" placeholder="Empresa"/>
                         <input type="text" placeholder="CNPJ" />

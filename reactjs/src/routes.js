@@ -11,10 +11,10 @@ import Pagina9 from "./pages/Pagina9";
 import Pagina10 from "./pages/Pagina10";
 import Pagina11 from "./pages/Pagina11";
 import Pagina12 from "./pages/Pagina12";
-/*
 import Pagina14 from "./pages/Pagina14";
 import Pagina15 from "./pages/Pagina15";
 
+/*
 As pgs 15 e 14 Presizam de uma revisao
 */
 
@@ -33,12 +33,12 @@ export default function Rotas (){
                 <Route path="/page10" component={Pagina10} />
                 <Route path="/page11" component={Pagina11} />
                 <Route path="/page12" component={Pagina12} />
+                <Route path="/page14" component={Pagina14} />
+                <Route path="/page15" component={Pagina15} />
                 <Route path="*" component={Pagina6}/>
             </Switch>
         </BrowserRouter>
     );
 }
 /*
-                <Route path="/page14" component={Pagina14} />
-                <Route path="/page15" component={Pagina15} />
 */

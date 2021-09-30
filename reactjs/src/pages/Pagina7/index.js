@@ -1,18 +1,11 @@
 import Conteudo from "./Style";
-import { Link } from "react-router-dom";
+import Cabecalho2 from "../../components/comun/cabecalho2";
 
 export default function Pagina7 (){
     return(
         <Conteudo>
-        <div class="cabecalho-t7">
-          <div class="just-t7">
-            <div class="logo-t7">
-            <Link to="/">  <img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </Link>
-            </div>
-            <div class="NomeSite-t7">LocalJobs</div>
-          </div>
-          <div class="DirecionarLogin-t7">Login</div>
-        </div>
+        <Cabecalho2/>
+
         <div class="conteudo-t7">
           <div class="CaixaAlerta-t7">
             <div class="cadeado-t7">

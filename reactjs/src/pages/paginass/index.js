@@ -15,12 +15,12 @@ export default function pagina (){
                 <Link to="/page10">Home(Empresa)</Link>
                 <Link to="/page11">Home(Candidato)</Link>
                 <Link to="/page12">Busca(Candidato)</Link>
+                <Link to="/page14">Pagina 14</Link>
+                <Link to="/page15">Pagina 15</Link>
                 <Link to="/*">404 Not Found</Link>
             </div>
         </Conteudo>
     );
 }
 /*
-                <Link to="/page14">Pagina 14</Link>
-                <Link to="/page15">Pagina 15</Link>
 */

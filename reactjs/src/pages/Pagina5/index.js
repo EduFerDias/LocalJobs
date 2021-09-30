@@ -1,19 +1,12 @@
 import { Link } from "react-router-dom";
+import Cabecalho2 from "../../components/comun/cabecalho2";
 import Conteudo from "./Style";
 
 export default function Pagina5 (){
     return(
         <Conteudo>
-        <div class="cabecalho-t5">
-          <div class="just-t5">
-            <div class="logo-t5">
-            <Link to="/">  <img src="./assets/images/pagina 5,6,7/logo.png" alt="" /></Link>
-            </div>
-            <div class="NomeSite-t5">LocalJobs</div>
-          </div>
-            <div class="DirecionarLogin-t5">Login</div>
-        </div>
-  
+          <Cabecalho2 />
+
         <div class="conteudo-t5">
           <div class="CaixaAlerta-t5">
             <div class="cadeado-t5">

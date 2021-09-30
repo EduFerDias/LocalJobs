@@ -6,50 +6,7 @@ const Pagina4 = styled.div`
     background-repeat: no-repeat;
     background-attachment:fixed;
 
-.cabecalho, .user-interac, .pic{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.cabecalho{
-    background-color: #374957B3;
-    padding: 20px 60px 20px 50px;
-}
-.logo{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.logo{
-    color: white;
-    font-size: 1.7em;
-    font-family: Montserrat-Bold;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.logo img{
-    width: 70px;
-    margin-right: 0.5em;
-}
 
-.login{
-    font-family: Montserrat-Bold;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 1.5em;
-    color: white;
-}
-
-.logo2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 2em;
-    color: #041632;
-    font-family: Montserrat-Bold;
-}
-.dark{
-    color: #107AD1;
-}
 .corpo{
     display: flex;
     flex-direction: row;

@@ -235,6 +235,7 @@ hr {
     flex-wrap: wrap;
     display: flex;
     margin-left: 4.5em;
+    padding-bottom: 4em;
 }
 
 .f10-boxes {
