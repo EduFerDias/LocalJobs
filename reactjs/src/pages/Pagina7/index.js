@@ -1,5 +1,5 @@
 import Conteudo from "./Style";
-import Cabecalho2 from "../../components/comun/cabecalho2";
+import Cabecalho2 from "../../components/comun/cabecalho1";
 
 export default function Pagina7 (){
     return(

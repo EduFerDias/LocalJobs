@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo2 from "../../components/comun/Logo2";
 import Conteudo from "./Style"
-import Cabecalho2 from "../../components/comun/cabecalho2";
+import Cabecalho2 from "../../components/comun/cabecalho1";
 
 
 export default function Pagina3(){
