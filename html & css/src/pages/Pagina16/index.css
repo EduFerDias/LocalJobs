@@ -17,6 +17,7 @@ body {
     background-color: #404756;
     font-family: Bold;
     color: white;
+    font-family: 5em;
 }
 
 
@@ -72,8 +73,7 @@ body {
     display: flex;
     flex-direction: row;
 }
-
-.textarea1 {
+.salarioinput {
     background-color: #2A3244;
     border-radius: 15px;
     padding-left: 2em;
@@ -82,13 +82,26 @@ body {
     margin-right: 5em;
 }
 
-.textarea2 {
+
+
+.inputs {
     background-color: #2A3244;
     border-radius: 15px;
     padding-left: 2em;
     padding-top: 3em;
     width: 29em;
+    margin-right: 5em;
 }
+
+.f16-mensagens {
+    background-color: #2A3244;
+    border-radius: 15px;
+    padding-left: 2em;
+    padding-top: 3em;
+    width: 29em;
+    margin-right: 5em;
+}
+
 
 input {
     width: 425px;
@@ -129,7 +142,7 @@ textarea {
 }
 
 .f16-configuracoes {
-    margin-left: 5.5em;
+    margin-left: 4em;
     margin-bottom: 2.5em;
     font-size: 1.5em;
     margin-top: 2em;
@@ -141,4 +154,267 @@ select {
     border-radius: 5px;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.f16-mensagens {
+    margin-top: 3em;
+}
+
+.inputhoras {
+    margin-bottom: 3em;
+}
+
+.salarioinput {
+    margin-bottom: 2em;
+}
+
+.imagem img {
+    height: 25px;
+    width: auto;
+    border-radius: 100%;
+    margin-right: 1em;
+    background-color:#7F8694 ;
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.imagem {
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+.escrever {
+    align-items: center;
+    display: flex;
+    align-content: center;
+    margin-top: 5em;
+    padding-bottom: 1em;
+    margin-bottom: 3em;
+}
+
+.escrever button {
+    outline: none;
+    border: none;
+    background-color: #2A3244;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.escrever img {
+    background-color: #2A3244;
+    height: 3em;
+}
+
+.escrever input::placeholder {
+    color: white;
+}
+
+.escrever input {
+    border-radius: 20px;
+    background-color: #107AD1;
+    color: white;
+    width: 380px;
+    font-family: Regular;
+    font-size: 1em;
+}
+
+.mensagem {
+    font-family: Regular;
+    color: #7F8694;
+    font-size: 1.2em;
+}
+
+.uso {
+    cursor: pointer;
+}
+
+.mensagemaviso {
+    margin-top: 2em;
+    flex-direction: row;
+    display: flex;
+}
+
+.trabalho {
+    margin-bottom: 3em;
+}
+.curiculos {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.curiculos::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #7F8694;
+}
+
+.curiculos::-webkit-scrollbar {
+	width: 8px;
+	background-color: #7F8694;
+    border-radius: 10px;
+}
+
+.curiculos::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #CBCBCB;
+}
+
+
+.linkcuriculo img {
+    height: 3.5em;
+    margin-left: 1em;
+    color: white;
+    filter: invert(100%);
+}
+.linkcuriculo {
+    border-radius: 10px;
+    background-color: #107AD1;
+    align-items: center;
+    display: flex;
+    height: 70px;
+    width: 25em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.curiculos {
+    background-color: #2A3244;
+    height: 25em;
+    border-radius: 10px;
+    width: 31.3em;
+    margin-top: 2em;
+}
+
+.linkusuario {
+    font-family: 5rem;
+    margin: 1em;
+}
+
+
+.botoes {
+    margin-top: 2em;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.delete {
+    border: none;
+    color: white;
+    background-color: #8C0000;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-family: Bold;
+    width: 20.8em;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+    height: 2em;
+    cursor: pointer;
+}
+
+.save {
+    border: none;
+    color: white;
+    background-color: #1096FF;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-family: Bold;
+    width: 20.8em;
+    margin-bottom: 1em;
+    height: 2em;
+    cursor: pointer;
+}
+
+hr {
+    height:5px;
+    border-width:0;
+    color:#5F6779;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top:4em;
+    background-color:#5F6779;
+}
+
+.f10-redesbaixo img {
+    height: 20px;
+    width: auto;
+}
+
+.f10-redesbaixo {
+    font-size: 1rem;
+    font-family: Regular;
+    color: white;
+}
+
+.f10-navegacao {
+    font-size: 1rem;
+    font-family: Montserrat;
+    color: white;
+    flex-direction: column;
+    display: flex;
+}
+
+.f10-navegacaobaixo {
+    font-size: 1rem;
+    font-family: Regular;
+    color: white;
+    
+}
+
+.f10-redes {
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+}
+
+.f10-imagembaixo {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.f10-textobaixo {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    font-family: Montserrat;
+    color: white;
+}
+
+.f10-rodape {
+    margin-top: 3rem;
+    margin-left: 3rem;
+}
+
+.f10-rodape2 {
+   flex-direction: row;
+   display: flex;
+}
+
+.f10-navegacao2{
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    font-family: Montserrat;
+    color: white;
+    flex-direction: column;
+    display: flex;
+}
+
+.f10-redes2 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-family: Montserrat;
+    color: white;
+    flex-direction: column;
+    display: flex;
+    
+}
+
+.textarea2 {
+    margin-left: 2em;
 }
