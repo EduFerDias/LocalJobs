@@ -4,125 +4,7 @@ const Pagina12 = styled.div`
 
     background-color: #404756;
 
-.f10-cabecario {
-    display: flex;
-    flex-direction: row;
-    font-family: 'Montserrat-Bold', sans-serif;
-    font-size: 1.3em;
-    color: white;
-    justify-content: space-between;
-    align-content: center;
-    background-color: rgba(95, 103, 121, 0.7);
-    padding: 0.8rem;
-    align-content: center;
-    align-content: center;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-}
-
-
-.f10-parte1 {
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-}
-
-.f10-parte2 {
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-}
-
-.f10-logo img {
-    height: 50px;
-    width: auto;
-    margin-left: 3em;
-    margin-right: 1em;
-}
-.f10-imagem img {
-    height: 25px;
-    width: auto;
-    border-radius: 100%;
-    margin-left: 1em;
-    margin-right: 3em;
-    background-color:#7F8694 ;
-    border-radius: 100%;
-    padding: 1rem;
-}
-
-
-
-
 /* input e select do filtro */ 
-
-.f10-pesquisa2 {
-    justify-content: center;
-    display: flex;
-}
-
-.f10-pesquisa {
-    justify-content: center;
-    display: flex;
-    background-color: white;
-    border-radius: 8px;
-    padding-left: 5px;
-    align-items: center;
-    width: 680px;
-    height: 50px;
-}
-
-select {
-    background-color: white;
-    outline: none;
-    border-radius: 1px;
-    border: none;
-    font-family: 'Montserrat-Bold', sans-serif;
-    font-size: 0.8em;
-    color:rgba(95, 103, 121, 1)
-}
-input {
-    background-color: white;
-    outline: none;
-    border: none;
-    width: 195px;
-    font-family: 'Montserrat-Bold', sans-serif;
-    font-size: 0.8em;
-}
-
-
-
-.f10-cidade input {
-    border-radius: 15px;
-}
-
-.f10-textofiltro {
-    font-family: 'Montserrat-Bold', sans-serif;
-    font-size: 1.5em;
-    color: white;
-    margin-top: 3rem;
-    margin-left: 6rem;
-    text-shadow: 1px 1px 1px black;
-}
-
-.f10-filtrosimg img {
-    width: 29px;
-    height: 29px;
-    margin-right: 1em;
-}
-
-.f10-lupa img {
-    margin-top: 6px;
-    width: 29px;
-    height: 29px;
-    margin-right: 1em;
-}
-
-hr {
-    border: 0.2px solid #5F6779;
-    margin: 1em;
-    opacity: 80%;
-}
-
-
 
 .f10-filtro1 {
     color: white;
@@ -135,8 +17,6 @@ hr {
     flex-direction: row;
     display: flex;
 }
-
-
 
 .prev, .next {
     cursor: pointer;
@@ -191,60 +71,7 @@ hr {
     margin-top: 2rem;
 }
 
-hr {
-    height:5px;
-    border-width:0;
-    color:#5F6779;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top:4em;
-    background-color:#5F6779;
-}
 
-.f10-redesbaixo img {
-    height: 20px;
-    width: auto;
-}
-
-.f10-redesbaixo {
-    font-size: 1rem;
-    font-family: Montserrat-regular;
-    color: white;
-}
-
-.f10-navegacao {
-    font-size: 1rem;
-    font-family: Montserrat-Bold;
-    color: white;
-    flex-direction: column;
-    display: flex;
-}
-
-.f10-navegacaobaixo {
-    font-size: 1rem;
-    font-family: Montserrat-regular;
-    color: white;
-    
-}
-
-.f10-redes {
-    margin-bottom: 2rem;
-    margin-left: 3rem;
-}
-
-.f10-imagembaixo {
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.f10-textobaixo {
-    margin-left: 2rem;
-    font-size: 1.5rem;
-    font-family: Montserrat-Bold;
-    color: white;
-}
 
 .f10-rodape {
     margin-top: 3rem;

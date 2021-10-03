@@ -21,6 +21,9 @@ body {
     box-sizing: border-box;
     cursor: default;
 }
+a{
+    color:white;
+}
   
 div {
     justify-content: center;

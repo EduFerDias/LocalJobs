@@ -1,9 +1,12 @@
 import Conteudo from "./style"
+import Cabecalho3 from "../../components/comun/cabecalho3";
+import Rodape from "../../components/comun/rodapé";
 
 export default function Pagina14 () {
     return(
     <Conteudo>  
         <div class="container">
+            <Cabecalho3/>
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
@@ -72,6 +75,7 @@ export default function Pagina14 () {
                 
             </div>
         </div>
+        <Rodape />
     </Conteudo>
     );
 }

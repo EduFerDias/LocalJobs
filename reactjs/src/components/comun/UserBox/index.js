@@ -1,6 +1,7 @@
 import Conteudo from "./styled";
 
 
+
 export default function userBox (props) {
     let imagem = '';
     if(props.bt_empresa === true){
