@@ -24,6 +24,7 @@ const Conteudo = styled.div`
 select {
     background-color: white;
     outline: none;
+    border-radius: 1px;
     border: none;
     font-family: Montserrat-Bold, sans-serif;
     font-size: 1.1em;
