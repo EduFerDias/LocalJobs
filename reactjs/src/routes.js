@@ -13,6 +13,7 @@ import Pagina11 from "./pages/Pagina11";
 import Pagina12 from "./pages/Pagina12";
 import Pagina14 from "./pages/Pagina14";
 import Pagina15 from "./pages/Pagina15";
+import Pagina16 from "./pages/Pagina16";
 
 /*
 As pgs 15 e 14 Presizam de uma revisao
@@ -35,6 +36,7 @@ export default function Rotas (){
                 <Route path="/page12" component={Pagina12} />
                 <Route path="/page14" component={Pagina14} />
                 <Route path="/page15" component={Pagina15} />
+                <Route path="/page16" component={Pagina16} />
                 <Route path="*" component={Pagina6}/>
             </Switch>
         </BrowserRouter>
