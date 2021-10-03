@@ -88,6 +88,7 @@ background-color: #404756;
 select {
     background-color: white;
     outline: none;
+    border-radius: 1px;
     border: none;
     font-family: Montserrat;
     font-size: 0.8em;
