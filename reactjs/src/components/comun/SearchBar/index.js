@@ -4,7 +4,6 @@ import Conteudo from "./styled";
 export default function Searchbar (){
     return(
         <Conteudo>
-            <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
             <div class="f10-pesquisa2">
                 <div class="f10-pesquisa">
                     <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-cargo.png" alt=""/></div>

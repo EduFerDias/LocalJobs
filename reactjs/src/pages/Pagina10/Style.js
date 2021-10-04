@@ -19,6 +19,14 @@ const Pagina10 = styled.div`
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 }
 
+.f10-textofiltro {
+    font-family: Montserrat-Bold, sans-serif;
+    font-size: 2.5em;
+    color: white;
+    margin-top: 3rem;
+    margin-left: 6rem;
+    text-shadow: 1px 1px 1px black;
+}
 
 
 .f10-parte1 {

@@ -45,14 +45,7 @@ input {
     border-radius: 15px;
 }
 
-.f10-textofiltro {
-    font-family: Montserrat-Bold, sans-serif;
-    font-size: 2.5em;
-    color: white;
-    margin-top: 3rem;
-    margin-left: 6rem;
-    text-shadow: 1px 1px 1px black;
-}
+
 
 .f10-filtrosimg img {
     width: 29px;

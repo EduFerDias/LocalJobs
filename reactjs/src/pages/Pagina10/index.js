@@ -28,7 +28,9 @@ export default function Pagina10 (){
                     </div>
                 </div>
 
+                <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
                 <Searchbar />
+                
                 <div class="f10-areas">
                     <div class="f10-filtro1">Pessoas de diversas áreas</div>
 

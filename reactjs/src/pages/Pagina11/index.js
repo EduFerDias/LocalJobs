@@ -15,7 +15,8 @@ export default function Pagina11 (){
     return(
         <Conteudo>
                 <Cabecalho3 />
-
+                
+        <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
        <Searchbar />
 
         <div class="f10-areas">
