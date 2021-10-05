@@ -154,6 +154,7 @@ const Pagina12 = styled.div`
 }
 
 
+
 .f10-filtro1 {
     color: white;
     font-family: Montserrat-Bold, sans-serif;
