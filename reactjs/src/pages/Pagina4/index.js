@@ -133,6 +133,7 @@ export default function Pagina4 (){
                                 <option value="valor2">Turismo</option>
                             </select>
                         </span>
+                        
                         <input type="text" placeholder="Profissão" class="tele"/> 
                     </div>
 
