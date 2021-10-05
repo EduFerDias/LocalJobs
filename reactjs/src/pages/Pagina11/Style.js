@@ -75,7 +75,7 @@ background-color: #404756;
     padding-left: 30px;
     padding-right: 10px;
     align-items: center;
-    width: 700px;
+    width: 800px;
     height: 50px;
     margin-bottom: 3rem;
 }
@@ -118,11 +118,18 @@ input {
     margin-right: 1em;
 }
 
+.f10-texto {
+    cursor: pointer
+}
+.f10-fotofiltro {
+    cursor: pointer;
+}
 .f10-lupa img {
     margin-top: 6px;
     width: 29px;
     height: 29px;
     margin-right: 1em;
+    cursor: pointer;
 }
 
 hr {

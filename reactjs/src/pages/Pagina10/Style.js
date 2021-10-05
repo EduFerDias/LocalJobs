@@ -1,25 +1,8 @@
 import styled from "styled-components";
 
 const Pagina10 = styled.div`
-    background-color: #404756;
-
-
-    .f10-cabecario {
-    display: flex;
-    flex-direction: row;
-    font-family: Montserrat-Bold;
-    font-size: 1.3em;
-    color: white;
-    justify-content: space-between;
-    align-content: center;
-    background-color: rgba(95, 103, 121, 0.7);
-    padding: 0.8rem;
-    align-content: center;
-    align-content: center;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-}
-
-
+background-color: #404756;
+    
 
 .f10-parte1 {
     flex-direction: row;
@@ -77,7 +60,7 @@ const Pagina10 = styled.div`
     padding-left: 30px;
     padding-right: 10px;
     align-items: center;
-    width: 700px;
+    width: 800px;
     height: 50px;
     margin-bottom: 3rem;
 }
