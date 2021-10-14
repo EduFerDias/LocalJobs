@@ -85,7 +85,7 @@ const Pagina10 = styled.div`
     padding-left: 30px;
     padding-right: 10px;
     align-items: center;
-    width: 700px;
+    width: 800px;
     height: 50px;
     margin-bottom: 3rem;
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Cabecalho2 from "../../components/comun/cabecalho2";
+import Cabecalho2 from "../../components/comun/cabecalho1";
 import Conteudo from "./Style";
 
 export default function Pagina5 (){

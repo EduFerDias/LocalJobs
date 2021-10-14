@@ -1,6 +1,5 @@
 import Conteudo from './Style'
 import Rodape from '../../components/comun/rodapé';
-import Header from '../../components/comun/SearchHeader';
 import UserBox from '../../components/comun/SearchUserBox';
 
 const Boxes = [
@@ -12,16 +11,18 @@ const Boxes = [
     {  empresa:"St. Louis Studios",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Desenvolvedor"},
 ]
 
+import Cabecalho from "../../components/comun/cabecalho pesquisa"
 
 export default function Pagina12 (){
     return(
         <Conteudo>
             <div class="f10-tudo">
-            <Header bt_empresa={false}/>
-            <div class="f10-filtro1">Resultado:⠀  <div>Desenvolvedor</div></div>
+                
+                <Cabecalho/>
 
-        
-            <div class="f10-areas">
+                <div class="f10-filtro1">Resultado:⠀  <div>Desenvolvedor</div></div>
+
+                <div class="f10-areas">
 
 
                 <div class="f10-setas">
@@ -38,10 +39,10 @@ export default function Pagina12 (){
 
 
 
-            </div> 
+                </div> 
 
-            <Rodape />
-        </div>
+                <Rodape/>
+            </div>
     </Conteudo>
 
     );

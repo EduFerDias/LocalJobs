@@ -16,21 +16,14 @@ export default function Pagina10 (){
     return(
         <Conteudo>
             <div class="f10-tudo">
-                <div class="f10-cabecario">
-                    <div class="f10-parte1">
-                        <div class="f10-logo"> <Link to="/"><img src="../../assets/images/pagina 9,10,11,12/f10-logo.png" alt=""/></Link></div>
-                        <div class="f10-nome">LocalJobs</div>
-                    </div>
+                <Cabecalho/>
 
-                    <div class="f10-parte2">
-                        <div class="f10-nome">Empresa</div>
-                        <div class="f10-imagem"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt="" /></div>
-                    </div>
+                <div class="f10-filtro">
+                    <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
+                    <Searchbar/>
+
                 </div>
 
-                <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
-                <Searchbar />
-                
                 <div class="f10-areas">
                     <div class="f10-filtro1">Pessoas de diversas áreas</div>
 

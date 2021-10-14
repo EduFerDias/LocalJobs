@@ -1,4 +1,3 @@
-import Header from "../../components/comun/SearchHeader";
 import Conteudo from "./Style";
 import UserBox from "../../components/comun/SearchUserBox";
 import Rodape from "../../components/comun/rodapé";
@@ -18,7 +17,7 @@ export default function Pagina9 (){
     return(
         <Conteudo>
                 <div class="f10-tudo">
-                   <Header bt_empresa={true}/>
+                    <Cabecalho/>
 
                     <div class="f10-filtro1">Resultado:⠀  <div>Desenvolvedor</div></div>
                 
