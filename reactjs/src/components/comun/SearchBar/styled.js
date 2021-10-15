@@ -39,7 +39,7 @@ input {
     outline: none;
     border: none;
     width: 195px;
-    font-family: Montserrat-Bold, sans-serif;
+    font-family: Montserrat-Regular;
     font-size: 1.1rem;
 }
 

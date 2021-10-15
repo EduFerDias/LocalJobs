@@ -132,6 +132,7 @@ export default function Cabecalho2 (){
                                 <option value="valor2">Tarifas Telefônicas</option>
                                 <option value="valor2">Telefonia</option>
                                 <option value="valor2">Turismo</option>
+                                <option value="valor2">TI</option>
                             </select>
                             <input class="f10-cargo" placeholder="Digite Um Cargo" />
                             <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
