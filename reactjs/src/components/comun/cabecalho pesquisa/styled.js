@@ -92,10 +92,11 @@ f10-nome2 {
     display: flex;
     background-color: white;
     border-radius: 8px;
-    padding-left: 5px;
+    padding-left: px;
     align-items: center;
     height: 50px;
 }
+
 
 select {
     background-color: white;
@@ -104,14 +105,15 @@ select {
     border: none;
     font-family: 'Montserrat-Bold', sans-serif;
     font-size: 0.8em;
-    color:rgba(95, 103, 121, 1)
+    color:rgba(95, 103, 121, 1);
+    margin-left: 0.8em;
 }
 input {
     background-color: white;
     outline: none;
     border: none;
-    width: 195px;
-    font-family: 'Montserrat-Bold', sans-serif;
+    width: 170px;
+    font-family: Montserrat-regular;
     font-size: 0.8em;
 }
 
@@ -119,9 +121,6 @@ input {
 
 .f10-cidade input {
     border-radius: 15px;
-}
-.f10-cidade::placeholder{
-    font-family: Montserrat-regular;
 }
 
 .f10-textofiltro {
@@ -143,15 +142,9 @@ input {
     margin-top: 6px;
     width: 29px;
     height: 29px;
-    margin-right: 1em;
+    margin-right: 0.8em;
 }
 
-hr {
-    border: 0.2px solid #5F6779;
-    margin: 1em;
-    height: 30px;
-    opacity: 80%;
-}
 
 `
 

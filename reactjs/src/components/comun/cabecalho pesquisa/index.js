@@ -7,9 +7,10 @@ export default function Cabecalho2 (){
         <Conteudo>
             <div class="f10-cabecario">
                 <div class="oi">
-                    <div class="f10-logo">  <Link to="/page10"><img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </Link></div>
+                    <div class="f10-logo">  <Link to="/"><img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </Link></div>
                     <div class="f10-nome"> LocalJobs </div>
                 </div>
+
                 <div className="barra">
                     <div class="f10-pesquisa2">
                         <div class="f10-pesquisa">
@@ -132,10 +133,8 @@ export default function Cabecalho2 (){
                                 <option value="valor2">Telefonia</option>
                                 <option value="valor2">Turismo</option>
                             </select>
-                            <hr />
-                            <input class="f10-cargo"  placeholder="Digite Um Cargo" />
+                            <input class="f10-cargo" placeholder="Digite Um Cargo" />
                             <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
-                            <hr />
                             <input class="f10-cidade" placeholder="Digite Uma Cidade" />
                             <div class="f10-lupa"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
                         </div>

@@ -13,13 +13,13 @@ export default function userBox (props) {
     let path =  `../../assets/images/pagina 9,10,11,12/${imagem}`
     return(
         <Conteudo>
-            <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
-            <div class="f10-texto">
-                <div class="f10-filtronome">{props.empresa}</div>
-                <div class="f10-cidade">{props.cidade}</div>
-                <div class="f10-profissao">{props.profissao}<div class="f10-barra">-</div><div class="f10-filtroarea">{props.area}</div></div>
-                <div class="f10-data">{`R$ ${props.salario}`}</div>
-            </div>
+                <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
+                <div class="f10-texto">
+                    <div class="f10-filtronome">{props.empresa}</div>
+                    <div class="f10-cidade">{props.cidade}</div>
+                    <div class="f10-profissao">{props.profissao}<div class="f10-barra">-</div><div class="f10-filtroarea">{props.area}</div></div>
+                    <div class="f10-data">{`R$ ${props.salario}`}</div>
+                </div>
         </Conteudo>
 
     );
