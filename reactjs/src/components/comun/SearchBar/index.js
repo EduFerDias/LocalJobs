@@ -124,10 +124,8 @@ export default function Searchbar (){
                         <option value="valor2">Telefonia</option>
                         <option value="valor2">Turismo</option>
                     </select>
-                    <hr />
                     <input class="f10-cargo" type="search" placeholder="Digite Um Cargo" />
                     <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
-                    <hr />
                     <input class="f10-cidade" type="search" placeholder="Digite Uma Cidade" />
                     <div class="f10-lupa"><Link to="/page9"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></Link></div>
                 </div>

@@ -83,6 +83,12 @@ hr {
     margin-right: 10px;
 }
 
+.carousel-container {
+    width: 100%;
+    height: 21em;
+  }
+  
+
 .f10-fotofiltro img {
     margin-right: 2rem;
     height: 3.5rem;
@@ -94,47 +100,10 @@ hr {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    margin-top: -5em;
-    width: auto;
-    margin-left: 5.5rem;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
 
-.prev {
-    background: #2A3244 url("../../assets/images/pagina 9,10,11,12/f10-seta1.png") no-repeat center;
-    background-size: 120%;
-    transform: rotate(180deg);
-    border-radius: 100%;
-    padding: 1.2rem;
-    
-}
 
-.next  {
-    background: #2A3244 url("../../assets/images/pagina 9,10,11,12/f10-seta1.png") no-repeat center;
-    background-size: 120%;
-    transform: rotate(0deg);
-    border-radius: 100%;
-    padding: 1.2rem;
-    margin-left: 90vw;
-}
 
-.prev img,.next img {
-    height: 3rem;
-    width: auto;
-    background-color: #2A3244;
-    border-radius: 100%;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
+
 
 .f10-boxes {
     flex-direction: row;
@@ -146,15 +115,6 @@ hr {
     margin-top: 2rem;
 }
 
-hr {
-    height:5px;
-    border-width:0;
-    color:#5F6779;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top:4em;
-    background-color:#5F6779;
-}
 
 .f10-redesbaixo img {
     height: 20px;
@@ -229,5 +189,6 @@ hr {
     display: flex;
     
 }
+
 `
 export default Pagina10;
