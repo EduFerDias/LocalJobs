@@ -11,49 +11,6 @@ background-color: #404756;
 
 
 /* input e select do filtro */ 
-
-.f10-pesquisa2 {
-    justify-content: center;
-    display: flex;
-}
-
-.f10-pesquisa {
-    justify-content: center;
-    display: flex;
-    margin-top: 4rem;
-    background-color: white;
-    border-radius: 8px;
-    padding-left: 30px;
-    padding-right: 10px;
-    align-items: center;
-    width: 800px;
-    height: 50px;
-    margin-bottom: 3rem;
-}
-
-select {
-    background-color: white;
-    outline: none;
-    border: none;
-    font-family: Montserrat-Bold, sans-serif;
-    font-size: 1.1em;
-    color:rgba(95, 103, 121, 1)
-}
-input {
-    background-color: white;
-    outline: none;
-    border: none;
-    width: 195px;
-    font-family: Montserrat-Bold, sans-serif;
-    font-size: 1.1em;
-}
-
-
-
-.f10-cidade input {
-    border-radius: 15px;
-}
-
 .f10-textofiltro {
     font-family: Montserrat-Bold, sans-serif;
     font-size: 2.5em;
@@ -61,32 +18,6 @@ input {
     margin-top: 3rem;
     margin-left: 6rem;
     text-shadow: 1px 1px 1px black;
-}
-
-.f10-filtrosimg img {
-    width: 29px;
-    height: 29px;
-    margin-right: 1em;
-}
-
-.f10-texto {
-    cursor: pointer
-}
-.f10-fotofiltro {
-    cursor: pointer;
-}
-.f10-lupa img {
-    margin-top: 6px;
-    width: 29px;
-    height: 29px;
-    margin-right: 1em;
-    cursor: pointer;
-}
-
-hr {
-    border: 0.2px solid #5F6779;
-    margin: 1em;
-    opacity: 80%;
 }
 
 /* box */ 
@@ -163,89 +94,6 @@ hr {
     margin-top: 2rem;
 }
 
-hr {
-    height:5px;
-    border-width:0;
-    color:#5F6779;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top:4em;
-    background-color:#5F6779;
-}
-
-.f10-redesbaixo img {
-    height: 20px;
-    width: auto;
-}
-
-.f10-redesbaixo {
-    font-size: 1rem;
-    font-family: Montserrat-regular;
-    color: white;
-}
-
-.f10-navegacao {
-    font-size: 1rem;
-    font-family: Montserrat-Bold;
-    color: white;
-    flex-direction: column;
-    display: flex;
-}
-
-.f10-navegacaobaixo {
-    font-size: 1rem;
-    font-family: Montserrat-regular;
-    color: white;
-    
-}
-
-.f10-redes {
-    margin-bottom: 2rem;
-    margin-left: 3rem;
-}
-
-.f10-imagembaixo {
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.f10-textobaixo {
-    margin-left: 2rem;
-    font-size: 1.5rem;
-    font-family: Montserrat-Bold;
-    color: white;
-}
-
-.f10-rodape {
-    margin-top: 3rem;
-    margin-left: 3rem;
-}
-
-.f10-rodape2 {
-   flex-direction: row;
-   display: flex;
-}
-
-.f10-navegacao2{
-    margin-bottom: 3rem;
-    font-size: 1.5rem;
-    font-family: Montserrat-Bold;
-    color: white;
-    flex-direction: column;
-    display: flex;
-}
-
-.f10-redes2 {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    font-family: Montserrat-Bold;
-    color: white;
-    flex-direction: column;
-    display: flex;
-    
-}
 `
 
 export default Pagina11

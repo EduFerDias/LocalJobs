@@ -1,5 +1,4 @@
 import Conteudo from "./styled";
-import { Link } from 'react-router-dom';
 import Rodape from "../../components/comun/rodapé";
 import Cabecalho3 from "../../components/comun/cabecalho3";
 

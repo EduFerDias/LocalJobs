@@ -1,6 +1,8 @@
 import Conteudo from './Style'
 import Rodape from '../../components/comun/rodapé';
 import UserBox from '../../components/comun/SearchUserBox';
+import Cabecalho from "../../components/comun/cabecalho3"
+
 
 const Boxes = [
     {  empresa:"Marie Soluções tecnológicas",cidade: "São Paulo", area:"TI", salario:1000, profissao: "Desenvolvedor"},
@@ -11,7 +13,6 @@ const Boxes = [
     {  empresa:"St. Louis Studios",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Desenvolvedor"},
 ]
 
-import Cabecalho from "../../components/comun/cabecalho pesquisa"
 
 export default function Pagina12 (){
     return(

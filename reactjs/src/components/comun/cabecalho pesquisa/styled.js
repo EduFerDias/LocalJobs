@@ -1,10 +1,11 @@
 import styled from "styled-components"
 
-const conteudo = styled.div`
+const Conteudo = styled.div`
 
 .f10-cabecario {
     display: flex;
     flex-direction: row;
+    align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3em;
     color: white;
@@ -71,51 +72,87 @@ f10-nome2 {
 
 .f10-logo img {
     height: 50px;
+    margin: 0px 1em;
     width: auto;
 }
 .f10-imagem img {
-    height: 25px;
+    height: 64px;
     width: auto;
-    border-radius: 100%;
-    background-color:#7F8694 ;
-    border-radius: 100%;
+    margin-left: 1em;
+    margin-right: 3em;
+    cursor: pointer;
+}
+.f10-pesquisa2 {
+    justify-content: center;
+    display: flex;
 }
 
 .f10-pesquisa {
-    width: 825px;
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-top: 0.3em;
+    justify-content: center;
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    padding-left: 5px;
+    align-items: center;
+    height: 50px;
 }
 
-.f10-pesquisa2 {
-    width: 800px;
+select {
+    background-color: white;
+    outline: none;
+    border-radius: 1px;
+    border: none;
+    font-family: 'Montserrat-Bold', sans-serif;
+    font-size: 0.8em;
+    color:rgba(95, 103, 121, 1)
+}
+input {
+    background-color: white;
+    outline: none;
+    border: none;
+    width: 195px;
+    font-family: 'Montserrat-Bold', sans-serif;
+    font-size: 0.8em;
 }
 
-.f10-imagem {
-    margin: 0px;
+
+
+.f10-cidade input {
+    border-radius: 15px;
+}
+.f10-cidade::placeholder{
+    font-family: Montserrat-regular;
 }
 
-.f10-nome2 {
-    margin-left: 0em;
+.f10-textofiltro {
+    font-family: 'Montserrat-Bold', sans-serif;
+    font-size: 1.5em;
+    color: white;
+    margin-top: 3rem;
+    margin-left: 6rem;
+    text-shadow: 1px 1px 1px black;
 }
 
-.f10-lupa {
-    margin: 0px;
+.f10-filtrosimg img {
+    width: 29px;
+    height: 29px;
+    margin-right: 1em;
 }
 
 .f10-lupa img {
-    margin-left: 10px;
-    cursor: pointer;
+    margin-top: 6px;
+    width: 29px;
+    height: 29px;
+    margin-right: 1em;
 }
 
-.f10-lupa {
-    cursor: pointer;
+hr {
+    border: 0.2px solid #5F6779;
+    margin: 1em;
+    height: 30px;
+    opacity: 80%;
 }
 
-.f10-filtrosimg {
-    margin-right: 0.5em;
-}
 `
 
-export default conteudo;
+export default Conteudo;

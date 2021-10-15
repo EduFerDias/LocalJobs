@@ -1,4 +1,5 @@
 import Conteudo from "./Style";
+import Cabecalho from "../../components/comun/cabecalho pesquisa";
 import UserBox from "../../components/comun/SearchUserBox";
 import Rodape from "../../components/comun/rodapé";
 

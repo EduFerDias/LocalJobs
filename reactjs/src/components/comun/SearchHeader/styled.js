@@ -117,7 +117,7 @@ input {
 
 hr {
     border: 0.2px solid #5F6779;
-    margin: 1em;
+    margin: 0em;
     height: 30px;
     opacity: 80%;
 }

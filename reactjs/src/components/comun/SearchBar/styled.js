@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
 const Conteudo = styled.div`
+display: flex;
+flex-direction:column;
+align-items: center;
 
 .f10-pesquisa2 {
     justify-content: center;
+    width: 860px;
     display: flex;
 }
 
@@ -16,7 +20,7 @@ const Conteudo = styled.div`
     padding-left: 30px;
     padding-right: 10px;
     align-items: center;
-    width: 700px;
+    width: 100%;
     height: 50px;
     margin-bottom: 3rem;
 }
@@ -27,7 +31,7 @@ select {
     border-radius: 1px;
     border: none;
     font-family: Montserrat-Bold, sans-serif;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     color:rgba(95, 103, 121, 1)
 }
 input {
@@ -36,7 +40,7 @@ input {
     border: none;
     width: 195px;
     font-family: Montserrat-Bold, sans-serif;
-    font-size: 1.1em;
+    font-size: 1.1rem;
 }
 
 
@@ -60,12 +64,21 @@ input {
     margin-right: 1em;
 }
 
+.f10-imagem img {
+    height: 64px;
+    width: auto;
+    margin-left: 1em;
+    margin-right: 3em;
+    cursor: pointer;
+}
+
 hr {
     border: 0.2px solid #5F6779;
     margin: 1em;
-    height: 30px;
     opacity: 80%;
+    height: 30px;
 }
+
 
 `
 
