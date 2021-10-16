@@ -6,7 +6,7 @@ const Pagina14 = styled.div`
  font-family: Montserrat-regular;
 
 .container{
-    margin: 2em 3em 4em 3em;
+    margin: 2em 4em 4em 5em;
     color: white;
 }
 
@@ -15,10 +15,10 @@ const Pagina14 = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 2em 0px 2em;
+    padding: 1em 1em 1em 1em;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    min-height: 14em;
+    min-height: 7em;
     align-items: center;
 }
 
@@ -27,8 +27,8 @@ const Pagina14 = styled.div`
     display: flex;
     flex-direction: column;
     color: white;
-    margin-left: 20em;
-    line-height: 3em;
+    margin-left: 13em;
+    line-height: 1.5em;
 }
 
 .informacoes-usuario p{
@@ -36,12 +36,12 @@ const Pagina14 = styled.div`
 }
 
 .imagem-cabecalho img{
-    width: 250px;
+    width: 150px;
 }
 .imagem-cabecalho{
     margin-right: 2em;
     position: absolute;
-    margin-top: 5em;
+    margin-top: 4em;
 }
 
 .email-telefone{
@@ -53,13 +53,13 @@ const Pagina14 = styled.div`
 .et{
     background-color: #0D62A7;
     border-radius: 40px;
-    width: 150px;
+    width: 170px;
     min-height: 3em;
     text-align: center;
     margin-top: 1em;
     padding-top: 1em;
-    min-width: 13em;
-    font-size: 21px;
+    min-width: 6.5em;
+    font-size: 14px;
     font-family: Montserrat-Bold;
 }
 
@@ -79,17 +79,17 @@ const Pagina14 = styled.div`
 
 .nm{
     font-family: Montserrat-Bold;
-    font-size: 60px;
+    font-size: 30px;
 }
 
 .pr{
     font-family: Montserrat-regular;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .es{
     font-family: Montserrat-semiBold;
-    font-size: 50px;
+    font-size: 25px;
 }
 
 .baixo-painel{
@@ -103,47 +103,60 @@ const Pagina14 = styled.div`
 }
 
 .informacoes-painel h1{
-    font-size: 60px;
+    font-size: 40px;
     font-family: Montserrat-Bold;
     line-height: 1px;
 }
-
+.informacoes-painel textarea{
+    height: 20em;
+    width: 100%;
+    font-family: Montserrat-regular;
+    border:none;
+    resize: none;
+    background-color: transparent;
+    color: white;
+}
+.informacoes-painel textarea::placeholder{
+    color:white;
+    font-size: 1em;
+}
 .redes-sociais{
-    font-size: 60px;
+    font-size: 30px;
     font-family: Montserrat-Bold;
     line-height: 1px;
 }
 
 .rede-social{
-    font-size: 30px;
+    font-size: 20px;
     font-family: Montserrat-regular;
     display: flex;
     align-items: center;
 }
 
 .rede-social img{
-    width: 55px;
+    width: 40px;
 }
 
 .idiomas h1{
-    font-size: 60px;
+    font-size: 30px;
     font-family: Montserrat-Bold;
     margin-bottom: 1.2em;
     margin-top: 1em;
 }
 
 .idiomas h2{
-    font-size: 50px;
+    font-size: 25px;
     font-family: Montserrat-regular;
+    font-weight: 500;
 }
 
 .idiomas{
     line-height: 7px;
-    margin-left: 15em;
+    margin-left: 9em;
 }
 
 .div-vagas-interesse h1{
-    font-size: 60px;
+    font-size: 40px;
     font-family: Montserrat-Bold;
 }
 
@@ -158,28 +171,28 @@ const Pagina14 = styled.div`
 }
 
 .vaga{
-    font-size: 50px;
+    font-size: 35px;
     font-family: Montserrat-regular;
     background-color: #107AD1;
     border-radius: 40px;
     text-align: center  ;
-    min-width: 15%;
+    min-width: 10%;
     margin-right: 0.5em;
 }
 
 .div-mensagem{
-    font-size: 60px;
+    font-size: 20px;
     font-family: Montserrat-Bold;
     margin-top: 3em;
 }
 
 .usuario-chat img{
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
 }
 
 .usuario-chat h1{
-    font-size: 50px;
+    font-size:40px;
     font-family: Montserrat-Bold;
     margin-left: 0.5em;
 }
@@ -194,8 +207,8 @@ const Pagina14 = styled.div`
 .box-mensagem{
     background-color: #2A3244;
     border-radius: 20px;
-    max-width: 40vw;
-    min-height: 470px;
+    max-width: 35vw;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -210,18 +223,19 @@ const Pagina14 = styled.div`
 
 .box-mensagem-baixo img{
     margin-left: 0.5em;
+    height: 60px
 }
 
 .box-mensagem-baixo input{
     border-radius: 50px;
     border: none;
     background-color: #107AD1;
-    width: 580px;
-    height: 72px;
+    width: 400px;
+    height: 60px;
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-family: Montserrat-regular;
-    text-align: center;
+    padding-left: 20px;
 }
 
 .box-mensagem-baixo input::placeholder{

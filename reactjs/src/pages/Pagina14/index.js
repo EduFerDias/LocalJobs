@@ -1,12 +1,12 @@
 import Conteudo from "./style"
-import Cabecalho3 from "../../components/comun/cabecalho3";
+import Cabecalho3 from "../../components/comun/header4";
 import Rodape from "../../components/comun/rodapé";
 
 export default function Pagina14 () {
     return(
-    <Conteudo>  
+    <Conteudo>
+        <Cabecalho3/>  
         <div class="container">
-            <Cabecalho3/>
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
@@ -26,11 +26,11 @@ export default function Pagina14 () {
             <div class="painel-central">
                 <div class="informacoes-painel">
                     <h1>Sobre</h1>
-                    <p>sobre mim...</p>
+                    <p> sobre mim...</p>
                 </div>
                 <div class="informacoes-painel">
                     <h1>Experiências</h1>
-                    <p>experiencias...</p>
+                    <p>experiencias..</p>
                 </div>
                 <div class="informacoes-painel">
                     <h1>Formações acadêmicas</h1>
