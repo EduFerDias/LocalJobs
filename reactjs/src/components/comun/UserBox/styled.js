@@ -5,7 +5,7 @@ const Conteudo = styled.div`
     color: white;
     font-family: Montserrat-Bold, sans-serif;
     
-    margin-left:7em;
+    margin-left:5em;
     height: 8em;
     width: 20em;
     padding: 1em;
