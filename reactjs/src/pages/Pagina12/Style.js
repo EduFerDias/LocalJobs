@@ -10,7 +10,7 @@ const Pagina12 = styled.div`
     color: white;
     font-family: Montserrat-Bold, sans-serif;
     margin-top: 1.5em;
-    margin-left: 5.7em;
+    margin-left: 5em;
     font-size: 1.2em;
     margin-bottom: 1.5em;
     text-shadow: 1px 1px 1px black;
@@ -63,7 +63,7 @@ const Pagina12 = styled.div`
 .f10-boxes {
     flex-wrap: wrap;
     display: flex;
-    margin-left: 4.5em;
+    margin-left: 3.5em;
     padding-bottom: 4em;
 }
 

@@ -1,7 +1,7 @@
 import Conteudo from './Style'
 import Rodape from '../../components/comun/rodapé';
 import UserBox from '../../components/comun/SearchUserBox';
-import Cabecalho from "../../components/comun/cabecalho3"
+import Cabecalho from "../../components/comun/cabecalho pesquisa"
 
 
 const Boxes = [

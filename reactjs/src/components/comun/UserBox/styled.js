@@ -9,6 +9,7 @@ const Conteudo = styled.div`
     height: 8em;
     width: 20em;
     padding: 1em;
+    cursor: pointer;
     border-radius: 8px;
     flex-direction: row;
     display: flex;
