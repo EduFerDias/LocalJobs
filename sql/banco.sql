@@ -32,7 +32,7 @@
    id_pessoal			int,
    FOREIGN KEY (id_empresa) REFERENCES tb_empresa(id_empresa),
    FOREIGN KEY (id_pessoal) REFERENCES tb_pessoal(id_pessoal)
-   );   
+   )ENGINE=inno_db;
    
  CREATE TABLE infoc_atn_tb_chat (
    id_chat			int primary key auto_increment,
