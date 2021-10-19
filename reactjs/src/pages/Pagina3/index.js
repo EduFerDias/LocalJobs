@@ -4,7 +4,44 @@ import Conteudo from "./Style"
 import Cabecalho2 from "../../components/comun/cabecalho1";
 
 
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
+
+import LoadingBar from 'react-top-loading-bar'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import React, { useEffect, useRef } from 'react'
+import { useState } from 'react';
+
+import Api from '../../services/Api';
+const api = new Api();
+
+
 export default function Pagina3(){
+
+    const [empresa, setEmpresa ] = useState([]);
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    const [nome, setNome] = useState('');
+    const [ramo, setRamo] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [cnpj, setCNPJ] = useState('');
+    const [estado_cidade, setEstadoCidade] = useState('');
+
+
+    console.log(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
+
+    async function inserirEmpresa() {
+        let x = await api.inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
+        console.log(x)
+        toast.success('Conta Empresarial Criada.')  
+    }
+
+
     return(
         <Conteudo>
             <Cabecalho2 />
@@ -12,30 +49,30 @@ export default function Pagina3(){
                 <div class="form">
                     <Logo2 />
                     <form>
-                        <input type="text" placeholder="Empresa"/>
-                        <input type="text" placeholder="CNPJ" />
+                        <input type="text" value={ nome } onChange={e => setNome(e.target.value)} placeholder="Empresa"/>
+                        <input type="text" value={ cnpj } onChange={e => setCNPJ(e.target.value)} placeholder="CNPJ" />
 
                         <div class="f-double">
                             <span class="select-custom">
-                                <select name="" id="" >
-                                    <option value="valor1" selected>Todas áreas</option>
-                                    <option value="valor2">Alimentos e Bebidas </option>
-                                    <option value="valor2">Arte e Antiguidades </option>
-                                    <option value="valor2">Artigos Religiosos </option>
-                                    <option value="valor2">Assinaturas e Revistas </option>
-                                    <option value="valor2">Automóveis e Veículos </option>
-                                    <option value="valor2">Bebês e Cia </option>
-                                    <option value="valor2">Blu-Ray </option>
-                                    <option value="valor2">Brinquedos e Games </option>
-                                    <option value="valor2">Casa e Decoração </option>
-                                    <option value="valor2">CDs e DVDs </option>
-                                    <option value="valor2">Colecionáveis </option>
-                                    <option value="valor2">Compras Coletivas </option>
-                                    <option value="valor2">Construção e Ferramentas </option>
-                                    <option value="valor2">Cosméticos e Perfumaria</option> 
-                                    <option value="valor2">Cursos e Educação </option>
-                                    <option value="valor2">Discos de Vinil </option>
-                                    <option value="valor2">Distribuição de Jornais</option>
+                                <select name="" value={ ramo } onChange={e => setRamo(e.target.value)} id="" >
+                                    <option value="Todas áreas" selected>Todas áreas</option>
+                                    <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
+                                    <option value="Arte e Antiguidades">Arte e Antiguidades </option>
+                                    <option value="Artigos Religiosos">Artigos Religiosos </option>
+                                    <option value="Assinaturas e Revistas">Assinaturas e Revistas </option>
+                                    <option value="Automóveis e Veículos">Automóveis e Veículos </option>
+                                    <option value="Bebês e Cia">Bebês e Cia </option>
+                                    <option value="Blu-Ray">Blu-Ray </option>
+                                    <option value="Brinquedos e Games">Brinquedos e Games </option>
+                                    <option value="Casa e Decoração">Casa e Decoração </option>
+                                    <option value="valor11">CDs e DVDs </option>
+                                    <option value="valor12">Colecionáveis </option>
+                                    <option value="valor13">Compras Coletivas </option>
+                                    <option value="valor14">Construção e Ferramentas </option>
+                                    <option value="valor15">Cosméticos e Perfumaria</option> 
+                                    <option value="valor16">Cursos e Educação </option>
+                                    <option value="valor17">Discos de Vinil </option>
+                                    <option value="valor18">Distribuição de Jornais</option>
                                     <option value="valor2">Eletrodomésticos </option>
                                     <option value="valor2">Eletrônicos </option>
                                     <option value="valor2">Emissoras </option>
@@ -135,14 +172,18 @@ export default function Pagina3(){
                                     <option value="valor2">Turismo</option>
                                 </select>
                             </span>
-                            <input type="text" placeholder="Telefone" class="tele"/> 
+                            <input type="text" value={ telefone } onChange={e => setTelefone(e.target.value)} placeholder="Telefone" class="tele"/> 
                         </div>
 
-                        <input type="text" placeholder="Estado - Cidade"/>
-                        <input type="text" placeholder="Email"/>
-                        <input type="password" placeholder="Senha"/> 
+                        <input type="text" value={ estado_cidade } onChange={e => setEstadoCidade(e.target.value)} placeholder="Estado - Cidade"/>
+                        <input type="text" value={ email } onChange={e => setEmail(e.target.value)} placeholder="Email"/>
+                        <input type="password" value={ senha } onChange={e => setSenha(e.target.value)} placeholder="Senha"/> 
                         <input type="password" placeholder="Confirmar senha"/> 
-                        <Link to="/page10"><button class="button">Cadastrar</button></Link>
+                        {/* <Link to="/page10"> */}
+
+                            <button class="button" onClick={ inserirEmpresa }>Cadastrar</button>
+                            
+                        {/* </Link> */}
                     </form>
                     <div class="f1-conta">
                         Já possui conta? &nbsp; <span>faça o login</span>
