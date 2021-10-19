@@ -1,50 +1,38 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_atn_tb_pessoal extends Model {
+export default class infob_mw_comentario extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_pessoal: {
+    id_cometario: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_nome: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_area: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_cargo: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    nr_telefone: {
+    id_filme: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    ds_estado_cidade: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_email: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_senha: {
+    id_usuario: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    bl_assinatura: {
-      type: DataTypes.BOOLEAN,
+    ds_mensagem: {
+      type: DataTypes.STRING(300),
+      allowNull: true
+    },
+    dt_comentario: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    ds_curtidas: {
+      type: DataTypes.INTEGER,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_atn_tb_pessoal',
+    tableName: 'infob_mw_comentario',
     timestamps: false,
     indexes: [
       {
@@ -52,11 +40,25 @@ export default class infoc_atn_tb_pessoal extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_pessoal" },
+          { name: "id_cometario" },
+        ]
+      },
+      {
+        name: "id_filme",
+        using: "BTREE",
+        fields: [
+          { name: "id_filme" },
+        ]
+      },
+      {
+        name: "id_usuario",
+        using: "BTREE",
+        fields: [
+          { name: "id_usuario" },
         ]
       },
     ]
   });
-  return infoc_atn_tb_pessoal;
+  return infob_mw_comentario;
   }
 }

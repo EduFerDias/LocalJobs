@@ -1,50 +1,46 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_atn_tb_pessoal extends Model {
+export default class infod_ssc_cliente extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_pessoal: {
+    id_cliente: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_nome: {
-      type: DataTypes.STRING(100),
+    id_endereco: {
+      type: DataTypes.INTEGER,
       allowNull: true
     },
-    ds_area: {
-      type: DataTypes.STRING(100),
+    nm_cliente: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    ds_cargo: {
-      type: DataTypes.STRING(100),
+    ds_cpf: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    dt_nascimento: {
+      type: DataTypes.DATEONLY,
       allowNull: true
     },
     nr_telefone: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    ds_estado_cidade: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(15),
       allowNull: true
     },
     ds_email: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     ds_senha: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    bl_assinatura: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_atn_tb_pessoal',
+    tableName: 'infod_ssc_cliente',
     timestamps: false,
     indexes: [
       {
@@ -52,11 +48,18 @@ export default class infoc_atn_tb_pessoal extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_pessoal" },
+          { name: "id_cliente" },
+        ]
+      },
+      {
+        name: "id_endereco",
+        using: "BTREE",
+        fields: [
+          { name: "id_endereco" },
         ]
       },
     ]
   });
-  return infoc_atn_tb_pessoal;
+  return infod_ssc_cliente;
   }
 }

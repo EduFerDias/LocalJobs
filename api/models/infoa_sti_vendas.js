@@ -1,46 +1,34 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_atn_tb_empresa extends Model {
+export default class infoa_sti_vendas extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_empresa: {
+    id_vendas: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_nome: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    nr_cnpj: {
+    id_cliente: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    nm_ramo: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    nr_telefone: {
+    id_produto: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    ds_estado_cidade: {
-      type: DataTypes.STRING(100),
+    ds_codigo: {
+      type: DataTypes.STRING(200),
       allowNull: true
     },
-    ds_email: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_senha: {
-      type: DataTypes.INTEGER,
+    dt_venda: {
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_atn_tb_empresa',
+    tableName: 'infoa_sti_vendas',
     timestamps: false,
     indexes: [
       {
@@ -48,11 +36,25 @@ export default class infoc_atn_tb_empresa extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_empresa" },
+          { name: "id_vendas" },
+        ]
+      },
+      {
+        name: "id_cliente",
+        using: "BTREE",
+        fields: [
+          { name: "id_cliente" },
+        ]
+      },
+      {
+        name: "id_produto",
+        using: "BTREE",
+        fields: [
+          { name: "id_produto" },
         ]
       },
     ]
   });
-  return infoc_atn_tb_empresa;
+  return infoa_sti_vendas;
   }
 }

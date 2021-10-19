@@ -27,8 +27,7 @@ app.post("/empresa", async (req, resp) => {
         nr_telefone: a.nr_telefone,
         ds_estado_cidade: a.ds_estado_cidade,
         ds_email: a.ds_email,
-        ds_senha: a.ds_senha,
-        ds_confirmar_senha: a.ds_confirmar_senha
+        ds_senha: a.ds_senha
     })
 
     resp.send(empresa);
@@ -83,8 +82,7 @@ app.put("/empresa/:id", async (req,resp) => {
             nr_telefone: a.nr_telefone,
             ds_estado_cidade: a.ds_estado_cidade,
             ds_email: a.ds_email,
-            ds_senha: a.ds_senha,
-            ds_confirmar_senha: a.ds_confirmar_senha
+            ds_senha: a.ds_senha
         }, {where: { id_empresa: id } })
     
         resp.sendStatus(empresa);

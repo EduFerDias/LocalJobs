@@ -1,46 +1,30 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_atn_tb_empresa extends Model {
+export default class infoc_atn_tb_curriculo extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_empresa: {
+    id_curriculo: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_nome: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    nr_cnpj: {
+    id_pessoal: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    nm_ramo: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    nr_telefone: {
+    id_vaga: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    ds_estado_cidade: {
+    ds_curriculo: {
       type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_email: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_senha: {
-      type: DataTypes.INTEGER,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_atn_tb_empresa',
+    tableName: 'infoc_atn_tb_curriculo',
     timestamps: false,
     indexes: [
       {
@@ -48,11 +32,25 @@ export default class infoc_atn_tb_empresa extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_empresa" },
+          { name: "id_curriculo" },
+        ]
+      },
+      {
+        name: "id_pessoal",
+        using: "BTREE",
+        fields: [
+          { name: "id_pessoal" },
+        ]
+      },
+      {
+        name: "id_vaga",
+        using: "BTREE",
+        fields: [
+          { name: "id_vaga" },
         ]
       },
     ]
   });
-  return infoc_atn_tb_empresa;
+  return infoc_atn_tb_curriculo;
   }
 }

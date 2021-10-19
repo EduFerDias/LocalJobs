@@ -1,50 +1,38 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_atn_tb_pessoal extends Model {
+export default class infoc_atn_tb_configuracoes_empresa extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_pessoal: {
+    id_empresa: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_nome: {
+    ds_site: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    ds_area: {
+    ds_descricao_empresa: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    ds_cargo: {
+    ds_instagram_empresa: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    nr_telefone: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    ds_estado_cidade: {
+    ds_twiter_empresa: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    ds_email: {
+    ds_link_imagem: {
       type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_senha: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    bl_assinatura: {
-      type: DataTypes.BOOLEAN,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_atn_tb_pessoal',
+    tableName: 'infoc_atn_tb_configuracoes_empresa',
     timestamps: false,
     indexes: [
       {
@@ -52,11 +40,11 @@ export default class infoc_atn_tb_pessoal extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_pessoal" },
+          { name: "id_empresa" },
         ]
       },
     ]
   });
-  return infoc_atn_tb_pessoal;
+  return infoc_atn_tb_configuracoes_empresa;
   }
 }

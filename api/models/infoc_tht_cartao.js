@@ -1,46 +1,34 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_atn_tb_empresa extends Model {
+export default class infoc_tht_cartao extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_empresa: {
+    id_cartao: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_nome: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    nr_cnpj: {
+    nr_cartao: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    nm_ramo: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    nr_telefone: {
+    nm_cartao: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    ds_estado_cidade: {
-      type: DataTypes.STRING(100),
+    mr_parcela: {
+      type: DataTypes.INTEGER,
       allowNull: true
     },
-    ds_email: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_senha: {
+    nr_parcela: {
       type: DataTypes.INTEGER,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_atn_tb_empresa',
+    tableName: 'infoc_tht_cartao',
     timestamps: false,
     indexes: [
       {
@@ -48,11 +36,11 @@ export default class infoc_atn_tb_empresa extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_empresa" },
+          { name: "id_cartao" },
         ]
       },
     ]
   });
-  return infoc_atn_tb_empresa;
+  return infoc_tht_cartao;
   }
 }

@@ -1,50 +1,46 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_atn_tb_pessoal extends Model {
+export default class infoc_tht_lugar extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_pessoal: {
+    id_lugar: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    nm_nome: {
+    nm_lugar: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    ds_area: {
+    ds_avaliacao: {
+      type: DataTypes.DECIMAL(10,5),
+      allowNull: true
+    },
+    ds_edereco: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    ds_cargo: {
+    ds_imagem: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    ds_informacao: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    nr_telefone: {
-      type: DataTypes.INTEGER,
+    dt_dias: {
+      type: DataTypes.DATE,
       allowNull: true
     },
-    ds_estado_cidade: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_email: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_senha: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    bl_assinatura: {
-      type: DataTypes.BOOLEAN,
+    dt_horario: {
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_atn_tb_pessoal',
+    tableName: 'infoc_tht_lugar',
     timestamps: false,
     indexes: [
       {
@@ -52,11 +48,11 @@ export default class infoc_atn_tb_pessoal extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_pessoal" },
+          { name: "id_lugar" },
         ]
       },
     ]
   });
-  return infoc_atn_tb_pessoal;
+  return infoc_tht_lugar;
   }
 }
