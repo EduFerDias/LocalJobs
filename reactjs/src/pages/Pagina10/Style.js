@@ -100,11 +100,6 @@ hr {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-
-
-
-
-
 .f10-boxes {
     flex-direction: row;
     display: flex;
@@ -112,7 +107,7 @@ hr {
 }
 
 .f10-boxes {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 

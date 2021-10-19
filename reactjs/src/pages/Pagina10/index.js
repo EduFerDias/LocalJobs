@@ -53,6 +53,7 @@ export default function Pagina10 (){
                         <Carousel 
                             responsive={responsive}
                             infinite={true}
+                            draggable={false}
                         >
 
                             {usuario.map(item => 
@@ -66,6 +67,7 @@ export default function Pagina10 (){
                         <Carousel 
                             responsive={responsive}
                             infinite={true}
+                            draggable={false}
                         >
 
                             {usuario.map(item => 
@@ -81,6 +83,7 @@ export default function Pagina10 (){
                         <Carousel 
                             responsive={responsive}
                             infinite={true}
+                            draggable={false}
                         >
 
                             {usuario.map(item => 
