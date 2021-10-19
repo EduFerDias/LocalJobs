@@ -101,6 +101,8 @@ import _infod_tif_comunidade from  "./infod_tif_comunidade.js";
 import _infod_tif_like from  "./infod_tif_like.js";
 import _infod_tif_post from  "./infod_tif_post.js";
 import _infod_tif_usuario from  "./infod_tif_usuario.js";
+import _insf_tb_usuario from  "./insf_tb_usuario.js";
+import _insf_tb_usuario_endereco from  "./insf_tb_usuario_endereco.js";
 
 export default function initModels(sequelize) {
   var infoa_dtn_tb_avaliacao = _infoa_dtn_tb_avaliacao.init(sequelize, DataTypes);
@@ -204,7 +206,37 @@ export default function initModels(sequelize) {
   var infod_tif_like = _infod_tif_like.init(sequelize, DataTypes);
   var infod_tif_post = _infod_tif_post.init(sequelize, DataTypes);
   var infod_tif_usuario = _infod_tif_usuario.init(sequelize, DataTypes);
+  var insf_tb_usuario = _insf_tb_usuario.init(sequelize, DataTypes);
+  var insf_tb_usuario_endereco = _insf_tb_usuario_endereco.init(sequelize, DataTypes);
 
+  infoc_ntc_denuncia.belongsTo(infoc_ntc_caracteristica_fisica, { as: "id_fisico_infoc_ntc_caracteristica_fisica", foreignKey: "id_fisico"});
+  infoc_ntc_caracteristica_fisica.hasMany(infoc_ntc_denuncia, { as: "infoc_ntc_denuncia", foreignKey: "id_fisico"});
+  infoc_ntc_denuncia.belongsTo(infoc_ntc_local, { as: "id_local_infoc_ntc_local", foreignKey: "id_local"});
+  infoc_ntc_local.hasMany(infoc_ntc_denuncia, { as: "infoc_ntc_denuncia", foreignKey: "id_local"});
+  infoc_ntc_denuncia.belongsTo(infoc_ntc_usuario, { as: "id_usuario_infoc_ntc_usuario", foreignKey: "id_usuario"});
+  infoc_ntc_usuario.hasMany(infoc_ntc_denuncia, { as: "infoc_ntc_denuncia", foreignKey: "id_usuario"});
+  infoc_ntc_denuncia.belongsTo(infoc_ntc_vestimento, { as: "id_vestimento_infoc_ntc_vestimento", foreignKey: "id_vestimento"});
+  infoc_ntc_vestimento.hasMany(infoc_ntc_denuncia, { as: "infoc_ntc_denuncia", foreignKey: "id_vestimento"});
+  infoc_tdv_endereco.belongsTo(infoc_tdv_cliente, { as: "id_cliente_infoc_tdv_cliente", foreignKey: "id_cliente"});
+  infoc_tdv_cliente.hasMany(infoc_tdv_endereco, { as: "infoc_tdv_enderecos", foreignKey: "id_cliente"});
+  infoc_tdv_favorito.belongsTo(infoc_tdv_cliente, { as: "id_cliente_infoc_tdv_cliente", foreignKey: "id_cliente"});
+  infoc_tdv_cliente.hasMany(infoc_tdv_favorito, { as: "infoc_tdv_favoritos", foreignKey: "id_cliente"});
+  infoc_tdv_forma_pagamento.belongsTo(infoc_tdv_cliente, { as: "id_cliente_infoc_tdv_cliente", foreignKey: "id_cliente"});
+  infoc_tdv_cliente.hasMany(infoc_tdv_forma_pagamento, { as: "infoc_tdv_forma_pagamentos", foreignKey: "id_cliente"});
+  infoc_tdv_pedido.belongsTo(infoc_tdv_cliente, { as: "id_cliente_infoc_tdv_cliente", foreignKey: "id_cliente"});
+  infoc_tdv_cliente.hasMany(infoc_tdv_pedido, { as: "infoc_tdv_pedidos", foreignKey: "id_cliente"});
+  infoc_tdv_pedido.belongsTo(infoc_tdv_cupom, { as: "id_cupom_infoc_tdv_cupom", foreignKey: "id_cupom"});
+  infoc_tdv_cupom.hasMany(infoc_tdv_pedido, { as: "infoc_tdv_pedidos", foreignKey: "id_cupom"});
+  infoc_tdv_livro.belongsTo(infoc_tdv_genero, { as: "id_genero_infoc_tdv_genero", foreignKey: "id_genero"});
+  infoc_tdv_genero.hasMany(infoc_tdv_livro, { as: "infoc_tdv_livros", foreignKey: "id_genero"});
+  infoc_tdv_favorito.belongsTo(infoc_tdv_livro, { as: "id_livro_infoc_tdv_livro", foreignKey: "id_livro"});
+  infoc_tdv_livro.hasMany(infoc_tdv_favorito, { as: "infoc_tdv_favoritos", foreignKey: "id_livro"});
+  infoc_tdv_pedido_item.belongsTo(infoc_tdv_livro, { as: "id_livro_infoc_tdv_livro", foreignKey: "id_livro"});
+  infoc_tdv_livro.hasMany(infoc_tdv_pedido_item, { as: "infoc_tdv_pedido_items", foreignKey: "id_livro"});
+  infoc_tdv_pedido_item.belongsTo(infoc_tdv_pedido, { as: "id_pedido_infoc_tdv_pedido", foreignKey: "id_pedido"});
+  infoc_tdv_pedido.hasMany(infoc_tdv_pedido_item, { as: "infoc_tdv_pedido_items", foreignKey: "id_pedido"});
+  insf_tb_usuario_endereco.belongsTo(insf_tb_usuario, { as: "id_usuario_insf_tb_usuario", foreignKey: "id_usuario"});
+  insf_tb_usuario.hasMany(insf_tb_usuario_endereco, { as: "insf_tb_usuario_enderecos", foreignKey: "id_usuario"});
 
   return {
     infoa_dtn_tb_avaliacao,
@@ -308,5 +340,7 @@ export default function initModels(sequelize) {
     infod_tif_like,
     infod_tif_post,
     infod_tif_usuario,
+    insf_tb_usuario,
+    insf_tb_usuario_endereco,
   };
 }
