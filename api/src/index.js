@@ -6,6 +6,8 @@ app.use(cors());
 app.use(express.json());
 
 
+
+
 // EMPRESA 
 
 
@@ -55,7 +57,7 @@ app.delete("/empresa/:id", async (req, resp) => {
         let id = req.params.id
         let q = await db.infoc_atn_tb_empresa.destroy({ where:{ id_empresa: id }})
 
-        resp.sendStatus(200); 
+        resp.sendStatus("Empresa Removida"); 
     }
     catch(e) {
          resp.send("Erro")
