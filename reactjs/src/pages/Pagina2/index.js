@@ -1,25 +1,12 @@
 import Conteudo from "./Style"
 import { Link } from "react-router-dom";
+import Cabecalho1 from "../../components/comun/cabecalho1";
 
 export default function Pagina2 (){
     return(
     <Conteudo>
         <div class="faixa1">
-            <div class="cabecalho">
-                <div class="logo">
-                    <Link to="/"><img src="./assets/images/Cadastro e Login/logo.png" alt=""/></Link>
-                    Local<span class="dark">jobs</span>
-                </div>
-    
-                <div class="user-interac">
-                    <div class="pic">
-                        <img src="./assets/images/Cadastro e Login/p1-Group 5.png" alt=""/>
-                        <div class="login">Entrar</div>
-                    </div>
-                    <div class="detalhe">&nbsp;</div>
-                    <button class="criar-conta">Criar Conta</button>
-                </div>
-            </div>
+            <Cabecalho1 />
             <div class="corpo">
             <div className="botoes">
                 <Link to="/cadastro-empresa">

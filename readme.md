@@ -17,5 +17,7 @@ Paginas 11 e 12 Não inplementadas
 Tem que atualizar o trello!!!
 ```
 
+P.S do Edu => A versão que eu subi no vercel ta na branch *"Branch-edu"* e **NÃO NA MASTER**
+
 
 Figma: https://www.figma.com/file/lTVpmckq1uZ54nkJeBk4vQ/LocalJobs?node-id=0%3A1

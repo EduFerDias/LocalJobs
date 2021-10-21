@@ -1,25 +1,14 @@
 import Conteudo from "./Style";
 import { Link } from "react-router-dom";
+import Cabecalho1 from "../../components/comun/cabecalho1";
+import Rodape from "../../components/comun/rodapé";
 
 export default function Pagina1 (){
     return(
         <Conteudo>
                     <div className="faixa1">
-                        <div className="cabecalho">
-                            <div className="logo">
-                                <img src="./assets/images/Cadastro e Login/logo.png" alt=""/>
-                                Local<span className="dark">jobs</span>
-                            </div>
+                        <Cabecalho1 />
 
-                            <div className="user-interac">
-                                <div className="pic">
-                                    <img src="./assets/images/p1-Group 5.png" alt=""/>
-                                    <Link to="/esqueceu-senha"><div className="login">Entrar</div></Link>
-                                </div>
-                                <div className="detalhe">&nbsp;</div>
-                                <Link to="/cadastros"><button className="criar-conta">Criar Conta</button></Link>
-                            </div>
-                        </div>
                         <div className="corpo">
                             <div className="f1-text">
                                 <div className="f1-titulo">Contribuindo para empregar todos</div>
@@ -65,55 +54,7 @@ export default function Pagina1 (){
                             </Link>
                         </div>
                     </div>
-
-                    <div className="faixa-4">
-                        <div className="f4-conteudo">
-
-                            <div className="logo">
-                                <img src="./assets/images/Cadastro e Login/logo.png" alt="" />
-                                Local<span className="dark">jobs</span>
-                            </div>
-                            <div className="links">
-
-                                <div className="nav">
-                                    Navegação
-                                    <div className="sobre">
-                                        Sobre nós
-                                    </div>
-
-                                    <div className="perfil">
-                                        Pefil
-                                    </div>
-
-                                    <div className="home">
-                                        Home
-                                    </div>
-
-                                </div>
-                                <div className="redes">
-                                    Siga nossas redes
-
-                                    <div className="insta"> 
-                                        <img src="./assets//images/Cadastro e Login/p1-007-instagram-logo-white 1.png" alt="" />
-                                        Instagram 
-                                    </div>
-
-                                    <div className="twitter">
-                                        <img src="./assets/images/Cadastro e Login/p1-logo-twitter-png-fundo-transparente7 1.svg" alt="" /> 
-                                        Twitter 
-                                    </div>
-
-                                    <div className="facebook">
-                                        <img src="./assets/images/Cadastro e Login/p1-20673 1.svg" alt="" /> 
-                                        Facebook 
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
+                    <Rodape />
         </Conteudo>
     );
 }

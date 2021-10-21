@@ -5,10 +5,10 @@ const Pagina2 = styled.div`
 
 .faixa1{
     background-image: url("./assets/images/Cadastro e Login/p1-estaiada.png");
-    height: 100vh;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 100vw;
-    background-attachment:fixed;
+    width: 100vw;
+    height: 100vh;
 }
 .cabecalho, .user-interac, .pic{
     display: flex;

@@ -32,61 +32,6 @@ const Pagina6 = styled.div`
   min-height: 100vh;
   min-width: 1200px;
 
-.cabecalho-t6 {
-  display: flex;
-  flex-direction: row;
-
-  justify-content: space-between;
-
-  background: rgba(95, 103, 121, 0.7);
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-
-  height: 90px;
-
-  padding: 0em 4em 0px 4em;
-}
-
-.divisao-t6 {
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-}
-
-.logo-t6 img {
-  width: 75px;
-  height: 50px;
-  cursor: pointer;
-}
-
-.logo-t6 {
-  margin-right: 2em;
-}
-
-.nmSite-t6 {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 25px;
-
-  cursor: pointer;
-}
-
-.nmUsuario-t6 {
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 25px;
-
-  cursor: pointer;
-  margin-right: 2em;
-}
-
-.imagenUsuario-t6 img {
-  width: 75px;
-  height: 75px;
-  cursor: pointer;
-}
 
 .conteudo-t6 {
   display: flex;

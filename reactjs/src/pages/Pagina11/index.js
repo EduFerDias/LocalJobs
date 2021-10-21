@@ -1,185 +1,94 @@
-import { Link } from 'react-router-dom';
+import Cabecalho3 from '../../components/comun/cabecalho3';
+import Rodape from '../../components/comun/rodapé'
 import Conteudo from './Style'
+import Searchbar from '../../components/comun/SearchBar';
+
+import Carousel from 'react-multi-carousel';
+import UserBox from "../../components/comun/UserBox";
+import "react-multi-carousel/lib/styles.css"
+import { useState,useEffect } from 'react'
+
 
 export default function Pagina11 (){
+
+    const [empresa, setEmpresa] = useState([]);
+
+    const responsive = {
+
+        desktop:{
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3
+        }
+    }
+
+    function listar() {
+        const Boxes = [
+            {empresa:"Marie Soluções tecnológicas",cidade: "São Paulo", area:"TI", salario:1000, profissao: "Dev Pleno"},
+            {empresa:"Padoca do Tobias",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Suporte"},
+            {empresa:"St. Louis Studios",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Dev Júnior"},
+        ]
+    
+    setEmpresa(Boxes);
+    }
+
+    
+    useEffect(() => {
+        listar();
+    });
+
+
     return(
         <Conteudo>
-        <div class="f10-cabecario">
-            <div class="f10-parte1">
-                <div class="f10-logo"> <Link to="/"><img src="../../assets/images/pagina 9,10,11,12/f10-logo.png" alt=""/></Link></div>
-                <div class="f10-nome">LocalJobs</div>
-            </div>
-
-            <div class="f10-parte2">
-                <div class="f10-nome">úsuario</div>
-                <div class="f10-imagem"><img src="../../assets/images/pagina 9,10,11,12/f10-fotoperfil.png" alt=""/></div>
-            </div>
-        </div>
-
-        <div class="f10-filtro">
-            <div class="f10-textofiltro">Pesquise por área e cidade especifica<br/>cidade especifica</div>
-            <div class="f10-pesquisa2">
-                <div class="f10-pesquisa">
-                    <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-cargo.png" alt=""/></div>
-
-                    <select name="select" >
-                        <option value="valor1" selected>Todas áreas</option>
-                        <option value="valor2"> </option>
-                    </select>
-                    <hr size="30" />
-                    <input class="f10-cargo" type="search" placeholder="Digite Um Cargo" />
-                    <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
-                    <hr size="30" />
-                    <input class="f10-cidade" type="search" placeholder="Digite Uma Cidade" />
-                    <div class="f10-lupa"><Link to="/page12"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></Link></div>
-                </div>
-            </div>
-        </div>
+                <Cabecalho3 />
+                
+        <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
+       <Searchbar />
 
         <div class="f10-areas">
             <div class="f10-filtro1">Empresas de diversas áreas</div>
 
-            <div class="f10-setas">
-                <div class="f10-boxes">
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
+                <Carousel 
+                    responsive={responsive}
+                    infinite={true}
+                >
 
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
+                    {empresa.map(item => 
+                            <UserBox empresa={item.empresa != null && item.empresa.length > 25 ?item.empresa.substr(0, 15) + '...' :item.empresa} cidade={item.cidade} area={item.area} salario={item.salario} profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} bt_empresa={true}/>
+                    )}
 
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-controls testimonial-carousel-controls">
-                    <div class="prev" onclick="plusSlides(-1)"></div>
-                    <div class="next" onclick="plusSlides(1)" ></div>
-                </div>
-            </div>
+                </Carousel>;
 
+            <div class="f10-filtro1">Pessoas de diversas áreas</div>
+
+                <Carousel 
+                    responsive={responsive}
+                    infinite={true}
+                >
+
+                    {empresa.map(item => 
+                            <UserBox empresa={item.empresa != null && item.empresa.length > 25 ?item.empresa.substr(0, 15) + '...' :item.empresa} cidade={item.cidade} area={item.area} salario={item.salario} profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} bt_empresa={true}/>
+                    )}
+
+                </Carousel>
+
+            
             <div class="f10-filtro1">Empresas de diversas áreas</div>
 
-            <div class="f10-setas">
-                <div class="f10-boxes">
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
+                <Carousel 
+                    responsive={responsive}
+                    infinite={true}
+                >
 
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
+                    {empresa.map(item => 
+                            <UserBox empresa={item.empresa != null && item.empresa.length > 25 ?item.empresa.substr(0, 15) + '...' :item.empresa} cidade={item.cidade} area={item.area} salario={item.salario} profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} bt_empresa={true}/>
+                    )}
 
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-controls testimonial-carousel-controls">
-                    <div class="prev" onclick="plusSlides(-1)" ></div>
-                    <div class="next" onclick="plusSlides(1)" ></div>
-                </div>
-            </div>
-
-            <div class="f10-filtro1">Empresas de diversas áreas</div>
-
-            <div class="f10-setas">
-                <div class="f10-boxes">
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
-
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt=""/> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
-
-                    <div class="f10-box">
-                        <div class="f10-fotofiltro"><img src="../../assets/images/pagina 9,10,11,12/f10-empresa.png" alt="" /> </div>
-                        <div class="f10-texto">
-                            <div class="f10-filtronome">Empresa</div>
-                            <div class="f10-cidade">Cidade</div>
-                            <div class="f10-profissao">Vaga<div class="f10-barra">-</div><div class="f10-filtroarea">área</div></div>
-                            <div class="f10-data">R$1000</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-controls testimonial-carousel-controls">
-                    <div class="prev" onclick="plusSlides(-1)" ></div>
-                    <div class="next" onclick="plusSlides(1)" ></div>
-                </div>
-            </div>
+                </Carousel>
 
 
         </div> 
 
-        <hr/>
-        <div class="f10-rodape">
-            <div class="f10-imagembaixo">
-                <div class="f10-logobaixo"><img src="../../assets/images/pagina 9,10,11,12/f10-logo.png" alt=""/></div>
-                <div class="f10-textobaixo">LocalJobs</div>
-            </div>
-            <div class="f10-rodape2">
-                <div class="f10-navegacao"> <div class="f10-navegacao2">Navegação</div>
-                    <div class="f10-navegacaobaixo">Sobre Nós</div>
-                    <div class="f10-navegacaobaixo">Perfil</div>
-                    <div class="f10-navegacaobaixo">Home</div>
-                </div>
-
-                <div class="f10-redes"> <div class="f10-redes2">Siga nossas rede<br/> sociais</div>
-                    <div class="f10-redesbaixo"><img src="../../assets/images/pagina 9,10,11,12/f10-face3.png" alt=""/> Facebook</div>
-                    <div class="f10-redesbaixo"><img src="../../assets/images/pagina 9,10,11,12/f10-twitter.png" alt=""/> Twitter</div>
-                    <div class="f10-redesbaixo"><img src="../../assets/images/pagina 9,10,11,12/f10-instagram.png" alt=""/> Instagram</div>
-                </div>
-            </div>
-        </div>
+        <Rodape />
     </Conteudo>
 
     );
