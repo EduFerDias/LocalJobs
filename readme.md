@@ -6,15 +6,13 @@
 
 **REACT**
 
-Paginas 1,2,3 e 4 ok
-
-Paginas 5, 6, 7, 9 e 10 Problemas com a fonte
+Paginas 1,2,3, 4,5, 6, 7, 9 e 10ok
 
 Paginas 11 e 12 Não inplementadas
 
 
 ```
-Tem que atualizar o trello!!!
+Tem que atualizar o trello!!!(vou atualizar fof)
 ```
 
 P.S do Edu => A versão que eu subi no vercel ta na branch *"Branch-edu"* e **NÃO NA MASTER**
