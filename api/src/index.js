@@ -40,6 +40,7 @@ app.post("/empresa", async (req, resp) => {
 });
 
 // GET TB EMPRESA
+
 app.get("/empresa", async (req, resp) => {
   try {
         let a = await db.infoc_atn_tb_empresa.findAll({ order: [['id_empresa', 'desc']] });
