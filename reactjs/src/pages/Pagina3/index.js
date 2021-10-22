@@ -31,7 +31,8 @@ export default function Pagina3(){
     const [telefone, setTelefone] = useState('');
     const [cnpj, setCNPJ] = useState('');
     const [estado_cidade, setEstadoCidade] = useState('');
-
+    const [estado, setEstado] = useState('');
+    const [cidade, setCidade] = useState('');
 
     console.log(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
 
@@ -174,8 +175,44 @@ export default function Pagina3(){
                             </span>
                             <input type="text" value={ telefone } onChange={e => setTelefone(e.target.value)} placeholder="Telefone" class="tele"/> 
                         </div>
+                        
+                        <div class="double">
+                                <select name="estados-brasil" value={ estado } onChange={e => setEstado(e.target.value)} id="" >
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP" selected>São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
+                                </select>
+
+                                <select name="" value={ cidade } onChange={e => setCidade(e.target.value)} id="" >
+                                </select>   
+                        </div>
 
                         <input type="text" value={ estado_cidade } onChange={e => setEstadoCidade(e.target.value)} placeholder="Estado - Cidade"/>
+
                         <input type="text" value={ email } onChange={e => setEmail(e.target.value)} placeholder="Email"/>
                         <input type="password" value={ senha } onChange={e => setSenha(e.target.value)} placeholder="Senha"/> 
                         <input type="password" placeholder="Confirmar senha"/> 

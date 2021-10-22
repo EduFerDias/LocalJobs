@@ -61,6 +61,9 @@ background-attachment:fixed;
     margin-right: 5px;
     padding-right: 5px;
 }
+
+
+
 .f-double select{
     background-image: url("./assets/images/Cadastros_Forms/p3-25243\ 1.png");
     background-repeat: no-repeat;
@@ -84,6 +87,12 @@ background-attachment:fixed;
     padding-left: 2.5rem;
     margin: 0px 0px 0px 5px;
 }
+.double input{
+    width: 11.375rem;
+    padding-left: 2.5rem;
+    margin: 0px 0px 0px 5px;
+}
+
 .button{
     background-color: #107AD1;    
     color: white;

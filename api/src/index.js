@@ -10,7 +10,17 @@ app.use(express.json());
 
 // EMPRESA 
 
+// GET TB EMPRESA
 
+app.get("/empresa", async (req, resp) => {
+    try {
+          let a = await db.infoc_atn_tb_empresa.findAll({ order: [['id_empresa', 'desc']] });
+          resp.send(a);
+      } catch (e) {
+          resp.send("Erro")
+          resp.send(e.toString());
+      }
+  });
 
 // POST TB EMPRESA 
 
@@ -39,17 +49,6 @@ app.post("/empresa", async (req, resp) => {
     }
 });
 
-// GET TB EMPRESA
-
-app.get("/empresa", async (req, resp) => {
-  try {
-        let a = await db.infoc_atn_tb_empresa.findAll({ order: [['id_empresa', 'desc']] });
-        resp.send(a);
-    } catch (e) {
-        resp.send("Erro")
-        resp.send(e.toString());
-    }
-});
 
 // DELETE TB EMPRESA
 
@@ -110,9 +109,40 @@ app.get("/empresaconfig", async (req, resp) => {
       } catch (e) {
           resp.send(e.toString());
       }
-  });
+});
 
+// POST TB EMPRESA CONFIG
 
+app.post("/empresa", async (req, resp) => {
+    try {
+      let a = req.body
+      let r = await db.atn_infoc_atn_tb_configuracoes_empresa.findOne({ where: { ds_instagram: a.ds_instagram, ds_twiter: a.ds_twiter, ds_linkedin: a.ds_linkedin } })
+      if(r != null)
+          return resp.send({erro:"Essa empresa ja existe"})
+  
+      let empresa = await db.infoc_atn_tb_empresa.create ({
+          ds_sobre: a.ds_sobre,
+          ds_idioma1: a.ds_idioma1,
+          ds_idioma2: a.ds_idioma2,
+          ds_idioma3: a.ds_idioma3,
+          ds_linkedin: a.ds_linkedin,
+          ds_instagram: a.ds_instagram,
+          ds_twiter: a.ds_twiter,
+          ds_vagas_interesse1: a.ds_vagas_interesse1,
+          ds_vagas_interesse2: a.ds_vagas_interesse2,
+          ds_vagas_interesse3: a.ds_vagas_interesse3,
+          ds_esperiencias: a.ds_esperiencias,
+          ds_formacoes_academicas: a.ds_formacoes_academicas,
+          ds_link_imagem: a.ds_link_imagem,
+          id_curriculo: a.id_curriculo	
+      })
+  
+      resp.send(empresa);
+  
+      } catch (e) {
+          resp.send(e.toString());
+      }
+});
 
 
 app.listen(process.env.PORT, (x) =>
