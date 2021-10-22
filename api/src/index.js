@@ -32,7 +32,8 @@ app.post("/empresa", async (req, resp) => {
     if(r != null)
         return resp.send({erro:"Essa empresa ja existe"})
 
-    let empresa = await db.infoc_atn_tb_empresa.create ({
+
+    const empresa = await db.infoc_atn_tb_empresa.create ({
         nm_nome: a.nm_nome,
         nr_cnpj: a.nr_cnpj,
         nm_ramo: a.nm_ramo,
@@ -42,7 +43,17 @@ app.post("/empresa", async (req, resp) => {
         ds_senha: a.ds_senha
     })
 
-    resp.send(empresa);
+    const x = "";
+    const empresaconfig = await db.infoc_atn_tb_configuracoes_empresa.create ({
+        id_empresa: empresa.id_empresa,
+        ds_site: x,
+        ds_descricao_empresa: x,
+        ds_instagram_empresa: x,
+        ds_twiter_empresa: x,
+        ds_link_imagem: x
+    })
+
+    resp.send(empresa + empresaconfig);
 
     } catch (e) {
         resp.send(e.toString());
@@ -56,7 +67,7 @@ app.delete("/empresa/:id", async (req, resp) => {
     try { 
         let id = req.params.id
         let q = await db.infoc_atn_tb_empresa.destroy({ where:{ id_empresa: id }})
-
+        let x = await db.infoc_atn_tb_configuracoes_empresa.destroy({ where:{ id_empresa: id }})
         resp.sendStatus("Empresa Removida"); 
     }
     catch(e) {
@@ -94,43 +105,46 @@ app.put("/empresa/:id", async (req,resp) => {
     }
 });
 
-
-
-// EMPRESA CONFIG
-
+// TB EMPRESA CONFIG
 
 
 // GET TB EMPRESA CONFIG
 
 app.get("/empresaconfig", async (req, resp) => {
     try {
-          let a = await db.atn_infoc_atn_tb_configuracoes_empresa.findAll({ order: [['id_empresa', 'desc']] });
+          let a = await db.infoc_atn_tb_configuracoes_empresa.findAll({ order: [['id_empresa', 'desc']] });
           resp.send(a);
       } catch (e) {
           resp.send(e.toString());
       }
 });
 
-// POST TB EMPRESA CONFIG
+// PUT TB EMPRESA CONFIG
 
-app.post("/empresaconfig", async (req, resp) => {
+app.put("/empresaconfig/:id", async (req, resp) => {
     try {
-      let a = req.body
-      let r = await db.atn_infoc_atn_tb_configuracoes_empresa.findOne({ where: { ds_instagram: a.ds_instagram, ds_twiter: a.ds_twiter, ds_linkedin: a.ds_linkedin } })
+      let id = req.params.id;
+      let a = req.body;
+
+      let r = await db.infoc_atn_tb_configuracoes_empresa.findOne({ where: { ds_instagram_empresa: a.ds_instagram_empresa, ds_twiter_empresa: a.ds_twiter_empresa,ds_site: a.ds_site } })
       if(r != null)
           return resp.send({erro:"Essa empresa ja existe"})
   
-      let empresa = await db.infoc_atn_tb_empresa.create ({
+      let empresa = await db.infoc_atn_tb_configuracoes_empresa.update ({
         ds_site: a.ds_site,
-        
-      })
-  
-      resp.send(empresa);
+        ds_descricao_empresa: a.ds_descricao_empresa,
+        ds_instagram_empresa: a.ds_instagram_empresa,
+        ds_twiter_empresa: a.ds_twiter_empresa,
+        ds_link_imagem: a.ds_link_imagem
+      }, {where: { id_empresa: id } })
+      
+      resp.send("Funfo");
   
       } catch (e) {
           resp.send(e.toString());
       }
 });
+
 
 
 app.listen(process.env.PORT, (x) =>

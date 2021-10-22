@@ -5,14 +5,8 @@ export default class infoc_atn_tb_configuracoes_empresa extends Model {
   static init(sequelize, DataTypes) {
   super.init({
     id_empresa: {
-      autoIncrement: true,
       type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'infoc_atn_tb_empresa',
-        key: 'id_empresa'
-      }
+      allowNull: true
     },
     ds_site: {
       type: DataTypes.STRING(100),
@@ -40,8 +34,7 @@ export default class infoc_atn_tb_configuracoes_empresa extends Model {
     timestamps: false,
     indexes: [
       {
-        name: "PRIMARY",
-        unique: true,
+        name: "id_empresa",
         using: "BTREE",
         fields: [
           { name: "id_empresa" },

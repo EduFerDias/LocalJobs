@@ -1,42 +1,50 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoa_sti_vendas extends Model {
+export default class infod_ssc_cliente extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_vendas: {
+    id_cliente: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_cliente: {
+    id_endereco: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'infoa_sti_cliente',
-        key: 'id_cliente'
+        model: 'infod_ssc_endereco',
+        key: 'id_endereco'
       }
     },
-    id_produto: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'infoa_sti_produto',
-        key: 'id_produto'
-      }
-    },
-    ds_codigo: {
-      type: DataTypes.STRING(10),
+    nm_cliente: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    dt_vendas: {
+    ds_cpf: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    dt_nascimento: {
       type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    nr_telefone: {
+      type: DataTypes.STRING(15),
+      allowNull: true
+    },
+    ds_email: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    ds_senha: {
+      type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoa_sti_vendas',
+    tableName: 'infod_ssc_cliente',
     timestamps: false,
     indexes: [
       {
@@ -44,25 +52,18 @@ export default class infoa_sti_vendas extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_vendas" },
-        ]
-      },
-      {
-        name: "id_cliente",
-        using: "BTREE",
-        fields: [
           { name: "id_cliente" },
         ]
       },
       {
-        name: "id_produto",
+        name: "id_endereco",
         using: "BTREE",
         fields: [
-          { name: "id_produto" },
+          { name: "id_endereco" },
         ]
       },
     ]
   });
-  return infoa_sti_vendas;
+  return infod_ssc_cliente;
   }
 }

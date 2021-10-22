@@ -1,42 +1,34 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoa_sti_vendas extends Model {
+export default class infoa_dtn_tb_avaliacao extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_vendas: {
+    id_avaliacao: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_cliente: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'infoa_sti_cliente',
-        key: 'id_cliente'
-      }
-    },
     id_produto: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'infoa_sti_produto',
+        model: 'infoa_dtn_tb_produto',
         key: 'id_produto'
       }
     },
-    ds_codigo: {
-      type: DataTypes.STRING(10),
-      allowNull: true
-    },
-    dt_vendas: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
+    id_cliente: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'infoa_dtn_tb_cliente',
+        key: 'id_cliente'
+      }
     }
   }, {
     sequelize,
-    tableName: 'infoa_sti_vendas',
+    tableName: 'infoa_dtn_tb_avaliacao',
     timestamps: false,
     indexes: [
       {
@@ -44,14 +36,7 @@ export default class infoa_sti_vendas extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_vendas" },
-        ]
-      },
-      {
-        name: "id_cliente",
-        using: "BTREE",
-        fields: [
-          { name: "id_cliente" },
+          { name: "id_avaliacao" },
         ]
       },
       {
@@ -61,8 +46,15 @@ export default class infoa_sti_vendas extends Model {
           { name: "id_produto" },
         ]
       },
+      {
+        name: "id_cliente",
+        using: "BTREE",
+        fields: [
+          { name: "id_cliente" },
+        ]
+      },
     ]
   });
-  return infoa_sti_vendas;
+  return infoa_dtn_tb_avaliacao;
   }
 }
