@@ -40,7 +40,6 @@ import _infob_mw_lista from  "./infob_mw_lista.js";
 import _infob_mw_lista_item from  "./infob_mw_lista_item.js";
 import _infob_mw_usuario from  "./infob_mw_usuario.js";
 import _infoc_atn_tb_chat from  "./infoc_atn_tb_chat.js";
-import _infoc_atn_tb_configuracoes_empresa from  "./infoc_atn_tb_configuracoes_empresa.js";
 import _infoc_atn_tb_configuracoes_pessoais from  "./infoc_atn_tb_configuracoes_pessoais.js";
 import _infoc_atn_tb_curriculo from  "./infoc_atn_tb_curriculo.js";
 import _infoc_atn_tb_empresa from  "./infoc_atn_tb_empresa.js";
@@ -151,7 +150,6 @@ export default function initModels(sequelize) {
   var infob_mw_lista_item = _infob_mw_lista_item.init(sequelize, DataTypes);
   var infob_mw_usuario = _infob_mw_usuario.init(sequelize, DataTypes);
   var infoc_atn_tb_chat = _infoc_atn_tb_chat.init(sequelize, DataTypes);
-  var infoc_atn_tb_configuracoes_empresa = _infoc_atn_tb_configuracoes_empresa.init(sequelize, DataTypes);
   var infoc_atn_tb_configuracoes_pessoais = _infoc_atn_tb_configuracoes_pessoais.init(sequelize, DataTypes);
   var infoc_atn_tb_curriculo = _infoc_atn_tb_curriculo.init(sequelize, DataTypes);
   var infoc_atn_tb_empresa = _infoc_atn_tb_empresa.init(sequelize, DataTypes);
@@ -269,8 +267,6 @@ export default function initModels(sequelize) {
   infoa_sti_endereco.hasMany(infoa_sti_cliente, { as: "infoa_sti_clientes", foreignKey: "id_endereco"});
   infoc_atn_tb_configuracoes_pessoais.belongsTo(infoc_atn_tb_curriculo, { as: "id_curriculo_infoc_atn_tb_curriculo", foreignKey: "id_curriculo"});
   infoc_atn_tb_curriculo.hasMany(infoc_atn_tb_configuracoes_pessoais, { as: "infoc_atn_tb_configuracoes_pessoais", foreignKey: "id_curriculo"});
-  infoc_atn_tb_configuracoes_empresa.belongsTo(infoc_atn_tb_empresa, { as: "id_empresa_infoc_atn_tb_empresa", foreignKey: "id_empresa"});
-  infoc_atn_tb_empresa.hasOne(infoc_atn_tb_configuracoes_empresa, { as: "infoc_atn_tb_configuracoes_empresa", foreignKey: "id_empresa"});
   infoc_atn_tb_curriculo.belongsTo(infoc_atn_tb_empresa, { as: "id_empresa_infoc_atn_tb_empresa", foreignKey: "id_empresa"});
   infoc_atn_tb_empresa.hasMany(infoc_atn_tb_curriculo, { as: "infoc_atn_tb_curriculos", foreignKey: "id_empresa"});
   infoc_atn_tb_sala.belongsTo(infoc_atn_tb_empresa, { as: "id_empresa_infoc_atn_tb_empresa", foreignKey: "id_empresa"});
@@ -399,7 +395,6 @@ export default function initModels(sequelize) {
     infob_mw_lista_item,
     infob_mw_usuario,
     infoc_atn_tb_chat,
-    infoc_atn_tb_configuracoes_empresa,
     infoc_atn_tb_configuracoes_pessoais,
     infoc_atn_tb_curriculo,
     infoc_atn_tb_empresa,
