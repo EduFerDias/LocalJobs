@@ -30,13 +30,16 @@ export default function Pagina3(){
     const [ramo, setRamo] = useState('');
     const [telefone, setTelefone] = useState('');
     const [cnpj, setCNPJ] = useState('');
-    const [estado_cidade, setEstadoCidade] = useState('');
     const [estado, setEstado] = useState('');
     const [cidade, setCidade] = useState('');
+
+    const estado_cidade = cidade + ", " + estado;
 
     console.log(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
 
     async function inserirEmpresa() {
+
+        
         let x = await api.inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
         console.log(x)
         toast.success('Conta Empresarial Criada.')  
@@ -56,7 +59,7 @@ export default function Pagina3(){
                         <div class="f-double">
                             <span class="select-custom">
                                 <select name="" value={ ramo } onChange={e => setRamo(e.target.value)} id="" >
-                                    <option value="Todas áreas" selected>Todas áreas</option>
+                                    <option value="Todas áreas" disabled selected>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
                                     <option value="Artigos Religiosos">Artigos Religiosos </option>
@@ -85,7 +88,7 @@ export default function Pagina3(){
                                     <option value="Instituições Religiosas">Instituições Religiosas</option>  
                                     <option value="Indústria e Comércio">Indústria e Comércio</option>
                                     <option value="Infláveis Promocionais">Infláveis Promocionais</option>
-                                    <option value="Informática">Informática</option>
+                                    <option value="Informática / Tecnologia">Informática</option>
                                     <option value="Ingressos">Ingressos</option>
                                     <option value="Instrumentos Musicais">Instrumentos Musicais</option>
                                     <option value="Joalheria">Joalheria</option>
@@ -125,52 +128,48 @@ export default function Pagina3(){
                                     <option value="Serviços de Estacionamentos">Serviços de Estacionamentos</option>
                                     <option value="Serviços de Estaleiros">Serviços de Estaleiros</option>
                                     <option value="Serviços de Importação">Serviços de Importação</option>
-                                    <option value="valor2">Serviços de Geólogos</option>
-                                    <option value="valor2">Serviços de joalheiros</option>
-                                    <option value="valor2">Serviços de Leiloeiros</option>
-                                    <option value="valor2">Serviços de limpeza</option>
-                                    <option value="valor2">Serviços de Loja de Conveniência</option>
-                                    <option value="valor2">Serviços de Mão de Obra</option>
-                                    <option value="valor2">Serviços de Órgão Públicos</option>
-                                    <option value="valor2">Serviços de Pesquisas</option>
-                                    <option value="valor2">Serviços de Portos</option>
-                                    <option value="valor2">Serviços de Saúde</option>
-                                    <option value="valor2">Serviços de Seguradoras</option>
-                                    <option value="valor2">Serviços de Segurança</option>
-                                    <option value="valor2">Serviços de Sinalização</option>
-                                    <option value="valor2">Serviços de Sindicatos </option>
-                                    <option value="valor2">Serviços de Traduções</option>
-                                    <option value="valor2">Serviços de Transporte</option>
-                                    <option value="valor2">Serviços de Utilidade Pública</option>
-                                    <option value="valor2">Serviços em Agricultura</option>
-                                    <option value="valor2">Serviços em Alimentação</option>
-                                    <option value="valor2">Serviços em Arte</option>
-                                    <option value="valor2">Serviços em Cine / Foto / Som</option>
-                                    <option value="valor2">Serviços em Comunicação</option>
-                                    <option value="valor2">Serviços em Construção</option>
-                                    <option value="valor2">Serviços em Ecologia</option>
-                                    <option value="valor2">Serviços em Eletroeletrônica</option>
-                                    <option value="valor2">Serviços em Festas / Eventos</option>
-                                    <option value="valor2">Serviços em Informática</option>
-                                    <option value="valor2">Serviços em Internet</option>
-                                    <option value="valor2">Serviços em Jóias</option>
-                                    <option value="valor2">Serviços em Telefonia</option>
-                                    <option value="valor2">Serviços em Veículos</option>
-                                    <option value="valor2">Serviços Financeiros</option>
-                                    <option value="valor2">Serviços Funerários</option>
-                                    <option value="valor2">Serviços Gerais</option>
-                                    <option value="valor2">Serviços Editoriais</option>
-                                    <option value="valor2">Serviços para Animais</option>
-                                    <option value="valor2">Serviços para Deficientes</option>
-                                    <option value="valor2">Serviços para Escritórios</option>
-                                    <option value="valor2">Serviços para Roupas</option>
-                                    <option value="valor2">Serviços Socias</option>
-                                    <option value="valor2">Shopping Centers</option>
-                                    <option value="valor2">Tabacaria</option>
-                                    <option value="valor2">Tarifas Bancárias</option>
-                                    <option value="valor2">Tarifas Telefônicas</option>
-                                    <option value="valor2">Telefonia</option>
-                                    <option value="valor2">Turismo</option>
+                                    <option value="Serviços de Geólogos">Serviços de Geólogos</option>
+                                    <option value="Serviços de joalheiros">Serviços de joalheiros</option>
+                                    <option value="Serviços de Leiloeiros">Serviços de Leiloeiros</option>
+                                    <option value="Serviços de limpeza">Serviços de limpeza</option>
+                                    <option value="Serviços de Loja de Conveniência">Serviços de Loja de Conveniência</option>
+                                    <option value="Serviços de Mão de Obra">Serviços de Mão de Obra</option>
+                                    <option value="Serviços de Órgão Públicos">Serviços de Órgão Públicos</option>
+                                    <option value="Serviços de Portos">Serviços de Portos</option>
+                                    <option value="Serviços de Saúde">Serviços de Saúde</option>
+                                    <option value="Serviços de Seguradoras">Serviços de Seguradoras</option>
+                                    <option value="Serviços de Segurança">Serviços de Segurança</option>
+                                    <option value="Serviços de Sinalização">Serviços de Sinalização</option>
+                                    <option value="Serviços de Sindicatos">Serviços de Sindicatos </option>
+                                    <option value="Serviços de Transporte">Serviços de Transporte</option>
+                                    <option value="Serviços de Utilidade Pública">Serviços de Utilidade Pública</option>
+                                    <option value="Serviços em Agricultura">Serviços em Agricultura</option>
+                                    <option value="Serviços em Alimentação">Serviços em Alimentação</option>
+                                    <option value="Serviços em Arte">Serviços em Arte</option>
+                                    <option value="Serviços em Cine / Foto / Som">Serviços em Cine / Foto / Som</option>
+                                    <option value="Serviços em Comunicação">Serviços em Comunicação</option>
+                                    <option value="Serviços em Construção">Serviços em Construção</option>
+                                    <option value="Serviços em Ecologia">Serviços em Ecologia</option>
+                                    <option value="Serviços em Eletroeletrônica">Serviços em Eletroeletrônica</option>
+                                    <option value="Serviços em Festas / Eventos">Serviços em Festas / Eventos</option>
+                                    <option value="Serviços em Informática">Serviços em Informática</option>
+                                    <option value="Serviços em Internet">Serviços em Internet</option>
+                                    <option value="Serviços em Jóias">Serviços em Jóias</option>
+                                    <option value="Serviços em Telefonia">Serviços em Telefonia</option>
+                                    <option value="Serviços em Veículos">Serviços em Veículos</option>
+                                    <option value="Serviços Financeiros">Serviços Financeiros</option>
+                                    <option value="Serviços Funerários">Serviços Funerários</option>
+                                    <option value="Serviços Gerais">Serviços Gerais</option>
+                                    <option value="Serviços Editoriais">Serviços Editoriais</option>
+                                    <option value="Serviços para Animais">Serviços para Animais</option>
+                                    <option value="Serviços para Deficientes">Serviços para Deficientes</option>
+                                    <option value="Serviços para Escritórios">Serviços para Escritórios</option>
+                                    <option value="Serviços para Roupas">Serviços para Roupas</option>
+                                    <option value="Serviços Socias">Serviços Socias</option>
+                                    <option value="Shopping Centers">Shopping Centers</option>
+                                    <option value="Tarifas Bancárias">Tarifas Bancárias</option>
+                                    <option value="Telefonia">Telefonia</option>
+                                    <option value="Turismo">Turismo</option>
                                 </select>
                             </span>
                             <input type="text" value={ telefone } onChange={e => setTelefone(e.target.value)} placeholder="Telefone" class="tele"/> 
@@ -178,46 +177,43 @@ export default function Pagina3(){
                         
                         <div class="double">
                                 <select class="estado" name="estados-brasil" value={ estado } onChange={e => setEstado(e.target.value)} >
-                                    <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espírito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraíba</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piauí</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RO">Rondônia</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SP" selected>São Paulo</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="TO">Tocantins</option>
+                                    <option value="Acre" disabled selected>Estados</option>
+                                    <option value="Acre">Acre</option>
+                                    <option value="Alagoas">Alagoas</option>
+                                    <option value="Amapá">Amapá</option>
+                                    <option value="Amazonas">Amazonas</option>
+                                    <option value="Bahia">Bahia</option>
+                                    <option value="Ceará">Ceará</option>
+                                    <option value="Distrito Federal">Distrito Federal</option>
+                                    <option value="Espírito Santo">Espírito Santo</option>
+                                    <option value="Goiás">Goiás</option>
+                                    <option value="Maranhão">Maranhão</option>
+                                    <option value="Mato Grosso">Mato Grosso</option>
+                                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                    <option value="Minas Gerais">Minas Gerais</option>
+                                    <option value="Pará">Pará</option>
+                                    <option value="Paraíba">Paraíba</option>
+                                    <option value="Paraná">Paraná</option>
+                                    <option value="Pernambuco">Pernambuco</option>
+                                    <option value="Piauí">Piauí</option>
+                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                    <option value="Rondônia">Rondônia</option>
+                                    <option value="Roraima">Roraima</option>
+                                    <option value="Santa Catarina">Santa Catarina</option>
+                                    <option value="São Paulo">São Paulo</option>
+                                    <option value="Sergipe">Sergipe</option>
+                                    <option value="Tocantins">Tocantins</option>
                                 </select>
 
-                                <input class="cidade" name="estados-brasil" value={ cidade } onChange={e => setEstadoCidade(e.target.value)} placeholder="Cidade" /> 
+                                <input class="cidade"  value={ cidade } onChange={e => setCidade(e.target.value)} placeholder="Cidade" /> 
                         </div>
 
                         <input type="text" value={ email } onChange={e => setEmail(e.target.value)} placeholder="Email"/>
                         <input type="password" value={ senha } onChange={e => setSenha(e.target.value)} placeholder="Senha"/> 
                         <input type="password" placeholder="Confirmar senha"/> 
-                        {/* <Link to="/page10"> */}
-
-                            <button class="button" onClick={ inserirEmpresa }>Cadastrar</button>
-                            
-                        {/* </Link> */}
+                        <button class="button" onClick={ inserirEmpresa }>Cadastrar</button>
                     </form>
                     <div class="f1-conta">
                         Já possui conta? &nbsp; <span>faça o login</span>
