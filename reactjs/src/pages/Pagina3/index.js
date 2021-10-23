@@ -177,7 +177,7 @@ export default function Pagina3(){
                         </div>
                         
                         <div class="double">
-                                <select name="estados-brasil" value={ estado } onChange={e => setEstado(e.target.value)} id="" >
+                                <select class="estado" name="estados-brasil" value={ estado } onChange={e => setEstado(e.target.value)} >
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
                                     <option value="AP">Amapá</option>
@@ -207,11 +207,8 @@ export default function Pagina3(){
                                     <option value="TO">Tocantins</option>
                                 </select>
 
-                                <select name="" value={ cidade } onChange={e => setCidade(e.target.value)} id="" >
-                                </select>   
+                                <input class="cidade" name="estados-brasil" value={ cidade } onChange={e => setEstadoCidade(e.target.value)} placeholder="Cidade" /> 
                         </div>
-
-                        <input type="text" value={ estado_cidade } onChange={e => setEstadoCidade(e.target.value)} placeholder="Estado - Cidade"/>
 
                         <input type="text" value={ email } onChange={e => setEmail(e.target.value)} placeholder="Email"/>
                         <input type="password" value={ senha } onChange={e => setSenha(e.target.value)} placeholder="Senha"/> 

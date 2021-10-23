@@ -87,10 +87,17 @@ background-attachment:fixed;
     padding-left: 2.5rem;
     margin: 0px 0px 0px 5px;
 }
-.double input{
-    width: 11.375rem;
-    padding-left: 2.5rem;
-    margin: 0px 0px 0px 5px;
+
+
+.estado {
+    margin-right: 10rem;
+    width: 233px;
+}
+
+
+.double input {
+    margin-left: 0.8em;
+    width: 217px;
 }
 
 .button{
