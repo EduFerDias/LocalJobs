@@ -61,6 +61,16 @@ const Pagina4 = styled.div`
     margin-right: 5px;
     padding-right: 5px;
 }
+
+.estado {
+    margin-right: 10rem;
+    width: 233px;
+}
+.double input {
+    margin-left: 0.8em;
+    width: 217px;
+}
+
 .f-double select{
     background-image: url("./assets/images/Cadastros_Forms/p3-25243\ 1.png");
     background-repeat: no-repeat;
