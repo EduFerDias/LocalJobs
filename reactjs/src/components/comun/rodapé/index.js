@@ -1,6 +1,6 @@
 import Conteudo from './style'
 import Logo from '../Logo1'
-
+import { Link } from 'react-router-dom';
 
 export default function rodape(){
     return(
@@ -14,7 +14,7 @@ export default function rodape(){
                     <div className="nav">
                         Navegação
                         <div className="sobre">
-                            Sobre nós
+                            <Link to="/home"> Sobre nós </Link>
                         </div>
 
                         <div className="perfil">

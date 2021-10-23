@@ -19,7 +19,9 @@ const Rodape = styled.div`
     font-size: 1.7em;
     width: 7em;
 }
-
+.redes {
+    cursor: pointer;
+}
 .insta, .twitter, .facebook, .sobre, .perfil, .home{
     display: flex;
     flex-direction: row;
@@ -30,6 +32,10 @@ const Rodape = styled.div`
 }
 .sobre, .perfil, .home{
     padding:3px 0px;
+}
+
+a {
+    color: white;
 }
 .sobre{
     padding-top: 2.3rem;
