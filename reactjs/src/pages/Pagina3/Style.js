@@ -93,6 +93,15 @@ background-attachment:fixed;
     margin-right: 10rem;
     width: 233px;
 }
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
 
 
 .double input {

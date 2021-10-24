@@ -27,7 +27,7 @@ export default function S_Header(props){
                 <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-cargo.png" alt=""/></div>
 
                 <select name="select" >
-                <option value="Todas áreas" disabled selected>Áreas</option>
+                                    <option value="" disabled selected hidden>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
                                     <option value="Artigos Religiosos">Artigos Religiosos </option>

@@ -16,7 +16,7 @@ export default function Pagina4 (){
                     <div class="f-double">
                         <span class="select-custom">
                             <select name="" id="" >
-                                <option value="valor" disabled selected>Áreas</option>
+                                <option value="" disabled selected hidden>Áreas</option>
                                 <option value="Administração">Administração</option>
                                 <option value="Antropologia">Antropologia</option>
                                 <option value="Arquitetura e Urbanismo">Arquitetura e Urbanismo</option>

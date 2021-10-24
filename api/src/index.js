@@ -28,9 +28,21 @@ app.post("/empresa", async (req, resp) => {
   try {
 
     let a = req.body
-    let r = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome, nr_cnpj: a.nr_cnpj } })
-    if(r != null)
-        return resp.send({erro:"Essa empresa ja existe"})
+
+    let nome = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome } })
+    let cnpj = await db.infoc_atn_tb_empresa.findOne({ where: { nr_cnpj: a.nr_cnpj } })
+    let email = await db.infoc_atn_tb_empresa.findOne({ where: { ds_email: a.ds_email } })
+
+    if(nome != null) {
+        return resp.send({erro:"Esse nome já foi utizado em nosso site, tente usar outro"})
+    }
+    else if (email != null) {
+        return resp.send({erro:"Essa email já foi utizado em nosso site, tente usar outro"})
+    }
+    else if (cnpj != null) {
+        return resp.send({erro:"Esse CNPJ já foi utizado em nosso site"})
+    }
+
 
 
     const empresa = await db.infoc_atn_tb_empresa.create ({
@@ -106,6 +118,8 @@ app.put("/empresa/:id", async (req,resp) => {
 });
 
 // TB EMPRESA CONFIG
+
+
 
 
 // GET TB EMPRESA CONFIG

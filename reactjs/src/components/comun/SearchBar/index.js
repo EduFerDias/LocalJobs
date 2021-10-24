@@ -8,7 +8,7 @@ export default function Searchbar (){
                 <div class="f10-pesquisa">
 
                     <select name="" id="" >
-                                    <option value="Todas áreas" disabled selected>Áreas</option>
+                                    <option value="" disabled selected hidden>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
                                     <option value="Artigos Religiosos">Artigos Religiosos </option>

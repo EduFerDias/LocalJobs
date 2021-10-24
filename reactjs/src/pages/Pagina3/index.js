@@ -25,41 +25,106 @@ export default function Pagina3(){
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-
+    const [senha2, setSenha2] = useState('');
     const [nome, setNome] = useState('');
     const [ramo, setRamo] = useState('');
     const [telefone, setTelefone] = useState('');
     const [cnpj, setCNPJ] = useState('');
     const [estado, setEstado] = useState('');
     const [cidade, setCidade] = useState('');
-
+    const [idAlterado, setIdAlterado] = useState(0);
+    
     const estado_cidade = cidade + ", " + estado;
 
     console.log(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
 
-    async function inserirEmpresa() {
+    const loading = useRef(null)
 
-        
-        let x = await api.inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
+    const ValidarResposta = (x) => {
         console.log(x)
-        toast.success('Conta Empresarial Criada.')  
+        if (!x.erro)
+            return true;
+            toast.error(`${x.erro}`)
+
+        return false;
+
+    }
+
+    async function inserirEmpresa() {    
+
+        let a = nome === '' || cnpj === '' || ramo === '' || telefone === '' ||cidade === '' || email === '' || senha === '' || senha2 === ''
+        let Negativos = cnpj < 0  || telefone < 0 
+
+        if(a === true ) {
+            toast.error('Todos os campos devem estar preenchidos!'); 
+        }
+        else if (isNaN(cnpj) === true && isNaN(telefone) === true){
+            toast.error('Os campos telefone e CNPJ devem conter números'); 
+        }
+        else if (isNaN(cnpj) === true) {
+            toast.error('O campo CNPJ deve conter números'); 
+        }
+        else if (isNaN(telefone) === true) {
+            toast.error('O campo telefone deve conter números'); 
+        }
+        else if (cnpj < 0 && telefone < 0) {
+            toast.error('Os campos telefone e CNPJ devem conter números positivos'); 
+        }
+        else if (cnpj < 0) {
+            toast.error('O campo CNPJ deve conter números positivos'); 
+        }
+        else if (telefone < 0) {
+            toast.error('O campo telefone deve conter números positivos'); 
+        }
+        else if (senha !== senha2) {
+            toast.error('Senhas diferentes'); 
+        }
+        else if (telefone.length !== 11) {
+            toast.error('O campo telefone deve conter 11 números e incluir o DDD'); 
+        }
+        else if (cnpj.length == 18) {
+            toast.error('O campo CNPJ deve conter 14 números'); 
+        }
+        else if (isNaN(cidade) === false) {
+            toast.error('O campo cidade deve conter letras não números'); 
+        }
+        else if (senha.lenght < 8) {
+            toast.error('sua senha deve conter mais de 8 caracteres'); 
+        }
+
+        else if (idAlterado === 0) {
+            loading.current.continuousStart(); 
+            let x = await api.inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
+            console.log(x)
+            if (!ValidarResposta(x)){
+                loading.current.complete()
+                return  
+            }   
+            toast.success('Conta Empresarial Criada.')  
+            loading.current.complete()
+
+        }     
+       
     }
 
 
     return(
+       
         <Conteudo>
+        <ToastContainer />
             <Cabecalho2 />
+            <LoadingBar color='#f11946' ref={loading} />
             <div class="corpo">
                 <div class="form">
                     <Logo2 />
                     <form>
-                        <input type="text" value={ nome } onChange={e => setNome(e.target.value)} placeholder="Empresa"/>
-                        <input type="text" value={ cnpj } onChange={e => setCNPJ(e.target.value)} placeholder="CNPJ" />
+                        <input type="text" maxlength="100" value={ nome } onChange={e => setNome(e.target.value)} placeholder="Empresa"/>
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="14" value={ cnpj } onChange={e => setCNPJ(e.target.value)} placeholder="CNPJ" />
 
                         <div class="f-double">
                             <span class="select-custom">
                                 <select name="" value={ ramo } onChange={e => setRamo(e.target.value)} id="" >
-                                    <option value="Todas áreas" disabled selected>Áreas</option>
+                                    <option value="" disabled selected hidden>Ramos</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
                                     <option value="Artigos Religiosos">Artigos Religiosos </option>
@@ -172,12 +237,11 @@ export default function Pagina3(){
                                     <option value="Turismo">Turismo</option>
                                 </select>
                             </span>
-                            <input type="text" value={ telefone } onChange={e => setTelefone(e.target.value)} placeholder="Telefone" class="tele"/> 
-                        </div>
-                        
+                            <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="11" value={ telefone } onChange={e => setTelefone(e.target.value)} placeholder="Telefone" class="tele"/> 
+                        </div>               
                         <div class="double">
-                                <select class="estado" name="estados-brasil" value={ estado } onChange={e => setEstado(e.target.value)} >
-                                    <option value="Acre" disabled selected>Estados</option>
+                                <select class="estado" value={ estado } onChange={e => setEstado(e.target.value)} >
+                                    <option value="" disabled selected hidden>Estados</option>
                                     <option value="Acre">Acre</option>
                                     <option value="Alagoas">Alagoas</option>
                                     <option value="Amapá">Amapá</option>
@@ -207,13 +271,13 @@ export default function Pagina3(){
                                     <option value="Tocantins">Tocantins</option>
                                 </select>
 
-                                <input class="cidade"  value={ cidade } onChange={e => setCidade(e.target.value)} placeholder="Cidade" /> 
+                                <input class="cidade" maxlength="28"  value={ cidade } onChange={e => setCidade(e.target.value)} placeholder="Cidade" /> 
                         </div>
 
-                        <input type="text" value={ email } onChange={e => setEmail(e.target.value)} placeholder="Email"/>
-                        <input type="password" value={ senha } onChange={e => setSenha(e.target.value)} placeholder="Senha"/> 
-                        <input type="password" placeholder="Confirmar senha"/> 
-                        <button class="button" onClick={ inserirEmpresa }>Cadastrar</button>
+                        <input type="text"  maxlength="50" value={ email } onChange={e => setEmail(e.target.value)} placeholder="Email"/>
+                        <input type="password" maxlength="30" value={ senha } onChange={e => setSenha(e.target.value)} placeholder="Senha"/> 
+                        <input type="password" maxlength="30" value={ senha2 } onChange={e => setSenha2(e.target.value)} placeholder="Confirmar senha"/> 
+                        <button class="button" type="button" onClick={ inserirEmpresa }>Cadastrar</button>
                     </form>
                     <div class="f1-conta">
                         Já possui conta? &nbsp; <span>faça o login</span>
@@ -223,6 +287,7 @@ export default function Pagina3(){
                 </div>
             </div>
         </Conteudo>
+        
     );
 
 }
