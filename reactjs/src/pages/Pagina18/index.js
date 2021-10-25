@@ -17,7 +17,7 @@ export default function Pagina18 (){
                 <div class="athena-dtl">
                 
                 <div class="nome-empresa-dtl">
-                    <div class="logo-empr-dtl"> <img src="./assets/images/Pagina18/Group 89.png"/> </div>
+                    <div class="logo-empr-dtl"> <img src="./assets/images/Pagina18/Group 89.png" alt=""/> </div>
                     <div class="titulo-empr-dtl">Athena TI</div>
                 </div>
     
@@ -35,15 +35,15 @@ export default function Pagina18 (){
                     <div class="img-athena-dtl">
                         <div class="img-athena">
                             <div class="lkd-dtl"> 
-                            <img src="./assets/images/Pagina18/LinkedIn.png"/>
+                            <img src="./assets/images/Pagina18/LinkedIn.png" alt=""/>
                             <div class="lkd-txt">/athenati</div>
                             </div>
                             <div class="twitter-dtl">
-                            <img src="./assets/images/Pagina18/Twitter.png"/>
+                            <img src="./assets/images/Pagina18/Twitter.png" alt=""/>
                             <div class="tt-txt">@athenati</div>
                             </div>
                             <div class="insta-dtl">
-                            <img src="./assets/images/Pagina18/Instagram Circle.png"/>
+                            <img src="./assets/images/Pagina18/Instagram Circle.png" alt=""/>
                             <div class="int-txt">@athenati</div>
                             </div>
                         </div>
@@ -61,9 +61,9 @@ export default function Pagina18 (){
     
                 <div class="msg-dtl">
                     <div class="cima-msg-dtl">
-                        <div class="bt-env-curr-dlt"><button class="bt-env"><img src="./assets/images/Pagina18/Send File.png" />  Enviar Currículo</button></div> 
+                        <div class="bt-env-curr-dlt"><button class="bt-env"><img src="./assets/images/Pagina18/Send File.png" alt=""/>  Enviar Currículo</button></div> 
                         <div class="ou-dtl"><b>ou</b></div>
-                        <div class="linkd-bt-dtl"><button class="linkd-bt"><img src="./assets/images/Pagina18/LinkedIn.png" /></button></div>
+                        <div class="linkd-bt-dtl"><button class="linkd-bt"><img src="./assets/images/Pagina18/LinkedIn.png" alt=""/></button></div>
                     </div>
     
                     <div class="msg-titulo-dtl">
@@ -72,7 +72,7 @@ export default function Pagina18 (){
     
                     <div class="box-msg-dtl">
                         <div class="msg-box1-dtl">
-                            <div class="img-box-msg-dtl"><img src="./assets/images/Pagina18/Group 8.png" /></div>
+                            <div class="img-box-msg-dtl"><img src="./assets/images/Pagina18/Group 8.png" alt=""/></div>
                             <div class="tit-empr-dtl"><b>Athena TI</b></div>
                         </div>
     
@@ -81,7 +81,7 @@ export default function Pagina18 (){
                             <div class="input-env-msg-dtl">
                             <input class="env-msg-input" placeholder="Enviar Mensagem" type="text"/>
                             </div>
-                            <div class="img-seta-msg-dtl"><img src="./assets/images/Pagina18/Paper Plane.png" /></div>
+                            <div class="img-seta-msg-dtl"><img src="./assets/images/Pagina18/Paper Plane.png" alt=""/></div>
                         </div>
                     </div>
                 
@@ -101,7 +101,7 @@ export default function Pagina18 (){
                             Análises, revisão/conciliação das contas patrimoniais e de resultado.
                             Apuração de impostos diretos e indiretos.
                             Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                            Atender as auditori...<a class="veja-mais">Veja Mais</a></div> 
+                            Atender as auditori...<span class="veja-mais">Veja Mais</span></div> 
                         <div class="vagas-bloco-dtl">1 vaga | SP | De R$ 5.001,00 a R$ 5.500,00</div>
                     </div>
                     <div class="bloco-2">
@@ -110,7 +110,7 @@ export default function Pagina18 (){
                             Análises, revisão/conciliação das contas patrimoniais e de resultado.
                             Apuração de impostos diretos e indiretos.
                             Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                            Atender as auditori...<a class="veja-mais">Veja Mais</a></div>
+                            Atender as auditori...<span class="veja-mais">Veja Mais</span></div>
                         <div class="vagas-bloco-dtl">1 vaga | SP | De R$ 5.001,00 a R$ 5.500,00</div>
                     </div>
                     <div class="bloco-3">
@@ -119,7 +119,7 @@ export default function Pagina18 (){
                             Análises, revisão/conciliação das contas patrimoniais e de resultado.
                             Apuração de impostos diretos e indiretos.
                             Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                            Atender as auditori...<a class="veja-mais">Veja Mais</a></div>
+                            Atender as auditori...<span class="veja-mais">Veja Mais</span></div>
                         <div class="vagas-bloco-dtl">1 vaga | SP | De R$ 5.001,00 a R$ 5.500,00</div>
                     </div>
                 </div>

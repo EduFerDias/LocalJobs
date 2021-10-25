@@ -15,10 +15,11 @@ import Pagina14 from "./pages/Pagina14";
 import Pagina15 from "./pages/Pagina15";
 import Pagina16 from "./pages/Pagina16";
 import Pagina18 from "./pages/Pagina18";
-
 /*
-As pgs 15 e 14 Presizam de uma revisao
+import Pagina19 from "./pages/Pagina19";
+<Route path="/page19" component={Pagina19} />
 */
+
 
 export default function Rotas (){
     return(

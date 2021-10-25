@@ -91,7 +91,6 @@ const Conteudo = styled.div`
   flex-direction: row;
   background-color: #404756;
 }
-
 .nome-empresa-dtl {
   align-items: center;
 }
@@ -296,15 +295,14 @@ const Conteudo = styled.div`
   padding: 10px;
 }
 
-.veja-mais a {
+.veja-mais {
   border: none;
   font-weight: bold;
-  border-bottom: 1px white solid;
+  text-decoration: underline;
 }
 
 .veja-mais {
   font-weight: bold;
-  border-bottom: solid 1px white;
 }
 
 .rodape-detalhes {
