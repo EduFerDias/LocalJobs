@@ -159,7 +159,65 @@ app.put("/empresaconfig/:id", async (req, resp) => {
       }
 });
 
+app.post("/vaga", async (req, resp) => {
+    try {
+        let a = req.body
 
+        let empresa = await db.infoc_atn_tb_empresa.findOne()
+
+        let vagas = await db.infoc_atn_tb_vagas.findOne()
+
+
+        const vaga = await db.infoc_atn_tb_vagas.create ({
+            id_vaga: a.id_vaga,
+            id_empresa: empresa.id_empresa,
+            ds_profissao: a.ds_profissao,
+            ds_descricao: a.ds_descricao,
+            ds_qualificacao	: a.ds_qualificacao	,
+            ds_local_trabalho: a.ds_local_trabalho,
+            ds_salario_de: a.ds_salario_de,
+            ds_ds_salario_a: a.ds_salario_a,
+            ds_tipo_contratacao: a.ds_tipo_contratacao,
+            ds_beneficios: a.ds_beneficios,
+            ds_hora_trabalho: a.ds_hora_trabalho
+        })
+
+    } catch (e) {
+        resp.send(e.toString());
+    }
+});
+
+app.get('/vaga/:id', async (req, resp) => {
+    try {
+        let id = await db.infoc_atn_tb_vagas.findOne({ where: { id_vaga: req.params.id } });
+
+        if (id == null)
+            return resp.send({ erro: 'Vaga não Existe' });
+        
+        let vaga = await
+            db.infoc_atn_tb_vagas.findAll({
+                where: {
+                    id_vaga: id.id_vaga
+                },
+                order: [['id_empresa', 'desc']],
+                include: ['infoc_atn_tb_vagas', 'infoc_atn_tb_empresa'],
+            });
+    
+        resp.send(vaga);
+    } catch (e) {
+        resp.send(e.toString())
+    }
+})
+
+app.get('/vaga', async (req, resp) => {
+    try {
+        let a = await db.infoc_atn_tb_vagas.findAll({ order: [['id_vaga', 'desc']] });
+        resp.send(a);
+    } catch (e) {
+        resp.send("Erro")
+        resp.send(e.toString());
+    }
+})
 
 app.listen(process.env.PORT, (x) =>
   console.log(`Server up at port ${process.env.PORT}`)
