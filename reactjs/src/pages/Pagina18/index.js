@@ -101,7 +101,7 @@ export default function Pagina18 (){
                             Análises, revisão/conciliação das contas patrimoniais e de resultado.
                             Apuração de impostos diretos e indiretos.
                             Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                            Atender as auditori...<a class="veja-mais">Veja Mais</a></div> 
+                            Atender as auditori...<div class="veja-mais">Veja Mais</div></div> 
                         <div class="vagas-bloco-dtl">1 vaga | SP | De R$ 5.001,00 a R$ 5.500,00</div>
                     </div>
                     <div class="bloco-2">
@@ -110,7 +110,7 @@ export default function Pagina18 (){
                             Análises, revisão/conciliação das contas patrimoniais e de resultado.
                             Apuração de impostos diretos e indiretos.
                             Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                            Atender as auditori...<a class="veja-mais">Veja Mais</a></div>
+                            Atender as auditori...<div class="veja-mais">Veja Mais</div></div>
                         <div class="vagas-bloco-dtl">1 vaga | SP | De R$ 5.001,00 a R$ 5.500,00</div>
                     </div>
                     <div class="bloco-3">
@@ -119,7 +119,7 @@ export default function Pagina18 (){
                             Análises, revisão/conciliação das contas patrimoniais e de resultado.
                             Apuração de impostos diretos e indiretos.
                             Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                            Atender as auditori...<a class="veja-mais">Veja Mais</a></div>
+                            Atender as auditori...<div class="veja-mais">Veja Mais</div></div>
                         <div class="vagas-bloco-dtl">1 vaga | SP | De R$ 5.001,00 a R$ 5.500,00</div>
                     </div>
                 </div>
