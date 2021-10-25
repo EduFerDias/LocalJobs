@@ -298,13 +298,11 @@ const Conteudo = styled.div`
 .veja-mais {
   border: none;
   font-weight: bold;
-  border-bottom: 1px white solid;
   text-decoration: underline;
 }
 
 .veja-mais {
   font-weight: bold;
-  border-bottom: solid 1px white;
 }
 
 .rodape-detalhes {
