@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+/*import { Link } from "react-router-dom";*/
 import Logo2 from "../../components/comun/Logo2";
 import Conteudo from "./Style"
 import Cabecalho2 from "../../components/comun/cabecalho1";
 
 
-import { confirmAlert } from 'react-confirm-alert'; 
+/*import { confirmAlert } from 'react-confirm-alert'; */
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 import LoadingBar from 'react-top-loading-bar'
@@ -12,8 +12,8 @@ import LoadingBar from 'react-top-loading-bar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import React, { useEffect, useRef } from 'react'
-import { useState } from 'react';
+/*import  { useEffect} from 'react'*/
+import React, { useState, useRef  } from 'react';
 
 import Api from '../../services/Api';
 const api = new Api();
@@ -21,7 +21,7 @@ const api = new Api();
 
 export default function Pagina3(){
 
-    const [empresa, setEmpresa ] = useState([]);
+    /*const [empresa, setEmpresa ] = useState([]);*/
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -82,7 +82,7 @@ export default function Pagina3(){
         else if (telefone.length !== 11) {
             toast.error('O campo telefone deve conter 11 números e incluir o DDD'); 
         }
-        else if (cnpj.length == 18) {
+        else if (cnpj.length === 18) {
             toast.error('O campo CNPJ deve conter 14 números'); 
         }
         else if (isNaN(cidade) === false) {
@@ -90,6 +90,9 @@ export default function Pagina3(){
         }
         else if (senha.lenght < 8) {
             toast.error('sua senha deve conter mais de 8 caracteres'); 
+        }
+        else if(Negativos === true){
+            toast.error('Os numeros de telefone ou cpf não podem ser negativos')
         }
 
         else if (idAlterado === 0) {
@@ -103,8 +106,9 @@ export default function Pagina3(){
             toast.success('Conta Empresarial Criada.')  
             loading.current.complete()
 
-        }     
-       
+        }
+        
+        setIdAlterado(0);       
     }
 
 
