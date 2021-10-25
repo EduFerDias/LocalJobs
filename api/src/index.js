@@ -15,7 +15,7 @@ app.post("/sala", async (req, resp) =>{
 
  try{
         let x = req.body
-        let y = await db.infoc_atn_tb_sala.findOne({ where: { id_sala: x.id_sala, nm_sala: x.nm_sala }})
+        let y = await db.infoc_atn_tb_sala.findOne({ where: { nm_sala: x.nm_sala}})
         if(y != null)
             return resp.send({erro: "Essa sala já existe!"})
 
