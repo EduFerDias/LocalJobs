@@ -8,6 +8,53 @@ app.use(express.json());
 
 
 
+// POST SALA
+
+app.post("/sala", async (req, resp) =>{
+
+
+ try{
+        let x = req.body
+        let y = await db.infoc_atn_tb_sala.findOne({ where: { id_sala: x.id_sala, nm_sala: x.nm_sala }})
+        if(y != null)
+            return resp.send({erro: "Essa sala já existe!"})
+
+        let r = await db.infoc_atn_tb_sala.create ({
+            nm_sala: x.nm_sala,
+            bt_ativa: x.bt_ativa,
+            id_empresa: x.id_empresa,
+            id_usuario: x.id_empresa
+        })
+
+        resp.send(r)
+
+    } catch(e){
+        resp.send(e.toString());
+    }
+});
+
+// GET SALA
+
+app.get("/sala/:id", async (req, resp) =>{
+    try {
+        let a = await db.infoc_atn_tb_sala.findOne({ where: {id_sala : req.params.id } });
+        if (a == null)
+            return resp.send({ erro: 'Sala não existe!' });
+        resp.send(a);
+    } catch (e) {
+        resp.send("Erro")
+        resp.send(e.toString());
+    }
+})
+
+
+
+
+
+
+
+
+
 // EMPRESA 
 
 
