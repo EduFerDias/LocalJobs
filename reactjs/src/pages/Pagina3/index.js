@@ -157,7 +157,7 @@ export default function Pagina3(){
                                     <option value="Instituições Religiosas">Instituições Religiosas</option>  
                                     <option value="Indústria e Comércio">Indústria e Comércio</option>
                                     <option value="Infláveis Promocionais">Infláveis Promocionais</option>
-                                    <option value="Informática / Tecnologia">Informática</option>
+                                    <option value="Informática">Informática</option>
                                     <option value="Ingressos">Ingressos</option>
                                     <option value="Instrumentos Musicais">Instrumentos Musicais</option>
                                     <option value="Joalheria">Joalheria</option>

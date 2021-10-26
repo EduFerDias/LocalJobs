@@ -26,6 +26,8 @@ export default function Pagina11 (){
         }
     }
 
+    const area = empresa.filter(e => e.nm_ramo == "Informática")
+
     async function listarEmpresa() {
         const a = await api.listarEmpresa();
         setEmpresa(a)
@@ -89,7 +91,7 @@ export default function Pagina11 (){
                     infinite={true}
                 >
                     
-                    {empresa.map(item => 
+                    {area.map(item => 
                             <UserBox 
                             empresa={item.nm_nome != null && item.nm_nome.length > 25 ?item.nm_nome.substr(0, 15) + '...' :item.nm_nome} 
                             cidade={item.ds_estado_cidade} 

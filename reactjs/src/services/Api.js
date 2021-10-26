@@ -50,4 +50,26 @@ export default class Api {
     }
 
     
+    async inserirVaga(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
+        let vaga = {
+            ds_profissao: profissao,
+            ds_descricao: descricao,
+            ds_qualificacao: qualificacao,
+            formacoes: formacoes,
+            ds_local_trabalho: local,
+            ds_salario_a:  salario_a,
+            ds_salario_de: salario_de,
+            ds_tipo_contratacao: tipodecontrato,
+            ds_beneficios: beneficios,
+            ds_hora_trabalho: horario
+        }
+
+        let r = await api.post(`/vaga`, vaga);
+        return r.data;
+    }
+
+    async removerVaga(id) {
+        let r = await api.delete(`/vaga/${id}`)
+        return r.data;
+    }
 }
