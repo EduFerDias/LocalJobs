@@ -5,10 +5,6 @@ import Cabecalho3 from "../../components/comun/cabecalho3";
 import  { useEffect} from 'react'
 import React, { useState, useRef  } from 'react';
 
- 
-import Api from '../../services/Api';
-const api = new Api();
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,8 +13,14 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import LoadingBar from 'react-top-loading-bar'
 
+import Api from '../../services/Api';
+const api = new Api();
+
+
+
 export default function Pagina15(){
 
+    const [vaga, setVaga] = useState([]);
 
     const [profissao, setProfissao] = useState('');
     const [descricao, setDescricao] = useState('');
@@ -32,22 +34,32 @@ export default function Pagina15(){
     const [horario, setHorario] = useState('');
     const [idAlterado, setIdAlterado] = useState(0);
 
+    const loading = useRef(null)
+
     console.log(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
 
     async function inserirVaga() { 
         let x = await api.inserirVaga(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
         console.log(x)
+        let a = await api.listarVagas()
+        setVaga(a);
+        console.log(a)
+
+    }
+    async function ListarVagas() {
+        let a = await api.listarVagas()
+        setVaga(a);
     }
 
     async function DeletarVaga(id) {
         confirmAlert({
-            title: 'Remover aluno',
-            message: `Tem certeza que deseja remover o aluno ${id} ?`,
+            title: 'Remover vaga',
+            message: `Tem certeza que deseja remover essa Vaga?`,
             buttons: [
               {
                 label: 'Sim',
                 onClick: async () => {
-                    let r = await api.DelelarVaga()
+                    let r = await api.DeletarVaga()
                     if (r.erro)
                         toast.error(`${r.erro}`);
                     else {
@@ -63,8 +75,17 @@ export default function Pagina15(){
 
     }
 
+    useEffect(() => {
+        ListarVagas();
+    }, [])
+
+    console.log(vaga)
+
     return(
+        
     <Conteudo>
+        <ToastContainer/>
+        <LoadingBar color='#f11946' ref={loading} />
         <div class="tudo">
             <Cabecalho3> </Cabecalho3>
                 <div class="f16-configuracoes">Configurações de Vaga:</div>
@@ -136,6 +157,7 @@ export default function Pagina15(){
                             </div>
 
                             <div class="currilosscrool">
+
                                 <div class="curiculo">Currículos e Linkedin recebidos: <span>4</span> </div>
 
                                 <div class="curiculos">
@@ -177,12 +199,16 @@ export default function Pagina15(){
 
                                 </div>
                             </div>
-                            <tbody>
-                            <div class="botoes">
-                                {empresa.map((item, i) => 
-                                    <button class="delete" onClick={() => DeletarVaga(item.id_vaga)} >Deletar Vaga</button>
-                                    <button class="save" onClick={ inserirVaga }>Salvar</button>
+                            
+                            <div class="botoes"> 
+
+                                {vaga.map((item, i) =>
+                                    <button class={ item  === 0 ? "nodelete" : "nodelete" } onClick={() => DeletarVaga(item.id_vaga)} > Deletar Vaga </button> 
+                                    
                                 )}
+
+                                <button class="save" onClick={ inserirVaga } > Salvar </button>
+
                             </div>
 
                         </div>

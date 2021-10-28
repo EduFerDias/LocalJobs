@@ -16,6 +16,7 @@ const api = new Api();
 export default function Pagina11 (){
 
     const [empresa, setEmpresa ] = useState([]);
+    const [vaga, SetVagas] = useState([]);
 
 
     const responsive = {
@@ -28,13 +29,19 @@ export default function Pagina11 (){
 
     const area = empresa.filter(e => e.nm_ramo == "Informática")
 
-    async function listarEmpresa() {
+    const teste = empresa.filter(item => item.id_empresa == vaga.id_empresa )
+
+    async function listarVagasEmpresa() {
+                        
         const a = await api.listarEmpresa();
+        const x = await api.listarVagas();
         setEmpresa(a)
+        SetVagas(x)
     }
 
+
     useEffect(() => {
-        listarEmpresa();
+        listarVagasEmpresa();
     });
 
     return(
@@ -45,26 +52,29 @@ export default function Pagina11 (){
        <Searchbar />
 
         <div class="f10-areas">
-            <div class="f10-filtro1">Empresas de diversas áreas</div>
+            <div class="f10-filtro1">Vagas de diversas áreas</div>
 
                 <Carousel 
                     responsive={responsive}
                     infinite={true}
                 >
-
-                    {empresa.map(item => 
+                    {teste.filter(item => 
+                        
                             <UserBox 
+                            key={item.id_empresa}
                             empresa={item.nm_nome != null && item.nm_nome.length > 25 ?item.nm_nome.substr(0, 15) + '...' :item.nm_nome} 
                             cidade={item.ds_estado_cidade} 
                             area={item.nm_ramo} 
-                            salario={item.salario}
+                            salario={item.ds_salario_de}
                             profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao}
-                            bt_empresa={true}/>
+                            bt_empresa={true}
+                            />
+
                     )}
 
                 </Carousel>;
 
-            <div class="f10-filtro1">Pessoas de diversas áreas</div>
+            <div class="f10-filtro1">Vagas de diversas áreas</div>
 
                 <Carousel 
                     responsive={responsive}

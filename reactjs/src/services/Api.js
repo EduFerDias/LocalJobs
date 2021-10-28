@@ -10,6 +10,11 @@ export default class Api {
         return r.data;
     }
 
+    async listarVagas() {
+        let r = await api.get(`/vaga`)
+        return r.data;
+    }
+
     async inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha) {
 
         let empresa = {
@@ -68,7 +73,7 @@ export default class Api {
         return r.data;
     }
 
-    async removerVaga(id) {
+    async DeletarVaga(id) {
         let r = await api.delete(`/vaga/${id}`)
         return r.data;
     }

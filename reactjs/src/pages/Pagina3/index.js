@@ -1,10 +1,10 @@
-/*import { Link } from "react-router-dom";*/
+import { Link } from "react-router-dom";
 import Logo2 from "../../components/comun/Logo2";
 import Conteudo from "./Style"
 import Cabecalho2 from "../../components/comun/cabecalho1";
 
 
-/*import { confirmAlert } from 'react-confirm-alert'; */
+import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 import LoadingBar from 'react-top-loading-bar'
@@ -12,7 +12,7 @@ import LoadingBar from 'react-top-loading-bar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-/*import  { useEffect} from 'react'*/
+import  { useEffect} from 'react'
 import React, { useState, useRef  } from 'react';
 
 import Api from '../../services/Api';
@@ -21,7 +21,7 @@ const api = new Api();
 
 export default function Pagina3(){
 
-    /*const [empresa, setEmpresa ] = useState([]);*/
+    const [empresa, setEmpresa ] = useState([]);
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
