@@ -1,6 +1,7 @@
 import db from "./db.js";
 import express from "express";
 import cors from "cors";
+import { REPEATABLEREAD } from "sequelize/types/lib/table-hints";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -266,21 +267,115 @@ app.post("/sala", async (req, resp) =>{
            resp.send(e.toString());
        }
    });
-   
+
 // GET SALA
+
+app.get('/sala', async (req, resp) => {
+    try {
+        let r = await db.infoc_atn_tb_sala.findAll();
+        resp.send(r);
+    } catch (e) {
+        resp.send("Erro")
+        resp.send(e.toString())
+    }
+})
+
+
+// GET CHAT
    
-app.get("/sala/:id", async (req, resp) =>{
+app.get("/chat/:sala", async (req, resp) =>{
        try {
-           let a = await db.infoc_atn_tb_sala.findOne({ where: {id_sala : req.params.id } });
+           let a = await db.infoc_atn_tb_sala.findOne({ where: {nm_sala : req.params.sala } });
            if (a == null)
                return resp.send({ erro: 'Sala não existe!' });
            resp.send(a);
+
+           let b = await db.infoc_atn_tb_chat.findAll({
+               where: {
+                   id_sala: sala.id_sala
+               }, 
+               order: [['id_chat', 'desc']],
+               include: ['tb_empresa', 'tb_sala', 'tb_pessoal'],            
+           });
+
+
        } catch (e) {
            resp.send("Erro")
            resp.send(e.toString());
        }
 })
 
+
+
+
+// DELETE SALA
+
+app.delete("/sala/:id", async (req, resp) =>{
+    try{
+        let r = await db.infoc_atn_tb_sala.destroy({ where: { id_sala: req.params.id } })
+        resp.sendStatus(200)
+    } catch (e) {
+        resp.send(e.toString)
+    }
+
+
+})
+
+// PUT CHAT
+
+app.put("/chat/:id" async (req, resp) =>{
+    try{
+        let id = req.params.id;
+        let mensagem = req.body.mensagem;
+        let r = await db.infoc_atn_tb_chat.update(
+            {
+                ds_mensagem: mensagem
+            },
+            {
+                where: { id_chat: id}
+            }
+        );
+
+        resp.sendStatus(200)
+
+    } catch (e){
+        resp.send(e.toString())
+    }
+})
+
+// DELETE CHAT
+
+app.delete("/chat/:id", async (req, resp) =>{
+    try{
+        let r = await db.infoc_atn_tb_chat.destroy({ where:  { id_chat: req.params.id } })
+        resp.sendStatus(200)
+    } catch(e){
+        resp.send(e.toString())
+    }
+})
+
+// POST CHAT
+
+app.post("/chat", async (req, resp) =>{
+    try{
+        let chat = req.body;
+        let sala = await db.infoc_atn_tb_sala.findOne({ where: { nm_sala: chat.sala.nome } })
+        let empresa = await db.infoc_atn_tb_empresa({ where: {nm_empresa : chat.empresa.nome } })
+        let pessoa = await db.infoc_atn_tb_pessoal({where: { nm_nome: chat.pessoa.nome } })
+
+        let mensagem = {
+            id_sala: sala.id_sala,
+            ds_mensagem: chat.mensagem,
+            dt_mensagem: new Date(),
+            tp_enviado_por: 
+        }
+
+        let r = await db.infoc_atn_tb_chat.create(mensagem);
+
+    } catch(e){
+        resp.send(e.toString())
+    }
+})
 
 app.listen(process.env.PORT, (x) =>
   console.log(`Server up at port ${process.env.PORT}`)
