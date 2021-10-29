@@ -323,7 +323,7 @@ app.delete("/sala/:id", async (req, resp) =>{
 
 // PUT CHAT
 
-app.put("/chat/:id" async (req, resp) =>{
+app.put("/chat/:id", async (req, resp) =>{
     try{
         let id = req.params.id;
         let mensagem = req.body.mensagem;
