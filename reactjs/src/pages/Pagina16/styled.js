@@ -21,6 +21,10 @@ const Pagina15 = styled.div`
     src: url(./assets/fonts/Montserrat-Bold.ttf);
 }
 
+.nodelete {
+    display:none;
+}
+
 
 body {
     margin: 0px;
