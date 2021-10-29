@@ -1,13 +1,13 @@
 import Conteudo from "./styled";
 import Rodape from "../../components/comun/rodapé";
 import Cabecalho3 from "../../components/comun/cabecalho3";
-
+import LoadingBar from 'react-top-loading-bar'
 import  { useEffect} from 'react'
 import React, { useState, useRef  } from 'react';
 
  
 import Api from '../../services/Api';
-const api = new Api();
+
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-import LoadingBar from 'react-top-loading-bar'
+const api = new Api();
 
 export default function Pagina15(){
 

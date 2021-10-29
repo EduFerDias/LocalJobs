@@ -363,10 +363,13 @@ app.post("/chat", async (req, resp) =>{
         let empresa = await db.infoc_atn_tb_empresa.findOne({ where: {nm_empresa : chat.empresa.nome } })
         let pessoa = await db.infoc_atn_tb_pessoal.findOne({ where: { nm_nome: chat.pessoa.nome } })
 
+
+
         let mensagem = {
             id_sala: sala.id_sala,
             ds_mensagem: chat.mensagem,
-            dt_mensagem: new Date()
+            dt_mensagem: new Date(),
+            tp_enviado_por: chat.enviadopor
         }
 
         let r = await db.infoc_atn_tb_chat.create(mensagem);
