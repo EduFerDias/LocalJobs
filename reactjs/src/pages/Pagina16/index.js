@@ -1,17 +1,24 @@
 import Conteudo from "./styled";
 import Rodape from "../../components/comun/rodapé";
 import Cabecalho3 from "../../components/comun/cabecalho3";
-
+import LoadingBar from 'react-top-loading-bar'
 import  { useEffect} from 'react'
 import React, { useState, useRef  } from 'react';
 
+<<<<<<< HEAD
+ 
+import Api from '../../services/Api';
+
+
+=======
+>>>>>>> a10d0821c36915dd499138e3c1cf83f7b2acc520
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-import LoadingBar from 'react-top-loading-bar'
+const api = new Api();
 
 import Api from '../../services/Api';
 const api = new Api();
