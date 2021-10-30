@@ -30,23 +30,7 @@ app.post('/', async (req, resp) =>{
 
         let r = await db.infoc_atn_tb_pessoal.create({nm_nome:nome, ds_area:area, ds_cargo:cargo, nr_telefone:telefone, ds_estado_cidade:estado_cidade, ds_email:email, ds_senha: confirmar_senha, bl_assinatura:assinatura});
         
-        let s = await db.infoc_atn_tb_configuracoes_pessoais.create({
-            id_pessoal: r.id_pessoal, 
-            ds_sobre:"", 
-            ds_idioma1:"",
-            ds_idioma2:"",
-            ds_idioma3:"",
-            ds_linkedin:"",
-            ds_instagram:"",
-            ds_twiter:"",
-            ds_vagas_interesse1:"",
-            ds_vagas_interesse2:"",
-            ds_vagas_interesse3:"",
-            ds_esperiencias:"",
-            ds_formacoes_academicas:"",
-            ds_link_imagem:""/*,
-            id_curriculo: 0*/
-        })
+        let s = await db.infoc_atn_tb_configuracoes_pessoais.create({id_pessoal: r.id_pessoal, ds_sobre:"", ds_idioma1:"", ds_idioma2:"", ds_idioma3:"", ds_linkedin:"", ds_instagram:"", ds_twiter:"", ds_vagas_interesse1:"", ds_vagas_interesse2:"", ds_vagas_interesse3:"", ds_esperiencias:"", ds_formacoes_academicas:"", ds_link_imagem:""/*,id_curriculo: 0*/})
 
 
         resp.sendStatus(200)
