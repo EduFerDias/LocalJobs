@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import db from "./db.js";
 import express from "express";
 import cors from "cors";
@@ -166,11 +167,16 @@ app.put("/empresaconfig/:id", async (req, resp) => {
 app.post("/vaga", async (req, resp) => {
     try {
         let a = req.body;
+=======
+import empresaController from './controller/empresaController.js';
+import empConfigController from './controller/empresaConfigController.js';
+>>>>>>> 0c8ce36ca816392f39c99cdac3f4dbf69ef7e145
 
-        let empresa = await db.infoc_atn_tb_empresa.findOne()
+import vagaController from './controller/vagaController.js';
 
-        
+import salaController from './controller/salaControler.js';
 
+<<<<<<< HEAD
         const vaga = await db.infoc_atn_tb_vagas.create ({
             
             id_empresa: empresa.id_empresa,
@@ -362,23 +368,27 @@ app.post("/chat", async (req, resp) =>{
         let sala = await db.infoc_atn_tb_sala.findOne({ where: { nm_sala: chat.sala.nome } })
         let empresa = await db.infoc_atn_tb_empresa.findOne({ where: {nm_empresa : chat.empresa.nome } })
         let pessoa = await db.infoc_atn_tb_pessoal.findOne({ where: { nm_nome: chat.pessoa.nome } })
+=======
+import chatController from './controller/chatController.js';
+>>>>>>> 0c8ce36ca816392f39c99cdac3f4dbf69ef7e145
+
+import userController from './controller/userCotroller.js';
+
+import express from "express";
+import cors from "cors";
+
+const server = express();
+server.use(cors());
+server.use(express.json());
+
+server.use('/empresa', empresaController);
+server.use('/empresaconfig', empConfigController);
+server.use('/vaga', vagaController);
+server.use('/sala', salaController);
+server.use('/chat', chatController);
+server.use('/usuario', userController);
 
 
-
-        let mensagem = {
-            id_sala: sala.id_sala,
-            ds_mensagem: chat.mensagem,
-            dt_mensagem: new Date(),
-            tp_enviado_por: chat.enviadopor
-        }
-
-        let r = await db.infoc_atn_tb_chat.create(mensagem);
-
-    } catch(e){
-        resp.send(e.toString())
-    }
-})
-
-app.listen(process.env.PORT, (x) =>
+server.listen(process.env.PORT, (x) =>
   console.log(`Server up at port ${process.env.PORT}`)
 );

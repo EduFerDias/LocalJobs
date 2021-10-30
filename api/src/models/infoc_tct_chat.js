@@ -1,38 +1,42 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infob_mw_comentario extends Model {
+export default class infoc_tct_chat extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_cometario: {
+    id_chat: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_filme: {
+    id_cliente: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'infoc_tct_cliente',
+        key: 'id_cliente'
+      }
     },
-    id_usuario: {
+    id_administrador: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'infoc_tct_administrador',
+        key: 'id_administrador'
+      }
     },
     ds_mensagem: {
-      type: DataTypes.STRING(300),
+      type: DataTypes.STRING(150),
       allowNull: true
     },
-    dt_comentario: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    ds_curtidas: {
-      type: DataTypes.INTEGER,
+    dt_mensagem: {
+      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infob_mw_comentario',
+    tableName: 'infoc_tct_chat',
     timestamps: false,
     indexes: [
       {
@@ -40,25 +44,25 @@ export default class infob_mw_comentario extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_cometario" },
+          { name: "id_chat" },
         ]
       },
       {
-        name: "id_filme",
+        name: "id_cliente",
         using: "BTREE",
         fields: [
-          { name: "id_filme" },
+          { name: "id_cliente" },
         ]
       },
       {
-        name: "id_usuario",
+        name: "id_administrador",
         using: "BTREE",
         fields: [
-          { name: "id_usuario" },
+          { name: "id_administrador" },
         ]
       },
     ]
   });
-  return infob_mw_comentario;
+  return infoc_tct_chat;
   }
 }
