@@ -55,12 +55,12 @@ export default class Api {
     }
 
     
-    async inserirVaga(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
+    async inserirVaga(profissao,descricao,qualificacao,formacao,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
         let vaga = {
             ds_profissao: profissao,
             ds_descricao: descricao,
             ds_qualificacao: qualificacao,
-            formacoes: formacoes,
+            fd_formacao: formacao,
             ds_local_trabalho: local,
             ds_salario_a:  salario_a,
             ds_salario_de: salario_de,

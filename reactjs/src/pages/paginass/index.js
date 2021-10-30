@@ -18,6 +18,7 @@ export default function pagina (){
                 <Link to="/page14">Pagina 14</Link>
                 <Link to="/page15">Pagina 15</Link>
                 <Link to="/page16">Pagina 16</Link>
+                <Link to="/page13">Pagina13</Link>
                 <Link to="/page18">Pagina da Empresa</Link>
                 <Link to="/page19">Pagina19</Link>
                 <Link to="/*">404 Not Found</Link>

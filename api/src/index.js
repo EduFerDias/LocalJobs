@@ -1,7 +1,6 @@
 import db from "./db.js";
 import express from "express";
 import cors from "cors";
-import { REPEATABLEREAD } from "sequelize/types/lib/table-hints";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -179,6 +178,7 @@ app.post("/vaga", async (req, resp) => {
             ds_descricao: a.ds_descricao,
             ds_qualificacao	: a.ds_qualificacao	,
             ds_local_trabalho: a.ds_local_trabalho,
+            ds_formacao: a.ds_formacao,
             ds_salario_de: a.ds_salario_de,
             ds_salario_a: a.ds_salario_a,
             ds_tipo_contratacao: a.ds_tipo_contratacao,

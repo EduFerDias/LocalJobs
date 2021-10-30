@@ -1,11 +1,11 @@
-import Header5 from "../../components/comun/header5";
+import Cabecalho from "../../components/comun/cabecalho3";
 import Rodape from '../../components/comun/rodapé';
 import Conteudo from './styled'
 
 export default function Pagina18 (){
     return(
         <Conteudo>
-            <Header5 />
+            <Cabecalho />
             <div class="container-detalhes">
 
             </div>
