@@ -1,26 +1,42 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infod_ssc_item_venda extends Model {
+export default class infob_mw_comentarios extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_item_venda: {
+    id_cometario: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_produto: {
+    id_filme: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    id_venda: {
+    id_usuario: {
       type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ds_mensagem: {
+      type: DataTypes.STRING(300),
+      allowNull: true
+    },
+    dt_comentario: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    ds_curtidas: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    qtd_curtidas: {
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infod_ssc_item_venda',
+    tableName: 'infob_mw_comentarios',
     timestamps: false,
     indexes: [
       {
@@ -28,25 +44,25 @@ export default class infod_ssc_item_venda extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_item_venda" },
+          { name: "id_cometario" },
         ]
       },
       {
-        name: "id_produto",
+        name: "id_filme",
         using: "BTREE",
         fields: [
-          { name: "id_produto" },
+          { name: "id_filme" },
         ]
       },
       {
-        name: "id_venda",
+        name: "id_usuario",
         using: "BTREE",
         fields: [
-          { name: "id_venda" },
+          { name: "id_usuario" },
         ]
       },
     ]
   });
-  return infod_ssc_item_venda;
+  return infob_mw_comentarios;
   }
 }
