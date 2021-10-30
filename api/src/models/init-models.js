@@ -12,7 +12,6 @@ import _infoa_enl_cartao_credito from  "./infoa_enl_cartao_credito.js";
 import _infoa_enl_categoria from  "./infoa_enl_categoria.js";
 import _infoa_enl_chat from  "./infoa_enl_chat.js";
 import _infoa_enl_chat_usuario from  "./infoa_enl_chat_usuario.js";
-import _infoa_enl_login from  "./infoa_enl_login.js";
 import _infoa_enl_pedido from  "./infoa_enl_pedido.js";
 import _infoa_enl_pedido_compra_e_venda from  "./infoa_enl_pedido_compra_e_venda.js";
 import _infoa_enl_plano from  "./infoa_enl_plano.js";
@@ -163,7 +162,6 @@ export default function initModels(sequelize) {
   var infoa_enl_categoria = _infoa_enl_categoria.init(sequelize, DataTypes);
   var infoa_enl_chat = _infoa_enl_chat.init(sequelize, DataTypes);
   var infoa_enl_chat_usuario = _infoa_enl_chat_usuario.init(sequelize, DataTypes);
-  var infoa_enl_login = _infoa_enl_login.init(sequelize, DataTypes);
   var infoa_enl_pedido = _infoa_enl_pedido.init(sequelize, DataTypes);
   var infoa_enl_pedido_compra_e_venda = _infoa_enl_pedido_compra_e_venda.init(sequelize, DataTypes);
   var infoa_enl_plano = _infoa_enl_plano.init(sequelize, DataTypes);
@@ -319,8 +317,6 @@ export default function initModels(sequelize) {
   infoa_enl_categoria.hasMany(infoa_enl_produto, { as: "infoa_enl_produtos", foreignKey: "id_categoria"});
   infoa_enl_chat.belongsTo(infoa_enl_chat_usuario, { as: "id_chat_usuario_infoa_enl_chat_usuario", foreignKey: "id_chat_usuario"});
   infoa_enl_chat_usuario.hasMany(infoa_enl_chat, { as: "infoa_enl_chats", foreignKey: "id_chat_usuario"});
-  infoa_enl_usuario.belongsTo(infoa_enl_login, { as: "id_login_infoa_enl_login", foreignKey: "id_login"});
-  infoa_enl_login.hasMany(infoa_enl_usuario, { as: "infoa_enl_usuarios", foreignKey: "id_login"});
   infoa_enl_pedido_compra_e_venda.belongsTo(infoa_enl_pedido, { as: "id_pedido_infoa_enl_pedido", foreignKey: "id_pedido"});
   infoa_enl_pedido.hasMany(infoa_enl_pedido_compra_e_venda, { as: "infoa_enl_pedido_compra_e_vendas", foreignKey: "id_pedido"});
   infoa_enl_reg_plano.belongsTo(infoa_enl_plano, { as: "id_plano_infoa_enl_plano", foreignKey: "id_plano"});
@@ -499,7 +495,6 @@ export default function initModels(sequelize) {
     infoa_enl_categoria,
     infoa_enl_chat,
     infoa_enl_chat_usuario,
-    infoa_enl_login,
     infoa_enl_pedido,
     infoa_enl_pedido_compra_e_venda,
     infoa_enl_plano,
