@@ -101,7 +101,7 @@ export default function Pagina15(){
                                 <div class="f16-descricao">Qualificação:</div>
                                 <textarea name="" value={ qualificacao } onChange={e => setQualificacao(e.target.value)} id="" cols="55" rows="10"></textarea>
 
-                                <div class="f16-descricao">Formações</div>
+                                <div class="f16-descricao">Formaes</div>
                                 <textarea name=""  value={ formacoes } onChange={e => setFormacoes(e.target.value)} id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-Local">Local de trabalho</div>
