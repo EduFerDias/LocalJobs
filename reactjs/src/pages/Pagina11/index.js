@@ -72,7 +72,7 @@ export default function Pagina11 (){
 
                     )}
 
-                </Carousel>;
+                </Carousel>
 
             <div class="f10-filtro1">Vagas de diversas áreas</div>
 

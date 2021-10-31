@@ -15,6 +15,11 @@ export default class Api {
         return r.data;
     }
 
+    async listarVagasID(id) {
+        let r = await api.get(`/vaga${id}`)
+        return r.data;
+    }
+
     async inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha) {
 
         let empresa = {
@@ -60,7 +65,7 @@ export default class Api {
             ds_profissao: profissao,
             ds_descricao: descricao,
             ds_qualificacao: qualificacao,
-            fd_formacao: formacao,
+            ds_formacao: formacao,
             ds_local_trabalho: local,
             ds_salario_a:  salario_a,
             ds_salario_de: salario_de,
