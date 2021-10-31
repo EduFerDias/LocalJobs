@@ -13,6 +13,8 @@ import userController from './controller/userCotroller.js';
 
 import userConfigController from './controller/userConfigController.js'
 
+import recuperacaoSenhaController from './controller/recuperaçãoSenhaController.js'
+
 import express from "express";
 import cors from "cors";
 
@@ -28,6 +30,7 @@ server.use('/sala', salaController);
 server.use('/chat', chatController);
 server.use('/usuario', userController);
 server.use('/userconfig', userConfigController);
+server.use('/', recuperacaoSenhaController);
 
 
 server.listen(process.env.PORT, (x) =>
