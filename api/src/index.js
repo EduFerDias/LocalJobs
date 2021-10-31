@@ -1,6 +1,8 @@
 import empresaController from './controller/empresaController.js';
 import empConfigController from './controller/empresaConfigController.js';
 
+import loginController from './controller/loginController.js'
+
 import vagaController from './controller/vagaController.js';
 
 import salaController from './controller/salaControler.js';
@@ -18,6 +20,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
+server.use('/login', loginController)
 server.use('/empresa', empresaController);
 server.use('/empresaconfig', empConfigController);
 server.use('/vaga', vagaController);
