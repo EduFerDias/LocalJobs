@@ -10,8 +10,23 @@ export default class Api {
         return r.data;
     }
 
+    async ListarEmpresaID(id){
+        let r = await api.get(`/empresa/${id}`)
+        return r.data;
+    }
+
+    async listarEmpresaConfigID(id){
+        let r = await api.get(`/empresaconfig/${id}` )
+        return r.data;
+    }
+
     async listarVagas() {
         let r = await api.get(`/vaga`)
+        return r.data;
+    }
+
+    async listarVagasID(id) {
+        let r = await api.get(`/vaga/${id}`)
         return r.data;
     }
 
@@ -60,7 +75,7 @@ export default class Api {
             ds_profissao: profissao,
             ds_descricao: descricao,
             ds_qualificacao: qualificacao,
-            fd_formacao: formacao,
+            ds_formacao: formacao,
             ds_local_trabalho: local,
             ds_salario_a:  salario_a,
             ds_salario_de: salario_de,

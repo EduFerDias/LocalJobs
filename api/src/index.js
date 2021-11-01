@@ -1,16 +1,11 @@
-import empresaController from './controller/empresaController.js';
+
 import empConfigController from './controller/empresaConfigController.js';
-
+import empresaController from './controller/empresaController.js';
 import loginController from './controller/loginController.js'
-
 import vagaController from './controller/vagaController.js';
-
 import salaController from './controller/salaControler.js';
-
 import chatController from './controller/chatController.js';
-
 import userController from './controller/userCotroller.js';
-
 import userConfigController from './controller/userConfigController.js'
 
 import recuperacaoSenhaController from './controller/recuperaçãoSenhaController.js'

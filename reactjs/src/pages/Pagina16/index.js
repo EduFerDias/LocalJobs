@@ -2,6 +2,7 @@ import Conteudo from "./styled";
 import Rodape from "../../components/comun/rodapé";
 import Cabecalho3 from "../../components/comun/cabecalho3";
 import LoadingBar from 'react-top-loading-bar'
+
 import  { useEffect} from 'react'
 import React, { useState, useRef  } from 'react';
 
@@ -13,6 +14,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import Api from '../../services/Api';
 const api = new Api();
+
 
 
 
@@ -32,18 +34,41 @@ export default function Pagina15(){
     const [horario, setHorario] = useState('');
     const [idAlterado, setIdAlterado] = useState(0);
 
+
     const loading = useRef(null)
 
     console.log(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
 
     async function inserirVaga() { 
-        let x = await api.inserirVaga(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
-        console.log(x)
-        let a = await api.listarVagas()
-        setVaga(a);
-        console.log(a)
+
+        let a = profissao === '' || descricao === '' || qualificacao === '' || formacoes === '' || local === '' || salario_a === '' || salario_de === ''  || beneficios === '' || horario === ''
+        const time = "08:00"
+
+
+        if(a === true) {
+            toast.error('Todos os campos devem estar preenchidos!');
+        }
+
+        else if(salario_a < salario_de) {
+            toast.error('O Salario DE: ' + salario_de + " Deve ser menor que A: " + salario_a);
+        }
+
+        else if(horario > time){
+            toast.error('Horario deve ser menor que 8 horas');
+        }
+
+        else {
+            loading.current.continuousStart(); 
+            toast.success('Vaga Cadastrada')
+            let x = await api.inserirVaga(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
+            toast.success('Vaga Cadastrada')
+            loading.current.complete()      
+            console.log(x)      
+        }
+        
 
     }
+
     async function ListarVagas() {
         let a = await api.listarVagas()
         setVaga(a);
@@ -93,19 +118,19 @@ export default function Pagina15(){
                             
                             <div class="inputs">
                                 <div class="f16-profissao">Profissão:</div>
-                                <input type="text" value={ profissao } onChange={e => setProfissao(e.target.value)} placeholder="⠀Profissão" /> 
+                                <input type="text" maxlength="30" value={ profissao } onChange={e => setProfissao(e.target.value)} placeholder="⠀Profissão" /> 
 
                                 <div class="f16-descricao">Descrição:</div>
-                                <textarea name="" value={ descricao } onChange={e => setDescricao(e.target.value)}  id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="250" value={ descricao } onChange={e => setDescricao(e.target.value)}  id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-descricao">Qualificação:</div>
-                                <textarea name="" value={ qualificacao } onChange={e => setQualificacao(e.target.value)} id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="250" value={ qualificacao } onChange={e => setQualificacao(e.target.value)} id="" cols="55" rows="10"></textarea>
 
-                                <div class="f16-descricao">Formaes</div>
-                                <textarea name=""  value={ formacoes } onChange={e => setFormacoes(e.target.value)} id="" cols="55" rows="10"></textarea>
+                                <div class="f16-descricao">Formações</div>
+                                <textarea name="" maxlength="250"  value={ formacoes } onChange={e => setFormacoes(e.target.value)} id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-Local">Local de trabalho</div>
-                                <input class="trabalho" value={ local } onChange={e => setLocal(e.target.value)}  type="text" placeholder="⠀Local de trabalho"/>
+                                <input class="trabalho"  maxlength="30" value={ local } onChange={e => setLocal(e.target.value)}  type="text" placeholder="⠀Local de trabalho"/>
                             </div>
 
                             <div class="mensagemaviso"><h2>Mensagens: <span>2</span></h2></div>
@@ -126,12 +151,12 @@ export default function Pagina15(){
                                 <div class="salarios"> 
                                     <div class="salariode">
                                         <div class="de"> De
-                                        <input type="number" value={ salario_de } onChange={e => setSalario_de(e.target.value)} placeholder="⠀De"/></div>
+                                        <input type="number" maxlength="7"  value={ salario_de } onChange={e => setSalario_de(e.target.value)} placeholder="⠀De"/></div>
                                     </div>
 
                                     <div class="salarioa">
                                         <div class="a"> a
-                                        <input type="number" min="1" max="7" placeholder="⠀A"  value={ salario_a } onChange={e => setSalario_a(e.target.value)} /> </div>
+                                        <input type="number" maxlength="7" min="0" max="1000000" placeholder="⠀A"  value={ salario_a } onChange={e => setSalario_a(e.target.value)} /> </div>
                                     </div> 
                                 </div>
 
@@ -148,10 +173,10 @@ export default function Pagina15(){
                                 </div>
 
                                 <div class="beneficios">Beneficios </div>
-                                <textarea name="" id="" cols="55" rows="10" value={ beneficios } onChange={e => setBeneficios(e.target.value)}></textarea>
+                                <textarea name="" id="" cols="55" maxlength="250" rows="10" value={ beneficios } onChange={e => setBeneficios(e.target.value)}></textarea>
 
-                                <div class="hora">Horário de trabalho</div>
-                                <input class="inputhoras" type="time"  placeholder="⠀Horário de trabalho" value={ horario } onChange={e => setHorario(e.target.value)}/>
+                                <div class="hora">Horas Trabalhadas</div>
+                                <input class="inputhoras" type="time" min="01:00" max="8:00" placeholder="⠀Horário de trabalho" value={ horario } onChange={e => setHorario(e.target.value)}/>
                             </div>
 
                             <div class="currilosscrool">

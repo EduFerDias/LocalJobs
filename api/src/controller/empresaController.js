@@ -5,6 +5,19 @@ const app = Router();
 
 // EMPRESA 
 
+// GET TB EMPRESA ID
+
+app.get("/:id", async (req, resp) => {
+    try {
+        let { id } = req.params;
+        let r = await db.infoc_atn_tb_empresa.findOne({where:{id_empresa:Number(id)}})
+        resp.send(r);
+      } catch (e) {
+          resp.send("Erro")
+          resp.send(e.toString());
+      }
+  });
+
 // GET TB EMPRESA
 
 app.get("/", async (req, resp) => {
@@ -50,14 +63,17 @@ app.post("/", async (req, resp) => {
         ds_senha: a.ds_senha
     })
 
-    const x = "";
+    const x = ""
     const empresaconfig = await db.infoc_atn_tb_configuracoes_empresa.create ({
         id_empresa: empresa.id_empresa,
         ds_site: x,
         ds_descricao_empresa: x,
         ds_instagram_empresa: x,
-        ds_twiter_empresa: x,
-        ds_link_imagem: x
+        ds_twitter_empresa: x,
+        ds_linkdin_empresa: x,
+        ds_link_imagem: x,
+        ds_porte: x,
+        qtd_funcionarios: 0
     })
 
     resp.send(empresa + empresaconfig);

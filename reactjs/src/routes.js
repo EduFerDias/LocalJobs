@@ -27,22 +27,39 @@ export default function Rotas (){
         <BrowserRouter>
             <Switch>
             <Route path="/" component={Pagina} exact={true}/>
-                <Route path="/home" component={Pagina1} />
+
+                <Route path="/paginas" component={Pagina1} />
+
                 <Route path="/cadastros" component={Pagina2} />
+
                 <Route path="/cadastro-empresa" component={Pagina3} />
+
                 <Route path="/cadastro-candidato" component={Pagina4} />
+
                 <Route path="/esqueceu-senha" component={Pagina5} />
-                <Route path="/pagina7" component={Pagina7} />
-                <Route path="/page9" component={Pagina9} />
-                <Route path="/page10" component={Pagina10} />
-                <Route path="/page11" component={Pagina11} />
-                <Route path="/page12" component={Pagina12} />
-                <Route path="/page14" component={Pagina14} />
-                <Route path="/page15" component={Pagina15} />
-                <Route path="/page16" component={Pagina16} />
-                <Route path="/page18" component={Pagina18} />
-                <Route path="/page19" component={Pagina19} />
-                <Route path="/page13" component={Pagina13} />
+
+                <Route path="/codigo" component={Pagina7} />
+
+                <Route path="/buscar-usu" component={Pagina9} />
+
+                <Route path="/home-empresa" component={Pagina10} />
+
+                <Route path="/home-usu" component={Pagina11} />
+
+                <Route path="/buscar-empresa" component={Pagina12} />
+
+                <Route path="/usuario" component={Pagina14} />
+
+                <Route path="/vaga" component={Pagina15} />
+
+                <Route path="/criar-vaga" component={Pagina16} />
+
+                <Route path="/empresa" component={Pagina18} />
+
+                <Route path="/config-empresa" component={Pagina19} />
+
+                <Route path="/config-usuario" component={Pagina13} />
+
                 <Route path="*" component={Pagina6}/>
             </Switch>
         </BrowserRouter>
