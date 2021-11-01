@@ -77,4 +77,27 @@ export default class Api {
         let r = await api.delete(`/vaga/${id}`)
         return r.data;
     }
+
+    async enviarEmail(email){
+        let emailJson = {email:email};
+        let r = await api.post(`/esqueceuSenha`, emailJson)
+        return r.data;
+    }
+    async validarCodigo(email, codigoinserido){
+        let emailCode = {
+            email:email,
+            code:codigoinserido
+        }
+        let r = await api.post(`/validarCodigo`, emailCode);
+        return r.data;
+    }
+    async trocarSenha(email, codigoInserido, novaSenha){
+        let change = {
+            email:email,
+            code:codigoInserido,
+            novaSenha:novaSenha
+        }
+        let r = await api.put(`/resetSenha`, change);
+        return r.data;
+    }
 }

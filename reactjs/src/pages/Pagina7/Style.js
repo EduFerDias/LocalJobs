@@ -209,6 +209,9 @@ input {
   margin: 0px 0px 10px 0px;
 }
 
+.sumi{
+  display:none;
+}
 `
 
 export default Pagina7
