@@ -58,12 +58,12 @@ export default function Pagina15(){
         }
 
         else {
-            
-            let x = await api.inserirVaga(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
-            console.log(x)
             loading.current.continuousStart(); 
             toast.success('Vaga Cadastrada')
-            loading.current.complete()        
+            let x = await api.inserirVaga(profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
+            toast.success('Vaga Cadastrada')
+            loading.current.complete()      
+            console.log(x)      
         }
         
 

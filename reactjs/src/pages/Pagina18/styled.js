@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 const Conteudo = styled.div`
 
+background-color: #404756;
 
 .cabe-esq-dlt {
   display: flex;

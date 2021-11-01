@@ -14,7 +14,14 @@ import { useHistory } from 'react-router-dom'
 import Api from '../../services/Api';
 const api = new Api();
 
-export default function Pagina18() {
+export default function Pagina18(props) {
+
+
+
+    
+    const [empresa, setEmpresa ] = useState(props.location.state);
+    const [vaga, SetVagas] = useState([]);
+    const [empresaconfig, setEmpresaConfig ] = useState([]);
 
     const responsive = {
 
@@ -23,18 +30,33 @@ export default function Pagina18() {
             items: 3
         }
     }
-    const [id, setIdAlterando] = useState(0);
-    const [vaga, SetVagas] = useState([]);
+
+    const config = empresa.id
+
+    console.log(config)
+    console.log(empresa)
+    console.log(empresaconfig)
+
     const navigation = useHistory();
-    
-    async function listarVagas(id) {
-        const x = await api.listarVagasID(id);
+
+    async function listarEmpresaConfigID(){
+        console.log(config)
+        const x = await api.listarEmpresaConfigID(config)
+        setEmpresaConfig(x)
+    }
+
+    async function listarVagas() {
+        const x = await api.listarVagasID();
         SetVagas(x)
     }
 
 
     useEffect(() => {
         listarVagas();
+    });
+
+    useEffect(() => {
+        listarEmpresaConfigID();
     });
 
 
@@ -48,7 +70,7 @@ export default function Pagina18() {
                 <div class="logo-empr-dtl">
                     <img src="./assets/images/Pagina18/Group 89.png" alt="" />
                 </div>
-                <div class="titulo-empr-dtl">Athena TI</div>
+                <div class="titulo-empr-dtl">{empresa.empresa}</div>
                 </div>
 
                 <div class="titulo-athena-dtl">
@@ -57,39 +79,36 @@ export default function Pagina18() {
 
                 <div class="box-athena-dtl">
                 <div class="ramo-dtl">
-                    <b>Ramo:</b> TI, Home Office
+                    <b>Ramo:</b> {empresa.area}
                 </div>
                 <div class="porte-dtl">
-                    <b>Porte:</b> Pequeo
+                    <b>Porte:</b> {empresaconfig.ds_porte}
                 </div>
                 <div class="nmr-func-dtl">
-                    <b>Número de Funcionários:</b> 6
+                    <b>Número de Funcionários:</b> {empresaconfig.qtd_funcionarios}
                 </div>
                 <div class="local-dtl">
-                    <b>Local:</b> São Paulo
+                    <b>Local:</b> {empresa.cidade}
                 </div>
                 <div class="site-dtl">
-                    <b>Site:</b> athenati.com.br
+                    <b>Site:</b> {empresaconfig.ds_site}
                 </div>
                 <div class="cnpj-dtl">
-                    <b>CNPJ:</b> 59.546.515/0001-34
+                    <b>CNPJ:</b> {empresa.cnpj}
                 </div>
                 <div class="img-athena-dtl">
                     <div class="img-athena">
                     <div class="lkd-dtl">
                         <img src="./assets/images/Pagina18/LinkedIn.png" alt="" />
-                        <div class="lkd-txt">/athenati</div>
+                        <div class="lkd-txt"> {empresaconfig.ds_linkdin_empresa} </div>
                     </div>
                     <div class="twitter-dtl">
                         <img src="./assets/images/Pagina18/Twitter.png" alt="" />
-                        <div class="tt-txt">@athenati</div>
+                        <div class="tt-txt">{empresaconfig.ds_twitter_empresa}</div>
                     </div>
                     <div class="insta-dtl">
-                        <img
-                        src="./assets/images/Pagina18/Instagram Circle.png"
-                        alt=""
-                        />
-                        <div class="int-txt">@athenati</div>
+                        <img src="./assets/images/Pagina18/Instagram Circle.png" alt="" />
+                        <div class="int-txt">{empresaconfig.ds_instagram_empresa}</div>
                     </div>
                     </div>
                 </div>
@@ -99,7 +118,7 @@ export default function Pagina18() {
             <div class="desc-dtl">
                 <div class="desc-tit-dtl">Descrição</div>
                 <div class="desc-empr-dtl">
-                Atua com especialização de TI e consultoria
+                {empresaconfig.ds_descricao_empresa}
                 </div>
             </div>
 
@@ -157,23 +176,15 @@ export default function Pagina18() {
             <div class="tit-csl-dtl">
                 <div class="tit-csl">7 vagas no(a) Athena Ti</div>
             </div>
-                <Carousel 
+            <Carousel 
                         responsive={responsive}
                         infinite={true}
-                >
+            >
+                <div> oi </div>
 
-                    {vaga.map(item => 
-                        <Vaga 
-                        key={item.id_vaga}
-                        profissao={item.ds_profissao != null && item.ds_profissao.length > 25 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} 
-                        descricao={item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao} 
-                        cidade={item.ds_local_trabalho} 
-                        salarioa={item.ds_salario_a}
-                        salariode={item.ds_salario_de}
-                        />
-                    )}
 
             </Carousel>
+
         </div>
       </div>
       <Rodape />
