@@ -40,7 +40,7 @@ app.post('/validarCodigo', async(req, resp) =>{
         if(!v){
             resp.send({erro:'codigo errado!'})
         } else {
-            resp.send({status:'codigo valido'})
+            resp.send({mensagem:'codigo valido'})
         }
     }catch(e){
         console.log(e)
@@ -60,7 +60,7 @@ app.put('/resetSenha', async(req,resp) =>{
         }
         
         await db.infoc_atn_tb_pessoal.update({ds_senha: crypto.SHA256(novaSenha).toString(crypto.enc.Base64), ds_confirmar_senha: crypto.SHA256(novaSenha).toString(crypto.enc.Base64), ds_codigo_rec:""}, {where:{ds_codigo_rec:code, ds_email:email}})
-        resp.send({resposta:'Senha Alterada'})
+        resp.send({mensagem:'Senha Alterada'})
     }catch(e){
         console.log(e)
     }

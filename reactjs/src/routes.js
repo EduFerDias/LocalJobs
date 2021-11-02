@@ -18,6 +18,7 @@ import Pagina18 from "./pages/Pagina18";
 import Pagina19 from "./pages/Pagina19";
 
 import Pagina13 from "./pages/Pagina13";
+import Pagina7_5 from "./pages/Pagina7.5";
 /*
 As pgs 15 e 14 Presizam de uma revisao
 */
@@ -39,6 +40,8 @@ export default function Rotas (){
                 <Route path="/esqueceu-senha" component={Pagina5} />
 
                 <Route path="/codigo" component={Pagina7} />
+
+                <Route path="/recSenha" component={Pagina7_5} />
 
                 <Route path="/buscar-usu" component={Pagina9} />
 

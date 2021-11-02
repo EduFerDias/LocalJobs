@@ -21,7 +21,7 @@ export default function Pagina5 (){
               <Link to="/pagina7">  <button>Enviar código no numero de celular</button> </Link>
             </div>
             <div class="EnviarNoEmail">
-              <Link to="/pagina7">  <button>Enviar código no email</button> </Link>
+              <Link to="/codigo">  <button>Enviar código no email</button> </Link>
             </div>
           </div>
         </div>

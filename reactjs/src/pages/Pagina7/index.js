@@ -5,7 +5,9 @@ import Api from "../../services/Api";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from "react-toastify";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect} from "react";
+
+import { useHistory } from "react-router";
 
 import LoadingBar from 'react-top-loading-bar'
 
@@ -18,8 +20,10 @@ export default function Pagina7 (){
     const [codigo, setCodigo] = useState("")
 
     const loading = useRef(null);
+    let nav = useHistory();
+
     useEffect(() => {
-      // enviarEmail();
+      //  enviarEmail();
     });
 
     async function enviarEmail(){ 
@@ -31,16 +35,18 @@ export default function Pagina7 (){
       return;
     }
 
-    async function validarCodigo(event) {
-      if(!(event && event.charCode == 13))
-        return;
+    async function validarCodigo() {
+      loading.current.continuousStart(); 
       
       let r = await api.validarCodigo('diasdu2011@hotmail.com', codigo)
       if(r.erro){
         toast.error(r.erro);
+        loading.current.complete();
         return;
       }
       toast.success('codigo certo')
+      loading.current.complete();
+      nav.push('/recSenha')
       return;
     }
 
@@ -66,7 +72,7 @@ export default function Pagina7 (){
               Não recebeu? clique aqui para <b>Reenviar</b>
             </div>
             <div class="codigo-t7">
-              <input type="text" name="nome" onKeyPress={validarCodigo} value={codigo} onChange={e => setCodigo(e.target.value)} placeholder="Código" />
+              <input type="text" name="nome" value={codigo} onChange={e => setCodigo(e.target.value)} placeholder="Código" />
             </div>
             <div class="cfmrCodigo-t7">
               <button onClick={validarCodigo}>Confirmar Código</button>
