@@ -1,11 +1,12 @@
-import db from '../db.js'
 import enviarEmail from '../emails.js';
-
 import crypto from 'crypto-js';
 
-import { Router } from 'express'
+import db from '../db.js'
+import express from 'express'
 
+const Router = express.Router;
 const app = Router();
+
 
 app.post('/esqueceuSenha', async(req, resp) =>{
     try{

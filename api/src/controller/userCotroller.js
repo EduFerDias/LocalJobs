@@ -1,8 +1,11 @@
-import db from '../db.js'
-import { Router } from 'express';
 import crypto from 'crypto-js';
 
+import db from '../db.js'
+import express from 'express'
+
+const Router = express.Router;
 const app = Router();
+
 
 app.get('/',async (req, resp) => {
     try {

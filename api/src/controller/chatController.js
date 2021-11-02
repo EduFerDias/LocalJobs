@@ -1,6 +1,7 @@
 import db from '../db.js'
-import { Router } from 'express'
+import express from 'express'
 
+const Router = express.Router;
 const app = Router();
 
 // GET CHAT
