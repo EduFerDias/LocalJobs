@@ -30,12 +30,8 @@ export default class infoc_atn_tb_empresa extends Model {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    ds_email: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
     ds_senha: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(100),
       allowNull: true
     },
     ds_codigo_rec: {

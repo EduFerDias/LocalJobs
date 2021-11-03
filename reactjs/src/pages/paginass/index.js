@@ -14,6 +14,7 @@ export default function pagina (){
 
                 <button><Link to="/esqueceu-senha">Esqueceu Senha</Link></button>
                 <button><Link to="/codigo">Codigo de recuperação</Link></button>
+                <button><Link to="/recSenha">Troca de Senha</Link></button>
 
                 <button><Link to="/buscar-usu">Busca(Empresa)</Link></button>
                 <button><Link to="/buscar-empresa">Busca(Candidato)</Link></button>

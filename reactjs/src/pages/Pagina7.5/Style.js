@@ -103,7 +103,8 @@ const Pagina7 = styled.div`
 
   background: rgba(5, 0, 0, 0.6);
   width: 370px;
-  height: 380px;
+  height: max-content;
+  padding: 1em 0px;
   border-radius: 12px;
 }
 
@@ -122,7 +123,7 @@ const Pagina7 = styled.div`
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 1.7em;
 
   text-align: center;
 
@@ -133,7 +134,7 @@ const Pagina7 = styled.div`
   font-family: Montserrat-Regular;
   font-style: normal;
   font-weight: normal;
-  font-size: 10px;
+  font-size: 0.85em;
   line-height: 15px;
   text-align: center;
 
@@ -181,6 +182,26 @@ input {
   border: none;
 
   cursor: text;
+}
+.codigo-t7{
+  display: flex;
+  flex-direction: column;
+}
+.codigo-t7 span{
+  display: flex;
+  align-items: center;
+  padding-left: 8em;
+  padding-top:0.5em;
+  padding-bottom: 0.5em;
+  flex-direction: row;
+}
+.checkbox{
+  height: 1em;
+  width: 1em;
+  margin:0.5em;
+
+  color:white;
+  background-color: #31343e;
 }
 
 .cfmrCodigo-t7 button {
