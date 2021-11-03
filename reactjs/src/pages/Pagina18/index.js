@@ -16,11 +16,9 @@ const api = new Api();
 
 export default function Pagina18(props) {
 
-
-
     
     const [empresa, setEmpresa ] = useState(props.location.state);
-    const [vaga, SetVagas] = useState([]);
+    const [vaga, setVagas] = useState([]);
     const [empresaconfig, setEmpresaConfig ] = useState([]);
 
     const responsive = {
@@ -36,23 +34,27 @@ export default function Pagina18(props) {
     console.log(config)
     console.log(empresa)
     console.log(empresaconfig)
+    console.log(vaga)
 
-    const navigation = useHistory();
+
+    async function ListarVagas() {
+        const x = await api.listarVagasIDempresa(config)
+        setVagas(x)
+    }
 
     async function listarEmpresaConfigID(){
-        console.log(config)
         const x = await api.listarEmpresaConfigID(config)
         setEmpresaConfig(x)
     }
 
-    async function listarVagas() {
-        const x = await api.listarVagasID();
-        SetVagas(x)
+    async function ListarEmpresaID(){
+        const x = await api.ListarEmpresaID(config)
+        setEmpresa(x)
     }
 
 
     useEffect(() => {
-        listarVagas();
+        ListarVagas();
     });
 
     useEffect(() => {
@@ -70,7 +72,7 @@ export default function Pagina18(props) {
                 <div class="logo-empr-dtl">
                     <img src="./assets/images/Pagina18/Group 89.png" alt="" />
                 </div>
-                <div class="titulo-empr-dtl">{empresa.empresa}</div>
+                <div class="titulo-empr-dtl">{empresa.nm_nome}</div>
                 </div>
 
                 <div class="titulo-athena-dtl">
@@ -117,73 +119,89 @@ export default function Pagina18(props) {
 
             <div class="desc-dtl">
                 <div class="desc-tit-dtl">Descrição</div>
-                <div class="desc-empr-dtl">
-                {empresaconfig.ds_descricao_empresa}
-                </div>
+                <div class="desc-empr-dtl"> 
+                     {empresaconfig.ds_descricao_empresa}
+               </div>
             </div>
 
             <div class="msg-dtl">
                 <div class="cima-msg-dtl">
-                <div class="bt-env-curr-dlt">
-                    <button class="bt-env">
-                    <img src="./assets/images/Pagina18/Send File.png" alt="" />{" "}
-                    Enviar Currículo
-                    </button>
-                </div>
-                <div class="ou-dtl">
-                    <b>ou</b>
-                </div>
-                <div class="linkd-bt-dtl">
-                    <button class="linkd-bt">
-                    <img src="./assets/images/Pagina18/LinkedIn.png" alt="" />
-                    </button>
-                </div>
+                    <div class="bt-env-curr-dlt">
+                        <button class="bt-env">
+                            <img src="./assets/images/Pagina18/Send File.png" alt="" />{" "}
+                            Enviar Currículo
+                        </button>
+                    </div>
+
+                    <div class="ou-dtl">
+                        <b>ou</b>
+                    </div>
+
+                    <div class="linkd-bt-dtl">
+                        <button class="linkd-bt">
+                            <img src="./assets/images/Pagina18/LinkedIn.png" alt="" />
+                        </button>
+                    </div>
                 </div>
 
                 <div class="msg-titulo-dtl">
-                <div class="msg-tit-dtl">
-                    <b>Mensagem</b>
-                </div>
+                    <div class="msg-tit-dtl">
+                        <b>Mensagem</b>
+                    </div>
                 </div>
 
                 <div class="box-msg-dtl">
-                <div class="msg-box1-dtl">
-                    <div class="img-box-msg-dtl">
-                    <img src="./assets/images/Pagina18/Group 8.png" alt="" />
+                    <div class="msg-box1-dtl">
+                        <div class="img-box-msg-dtl">
+                        <img src="./assets/images/Pagina18/Group 8.png" alt="" />
+                        </div>
+                        <div class="tit-empr-dtl">
+                        <b>Athena TI</b>
+                        </div>
                     </div>
-                    <div class="tit-empr-dtl">
-                    <b>Athena TI</b>
+
+                    <div class="msg-box2-dtl">
+                        <div class="input-env-msg-dtl">
+                            <input
+                                class="env-msg-input"
+                                placeholder="Enviar Mensagem"
+                                type="text"
+                            />
+
+                        </div>
+
+                        <div class="img-seta-msg-dtl">    
+                            <img src="./assets/images/Pagina18/Paper Plane.png" alt="" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="msg-box2-dtl">
-                    <div class="input-env-msg-dtl">
-                    <input
-                        class="env-msg-input"
-                        placeholder="Enviar Mensagem"
-                        type="text"
-                    />
-                    </div>
-                    <div class="img-seta-msg-dtl">
-                    <img src="./assets/images/Pagina18/Paper Plane.png" alt="" />
-                    </div>
-                </div>
-                </div>
             </div>
+
             </div>
 
             <div class="carrossel-dtl">
             <div class="tit-csl-dtl">
                 <div class="tit-csl">7 vagas no(a) Athena Ti</div>
             </div>
+            
             <Carousel 
                         responsive={responsive}
-                        infinite={true}
             >
-                <div> oi </div>
+
+                {vaga.map(item => 
+                    <Vaga
+                        profissao= {item.ds_profissao != null && item.ds_profissao.length > 25 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} 
+                        cidade={item.ds_local_trabalho} 
+                        descricao={item.ds_descricaoa}
+                        salarioa={item.ds_salario_a}
+                        salariode={item.ds_salario_de}
+                        />
+                )}
 
 
             </Carousel>
+
 
         </div>
       </div>

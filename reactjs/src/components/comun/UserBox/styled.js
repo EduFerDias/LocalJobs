@@ -50,6 +50,14 @@ const Conteudo = styled.div`
 .vazio {
     display: none;
 }
+
+.f10-texto {
+    color: white;
+}
+
+a {
+    color: white;
+}
 `
 
 export default Conteudo;

@@ -2,7 +2,11 @@ import Conteudo from "./style";
 import Cabecalho from '../../components/comun/cabecalho3'
 import Rodape from '../../components/comun/rodapé'
 
-export default function Pagina15(){
+export default function Pagina15(props){
+
+
+
+    
     return(
     <Conteudo>
         <Cabecalho />

@@ -25,8 +25,13 @@ export default class Api {
         return r.data;
     }
 
-    async listarVagasID(id) {
+    async listarVagasIDempresa(id) {
         let r = await api.get(`/vaga/${id}`)
+        return r.data;
+    }
+
+    async listarVagasID(id,idempresa) {
+        let r = await api.get(`/vaga/${idempresa + id}`)
         return r.data;
     }
 

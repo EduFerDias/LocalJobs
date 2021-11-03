@@ -2,6 +2,10 @@ import styled from "styled-components"
 
 const Conteudo = styled.div`
 
+.bloco {
+  background-color: #107ad1;
+  margin-left: 8rem;
+}
 
 .cabe-esq-dlt {
   display: flex;
