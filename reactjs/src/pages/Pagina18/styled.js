@@ -9,6 +9,7 @@ background-color: #404756;
   flex-direction: row;
 }
 
+
 .cabe-dire-dlt {
   display: flex;
   flex-direction: row;
@@ -21,8 +22,15 @@ background-color: #404756;
   padding: 10px 35px;
   align-items: center;
 }
+
+.desc-empr-dtl {
+  width:500px;
+  height: 200px;
+  word-break: break-word;
+}
+
 .msg-dtl {
-  margin-left: 12rem;
+  margin-left: 3rem;
 }
 .logo-dlt img {
   width: 65px;

@@ -17,6 +17,7 @@ const api = new Api();
 export default function Pagina11 (){
 
     const [empresa, setEmpresa ] = useState([]);
+
     const [vaga, setVagas] = useState([]);
 
     const responsive = {
@@ -27,24 +28,26 @@ export default function Pagina11 (){
         }
     }
 
+    console.log(empresa)
+    console.log(vaga)
+    console.log(vaga.ds_local_trabalho)
+    
     const area = empresa.filter(e => e.nm_ramo == "Informática")
 
-    const teste = empresa.filter(item => item.id_empresa == vaga.id_empresa )
 
-    async function listarEmpresa() {
-                        
+    async function listarEmpresa() {           
         const a = await api.listarEmpresa();
         setEmpresa(a)
     }
 
     async function ListarVagas() {
-        const x = await api.listarVagasID()
-        setVagas(x)
+        const a = await api.listarVagas();
+        setVagas(a)
     }
-
 
     useEffect(() => {
         listarEmpresa();
+        ListarVagas();
     });
 
     return(
@@ -57,51 +60,28 @@ export default function Pagina11 (){
         <div class="f10-areas">
             <div class="f10-filtro1">Vagas de diversas áreas</div>
 
-            <div class="f10-filtro1">Vagas de diversas áreas</div>
-
-                <Carousel 
+            <Carousel 
                     responsive={responsive}
-                    infinite={true}
                 >
 
-                {empresa.map(item => 
+                {vaga.map(item => 
                     <UserBox
-                
-                    empresa={item.nm_nome != null && item.nm_nome.length > 25 ?item.nm_nome.substr(0, 15) + '...' :item.nm_nome} 
-                    cidade={item.ds_estado_cidade} 
-                    area={item.nm_ramo} 
-                    salario={item.salario}
-                    profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao}
-                    bt_empresa={true}
-                    cnpj={item.nr_cnpj}
-                    telefone={item.nr_telefone}
-                    id={item.id_empresa} 
-
-                />
+                        descricao={item.ds_descricao} 
+                        cidade={item.ds_local_trabalho} 
+                        profissao={item.ds_profissao}
+                        salario={item.ds_salario_de}
+                        id={item.id_empresa} 
+                    />
                     
                 )}
 
-                </Carousel>
+            </Carousel>
 
-            
+            <div class="f10-filtro1">Vagas de diversas áreas</div>
+
+       
             <div class="f10-filtro1">Empresas do ramo da Informática</div>
 
-                <Carousel 
-                    responsive={responsive}
-                    infinite={true}
-                >
-                    
-                    {area.map(item => 
-                            <userBox 
-                            empresa= {item.nm_nome != null && item.nm_nome.length > 25 ?item.nm_nome.substr(0, 15) + '...' :item.nm_nome} 
-                            cidade={item.ds_estado_cidade} 
-                            area={item.nm_ramo}
-                            salario={item.salario}
-                            profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao}
-                            bt_empresa={true}/>
-                    )}
-
-                </Carousel>
 
 
         </div> 
