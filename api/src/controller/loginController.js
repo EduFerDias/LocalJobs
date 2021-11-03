@@ -7,21 +7,18 @@ const app = Router();
 
 app.post('/', async(req, resp) =>{
     try{
-        const {email ,senha, tp_conta}  = req.body;
+        const {email ,senha}  = req.body;
         let senhaCrypto = crypto.SHA256(senha).toString(crypto.enc.Base64);
-        let r = "";
 
-        if(tp_conta == 'empresarial'){
-            r = await db.infoc_atn_tb_empresa.findOne({where:{ds_senha:senhaCrypto, ds_email:email}});
-        }
-        else if (tp_conta == 'pessoal'){
-            r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_senha:senhaCrypto, ds_email:email}});
-        }
+        let r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_senha:senhaCrypto, ds_email:email}});
+        let r2 = await db.infoc_atn_tb_empresa.findOne({where:{ds_senha:senhaCrypto, ds_email:email}});
 
-        if(!r){
+        if(!r && !r2){
             resp.send({ status:"error", mensagem:"Credenciais iválidas"})
-        } else {
-            resp.sendStatus(200)
+        } else if(r && !r2){
+            resp.send({tp_conta:"Pessoal"});
+        } else if(r2 && !r){
+            resp.send({tp_conta:"Empresarial"});
         };
 
     } catch(e){
