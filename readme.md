@@ -6,11 +6,11 @@
 
 **REACT**
 
-Paginas 1,2,3 e 4 ok
+Pendencias
 
-Paginas 5, 6, 7, 9 e 10 Problemas com a fonte
-
-Paginas 11 e 12 Não inplementadas
+-Listar empresas
+-Abrir perfil de candidato
+-Abrir vaga
 
 
 ```

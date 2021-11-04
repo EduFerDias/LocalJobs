@@ -44,7 +44,7 @@ app.post("/", async (req, resp) => {
     let email = await db.infoc_atn_tb_empresa.findOne({ where: { ds_email: a.ds_email } })
     let emailJaUsado = await db.infoc_atn_tb_pessoal.findOne({where:{ds_email:a.ds_email}})
 
-    if(nome != null) {
+    if(!nome) {
         return resp.send({erro:"Esse nome já foi utizado em nosso site, tente usar outro"})
     }
     else if (email != null || emailJaUsado != null) {

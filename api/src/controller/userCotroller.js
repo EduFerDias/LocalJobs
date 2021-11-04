@@ -9,8 +9,35 @@ const app = Router();
 
 app.get('/',async (req, resp) => {
     try {
-        let r = await db.infoc_atn_tb_pessoal.findAll();
-        resp.send(r)
+        if(req.query){
+            let {area, cargo, cidade} = req.query;
+            if(area && cargo && cidade){
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})
+                resp.send(r)
+            }else if(!area && cargo && !cidade){
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}})
+                resp.send(r)
+            }else if(!area && !cargo && cidade){
+                let r = await db.infoc_atn_tb_pessoal.findAll({like:{ds_estado_cidade:cidade}})
+                resp.send(r)               
+            }else if(area && !cargo && !cidade){
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}})
+                resp.send(r)       
+            }else if(!area && cargo && cidade){
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})
+                resp.send(r)
+            }else if(area && cargo && !cidade){
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}})
+                resp.send(r)
+            }else if(area && !cargo && cidade){
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}, like:{ds_estado_cidade:cidade}})
+                resp.send(r)
+            }
+        }
+        else{
+            let r = await db.infoc_atn_tb_pessoal.findAll();
+            resp.send(r)
+        }
     } catch (e){
         resp.sendStatus(500)
         console.log(e)
@@ -28,6 +55,8 @@ app.get('/:id', async(req, resp) =>{
     }
 })
 
+
+
 app.post('/', async (req, resp) =>{
     try{
         let {nome, area, cargo, telefone, estado_cidade, email, senha,confirmar_senha, assinatura} = req.body;
@@ -44,6 +73,10 @@ app.post('/', async (req, resp) =>{
         let s = await db.infoc_atn_tb_configuracoes_pessoais.create({id_pessoal: r.id_pessoal, ds_sobre:"", ds_idioma1:"", ds_idioma2:"", ds_idioma3:"", ds_linkedin:"", ds_instagram:"", ds_twiter:"", ds_vagas_interesse1:"", ds_vagas_interesse2:"", ds_vagas_interesse3:"", ds_esperiencias:"", ds_formacoes_academicas:"", ds_link_imagem:""/*,id_curriculo: 0*/})
 
         resp.sendStatus(200)
+
+
+
+        
     } catch(e){
         resp.sendStatus(500)
         console.log(e)

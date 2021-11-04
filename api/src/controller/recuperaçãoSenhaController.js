@@ -42,7 +42,7 @@ app.post('/validarCodigo', async(req, resp) =>{
         
         let {code, email} =  req.body;
         let v = await db.infoc_atn_tb_pessoal.findOne({where:{ds_codigo_rec:code, ds_email:email}});
-        let v2 = await d.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
+        let v2 = await db.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
 
         if(!v && !v2){
             resp.send({erro:'codigo errado!'})
@@ -61,7 +61,7 @@ app.put('/resetSenha', async(req,resp) =>{
         
         let {code, email, novaSenha} =  req.body;
         let v = await db.infoc_atn_tb_pessoal.findOne({where:{ds_codigo_rec:code, ds_email:email}});
-        let v2 = await d.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
+        let v2 = await db.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
 
         if(!v && !v2){
             resp.send({erro:'codigo errado!'})
