@@ -72,7 +72,7 @@ export default function Pagina18(props) {
             <div class="athena-dtl">
                 <div class="nome-empresa-dtl">
                 <div class="logo-empr-dtl">
-                    <img src="./assets/images/Pagina18/Group 89.png" alt="" />
+                    <img src="" alt="" />
                 </div>
                 <div class="titulo-empr-dtl">{empresa.nm_nome}</div>
                 </div>

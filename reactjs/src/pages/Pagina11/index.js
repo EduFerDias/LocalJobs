@@ -70,7 +70,15 @@ export default function Pagina11 (){
                         cidade={item.ds_local_trabalho} 
                         profissao={item.ds_profissao}
                         salario={item.ds_salario_de}
-                        id={item.id_empresa} 
+                        salarioa={item.ds_salario_a}
+                        id={item.id_empresa}
+                        idvaga={item.id_vaga} 
+                        formacao={item.ds_formacao}
+                        qualificacao={item.ds_qualificacao}
+                        tipocontrato={item.ds_tipo_contratacao}
+                        beneficios={item. ds_beneficios}
+                        hora={item.ds_hora_trabalho}
+
                     />
                     
                 )}
