@@ -32,10 +32,10 @@ export default function Pagina11 (){
     console.log(vaga)
     console.log(vaga.ds_local_trabalho)
     
-    const area = empresa.filter(e => e.nm_ramo == "Informática")
+    // const area = empresa.filter(e => e.nm_ramo === "Informática")
 
 
-    async function listarEmpresa() {           
+    async function listarEmpresa() {          
         const a = await api.listarEmpresa();
         setEmpresa(a)
     }

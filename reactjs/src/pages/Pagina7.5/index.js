@@ -5,18 +5,17 @@ import Api from "../../services/Api";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from "react-toastify";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useHistory } from 'react-router-dom'
 
 import LoadingBar from 'react-top-loading-bar'
+import Cookies from "js-cookie";
 
 
 
 let api = new Api();
 
 export default function Pagina7_5 (){
-
-    const [codigo, setCodigo] = useState("");
 
     const [senha, setSenha ] = useState("");
     const [confSenha, setConfirm] = useState("");
@@ -31,21 +30,24 @@ export default function Pagina7_5 (){
 
     async function trocarSenha() {
       loading.current.continuousStart(); 
-      if(senha != confSenha){
+      if(senha !== confSenha){
         toast.error("Ambas as senhas não sao iguais");
         loading.current.complete();
         return;
-      }else if(senha == ""){
+      }else if(senha === ""){
         toast.error("O campo de senha é obrigatório");
         loading.current.complete();
         return;
-      }else if(confSenha == ""){
+      }else if(confSenha === ""){
         toast.error("O campo da confirmação senha é obrigatório");
         loading.current.complete();
         return;
       }
+      let i = Cookies.get('recSenha');
 
-      let r = await api.trocarSenha('diasdu2011@hotmail.com','9162',senha)
+      let info = JSON.parse(i);
+
+      let r = await api.trocarSenha(info.email,info.code,senha);
 
       if(r.erro){
         toast.error(r.erro);
@@ -55,7 +57,14 @@ export default function Pagina7_5 (){
 
       toast.success(r.mensagem)
       loading.current.complete();
+
+      Cookies.remove('recSenha')
+
+      if(r.tp_conta === 'pessoal')
       nav.push('/home-usu')
+      else if(r.tp_conta === 'empresarial')
+      nav.push('/home-empresa')
+
       return;
     }
 

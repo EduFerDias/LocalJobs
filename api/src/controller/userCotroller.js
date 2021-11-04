@@ -31,6 +31,10 @@ app.get('/:id', async(req, resp) =>{
 app.post('/', async (req, resp) =>{
     try{
         let {nome, area, cargo, telefone, estado_cidade, email, senha,confirmar_senha, assinatura} = req.body;
+        if(senha != confirmar_senha){
+            resp.send({erro:'ambas as senhas tem que ser iguais'});
+            return;
+        }
 
         let v = await db.infoc_atn_tb_empresa.findOne({where: {ds_email:email}});
         let v2 = await db.infoc_atn_tb_pessoal.findOne({where:{ds_email:email}});

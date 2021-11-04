@@ -8,8 +8,10 @@ import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css"
 
 import  { useEffect} from 'react'
-import React, { useState, useRef  } from 'react';
-import { useHistory } from 'react-router-dom'
+import React, { useState} from 'react';
+
+// import { useRef } from 'react'
+// import { useHistory } from 'react-router-dom'
 
 import Api from '../../services/Api';
 const api = new Api();

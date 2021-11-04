@@ -16,9 +16,9 @@ app.post('/', async(req, resp) =>{
         if(!r && !r2){
             resp.send({ status:"error", mensagem:"Credenciais iválidas"})
         } else if(r && !r2){
-            resp.send({tp_conta:"Pessoal"});
+            resp.send({tp_conta:"pessoal"});
         } else if(r2 && !r){
-            resp.send({tp_conta:"Empresarial"});
+            resp.send({tp_conta:"empresarial"});
         };
 
     } catch(e){

@@ -32,7 +32,7 @@ export default function Pagina15(){
     const [tipodecontrato, setTipoDeContratacao] = useState('');
     const [beneficios, setBeneficios] = useState('');
     const [horario, setHorario] = useState('');
-    const [idAlterado, setIdAlterado] = useState(0);
+    // const [idAlterado, setIdAlterado] = useState(0);
 
 
     const loading = useRef(null)

@@ -120,4 +120,20 @@ export default class Api {
         let r = await api.put(`/resetSenha`, change);
         return r.data;
     }
+
+    async inserirUsuario(nome, area, cargo, telefone, estado_cidade, email, senha, confirmar_senha){
+        let env = {
+            nome:nome,
+            area:area,
+            cargo:cargo,
+            telefone:telefone,
+            estado_cidade:estado_cidade,
+            email:email,
+            senha:senha,
+            confirmar_senha:confirmar_senha,
+            assinatura: false
+        }
+        let r = await api.post(`/usuario`, env)
+        return r.data;
+    }
 }

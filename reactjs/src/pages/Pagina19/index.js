@@ -187,7 +187,7 @@ export default function Pagina19 (){
                     <div className="chat-vagas">
                     
                     <div className="vagas">
-                        <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> <img src="./assets/images/Pagina19/Add.png" /></div>
+                        <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> <img src="./assets/images/Pagina19/Add.png" alt=""/></div>
                         <JobsHolder className="darkgrey-scroll">
 
                             <div className="box-vaga">

@@ -1,21 +1,87 @@
 import Conteudo from "./Style";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Logo2 from "../../components/comun/Logo2";
 import Cabecalho2 from "../../components/comun/cabecalho1";
 
+import Api from "../../services/Api";
+import { useState, useRef } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import LoadingBar from "react-top-loading-bar";
+let api = new Api();
+
+
 export default function Pagina4 (){
+
+    const [nome, setNome] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [ramo, setRamo] = useState('');
+    const [telefone, setTele] = useState()
+    const [estado, setEstado] = useState('');
+    const [cidade, setCidade] = useState('')
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('')
+    const [confSenha, setConf]= useState('')
+
+    let nav = useHistory();
+    let loading = useRef(null);
+    
+
+    async function cadastrarUsu(){
+        loading.current.continuousStart();
+        let estado_cidade = `${cidade}, ${estado}`;
+
+        if(senha !== confSenha){
+            toast.error("Ambas as senhas não sao iguais");
+            return;
+        } else if(!nome || nome === ''){
+            toast.error('O campo de nome é obrigatorio')
+            return;
+        }else if(!ramo || ramo === ''){
+            toast.error('O campo de area é obrigatorio')
+            return;
+        }else if(!cargo || cargo === ''){
+            toast.error('O campo de Profissão é obrigatorio')
+            return;
+        }else if(!telefone || telefone === ''){
+            toast.error('O campo de telefone é obrigatorio')
+            return;
+        }else if(!cidade || cidade === '' || !estado || estado === ''){
+            toast.error('O campo de estado e cidade é obrigatorio')
+            return;
+        }else if(!email || email === ''){
+            toast.error('O campo de email é obrigatorio')
+            return;
+        }else if(!senha || senha === ''){
+            toast.error('O campo de senha é obrigatorio')
+            return;
+        }else if(!(email.includes('@') && email.includes('.com'))){
+            toast.error('O campo de email é invalido')
+            return;
+        }
+        
+        
+        let r = await api.inserirUsuario(nome, ramo, cargo, telefone, estado_cidade, email, senha, confSenha);
+        loading.current.complete();
+        nav.push('/home-usu');
+        return r;
+    }
+
+
+
     return(
     <Conteudo>
+        <LoadingBar color='red' ref={loading}/>
         <Cabecalho2/>
+        <ToastContainer limit="2" />
 
         <div class="corpo">
             <div class="form">
                 <Logo2 />
                 <form>
-                    <input type="text" placeholder="Nome"/>
+                    <input type="text" placeholder="Nome" value={nome} onChange={e => setNome(e.target.value)}/>
                     <div class="f-double">
                         <span class="select-custom">
-                            <select name="" id="" >
+                            <select name="" id="" value={ramo} onChange={e => setRamo(e.target.value)}>
                                 <option value="" disabled selected hidden>Áreas</option>
                                 <option value="Administração">Administração</option>
                                 <option value="Antropologia">Antropologia</option>
@@ -95,48 +161,48 @@ export default function Pagina4 (){
                             </select>
                         </span>
                         
-                        <input type="text" placeholder="Profissão" class="tele"/> 
+                        <input type="text" placeholder="Profissão" class="tele" value={cargo} onChange={e => setCargo(e.target.value)}/> 
                     </div>
 
-                    <input type="text" placeholder="Telefone"/>
+                    <input type="text" placeholder="Telefone" value={telefone} onChange={e => setTele(e.target.value)}/>
                     <div class="double">
-                        <select class="estado" name="estados-brasil" >
-                            <option value="Acre" disabled selected>Estados</option>
-                            <option value="Acre">Acre</option>
-                            <option value="Alagoas">Alagoas</option>
-                            <option value="Amapá">Amapá</option>
-                            <option value="Amazonas">Amazonas</option>
-                            <option value="Bahia">Bahia</option>
-                            <option value="Ceará">Ceará</option>
-                            <option value="Distrito Federal">Distrito Federal</option>
-                            <option value="Espírito Santo">Espírito Santo</option>
-                            <option value="Goiás">Goiás</option>
-                            <option value="Maranhão">Maranhão</option>
-                            <option value="Mato Grosso">Mato Grosso</option>
-                            <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                            <option value="Minas Gerais">Minas Gerais</option>
-                            <option value="Pará">Pará</option>
-                            <option value="Paraíba">Paraíba</option>
-                            <option value="Paraná">Paraná</option>
-                            <option value="Pernambuco">Pernambuco</option>
-                            <option value="Piauí">Piauí</option>
-                            <option value="Rio de Janeiro">Rio de Janeiro</option>
-                            <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                            <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                            <option value="Rondônia">Rondônia</option>
-                            <option value="Roraima">Roraima</option>
-                            <option value="Santa Catarina">Santa Catarina</option>
-                            <option value="São Paulo">São Paulo</option>
-                            <option value="Sergipe">Sergipe</option>
-                            <option value="Tocantins">Tocantins</option>
+                        <select class="estado" name="estados-brasil" value={estado} onChange={e => setEstado(e.target.value)}>
+                            <option value="" disabled selected>Estados</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
                         </select>
 
-                        <input class="cidade"  placeholder="Cidade" /> 
+                        <input class="cidade"  placeholder="Cidade" value={cidade} onChange={e => setCidade(e.target.value)}/> 
                     </div>
-                    <input type="text" placeholder="Email"/>
-                    <input type="password" placeholder="Senha"/> 
-                    <input type="password" placeholder="Confirmar senha"/> 
-                    <Link to="/page11"><button class="button">Cadastrar</button></Link>
+                    <input type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+                    <input type="password" placeholder="Senha" value={senha} onChange={e => setSenha(e.target.value)}/> 
+                    <input type="password" placeholder="Confirmar senha" value={confSenha} onChange={e => setConf(e.target.value)}/> 
+                    <button class="button" type="button" onClick={ cadastrarUsu }>Cadastrar</button>
                 </form>
                 <div class="f1-conta">
                     Já possui conta? &nbsp; <span>faça o login</span>

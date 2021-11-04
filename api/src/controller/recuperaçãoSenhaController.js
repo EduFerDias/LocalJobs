@@ -42,7 +42,7 @@ app.post('/validarCodigo', async(req, resp) =>{
         
         let {code, email} =  req.body;
         let v = await db.infoc_atn_tb_pessoal.findOne({where:{ds_codigo_rec:code, ds_email:email}});
-        let v2 = await d.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
+        let v2 = await db.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
 
         if(!v && !v2){
             resp.send({erro:'codigo errado!'})
@@ -61,7 +61,7 @@ app.put('/resetSenha', async(req,resp) =>{
         
         let {code, email, novaSenha} =  req.body;
         let v = await db.infoc_atn_tb_pessoal.findOne({where:{ds_codigo_rec:code, ds_email:email}});
-        let v2 = await d.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
+        let v2 = await db.infoc_atn_tb_empresa.findOne({where:{ds_codigo_rec:code, ds_email:email}});
 
         if(!v && !v2){
             resp.send({erro:'codigo errado!'})
@@ -70,11 +70,14 @@ app.put('/resetSenha', async(req,resp) =>{
 
         if(v && !v2){
             await db.infoc_atn_tb_pessoal.update({ds_senha: crypto.SHA256(novaSenha).toString(crypto.enc.Base64), ds_confirmar_senha: crypto.SHA256(novaSenha).toString(crypto.enc.Base64), ds_codigo_rec:""}, {where:{ds_codigo_rec:code, ds_email:email}});
+            resp.send({mensagem:'Senha Alterada', tp_conta: 'pessoal'})
         }else if(v2 && !v){
             await db.infoc_atn_tb_empresa.update({ds_senha: crypto.SHA256(novaSenha).toString(crypto.enc.Base64), ds_confirmar_senha: crypto.SHA256(novaSenha).toString(crypto.enc.Base64), ds_codigo_rec:""}, {where:{ds_codigo_rec:code, ds_email:email}});
+            resp.send({mensagem:'Senha Alterada', tp_conta: 'empresarial'})
         }
-        resp.send({mensagem:'Senha Alterada'})
+        resp.sendStatus(200);
     }catch(e){
+        resp.send({erro:e})
         console.log(e)
     }
 })

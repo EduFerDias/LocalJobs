@@ -7,6 +7,8 @@ import { toast, ToastContainer } from "react-toastify";
 
 import { useRef, useState, useEffect} from "react";
 
+import Cookies from 'js-cookie'
+
 import { useHistory } from "react-router";
 
 import LoadingBar from 'react-top-loading-bar'
@@ -39,13 +41,19 @@ export default function Pagina7 (){
       loading.current.continuousStart(); 
       
       let r = await api.validarCodigo('diasdu2011@hotmail.com', codigo)
+      let processo =  {
+        email: 'diasdu2011@hotmail.com',
+        code:codigo
+      };
       if(r.erro){
         toast.error(r.erro);
-        loading.current.complete();
+        loading.current.complete()
         return;
       }
+      Cookies.set('recSenha', JSON.stringify(processo))
       toast.success('codigo certo')
-      loading.current.complete();
+
+      loading.current.complete()
       nav.push('/recSenha')
       return;
     }
