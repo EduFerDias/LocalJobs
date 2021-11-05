@@ -4,7 +4,21 @@ import Header6 from "../../components/comun/header6";
 import { JobsHolder } from "../../components/styled/JobHolder/styled";
 import { InfoHolder } from "../../components/styled/JobHolder/infoholder";
 
+import  { useEffect} from 'react'
+import React, { useState} from 'react';
+
 export default function Pagina19 (){
+
+    const [nome, setNome ] = useState([]);
+    const [ramo, setRamo ] = useState([]);
+    const [porte, setPorte ] = useState([]);
+    const [site, setSite ] = useState([]);
+    const [descricao, setDescricao ] = useState([]);
+    const [linkedin, setLinkdein ] = useState([]);
+    const [insta, setInsta ] = useState([]);
+    const [twitter, setTwitter ] = useState([]);
+
+
     return(
         <Conteudo>
             <Header6 />
@@ -145,9 +159,9 @@ export default function Pagina19 (){
                                     <label>Porte:</label>
                                     <select>
                                         <option value="valor1" selected> </option>
-                                        <option value="v2"> Pequeno </option>
-                                        <option value="v2"> Médio </option>
-                                        <option value="v2"> Grande </option>
+                                        <option value="Pequeno"> Pequeno </option>
+                                        <option value="Médio"> Médio </option>
+                                        <option value="Grande"> Grande </option>
                                     </select>
                                 </div>
                                 <div className="l2-interac"> 
