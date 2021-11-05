@@ -31,8 +31,8 @@ export default class Api {
     }
 
     async listarVagasID(id,idempresa) {
-        let r = await api.get(`/vaga/${idempresa + id}`)
-        return r.data;
+        let r = await api.get(`/vaga/${idempresa}/${id}`)
+        return r.data.vaga;
     }
 
     async inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha) {

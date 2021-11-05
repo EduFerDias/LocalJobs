@@ -137,8 +137,8 @@ app.put("/:idempresa/:id", async(req,resp) => {
     
         resp.sendStatus(vaga);
 
-        } catch (error) {
-            resp.send(error.toString("Erro"))
+        } catch (e) {
+            resp.send(e.toString(e))
         }
 
 });

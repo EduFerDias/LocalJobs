@@ -10,6 +10,7 @@ import  { useEffect} from 'react'
 import React, { useState } from 'react';
 
 import Api from '../../services/Api';
+import { toast, ToastContainer } from "react-toastify";
 const api = new Api();
 
 
@@ -18,29 +19,41 @@ const api = new Api();
 
 export default function Pagina15(props){
 
-    const [vaga, setVagas ] = useState(props.location.state);
+    const [vagas, setVagas ] = useState([]);
+    const [empresa, setEmpresa ] = useState([]);
+
+    let vaga = props.location.state;
 
     const idvagas = vaga.idvaga
-    const empresa = vaga.id
+    const idempresa = vaga.id
 
-    console.log(vaga)
+    console.log(vagas)
 
-    console.log(empresa)
+    console.log(idempresa)
     console.log(idvagas)
+    console.log(empresa)
 
     async function ListarVagas() {
-        const x = await api.listarVagasID(idvagas,empresa)
+        let x = await api.listarVagasID(16, 5)
+        toast.success(x)
         setVagas(x)
+    }
+    async function ListarEmpresa(){
+        let x = await api.ListarEmpresaID(5)
+        setEmpresa(x)
     }
 
     useEffect(() =>{
         ListarVagas();
+        ListarEmpresa();
     })
+
 
 
     return(
     <Conteudo>
         <Cabecalho />
+        <ToastContainer limit={5}/>
         <div class="container">
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
@@ -49,12 +62,12 @@ export default function Pagina15(props){
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{vaga.profissao}</p>
-                        <p class="pr">Nome Empresa | Estado - Cidade</p>
+                        <p class="pr">{empresa.nm_nome} | {empresa.ds_estado_cidade}</p>
                     </div>
                 </div>
                 <div class="email-telefone">
                     <div class="et">usuário@gmail.com</div>
-                    <div class="et">11 - 99999-9999</div>
+                    <div class="et">{empresa.nr_telefone}</div>
                 </div>
             </div>
 
@@ -67,7 +80,7 @@ export default function Pagina15(props){
                             <div class="caracteristicas">
                                 <h1>Descrição:</h1>
                                 <p>
-                                    {vaga.descricao}
+                                    {vagas.ds_descricao}
                                 </p>
                             </div>
                             <div class="caracteristicas">
@@ -128,9 +141,8 @@ export default function Pagina15(props){
                         <div class="dados-empresa">
                             <h1>Dados da Empresa</h1>
                             <div class="box-dados-empresa">
-                                <p><span class="box-negrito">Nome:</span> Athena </p>
-                                <p><span class="box-negrito">Ramo:</span> TI </p>
-                                <p><span class="box-negrito">Descrição:</span> Fábrica de móveis </p>
+                                <p><span class="box-negrito">Nome:</span> {empresa.nm_nome} </p>
+                                <p><span class="box-negrito">Ramo:</span> {empresa.nm_ramo} </p>
                             </div>
                         </div>
 

@@ -5,9 +5,11 @@ padding: 1em 1em;
 
 .bloco {
   background-color: #107ad1;
-  margin: 4em;
-  padding: 2em;
-  border-radius: 5px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 0.5em;
 }
 
 .cabe-esq-dlt {

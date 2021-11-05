@@ -13,7 +13,7 @@ export default function Vagas (props) {
 
                     <div class="tit-bloco-dtl">{props.profissao != null && props.profissao.length > 25 ? props.profissao.substr(0, 15) + '...' : props.profissao}</div>
 
-                    <div class="desc-bloco-dtl">{props.descricao != null && props.descricao.length > 25 ? props.descricao.substr(0, 15) + '...' : props.descricao }<span class="veja-mais">Veja Mais</span></div>
+                    <div class="desc-bloco-dtl">{props.descricao != null && props.descricao.length > 50 ? props.descricao.substr(0, 15) + '...' : props.descricao }...   <span class="veja-mais">Veja Mais</span></div>
 
                     <div class="vagas-bloco-dtl"><b> 1 vaga | {props.cidade} | </b>  <span> De R$ {props.salariode} A R$ {props.salarioa} </span></div>
                     
