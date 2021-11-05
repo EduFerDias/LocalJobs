@@ -7,10 +7,11 @@ const Router = express.Router;
 const app = Router();
 
 
-app.get('/',async (req, resp) => {
+app.get('/', async (req, resp) => {
     try {
         if(req.query){
             let {area, cargo, cidade} = req.query;
+            
             if(area && cargo && cidade){
                 let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})
                 resp.send(r)
@@ -32,12 +33,12 @@ app.get('/',async (req, resp) => {
             }else if(area && !cargo && cidade){
                 let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}, like:{ds_estado_cidade:cidade}})
                 resp.send(r)
+            } else{
+                let r = await db.infoc_atn_tb_pessoal.findAll();
+                resp.send(r)
             }
         }
-        else{
-            let r = await db.infoc_atn_tb_pessoal.findAll();
-            resp.send(r)
-        }
+
     } catch (e){
         resp.sendStatus(500)
         console.log(e)

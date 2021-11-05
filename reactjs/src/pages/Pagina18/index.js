@@ -19,7 +19,8 @@ const api = new Api();
 export default function Pagina18(props) {
 
     
-    const [empresa, setEmpresa ] = useState(props.location.state);
+    // const [empresa, setEmpresa ] = useState(props.location.state);
+    const [empresa, setEmpresa ] = useState([]);
     const [vaga, setVagas] = useState([]);
     const [empresaconfig, setEmpresaConfig ] = useState([]);
 
@@ -31,7 +32,7 @@ export default function Pagina18(props) {
         }
     }
 
-    const config = empresa.id
+    let config = '5'
 
     console.log(config)
     console.log(empresa)
@@ -57,6 +58,7 @@ export default function Pagina18(props) {
 
     useEffect(() => {
         ListarVagas();
+        ListarEmpresaID();
     });
 
     useEffect(() => {
@@ -195,7 +197,7 @@ export default function Pagina18(props) {
                     <Vaga
                         profissao= {item.ds_profissao != null && item.ds_profissao.length > 25 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} 
                         cidade={item.ds_local_trabalho} 
-                        descricao={item.ds_descricaoa}
+                        descricao={item.ds_descricao}
                         salarioa={item.ds_salario_a}
                         salariode={item.ds_salario_de}
                         />

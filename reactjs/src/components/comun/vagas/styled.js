@@ -1,10 +1,13 @@
 import styled from "styled-components"
 
 const Conteudo = styled.div`
+padding: 1em 1em;
 
 .bloco {
   background-color: #107ad1;
-  margin-left: 8rem;
+  margin: 4em;
+  padding: 2em;
+  border-radius: 5px;
 }
 
 .cabe-esq-dlt {
@@ -268,12 +271,12 @@ const Conteudo = styled.div`
 .tit-bloco-dtl {
   font-family: Montserrat-regular;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 1.4rem;
   color: white;
 }
 
 .desc-bloco-dtl {
-  font-size: 12px;
+  font-size: 0.9rem;
   color: white;
   padding-top: 5px;
   font-family: Montserrat-regular;
@@ -534,7 +537,6 @@ tit-csl
   flex-direction: row;
   align-items: center;
 }
-
 `
 
 export default Conteudo;

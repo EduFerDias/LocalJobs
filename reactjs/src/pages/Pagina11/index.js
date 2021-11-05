@@ -76,7 +76,7 @@ export default function Pagina11 (){
                         formacao={item.ds_formacao}
                         qualificacao={item.ds_qualificacao}
                         tipocontrato={item.ds_tipo_contratacao}
-                        beneficios={item. ds_beneficios}
+                        beneficios={item.ds_beneficios}
                         hora={item.ds_hora_trabalho}
 
                     />

@@ -136,4 +136,12 @@ export default class Api {
         let r = await api.post(`/usuario`, env)
         return r.data;
     }
+    async buscaUsu(area, cargo, cidade){
+        let r =  ""
+        if(area || cargo || cidade)
+            r = await api.put(`/usuario?area=${area}&cargo=${cargo}&cidade=${cidade}`)
+        else
+            r = await api.put(`/usuario`)
+        return r.data;
+    }
 }

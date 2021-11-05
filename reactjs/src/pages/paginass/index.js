@@ -5,7 +5,7 @@ export default function pagina (){
     return(
         <Conteudo>
             <div>
-                <button><Link to="/home">Home</Link></button>
+                <button><Link to="/paginas">Home</Link></button>
 
                 <button><Link to="/cadastro-empresa">Cadastro Empresa</Link></button>
                 <button><Link to="/cadastro-candidato">Cadastro Candidato</Link></button>

@@ -1,13 +1,42 @@
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import {toast} from 'react-toastify'
 import Conteudo from "./styled";
+import Api from "../../../services/Api";
+import { useState } from "react";
 
-export default function Searchbar (){
+const api = new Api();
+
+export default function Searchbar (props){
+    const[area, setArea] = useState('');
+    const[cargo, setCargo] = useState('')
+    const[cidade, setCidade] = useState('')
+
+    const nav = useHistory();
+
+
+    async function buscampresa(){
+        let pag_mae = props.pg
+
+        let r = await api.buscaUsu(area, cargo, cidade)
+        if(!r)
+            toast.error('Não foram encontradas conrespondencias no nosso sistema')
+
+        toast.success('FOI!')
+        
+        if(pag_mae === true)
+            nav.push('/home-usu')
+        
+        
+        return r;
+    }
+
+
     return(
         <Conteudo>
             <div class="f10-pesquisa2">
                 <div class="f10-pesquisa">
 
-                    <select name="" id="" >
+                    <select name="" id="" value={area} onChange={e => setArea(e.target.value)}>
                                     <option value="" disabled selected hidden>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
@@ -120,10 +149,12 @@ export default function Searchbar (){
                                     <option value="Telefonia">Telefonia</option>
                                     <option value="Turismo">Turismo</option>
                     </select>
-                    <input class="f10-cargo" placeholder="Digite Um Cargo" />
+                    <hr />
+                    <input class="f10-cargo" placeholder="Digite Um Cargo" value={cargo} onChange={e => setCargo(e.target.value)}/>
                     <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
-                    <input class="f10-cidade" placeholder="Digite Uma Cidade" />
-                    <div class="f10-lupa"><Link to="/page9"><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></Link></div>
+                    <hr />
+                    <input class="f10-cidade" placeholder="Digite Uma Cidade" value={cidade} onChange={ e => setCidade(e.target.value)}/>
+                    <div class="f10-lupa" onClick={buscampresa}><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
                 </div>
             </div>
         </Conteudo>

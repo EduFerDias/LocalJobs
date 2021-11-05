@@ -3,8 +3,11 @@ import Cabecalho from '../../components/comun/cabecalho3'
 import Rodape from '../../components/comun/rodapé'
 
 import  { useEffect} from 'react'
-import React, { useState, useRef  } from 'react';
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
+// import {useRef} from 'react';
+
+
+import React, { useState } from 'react';
 
 import Api from '../../services/Api';
 const api = new Api();
@@ -29,6 +32,10 @@ export default function Pagina15(props){
         const x = await api.listarVagasID(idvagas,empresa)
         setVagas(x)
     }
+
+    useEffect(() =>{
+        ListarVagas();
+    })
 
 
     return(
