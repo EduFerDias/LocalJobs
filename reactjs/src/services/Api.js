@@ -1,7 +1,7 @@
 import axios from 'axios'
 const api = axios.create({
     baseURL: 'https://loca1jobs.herokuapp.com'
-})helpa
+})
 
 export default class Api {
 
