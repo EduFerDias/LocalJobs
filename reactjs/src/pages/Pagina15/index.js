@@ -80,7 +80,7 @@ export default function Pagina15(props){
                             <div class="caracteristicas">
                                 <h1>Descrição:</h1>
                                 <p>
-                                    {vagas.ds_descricao}
+                                    {vaga.descricao}
                                 </p>
                             </div>
                             <div class="caracteristicas">
