@@ -21,12 +21,11 @@ export default function Searchbar (props){
         if(!r)
             toast.error('Não foram encontradas conrespondencias no nosso sistema')
 
-        toast.success('FOI!')
         
         if(pag_mae === true)
             nav.push('/buscar-empresa')
         
-        
+        toast.success('FOI!')
         return r;
     }
 
