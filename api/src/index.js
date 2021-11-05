@@ -7,6 +7,7 @@ import salaController from './controller/salaControler.js';
 import chatController from './controller/chatController.js';
 import userController from './controller/userCotroller.js';
 import userConfigController from './controller/userConfigController.js'
+import curriculoController from './controller/curriculoController.js'
 
 import recuperacaoSenhaController from './controller/recuperaçãoSenhaController.js'
 
@@ -25,7 +26,9 @@ server.use('/sala', salaController);
 server.use('/chat', chatController);
 server.use('/usuario', userController);
 server.use('/userconfig', userConfigController);
+server.use('/curriculo', curriculoController)
 server.use('/', recuperacaoSenhaController);
+
 
 
 server.listen(process.env.PORT, (x) =>

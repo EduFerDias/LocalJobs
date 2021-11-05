@@ -55,7 +55,7 @@ export default function Pagina11 (){
                 <Cabecalho3 />
                 
         <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
-       <Searchbar />
+       <Searchbar ondeestoy={'pessoal'} pg={true}/>
 
         <div class="f10-areas">
             <div class="f10-filtro1">Vagas de diversas áreas</div>

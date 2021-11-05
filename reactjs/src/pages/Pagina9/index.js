@@ -18,7 +18,7 @@ export default function Pagina9 (){
     return(
         <Conteudo>
                 <div class="f10-tudo">
-                    <Cabecalho/>
+                    <Cabecalho onde={'empresa'} pg={false}/>
 
                     <div class="f10-filtro1">Resultado:⠀  <div>Desenvolvedor</div></div>
                 

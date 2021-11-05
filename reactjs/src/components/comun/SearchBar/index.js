@@ -15,18 +15,26 @@ export default function Searchbar (props){
 
 
     async function buscampresa(){
-        let pag_mae = props.pg
+        let pag_mae = false
 
         let r = await api.buscaUsu(area, cargo, cidade)
         if(!r)
             toast.error('Não foram encontradas conrespondencias no nosso sistema')
 
         toast.success('FOI!')
-        
-        if(pag_mae === true)
-            nav.push('/home-usu')
-        
-        
+
+        if(props.ondeestoy === 'empresa'){
+
+            if(pag_mae === true)
+            nav.push('/buscar-usu')
+
+        } else if( props.ondeestoy === 'pessoal'){
+
+            if(pag_mae === true)
+            nav.push('/buscar-empresa')
+
+        }
+
         return r;
     }
 

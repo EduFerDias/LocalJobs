@@ -19,7 +19,7 @@ export default function Pagina12 (){
         <Conteudo>
             <div class="f10-tudo">
                 
-                <Cabecalho/>
+                <Cabecalho onde={'pessoal'} pg={false}/>
 
                 <div class="f10-filtro1">Resultado:⠀  <div>Desenvolvedor</div></div>
 

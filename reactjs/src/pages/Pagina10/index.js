@@ -43,7 +43,7 @@ export default function Pagina10 (){
 
                 <div class="f10-filtro">
                     <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
-                    <Searchbar/>
+                    <Searchbar ondeestoy={'pessoal'} pg={true}/>
 
                 </div>
 

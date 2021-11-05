@@ -80,7 +80,7 @@ export default function Pagina15(props){
                             <div class="caracteristicas">
                                 <h1>Descrição:</h1>
                                 <p>
-                                    {vagas.ds_descricao}
+                                    {vaga.descricao}
                                 </p>
                             </div>
                             <div class="caracteristicas">
@@ -122,7 +122,7 @@ export default function Pagina15(props){
                         <div class="descricao-direita">
                             <div class="caracteristicas-direita">
                                 <h1>Salário:</h1>
-                                <p>De R$ {vaga.salario} a R$ {vaga.salarioa}</p>
+                                <p>De R$ {vaga.salariode} a R$ {vaga.salarioa}</p>
                             </div>
                             <div class="caracteristicas-direita">
                                 <h1>Tipo de Contratação:</h1>
