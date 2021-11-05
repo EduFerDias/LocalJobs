@@ -4,7 +4,11 @@ const Conteudo = styled.div`
 
 .bloco {
   background-color: #107ad1;
-  margin-left: 8rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 0.5em;
 }
 
 .cabe-esq-dlt {

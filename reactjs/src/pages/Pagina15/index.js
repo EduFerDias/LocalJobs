@@ -16,19 +16,30 @@ const api = new Api();
 export default function Pagina15(props){
 
     const [vaga, setVagas ] = useState(props.location.state);
+    const [empresa, setEmpresa ] = useState([]);
 
     const idvagas = vaga.idvaga
-    const empresa = vaga.id
+    const idempresa = vaga.id
 
     console.log(vaga)
 
-    console.log(empresa)
+    console.log(idempresa)
     console.log(idvagas)
+    console.log(empresa)
 
     async function ListarVagas() {
-        const x = await api.listarVagasID(idvagas,empresa)
+        const x = await api.listarVagasID(idvagas,idempresa)
         setVagas(x)
     }
+
+    async function ListarEmpresa() {
+        const x = await api.ListarEmpresaID(idempresa)
+        setEmpresa(x)
+    }
+
+    useEffect(() => {
+        ListarEmpresa();
+    });
 
 
     return(
@@ -42,12 +53,12 @@ export default function Pagina15(props){
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{vaga.profissao}</p>
-                        <p class="pr">Nome Empresa | Estado - Cidade</p>
+                        <p class="pr">{empresa.nm_nome} | {empresa.ds_estado_cidade}</p>
                     </div>
                 </div>
                 <div class="email-telefone">
                     <div class="et">usuário@gmail.com</div>
-                    <div class="et">11 - 99999-9999</div>
+                    <div class="et">1{empresa.nr_telefone}</div>
                 </div>
             </div>
 
@@ -121,9 +132,8 @@ export default function Pagina15(props){
                         <div class="dados-empresa">
                             <h1>Dados da Empresa</h1>
                             <div class="box-dados-empresa">
-                                <p><span class="box-negrito">Nome:</span> Athena </p>
-                                <p><span class="box-negrito">Ramo:</span> TI </p>
-                                <p><span class="box-negrito">Descrição:</span> Fábrica de móveis </p>
+                                <p><span class="box-negrito">Nome:</span> {empresa.nm_nome} </p>
+                                <p><span class="box-negrito">Ramo:</span> {empresa.nm_ramo} </p>
                             </div>
                         </div>
 

@@ -49,11 +49,6 @@ export default function Pagina18(props) {
         setEmpresaConfig(x)
     }
 
-    async function ListarEmpresaID(){
-        const x = await api.ListarEmpresaID(config)
-        setEmpresa(x)
-    }
-
 
     useEffect(() => {
         ListarVagas();
@@ -63,6 +58,8 @@ export default function Pagina18(props) {
         listarEmpresaConfigID();
     });
 
+    useEffect(() => {
+    });
 
   return (
     <Conteudo>
@@ -158,7 +155,7 @@ export default function Pagina18(props) {
                         <img src="./assets/images/Pagina18/Group 8.png" alt="" />
                         </div>
                         <div class="tit-empr-dtl">
-                        <b>Athena TI</b>
+                        <b>{empresa.nm_nome}</b>
                         </div>
                     </div>
 
@@ -195,7 +192,7 @@ export default function Pagina18(props) {
                     <Vaga
                         profissao= {item.ds_profissao != null && item.ds_profissao.length > 25 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} 
                         cidade={item.ds_local_trabalho} 
-                        descricao={item.ds_descricaoa}
+                        descricao={item.ds_descricao}
                         salarioa={item.ds_salario_a}
                         salariode={item.ds_salario_de}
                         />
