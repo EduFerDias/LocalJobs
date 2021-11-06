@@ -57,23 +57,35 @@ export default class Api {
         return r.data;
     }
 
-    async alterarEmpresa(id,nome,cnpj,ramo,telefone,estado_cidade,email,senha) {
+    async alterarEmpresa(id,nome,ramo,telefone) {
 
         let empresa = {
             nm_nome: nome,
-            nr_cnpj: cnpj,
             nm_ramo: ramo,
             nr_telefone: telefone, 
-            ds_estado_cidade: estado_cidade,
-            ds_email: email,
-            ds_senha: senha
        }
         console.log(empresa)
 
         let r = await api.put(`/empresa/${id}`, empresa)
         return r.data;
     }
+    
+    async InserirConfigEmpresa(id,descricao,linkdin,insta,twitter,porte,site,funcionarios) {
 
+        let empresa = {
+            ds_descricao_empresa: descricao,
+            ds_linkdin_empresa: linkdin,
+            ds_instagram_empresa: insta,
+            ds_twitter_empresa: twitter,
+            ds_porte: porte,
+            ds_site: site,
+            qtd_funcionarios: funcionarios
+       }
+        console.log(empresa)
+
+        let r = await api.put(`/empresa/${id}`, empresa)
+        return r.data;
+    }
     
     async inserirVaga(profissao,descricao,qualificacao,formacao,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
         let vaga = {

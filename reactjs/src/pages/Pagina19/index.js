@@ -7,17 +7,72 @@ import { InfoHolder } from "../../components/styled/JobHolder/infoholder";
 import  { useEffect} from 'react'
 import React, { useState} from 'react';
 
+import Api from '../../services/Api';
+const api = new Api();
+
+
 export default function Pagina19 (){
+    const [vaga, setVagas] = useState([])
+    const [empresa, setEmpresa] = useState([])
+    const [empresaconfig, setEmpresaConfig] = useState([])
 
     const [nome, setNome ] = useState([]);
     const [ramo, setRamo ] = useState([]);
     const [porte, setPorte ] = useState([]);
     const [site, setSite ] = useState([]);
     const [descricao, setDescricao ] = useState([]);
-    const [linkedin, setLinkdein ] = useState([]);
+    const [linkedin, setLinkdin ] = useState([]);
     const [insta, setInsta ] = useState([]);
     const [twitter, setTwitter ] = useState([]);
+    const [telefone, setTelefone ] = useState([]);
+    const [funcionarios, setFuncionarios] = useState([]);
 
+    const  id = 5
+
+    async function ListarVagas() {
+        const x = await api.listarVagasIDempresa(id)
+        setVagas(x)
+    }
+
+    async function ListarEmpresa() {
+        const x = await api.ListarEmpresaID(id)
+        setEmpresa(x)
+    }
+
+
+    async function ListarEmpresaConfig() {
+        const x = await api.listarEmpresaConfigID(id)
+        setEmpresaConfig(x)
+    }
+
+    async function Editar() {
+        setDescricao(empresaconfig.ds_descricao_empresa);
+        setLinkdin(empresaconfig.ds_linkdin_empresa)
+        setInsta(empresaconfig.ds_instagram_empresa)
+        setTwitter(empresaconfig.ds_twitter_empresa)
+        setPorte(empresaconfig.ds_porte)
+        setSite(empresaconfig.ds_site)
+        setRamo(empresa.nm_ramo)
+        setNome(empresa.nm_nome)
+        setTelefone(empresa.nr_telefone)
+        setFuncionarios(empresaconfig.qtd_funcionarios)
+    }
+
+    async function SalvarConfig() {
+        const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
+        const a = await api.alterarEmpresa(id,nome,ramo,telefone)
+    }
+
+    console.log(SalvarConfig)
+
+
+
+    useEffect(() => {
+        ListarVagas();
+        Editar();
+        ListarEmpresa();
+        ListarEmpresaConfig();
+    });
 
     return(
         <Conteudo>
@@ -33,11 +88,11 @@ export default function Pagina19 (){
                                 <span className="l1-interac">
                                     <span className="l1-input">
                                         <label>Nome:</label>
-                                        <input type="text" name="name"/>
+                                        <input type="text" name="name" value={ nome } onChange={e => setNome(e.target.value)}/>
                                     </span>
                                     <span className="l1-select">
                                         <label>Ramo:</label>
-                                        <select name="" id="" >
+                                        <select name="" id=""  value={ ramo } onChange={e => setRamo(e.target.value)} >
                                             <option value="" disabled selected hidden>Ramos</option>
                                             <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
                                             <option value="Arte e Antiguidades">Arte e Antiguidades </option>
@@ -157,7 +212,7 @@ export default function Pagina19 (){
                             <div className="l2">
                                 <div className="l2-interac"> 
                                     <label>Porte:</label>
-                                    <select>
+                                    <select value={ porte } onChange={e => setPorte(e.target.value)}>
                                         <option value="valor1" selected> </option>
                                         <option value="Pequeno"> Pequeno </option>
                                         <option value="Médio"> Médio </option>
@@ -166,28 +221,36 @@ export default function Pagina19 (){
                                 </div>
                                 <div className="l2-interac"> 
                                     <label>Site</label>
-                                    <input type="text"/>
+                                    <input type="text" value={ site } onChange={e => setSite(e.target.value)}/>
+                                </div>
+                                <div className="l2-interac"> 
+                                    <label>Telefone</label>
+                                    <input type="text" value={ telefone } onChange={e => setTelefone(e.target.value)}/>
+                                </div>
+                                <div className="l2-interac"> 
+                                    <label>Funcionários</label>
+                                    <input type="text" value={ funcionarios } onChange={e => setFuncionarios(e.target.value)}/>
                                 </div>
                             </div>
                             <div className="l3">
                                 <div className="l3-desc"> 
                                     <label>Descrição</label>
-                                    <textarea></textarea>
+                                    <textarea value={ descricao } onChange={e => setDescricao(e.target.value)}></textarea>
                                 </div>
                                 <div className="l3-inputs">
                                     <span className="l3-input">
                                         <label>LinkedIn</label>
-                                        <input type="text"/>
+                                        <input type="text" value={ linkedin } onChange={e => setLinkdin(e.target.value)}/>
                                     </span>
 
                                     <span className="l3-input">
                                         <label>Instagram</label>
-                                        <input type="text"/>
+                                        <input type="text" value={ insta } onChange={e => setInsta(e.target.value)}/>
                                     </span>
 
                                     <span className="l3-input">
                                         <label>Twitter</label>
-                                        <input type="text"/>
+                                        <input type="text" value={ twitter } onChange={e => setTwitter(e.target.value)}/>
                                     </span>
                                 </div>
 
@@ -195,101 +258,57 @@ export default function Pagina19 (){
                         </form>
                     </div>
                     <div className="chat-vagas">
-                    
-                    <div className="vagas">
-                        <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> <img src="./assets/images/Pagina19/Add.png" alt=""/></div>
-                        <JobsHolder className="darkgrey-scroll">
-
-                            <div className="box-vaga">
-                                <div className="box-titulo"> Analista Contabil Sr. </div>
-                                <div className="box-paragrafo"> 
-                                    Elaboração de demonstrações financeiras (BP, DRE, DMPL, notas explicativas etc.).
-                                    Análises, revisão/conciliação das contas patrimoniais e de resultado.
-                                    Apuração de impostos diretos e indiretos.
-                                    Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                                    Atender as auditori... <span className="veja-m">Veja Mais</span>
-                                </div>
-                                <div className="box-detalhes">
-                                    <b>1 vaga | SP |</b> De R$ 5.001,00 a R$ 5.500,21
-                                </div>
-                            </div>
-
-                            <div className="box-vaga">
-                                <div className="box-titulo"> Analista Contabil Sr. </div>
-                                <div className="box-paragrafo"> 
-                                    Elaboração de demonstrações financeiras (BP, DRE, DMPL, notas explicativas etc.).
-                                    Análises, revisão/conciliação das contas patrimoniais e de resultado.
-                                    Apuração de impostos diretos e indiretos.
-                                    Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                                    Atender as auditori... <span className="veja-m">Veja Mais</span>
-                                </div>
-                                <div className="box-detalhes">
-                                    <b>1 vaga | SP |</b> De R$ 5.001,00 a R$ 5.500,21
-                                </div>
-                            </div>
+                    <div className="vagasmsn">
+                        <div className="vagas">
+                            <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> <img src="./assets/images/Pagina19/Add.png" alt=""/></div>
+                            <JobsHolder className="darkgrey-scroll">
+                            {vaga.map(item => 
+                                <div className="box-vaga">
 
 
-                            <div className="box-vaga">
-                                <div className="box-titulo"> Analista Contabil Sr. </div>
-                                <div className="box-paragrafo"> 
-                                    Elaboração de demonstrações financeiras (BP, DRE, DMPL, notas explicativas etc.).
-                                    Análises, revisão/conciliação das contas patrimoniais e de resultado.
-                                    Apuração de impostos diretos e indiretos.
-                                    Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                                    Atender as auditori... <span className="veja-m">Veja Mais</span>
-                                </div>
-                                <div className="box-detalhes">
-                                    <b>1 vaga | SP |</b> De R$ 5.001,00 a R$ 5.500,21
-                                </div>
-                            </div>
+                                    <div className="box-titulo"> {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
 
-                            <div className="box-vaga">
-                                <div className="box-titulo"> Analista Contabil Sr. </div>
-                                <div className="box-paragrafo"> 
-                                    Elaboração de demonstrações financeiras (BP, DRE, DMPL, notas explicativas etc.).
-                                    Análises, revisão/conciliação das contas patrimoniais e de resultado.
-                                    Apuração de impostos diretos e indiretos.
-                                    Elaboração de obrigações acessórias: ECD, ECF, SPED Contribuições, PER/DCOMP.
-                                    Atender as auditori... <span className="veja-m">Veja Mais</span>
+                                    <div className="box-paragrafo"> 
+                                        {item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao} <span className="veja-m">Veja Mais</span>
+                                    </div>
+
+                                    <div className="box-detalhes">
+                                        <b>1 vaga | {item.ds_local_trabalho} |</b> De {item.ds_salario_de} a R$ {item.ds_salario_a}
+                                    </div>
                                 </div>
-                                <div className="box-detalhes">
-                                    <b>1 vaga | SP |</b> De R$ 5.001,00 a R$ 5.500,21
-                                </div>
-                            </div>
+                            )}
+                                
+
+                            </JobsHolder>
+                        </div>
 
 
-                        </JobsHolder>
-                    </div>
-                    
-                    <div className="chat">
-                        <div className="mensagens">
-                            <div className="msg-titulo">Mensagens <span className="notificacao">4</span></div>
-                                <div className="box-mensagem">
-                                    <span>
-                                        <div className="usuario-chat">
-                                            <img src="./assets/images/Pagina14/img-chat.png" alt="img-chat"/>
-                                            <h1>Usuário</h1>
-                                        </div>
-                                        <div className="box-mensagem-meio">
-                                            <span className="mensagem-mais-recente">Olá, tudo bem?</span>
-                                        </div>
+                        <div className="chat">
+                            <div className="mensagens">
+                                <div className="msg-titulo">Mensagens <span className="notificacao">4</span></div>
+                                    <div className="box-mensagem">
+                                        <span>
+                                            <div className="usuario-chat">
+                                                <img src="./assets/images/Pagina14/img-chat.png" alt="img-chat"/>
+                                                <h1>Usuário</h1>
+                                            </div>
+                                            <div className="box-mensagem-meio">
+                                                <span className="mensagem-mais-recente">Olá, tudo bem?</span>
+                                            </div>
+                                        </span>
 
-                                        <div className="Box-seta">
-                                            <img src="assets/images/pagina 9,10,11,12/f10-seta1.png" alt=""/>
-                                        </div>
-                                    </span>
-
-                                    <div className="box-mensagem-baixo">
-                                        <input type="text" placeholder="Enviar Mensagem" />
-                                        <img src="./assets/images/Pagina14/enviar.png" alt="enviar" />                   
-                                    </div>            
+                                        <div className="box-mensagem-baixo">
+                                            <input type="text" placeholder="Enviar Mensagem" />
+                                            <img src="./assets/images/Pagina14/enviar.png" alt="enviar" />                   
+                                        </div>            
+                                    </div>
                                 </div>
-                            </div>
+                        </div>
+
                     </div>
 
                     </div>
                     <div className="gerenc-perf">
-                        <div className="gerenc-titulo">Visitas no perfil: 5</div>
                         <div className="recib">
                             <div className="linkedin">
                                 <div className="lkn-titulo">LikedIn recibidos: 4</div>
@@ -363,7 +382,7 @@ export default function Pagina19 (){
                         </div>
                         <div className="gerenc-buttons">
                             <button className="delete">Deletar perfil da empresa</button>
-                            <button className="save">Salvar</button>
+                            <button className="save" onClick={SalvarConfig}>Salvar</button>
                         </div>
                     </div>
                 </div>

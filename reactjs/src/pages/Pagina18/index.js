@@ -10,19 +10,17 @@ import "react-multi-carousel/lib/styles.css"
 import  { useEffect} from 'react'
 import React, { useState} from 'react';
 
-// import { useRef } from 'react'
-// import { useHistory } from 'react-router-dom'
-
 import Api from '../../services/Api';
 const api = new Api();
 
 export default function Pagina18(props) {
 
     
-    // const [empresa, setEmpresa ] = useState(props.location.state);
     const [empresa, setEmpresa ] = useState([]);
     const [vaga, setVagas] = useState([]);
     const [empresaconfig, setEmpresaConfig ] = useState([]);
+    const [resultado, setResul ] = useState(props.location.state);
+
 
     const responsive = {
 
@@ -32,33 +30,29 @@ export default function Pagina18(props) {
         }
     }
 
-    let config = '5'
-
-    console.log(config)
+    console.log(resultado)
     console.log(empresa)
     console.log(empresaconfig)
-    console.log(vaga)
-
 
     async function ListarVagas() {
-        const x = await api.listarVagasIDempresa(config)
+        const x = await api.listarVagasIDempresa(resultado.id)
         setVagas(x)
     }
 
     async function listarEmpresaConfigID(){
-        const x = await api.listarEmpresaConfigID(config)
+        const x = await api.listarEmpresaConfigID(resultado.id)
         setEmpresaConfig(x)
     }
 
     async function ListarEmpresaID(){
-        const x = await api.ListarEmpresaID(config)
+        const x = await api.ListarEmpresaID(resultado.id)
         setEmpresa(x)
     }
 
 
     useEffect(() => {
-        ListarVagas();
         ListarEmpresaID();
+        ListarVagas();
     });
 
     useEffect(() => {
@@ -85,7 +79,7 @@ export default function Pagina18(props) {
 
                 <div class="box-athena-dtl">
                 <div class="ramo-dtl">
-                    <b>Ramo:</b> {empresa.area}
+                    <b>Ramo:</b> {empresa.nm_ramo}
                 </div>
                 <div class="porte-dtl">
                     <b>Porte:</b> {empresaconfig.ds_porte}
@@ -94,13 +88,13 @@ export default function Pagina18(props) {
                     <b>Número de Funcionários:</b> {empresaconfig.qtd_funcionarios}
                 </div>
                 <div class="local-dtl">
-                    <b>Local:</b> {empresa.cidade}
+                    <b>Local:</b> {empresa.ds_estado_cidade}
                 </div>
                 <div class="site-dtl">
                     <b>Site:</b> {empresaconfig.ds_site}
                 </div>
                 <div class="cnpj-dtl">
-                    <b>CNPJ:</b> {empresa.cnpj}
+                    <b>CNPJ:</b> {empresa.nr_cnpj}
                 </div>
                 <div class="img-athena-dtl">
                     <div class="img-athena">
@@ -160,7 +154,7 @@ export default function Pagina18(props) {
                         <img src="./assets/images/Pagina18/Group 8.png" alt="" />
                         </div>
                         <div class="tit-empr-dtl">
-                        <b>Athena TI</b>
+                        <b>{empresa.nm_nome}</b>
                         </div>
                     </div>
 
