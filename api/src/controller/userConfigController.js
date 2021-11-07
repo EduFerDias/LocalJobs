@@ -14,6 +14,17 @@ app.get('/', async(req, resp) =>{
         console.log(e)
     }
 })
+app.get('/:id', async(req, resp) =>{
+    try{
+        let { id } = req.params;
+        let r = await db.infoc_atn_tb_configuracoes_pessoais.findAll({where:{id_pessoal:id}});
+        resp.send(r);
+    } catch(e){
+        resp.sendStatus(500)
+        console.log(e)
+    }
+})
+
 app.put('/:id', async(req, resp) =>{
     try{
         const {id} = req.params;

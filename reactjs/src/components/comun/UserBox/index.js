@@ -45,15 +45,16 @@ export default function UsuBox (props) {
 
     let path =  `../../assets/images/pagina 9,10,11,12/${imagem}`
 
-    return(
+    if(props.bt_empresa === true){
+        return(
                 
         <Conteudo> 
             <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
 
             <div class="f10-texto">
                 
-            <Link to={{ pathname: '/vaga', state: props}}>
-                <div class="f10-filtronome"><Link to={{ pathname: '/empresa', state: props }}> {empresa.nm_nome} </Link> </div>
+            <Link to={{ pathname: '/usuario', state: props.info}}>
+                <div class="f10-filtronome"><Link to={{ pathname: '/usuario', state: props.info }}> {empresa.nm_nome} </Link> </div>
 
                 <div class="f10-cidade">{props.cidade}</div>
                 
@@ -73,4 +74,33 @@ export default function UsuBox (props) {
             </div>   
         </Conteudo>
     );
+    } else if(props.bt_empresa === false){
+        return(     
+            <Conteudo> 
+                <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
+    
+                <div class="f10-texto">
+                    
+                <Link to={{ pathname: '/usuario', state: props.info}}>
+                    <div class="f10-filtronome"><Link to={{ pathname: '/usuario', state: props.info }}> {props.nome} </Link> </div>
+    
+                    <div class="f10-cidade">{props.cidade}</div>
+                    
+                        <div class="f10-profissao">{props.profissao != null && props.profissao.length > 15 ? props.profissao.substr(0, 15) + '...' : props.profissao}
+    
+                        <div class="f10-barra">
+                            -</div><div class="f10-filtroarea">{props.area}</div>
+                        </div>
+            
+                        <div class="f10-data">{}</div>
+    
+                </Link>
+    
+                    <div class="vazio"> {props.descricao}</div>
+                    <div class="vazio"> {props.cnpj}</div>
+                    <div class="vazio"> {props.ramo}</div>
+                </div>   
+            </Conteudo>
+        );
+    }
 }

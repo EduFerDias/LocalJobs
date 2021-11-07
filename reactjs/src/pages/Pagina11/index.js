@@ -78,6 +78,7 @@ export default function Pagina11 (){
                         tipocontrato={item.ds_tipo_contratacao}
                         beneficios={item.ds_beneficios}
                         hora={item.ds_hora_trabalho}
+                        bt_empresa={true}
 
                     />
                     

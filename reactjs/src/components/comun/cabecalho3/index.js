@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import Conteudo from "./styled";
 
 
-export default function Cabecalho3() {
+export default function Cabecalho3(props) {
+
     return(
         <Conteudo>
             <div class="divisao-t6">
@@ -10,8 +11,8 @@ export default function Cabecalho3() {
                 <div class="nmSite-t6"> LocalJobs </div>
             </div>
             <div class="divisao-t6">
-                <div class="nmUsuario-t6"> Úsuario </div>
-                <div class="imagenUsuario-t6"> <img src="../../assets/images/pagina 5,6,7/imgÚsuario.png" alt="" /> </div>
+                <div class="nmUsuario-t6"> {props.nm} </div>
+                <div class="imagenUsuario-t6"> <img src={props.img} alt="" /> </div>
             </div>
         </Conteudo>
     );

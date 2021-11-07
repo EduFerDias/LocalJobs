@@ -53,7 +53,7 @@ const Pagina14 = styled.div`
 .et{
     background-color: #0D62A7;
     border-radius: 40px;
-    width: 170px;
+    width: 210px;
     min-height: 3em;
     text-align: center;
     margin-top: 1em;

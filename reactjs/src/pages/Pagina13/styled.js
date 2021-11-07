@@ -146,8 +146,14 @@ body {
   justify-content: space-between;
 }
 
-.f1campo input{
+.f1campo input, .f1campo select{
   width: 220px;
+}
+
+.f1campo select{
+  box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .faixa2 {
@@ -455,7 +461,7 @@ body {
   height: 10px;
 }
 
-input, textarea {
+input, textarea, select {
   border: none;
   background: #ffffff;
   border-radius: 5px;

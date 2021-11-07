@@ -55,7 +55,7 @@ export default function Pagina8(){
 
     return(
         <Conteudo>
-            <ToastContainer theme='/>
+            <ToastContainer theme="dark"/>
             <LoadingBar color='#f3f3f3' ref={loadin}/>
             <div class="container-login">
             <Cabecalho3 />

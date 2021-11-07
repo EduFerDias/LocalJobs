@@ -158,6 +158,52 @@ export default class Api {
         let r = await api.post(`/usuario`, env)
         return r.data;
     }
+
+    async alterarUsu(id, nome, area, cargo, telefone, estado_cidade, email){
+        let env = {
+            nome:nome,
+            area:area,
+            cargo:cargo,
+            email:email,
+            telefone:telefone,
+            estado_cidade:estado_cidade,
+            assinatura: false
+        }
+        let r = await api.put(`usuario${id}`, env)
+    
+    }
+
+    async listarUsu(){
+        let r = await api.get(`/usuario`)
+        return r.data;
+    }
+    async buscaUsuId(id){
+        let r = await api.get(`/usuario/${id}`)
+        return r.data;
+    }
+    async buscaUsuConfigId(id){
+        let r = await api.get(`userconfig/${id}`)
+        return r.data;
+    }
+    async alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, likedin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacoes_academicas){
+        let y = {
+            sobre: sobre, 
+            idioma1: idioma1, 
+            idioma2: idioma2, 
+            idioma3: idioma3, 
+            likedin: likedin, 
+            instagram: instagram, 
+            twitter: twitter, 
+            vaga_interesse1: vaga_interesse1, 
+            vaga_interesse2: vaga_interesse2, 
+            vaga_interesse3: vaga_interesse3, 
+            experiencias: experiencias, 
+            formacoes_academicas: formacoes_academicas, 
+        }
+        let r = await api.put(`userconfig/${id}`, y)
+        return r.data;
+    }
+
     async buscaUsu(area, cargo, cidade){
         let r =  ""
         if(area || cargo || cidade)

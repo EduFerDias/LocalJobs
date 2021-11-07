@@ -9,11 +9,11 @@ app.post('/', async(req, resp) =>{
     try{
         const {email ,senha}  = req.body;
 
-        if(!email || email === ''){
+        if(!email || email === '')
             resp.send({status:'error', mensagem:'O campo de email é obrigatório'})
-        }else if(!senha || senha === ''){
+        else if(!senha || senha === '')
             resp.send({status:'error', mensagem:'O campo de senha é obrigatório'})
-        }
+        
 
         let senhaCrypto = crypto.SHA256(senha).toString(crypto.enc.Base64);
 
