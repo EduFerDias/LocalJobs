@@ -30,7 +30,7 @@ export default class Api {
         return r.data;
     }
 
-    async listarVagasID(id,idempresa) {
+    async listarVagasID(idempresa,id) {
         let r = await api.get(`/vaga/${idempresa}/${id}`)
         return r.data.vaga;
     }
@@ -103,11 +103,6 @@ export default class Api {
 
         let r = await api.post(`/vaga/${id}`, vaga);
         return r.data;
-    }
-
-    async listarVagaEspecifica(id,vaga){
-        let r = await api.get(`/vaga/${id}/${vaga}`)
-        return r.data.vaga;
     }
 
     async EditarVaga(idvaga,idempresa,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario){

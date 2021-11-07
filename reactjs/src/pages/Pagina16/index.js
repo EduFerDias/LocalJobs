@@ -16,13 +16,12 @@ import Api from '../../services/Api';
 const api = new Api();
 
 
-
-
-export default function Pagina15(props){
+export default function Pagina15(){
 
     const [vagaesp, setVagaEspecifica] = useState(17)
 
     const [vaga, setVaga] = useState([])
+
     const [profissao, setProfissao] = useState('');
     const [descricao, setDescricao] = useState('');
     const [qualificacao, setQualificacao] = useState('');
@@ -99,11 +98,10 @@ export default function Pagina15(props){
     }
 
     async function ListarVagasEspecifica(){
-        let a = await api.listarVagasID(5,17)
+        let a = await api.listarVagasID(id,vagaesp)
         setVaga(a);
     }
 
-    
     async function Editar() {
         setProfissao(vaga.ds_profissao)
         setDescricao(vaga.ds_descricao)
@@ -119,7 +117,6 @@ export default function Pagina15(props){
 
     useEffect(() => {
         ListarVagasEspecifica();
-        Editar();
     });
     
     console.log(vagaesp)

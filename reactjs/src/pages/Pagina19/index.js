@@ -14,25 +14,29 @@ const api = new Api();
 
 
 export default function Pagina19 (props){
+
+    const [a, setA] = useState([])
+
     const [vaga, setVagas] = useState([])
+
     const [empresa, setEmpresa] = useState([])
     const [empresaconfig, setEmpresaConfig] = useState([])
 
-    const [nome, setNome ] = useState([]);
-    const [ramo, setRamo ] = useState([]);
-    const [porte, setPorte ] = useState([]);
-    const [site, setSite ] = useState([]);
-    const [descricao, setDescricao ] = useState([]);
-    const [linkedin, setLinkdin ] = useState([]);
-    const [insta, setInsta ] = useState([]);
-    const [twitter, setTwitter ] = useState([]);
-    const [telefone, setTelefone ] = useState([]);
-    const [funcionarios, setFuncionarios] = useState([]);
+    const [nome, setNome ] = useState("");
+    const [ramo, setRamo ] = useState("");
+    const [porte, setPorte ] = useState("");
+    const [site, setSite ] = useState("");
+    const [descricao, setDescricao ] = useState("");
+    const [linkedin, setLinkdin ] = useState("");
+    const [insta, setInsta ] = useState("");
+    const [twitter, setTwitter ] = useState("");
+    const [telefone, setTelefone ] = useState("");
+    const [funcionarios, setFuncionarios] = useState("");
 
     const id = 5
 
     async function ListarVagas() {
-        const x = await api.listarVagasIDempresa(id)
+        const x = await api.listarVagasIDempresa(5)
         setVagas(x)
     }
 
@@ -72,10 +76,6 @@ export default function Pagina19 (props){
         return
     }
 
-    console.log(SalvarConfig)
-
-
-
     useEffect(() => {
         ListarVagas();
         Editar();
@@ -101,7 +101,7 @@ export default function Pagina19 (props){
                                     </span>
                                     <span className="l1-select">
                                         <label>Ramo:</label>
-                                        <select name="" id=""  value={ ramo } onChange={e => setRamo(e.target.value)} >
+                                        <select id=""  value={ ramo } onChange={e => setRamo(e.target.value)} >
                                             <option value="" disabled selected hidden>Ramos</option>
                                             <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
                                             <option value="Arte e Antiguidades">Arte e Antiguidades </option>
@@ -268,11 +268,16 @@ export default function Pagina19 (props){
                     <div className="chat-vagas">
                     <div className="vagasmsn">
                         <div className="vagas">
-                            <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> <img src="./assets/images/Pagina19/Add.png" alt=""/></div>
+                            <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> 
+                            <Link to={{ pathname: '/criar-vaga', state: props }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
+                            </div>
+                            
                             <JobsHolder className="darkgrey-scroll">
                                 {vaga.map(item => 
                                     <div className="box-vaga">
-                                             <div className="box-titulo"> {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
+                                        <Link to={{ pathname: '/criar-vaga', state: props }}>
+                                                <div className="box-titulo"> {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
+                                        </Link>
                                         <div className="box-paragrafo"> 
                                             {item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao} <span className="veja-m">Veja Mais</span>
                                         </div>
