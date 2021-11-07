@@ -188,7 +188,7 @@ export default class Api {
             assinatura: false
         }
         let r = await api.put(`usuario${id}`, env)
-    
+        return r.data;    
     }
 
     async listarUsu(){
