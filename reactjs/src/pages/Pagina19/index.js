@@ -3,7 +3,7 @@ import Rodape from '../../components/comun/rodapé'
 import Header6 from "../../components/comun/header6";
 import { JobsHolder } from "../../components/styled/JobHolder/styled";
 import { InfoHolder } from "../../components/styled/JobHolder/infoholder";
-
+import { Link } from 'react-router-dom'
 import  { useEffect} from 'react'
 import React, { useState} from 'react';
 
@@ -11,7 +11,9 @@ import Api from '../../services/Api';
 const api = new Api();
 
 
-export default function Pagina19 (){
+
+
+export default function Pagina19 (props){
     const [vaga, setVagas] = useState([])
     const [empresa, setEmpresa] = useState([])
     const [empresaconfig, setEmpresaConfig] = useState([])
@@ -27,7 +29,7 @@ export default function Pagina19 (){
     const [telefone, setTelefone ] = useState([]);
     const [funcionarios, setFuncionarios] = useState([]);
 
-    const  id = 5
+    const id = 5
 
     async function ListarVagas() {
         const x = await api.listarVagasIDempresa(id)
@@ -61,6 +63,13 @@ export default function Pagina19 (){
     async function SalvarConfig() {
         const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
         const a = await api.alterarEmpresa(id,nome,ramo,telefone)
+        return
+        Editar();
+    }
+
+    async function DeletarEmpresa(){
+        const a = await api.removerEmpresa(id)
+        return
     }
 
     console.log(SalvarConfig)
@@ -88,7 +97,7 @@ export default function Pagina19 (){
                                 <span className="l1-interac">
                                     <span className="l1-input">
                                         <label>Nome:</label>
-                                        <input type="text" name="name" value={ nome } onChange={e => setNome(e.target.value)}/>
+                                        <input  name="name" value={ nome } onChange={e => setNome(e.target.value)}/>
                                     </span>
                                     <span className="l1-select">
                                         <label>Ramo:</label>
@@ -213,7 +222,6 @@ export default function Pagina19 (){
                                 <div className="l2-interac"> 
                                     <label>Porte:</label>
                                     <select value={ porte } onChange={e => setPorte(e.target.value)}>
-                                        <option value="valor1" selected> </option>
                                         <option value="Pequeno"> Pequeno </option>
                                         <option value="Médio"> Médio </option>
                                         <option value="Grande"> Grande </option>
@@ -221,15 +229,15 @@ export default function Pagina19 (){
                                 </div>
                                 <div className="l2-interac"> 
                                     <label>Site</label>
-                                    <input type="text" value={ site } onChange={e => setSite(e.target.value)}/>
+                                    <input  value={ site } onChange={e => setSite(e.target.value)}/>
                                 </div>
                                 <div className="l2-interac"> 
                                     <label>Telefone</label>
-                                    <input type="text" value={ telefone } onChange={e => setTelefone(e.target.value)}/>
+                                    <input  value={ telefone } onChange={e => setTelefone(e.target.value)}/>
                                 </div>
                                 <div className="l2-interac"> 
                                     <label>Funcionários</label>
-                                    <input type="text" value={ funcionarios } onChange={e => setFuncionarios(e.target.value)}/>
+                                    <input  value={ funcionarios } onChange={e => setFuncionarios(e.target.value)}/>
                                 </div>
                             </div>
                             <div className="l3">
@@ -240,17 +248,17 @@ export default function Pagina19 (){
                                 <div className="l3-inputs">
                                     <span className="l3-input">
                                         <label>LinkedIn</label>
-                                        <input type="text" value={ linkedin } onChange={e => setLinkdin(e.target.value)}/>
+                                        <input  value={ linkedin } onChange={e => setLinkdin(e.target.value)}/>
                                     </span>
 
                                     <span className="l3-input">
                                         <label>Instagram</label>
-                                        <input type="text" value={ insta } onChange={e => setInsta(e.target.value)}/>
+                                        <input value={ insta } onChange={e => setInsta(e.target.value)}/>
                                     </span>
 
                                     <span className="l3-input">
                                         <label>Twitter</label>
-                                        <input type="text" value={ twitter } onChange={e => setTwitter(e.target.value)}/>
+                                        <input  value={ twitter } onChange={e => setTwitter(e.target.value)}/>
                                     </span>
                                 </div>
 
@@ -262,23 +270,18 @@ export default function Pagina19 (){
                         <div className="vagas">
                             <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> <img src="./assets/images/Pagina19/Add.png" alt=""/></div>
                             <JobsHolder className="darkgrey-scroll">
-                            {vaga.map(item => 
-                                <div className="box-vaga">
+                                {vaga.map(item => 
+                                    <div className="box-vaga">
+                                             <div className="box-titulo"> {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
+                                        <div className="box-paragrafo"> 
+                                            {item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao} <span className="veja-m">Veja Mais</span>
+                                        </div>
 
-
-                                    <div className="box-titulo"> {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
-
-                                    <div className="box-paragrafo"> 
-                                        {item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao} <span className="veja-m">Veja Mais</span>
+                                        <div className="box-detalhes">
+                                            <b>1 vaga | {item.ds_local_trabalho} |</b> De {item.ds_salario_de} a R$ {item.ds_salario_a}
+                                        </div>
                                     </div>
-
-                                    <div className="box-detalhes">
-                                        <b>1 vaga | {item.ds_local_trabalho} |</b> De {item.ds_salario_de} a R$ {item.ds_salario_a}
-                                    </div>
-                                </div>
-                            )}
-                                
-
+                                )}
                             </JobsHolder>
                         </div>
 
@@ -298,7 +301,7 @@ export default function Pagina19 (){
                                         </span>
 
                                         <div className="box-mensagem-baixo">
-                                            <input type="text" placeholder="Enviar Mensagem" />
+                                            <input  placeholder="Enviar Mensagem" />
                                             <img src="./assets/images/Pagina14/enviar.png" alt="enviar" />                   
                                         </div>            
                                     </div>
@@ -382,7 +385,7 @@ export default function Pagina19 (){
                         </div>
                         <div className="gerenc-buttons">
                             <button className="delete">Deletar perfil da empresa</button>
-                            <button className="save" onClick={SalvarConfig}>Salvar</button>
+                            <button className="save" onClick={() => SalvarConfig(5)}>Salvar</button>
                         </div>
                     </div>
                 </div>

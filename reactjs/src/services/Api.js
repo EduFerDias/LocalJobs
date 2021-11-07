@@ -1,6 +1,6 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL: 'https://loca1jobs.herokuapp.com'
+    baseURL: 'http://localhost:3030'
 })
 
 export default class Api {
@@ -87,7 +87,7 @@ export default class Api {
         return r.data;
     }
     
-    async inserirVaga(profissao,descricao,qualificacao,formacao,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
+    async inserirVaga(id,profissao,descricao,qualificacao,formacao,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
         let vaga = {
             ds_profissao: profissao,
             ds_descricao: descricao,
@@ -101,7 +101,30 @@ export default class Api {
             ds_hora_trabalho: horario
         }
 
-        let r = await api.post(`/vaga`, vaga);
+        let r = await api.post(`/vaga/${id}`, vaga);
+        return r.data;
+    }
+
+    async listarVagaEspecifica(id,vaga){
+        let r = await api.get(`/vaga/${id}/${vaga}`)
+        return r.data.vaga;
+    }
+
+    async EditarVaga(idvaga,idempresa,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
+        let vaga = {
+            ds_profissao: profissao,
+            ds_descricao: descricao,
+            ds_qualificacao: qualificacao,
+            ds_formacao: formacoes,
+            ds_local_trabalho: local,
+            ds_salario_a:  salario_a,
+            ds_salario_de: salario_de,
+            ds_tipo_contratacao: tipodecontrato,
+            ds_beneficios: beneficios,
+            ds_hora_trabalho: horario
+        }
+
+        let r = await api.put(`/vaga/${idempresa}/${idvaga}`, vaga);
         return r.data;
     }
 

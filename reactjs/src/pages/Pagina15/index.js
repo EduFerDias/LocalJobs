@@ -28,7 +28,6 @@ export default function Pagina15(props){
     const idempresa = vaga.id
 
     console.log(vagas)
-
     console.log(idempresa)
     console.log(idvagas)
     console.log(empresa)
