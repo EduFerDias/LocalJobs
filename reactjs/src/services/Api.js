@@ -1,6 +1,6 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL: 'https://loca1jobs.herokuapp.com'
+    baseURL: 'http://localhost:3030'
 })
 
 export default class Api {
@@ -95,6 +95,16 @@ export default class Api {
 
     async DeletarVaga(id) {
         let r = await api.delete(`/vaga/${id}`)
+        return r.data;
+    }
+
+    async login(email, senha){
+        let pack = {
+            email:email,
+            senha:senha
+        }
+
+        let r =  await api.post(`/login`, pack)
         return r.data;
     }
 

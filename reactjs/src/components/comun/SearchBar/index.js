@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import {toast} from 'react-toastify'
+import {toast, ToastContainer} from 'react-toastify'
 import Conteudo from "./styled";
 import Api from "../../../services/Api";
 import { useState } from "react";
@@ -15,13 +15,14 @@ export default function Searchbar (props){
 
 
     async function buscampresa(){
-        let pag_mae = false
+        let pag_mae = props.pg
 
         let r = await api.buscaUsu(area, cargo, cidade)
         if(!r)
             toast.error('Não foram encontradas conrespondencias no nosso sistema')
 
         toast.success('FOI!')
+        console.log(r)
 
         if(props.ondeestoy === 'empresa'){
 
@@ -41,6 +42,7 @@ export default function Searchbar (props){
 
     return(
         <Conteudo>
+            <ToastContainer />
             <div class="f10-pesquisa2">
                 <div class="f10-pesquisa">
 
@@ -162,7 +164,7 @@ export default function Searchbar (props){
                     <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
                     <hr />
                     <input class="f10-cidade" placeholder="Digite Uma Cidade" value={cidade} onChange={ e => setCidade(e.target.value)}/>
-                    <div class="f10-lupa" onClick={buscampresa}><img src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
+                    <div class="f10-lupa"><img  onClick={buscampresa} src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
                 </div>
             </div>
         </Conteudo>

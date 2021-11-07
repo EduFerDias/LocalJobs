@@ -11,7 +11,7 @@ export default function pagina (){
                 <button><Link to="/cadastro-candidato">Cadastro Candidato</Link></button>
                 <button><Link to="/cadastros">Cadastro</Link></button>
 
-
+                <button><Link to='/login'>Login</Link></button>
                 <button><Link to="/esqueceu-senha">Esqueceu Senha</Link></button>
                 <button><Link to="/codigo">Codigo de recuperação</Link></button>
                 <button><Link to="/recSenha">Troca de Senha</Link></button>
