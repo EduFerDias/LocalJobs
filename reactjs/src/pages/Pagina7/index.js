@@ -5,7 +5,7 @@ import Api from "../../services/Api";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from "react-toastify";
 
-import { useRef, useState, useEffect} from "react";
+import { useRef, useState} from "react";
 
 import Cookies from 'js-cookie'
 
@@ -24,10 +24,6 @@ export default function Pagina7 (){
     const loading = useRef(null);
     let nav = useHistory();
 
-    useEffect(() => {
-      //  enviarEmail();
-    });
-
     async function enviarEmail(){ 
       let r = await api.enviarEmail('diasdu2011@hotmail.com');
       if(r.erro){
@@ -38,11 +34,14 @@ export default function Pagina7 (){
     }
 
     async function validarCodigo() {
-      loading.current.continuousStart(); 
+      loading.current.continuousStart();
       
-      let r = await api.validarCodigo('diasdu2011@hotmail.com', codigo)
+      let co = Cookies.get('recSenha')
+      let cookie = JSON.parse(co);
+      
+      let r = await api.validarCodigo(cookie.email, codigo)
       let processo =  {
-        email: 'diasdu2011@hotmail.com',
+        email: cookie.email,
         code:codigo
       };
       if(r.erro){

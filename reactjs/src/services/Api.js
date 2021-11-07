@@ -128,6 +128,16 @@ export default class Api {
         return r.data;
     }
 
+    async login(email, senha){
+        let pack = {
+            email:email,
+            senha:senha
+        }
+
+        let r =  await api.post(`/login`, pack)
+        return r.data;
+    }
+
     async enviarEmail(email){
         let emailJson = {email:email};
         let r = await api.post(`/esqueceuSenha`, emailJson)
