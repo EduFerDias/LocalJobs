@@ -10,6 +10,7 @@ const Conteudo = styled.div`
         padding: 3em 15em;
     }
 
+
     .l1{
         display: flex;
         flex-direction: row;
@@ -50,7 +51,7 @@ const Conteudo = styled.div`
         background-image: url("./assets/images/Pagina19/perfil-de-usuario 3.png");
         background-position: right;
         background-repeat: no-repeat;
-        background-size: 10%; 
+        background-size: 6%; 
 
         box-sizing: border-box;
         -webkit-appearance: none;
@@ -70,7 +71,7 @@ const Conteudo = styled.div`
         display: flex;
         flex-direction: column;
         height: 2.3em;
-        margin-right: 2em;
+        margin-right: 0.8em;
     }
     .l2-interac input{
         height: 100%;
@@ -128,7 +129,7 @@ const Conteudo = styled.div`
         padding-right: 35px;
     }
     .l3-input input{
-        width: 23em;
+        width: 20em;
         height: 2.3em;
 
         margin-top: 1em;
@@ -137,7 +138,7 @@ const Conteudo = styled.div`
         border:none;
     }
     .chat-vagas{
-        padding: 0px 13em;
+        padding: 0px 15em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -152,7 +153,7 @@ const Conteudo = styled.div`
     }
     .vagas-titulo img{
         width: 3rem;
-        margin-right: 1em;
+        margin-right: 0em;
     }
 
     .box-vaga{
@@ -167,6 +168,8 @@ const Conteudo = styled.div`
         font-family: Montserrat-Bold;
         font-size: 1.4em;
     }
+
+    
     .box-paragrafo{
         font-size: 0.85em;
         padding: 0.5em 0px;
@@ -184,13 +187,19 @@ const Conteudo = styled.div`
     }
     .box-mensagem{
         background-color: #2A3244;
-        border-radius: 20px;
-        width: 30vw;
+        border-radius: 10px;
+        width: 55rem;
         min-height: 300px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
+
+    .vagasmsn {
+        flex-direction: column;
+        display:flex;
+    }
+
     .usuario-chat{
         display: flex;
         flex-direction: row;
@@ -232,7 +241,7 @@ const Conteudo = styled.div`
         border-radius: 50px;
         border: none;
         background-color: #107AD1;
-        width: 80%;
+        width: 90%;
         height: 40px;
         color: white;
         font-size: 1em;
@@ -245,7 +254,7 @@ const Conteudo = styled.div`
     }
 
     .gerenc-perf{
-        padding:2em 13em;
+        padding:2em 14em;
     }
     .gerenc-titulo{
         font-family: Montserrat-Bold;
@@ -331,7 +340,7 @@ const Conteudo = styled.div`
         visibility:hidden;
     }
     .notificacao{
-        background-color: royalblue;
+        background-color: #107AD1;
         border-radius: 100%;
         padding: 0.2em 0.5em;
         font-family: Montserrat-Bold;
