@@ -46,7 +46,7 @@ export default function Pagina15(props){
     useEffect(() =>{
         ListarVagas();
         ListarEmpresa();
-    })
+    }, [])
 
 
 

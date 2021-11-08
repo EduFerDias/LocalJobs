@@ -34,7 +34,7 @@ export default function Pagina10 (){
 
     useEffect(() => {
         listar();
-      });
+      }, []);
 
     return(
         <Conteudo>
