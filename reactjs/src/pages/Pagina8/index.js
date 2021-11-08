@@ -43,10 +43,14 @@ export default function Pagina8(){
             loadin.current.complete()
             return;
         };
-        if(r.tb_conta === 'pessoal')
+        if(r.tb_conta === 'pessoal'){
             nav.push('/home-usu')
-        else
+            Cookies.set('ud_usu', r.id)
+        }
+        else{
+            Cookies.set('id_empre', r.id)
             nav.push('/home-empresa')
+        }
 
         loadin.current.complete()
     }
