@@ -47,7 +47,7 @@ export default function Pagina1 (){
                                     <img src="./assets/images/Cadastro e Login/p1-1693755 1.png" alt="" />
 
                                     <div className="button-text">
-                                        Cadastro para desempregados 
+                                        Cadastro para candidatos 
                                         <hr/>
                                     </div>
                                 </button>
