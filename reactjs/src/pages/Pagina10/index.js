@@ -6,7 +6,7 @@ import Searchbar from "../../components/comun/SearchBar";
 import Carousel from 'react-multi-carousel';
 import UserBox from "../../components/comun/UserBox";
 import "react-multi-carousel/lib/styles.css"
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import Api from "../../services/Api";
 let api = new Api();
@@ -32,7 +32,7 @@ export default function Pagina10 (){
 
     useEffect(() => {
         listar();
-      });
+      }, []);
 
     return(
         <Conteudo>
