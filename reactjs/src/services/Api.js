@@ -187,7 +187,7 @@ export default class Api {
             estado_cidade:estado_cidade,
             assinatura: false
         }
-        let r = await api.put(`usuario${id}`, env)
+        let r = await api.put(`/usuario/${id}`, env)
         return r.data;    
     }
 

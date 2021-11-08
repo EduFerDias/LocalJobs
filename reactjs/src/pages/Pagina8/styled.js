@@ -7,6 +7,7 @@ const Conteudo = styled.div`
   padding: 0px;
   background-image: url('./assets/images/Cadastro e Login/p1-estaiada.png');
   padding-bottom: 15px;
+  height:100vh;
 }
 
 /* .titulo1-login {
@@ -49,7 +50,7 @@ const Conteudo = styled.div`
   padding-top: 50px;
 
   height: min-content;
-  width: 30vw;
+  width: 30%;
 }
 
 .inputs-login {
@@ -106,7 +107,7 @@ const Conteudo = styled.div`
   background: none;
   border: none;
   font-family: Montserrat-Bold;
-  font-size: 14px;
+  font-size: 1em;
   font-weight: bolder;
   color: white;
   padding-left: 0px;

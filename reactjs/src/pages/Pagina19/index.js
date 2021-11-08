@@ -81,7 +81,7 @@ export default function Pagina19 (props){
         Editar();
         ListarEmpresa();
         ListarEmpresaConfig();
-    });
+    }, []);
 
     return(
         <Conteudo>

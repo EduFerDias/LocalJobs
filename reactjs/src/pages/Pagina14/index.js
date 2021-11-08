@@ -23,7 +23,7 @@ export default function Pagina14 (props) {
 
     useEffect(() => {
         listarUsu();
-    })
+    }, [])
 
 
 

@@ -48,7 +48,7 @@ export default function Pagina11 (){
     useEffect(() => {
         listarEmpresa();
         ListarVagas();
-    });
+    }, []);
 
     return(
         <Conteudo>

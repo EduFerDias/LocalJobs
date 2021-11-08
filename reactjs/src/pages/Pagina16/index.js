@@ -117,7 +117,7 @@ export default function Pagina15(){
 
     useEffect(() => {
         ListarVagasEspecifica();
-    });
+    }, []);
     
     console.log(vagaesp)
     console.log(vaga)

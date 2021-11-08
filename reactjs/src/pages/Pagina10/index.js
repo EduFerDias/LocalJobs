@@ -18,7 +18,7 @@ export default function Pagina10 (){
     const responsive = {
 
         desktop:{
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 1920, min: 1024 },
             items: 3
         }
     }
@@ -32,7 +32,7 @@ export default function Pagina10 (){
 
     useEffect(() => {
         listar();
-      }, []);
+    }, []);
 
     return(
         <Conteudo>

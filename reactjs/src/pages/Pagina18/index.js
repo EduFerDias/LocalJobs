@@ -53,11 +53,11 @@ export default function Pagina18(props) {
     useEffect(() => {
         ListarEmpresaID();
         ListarVagas();
-    });
+    }, []);
 
     useEffect(() => {
         listarEmpresaConfigID();
-    });
+    }, []);
 
 
   return (
