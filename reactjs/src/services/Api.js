@@ -223,11 +223,13 @@ export default class Api {
     }
 
     async buscaUsu(area, cargo, cidade){
-        let r =  ""
-        if(area || cargo || cidade)
-            r = await api.put(`/usuario?area=${area}&cargo=${cargo}&cidade=${cidade}`)
-        else
-            r = await api.put(`/usuario`)
+
+        let s = {
+            area:area,
+            cargo:cargo,
+            cidade:cidade
+        }
+        let r = await api.get(`/usuario`, s)
         return r.data;
     }
 }

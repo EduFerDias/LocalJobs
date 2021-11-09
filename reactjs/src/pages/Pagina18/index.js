@@ -32,7 +32,7 @@ export default function Pagina18(props) {
         }
     }
 
-
+    // brunodeoliveira.22.10@gmail.com"
     console.log(resultado.id)
     console.log(empresa)
     console.log(empresaconfig)

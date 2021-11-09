@@ -1,34 +1,42 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infod_tif_comentario extends Model {
+export default class infoc_tht_compra extends Model {
   static init(sequelize, DataTypes) {
   super.init({
-    id_comentario: {
+    id_compra: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
+    id_pacote: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'infoc_tht_pacote',
+        key: 'id_pacote'
+      }
+    },
     id_usuario: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      references: {
+        model: 'infoc_tht_usuario',
+        key: 'id_usuario'
+      }
     },
-    id_anime: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    ds_aprovacao: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
     },
-    ds_comentario: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    dt_comentario: {
+    dt_compra: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infod_tif_comentario',
+    tableName: 'infoc_tht_compra',
     timestamps: false,
     indexes: [
       {
@@ -36,7 +44,14 @@ export default class infod_tif_comentario extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_comentario" },
+          { name: "id_compra" },
+        ]
+      },
+      {
+        name: "id_pacote",
+        using: "BTREE",
+        fields: [
+          { name: "id_pacote" },
         ]
       },
       {
@@ -46,15 +61,8 @@ export default class infod_tif_comentario extends Model {
           { name: "id_usuario" },
         ]
       },
-      {
-        name: "id_anime",
-        using: "BTREE",
-        fields: [
-          { name: "id_anime" },
-        ]
-      },
     ]
   });
-  return infod_tif_comentario;
+  return infoc_tht_compra;
   }
 }

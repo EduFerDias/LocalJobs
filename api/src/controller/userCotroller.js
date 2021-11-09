@@ -9,35 +9,42 @@ const app = Router();
 
 app.get('/', async (req, resp) => {
     try {
-        if(req.query){
-            let {area, cargo, cidade} = req.query;
+
+            let {area, cargo, cidade} = req.body;
             
             if(area && cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
+                delete r.ds_senha;        
                 resp.send(r)
             }else if(!area && cargo && !cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}})
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}})        
+                delete r.ds_senha;        
                 resp.send(r)
             }else if(!area && !cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({like:{ds_estado_cidade:cidade}})
-                resp.send(r)               
+                let r = await db.infoc_atn_tb_pessoal.findAll({like:{ds_estado_cidade:cidade}})        
+                delete r.ds_senha;        
+                resp.send(r)
             }else if(area && !cargo && !cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}})
-                resp.send(r)       
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}})        
+                delete r.ds_senha;        
+                resp.send(r)
             }else if(!area && cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
+                delete r.ds_senha;        
                 resp.send(r)
             }else if(area && cargo && !cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}})
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}})        
+                delete r.ds_senha;
                 resp.send(r)
             }else if(area && !cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}, like:{ds_estado_cidade:cidade}})
+                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}, like:{ds_estado_cidade:cidade}})        
+                delete r.ds_senha;        
                 resp.send(r)
             } else{
-                let r = await db.infoc_atn_tb_pessoal.findAll();
-                resp.send(r)
+                let r = await db.infoc_atn_tb_pessoal.findAll();        
+                delete r.ds_senha;       
+                resp.send({r:r, test:'sou eum'})
             }
-        }
 
     } catch (e){
         resp.sendStatus(500)
@@ -49,6 +56,8 @@ app.get('/:id', async(req, resp) =>{
     try{
         let { id } = req.params;
         let r = await db.infoc_atn_tb_pessoal.findOne({where:{id_pessoal:Number(id)}})
+
+        delete r.ds_senha;
         resp.send(r);
     } catch (e){
         resp.sendStatus(500)
@@ -60,7 +69,7 @@ app.get('/:id', async(req, resp) =>{
 
 app.post('/', async (req, resp) =>{
     try{
-        let {nome, area, cargo, telefone, estado_cidade, email, senha,confirmar_senha, assinatura} = req.body;
+        let {nome, area, cargo, telefone, estado_cidade, email, senha, assinatura, confirmar_senha} = req.body;
         if(senha != confirmar_senha){
             resp.send({erro:'ambas as senhas tem que ser iguais'});
             return;
@@ -73,7 +82,7 @@ app.post('/', async (req, resp) =>{
             return;
         }
 
-        let r = await db.infoc_atn_tb_pessoal.create({nm_nome:nome, ds_area:area, ds_cargo:cargo, nr_telefone:telefone, ds_estado_cidade:estado_cidade, ds_email:email, ds_codigo_rec:0 ,ds_senha: crypto.SHA256(senha).toString(crypto.enc.Base64), ds_confirmar_senha: crypto.SHA256(confirmar_senha).toString(crypto.enc.Base64),bl_assinatura:assinatura});
+        let r = await db.infoc_atn_tb_pessoal.create({nm_nome:nome, ds_area:area, ds_cargo:cargo, nr_telefone:telefone, ds_estado_cidade:estado_cidade, ds_email:email, ds_codigo_rec:'' ,ds_senha: crypto.SHA256(senha).toString(crypto.enc.Base64), bl_assinatura:assinatura});
         
         let s = await db.infoc_atn_tb_configuracoes_pessoais.create({id_pessoal: r.id_pessoal, ds_sobre:"", ds_idioma1:"", ds_idioma2:"", ds_idioma3:"", ds_linkedin:"", ds_instagram:"", ds_twiter:"", ds_vagas_interesse1:"", ds_vagas_interesse2:"", ds_vagas_interesse3:"", ds_esperiencias:"", ds_formacoes_academicas:"", ds_link_imagem:""/*,id_curriculo: 0*/})
 

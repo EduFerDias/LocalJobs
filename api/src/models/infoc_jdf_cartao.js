@@ -1,7 +1,7 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class infoc_nws_tb_cartao extends Model {
+export default class infoc_jdf_cartao extends Model {
   static init(sequelize, DataTypes) {
   super.init({
     id_cartao: {
@@ -14,25 +14,17 @@ export default class infoc_nws_tb_cartao extends Model {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    ds_cvc: {
-      type: DataTypes.INTEGER,
+    nm_usuario: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
-    dt_vencimento: {
+    dt_expiracao: {
       type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    ds_cpf: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
-    nm_titular: {
-      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'infoc_nws_tb_cartao',
+    tableName: 'infoc_jdf_cartao',
     timestamps: false,
     indexes: [
       {
@@ -45,6 +37,6 @@ export default class infoc_nws_tb_cartao extends Model {
       },
     ]
   });
-  return infoc_nws_tb_cartao;
+  return infoc_jdf_cartao;
   }
 }
