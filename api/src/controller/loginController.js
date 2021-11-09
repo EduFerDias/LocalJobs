@@ -1,5 +1,6 @@
 import db from '../db.js'
 import express from 'express'
+import crypto from 'crypto-js'
 
 const Router = express.Router;
 const app = Router();
@@ -9,11 +10,14 @@ app.post('/', async(req, resp) =>{
     try{
         const {email ,senha}  = req.body;
 
-        if(!email || email === '')
+        if(!email || email === ''){
             resp.send({status:'error', mensagem:'O campo de email é obrigatório'})
-        else if(!senha || senha === '')
+            return;
+        }
+        else if(!senha || senha === ''){
             resp.send({status:'error', mensagem:'O campo de senha é obrigatório'})
-        
+            return;
+        }
 
         let senhaCrypto = crypto.SHA256(senha).toString(crypto.enc.Base64);
 
@@ -22,10 +26,13 @@ app.post('/', async(req, resp) =>{
 
         if(!r && !r2){
             resp.send({ status:"error", mensagem:"Credenciais iválidas"})
+            return;
         } else if(r && !r2){
             resp.send({tp_conta:"pessoal", id:r.id_pessoal});
+            return;
         } else if(r2 && !r){
             resp.send({tp_conta:"empresarial", id: r.id_empresa});
+            return;
         };
 
     } catch(e){

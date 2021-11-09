@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 const Conteudo = styled.div`
+height: 100vh;
 
 .container-login {
   margin: auto; 
   padding: 0px;
   background-image: url('./assets/images/Cadastro e Login/p1-estaiada.png');
-  padding-bottom: 15px;
-  height:100vh;
+  background-size: 100%;
+  height: 100vh;
 }
 
 /* .titulo1-login {
@@ -27,6 +28,8 @@ const Conteudo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 87.5%;
 }
 
 .logo-conteudo-box{
@@ -43,14 +46,11 @@ const Conteudo = styled.div`
   background: rgba(5, 0, 0, 0.6);
   border-radius: 20px;
 
-  margin: 50px;
-  margin-left: 20em;
-  margin-right: 20em;
   padding-bottom: 50px;
   padding-top: 50px;
 
   height: min-content;
-  width: 30%;
+  width: 30vw;
 }
 
 .inputs-login {
@@ -67,8 +67,8 @@ const Conteudo = styled.div`
   border-radius: 5px;
   border: none;
   padding-top: 10px;
-  font-size: 15px;
-  height: 1.7em;
+  font-size: 1.2em;
+  height: 4vh;
 }
 
 .inputs-1-login {
@@ -94,7 +94,7 @@ const Conteudo = styled.div`
   border-radius: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: bolder;
   width: 82.675%;
   cursor: pointer;
@@ -107,7 +107,7 @@ const Conteudo = styled.div`
   background: none;
   border: none;
   font-family: Montserrat-Bold;
-  font-size: 1em;
+  font-size: 0.9vw;
   font-weight: bolder;
   color: white;
   padding-left: 0px;
@@ -125,13 +125,13 @@ const Conteudo = styled.div`
 
 .sem-conta {
   color: #aaadb0;
-  font-size: 14px;
+  font-size: 0.9vw;
   padding-right: 2px;
 }
 
 .crie-aqui {
   color: white;
-  font-size: 14px;
+  font-size: 0.9vw;
   cursor: pointer;
 }
 .crie-aqui:hover{
@@ -181,7 +181,7 @@ const Conteudo = styled.div`
 .botao-baixo button {
   border: none;
   background: none;
-  font-size: 15px;
+  font-size: 0.9vw;
   color: white;
 
   padding:0px;

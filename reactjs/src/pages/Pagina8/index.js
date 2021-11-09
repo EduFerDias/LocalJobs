@@ -43,16 +43,17 @@ export default function Pagina8(){
             loadin.current.complete()
             return;
         };
-        if(r.tb_conta === 'pessoal'){
+        if(r.tp_conta === 'pessoal'){
+            loadin.current.complete()
             nav.push('/home-usu')
             Cookies.set('ud_usu', r.id)
         }
-        else{
+        else if(r.tp_conta === 'empresarial'){
+            loadin.current.complete()
             Cookies.set('id_empre', r.id)
             nav.push('/home-empresa')
         }
-
-        loadin.current.complete()
+        return;
     }
 
 

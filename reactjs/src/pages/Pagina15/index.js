@@ -33,12 +33,12 @@ export default function Pagina15(props){
     console.log(empresa)
 
     async function ListarVagas() {
-        let x = await api.listarVagasID(16, 5)
+        let x = await api.listarVagasID(idempresa, idvagas)
         toast.success(x)
         setVagas(x)
     }
     async function ListarEmpresa(){
-        let x = await api.ListarEmpresaID(5)
+        let x = await api.ListarEmpresaID(idempresa)
         setEmpresa(x)
     }
 

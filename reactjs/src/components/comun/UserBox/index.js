@@ -45,7 +45,7 @@ export default function UsuBox (props) {
 
     let path =  `../../assets/images/pagina 9,10,11,12/${imagem}`
 
-    if(props.bt_empresa === true){
+    if(props.bt_empresa == true){
         return(
                 
         <Conteudo> 
@@ -53,8 +53,8 @@ export default function UsuBox (props) {
 
             <div class="f10-texto">
                 
-            <Link to={{ pathname: '/usuario', state: props.info}}>
-                <div class="f10-filtronome"><Link to={{ pathname: '/usuario', state: props.info }}> {empresa.nm_nome} </Link> </div>
+            <Link to={{ pathname: '/vaga', state: props.idvaga}}>
+                <div class="f10-filtronome"><Link to={{ pathname: '/vaga', state: props.id }}> {empresa.nm_nome} </Link> </div>
 
                 <div class="f10-cidade">{props.cidade}</div>
                 
@@ -74,7 +74,7 @@ export default function UsuBox (props) {
             </div>   
         </Conteudo>
     );
-    } else if(props.bt_empresa === false){
+    } else if(props.bt_empresa == false){
         return(     
             <Conteudo> 
                 <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
