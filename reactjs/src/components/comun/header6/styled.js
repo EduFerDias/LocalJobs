@@ -6,6 +6,11 @@ const Conteudo = styled.div`
 
   justify-content: space-between;
 
+  a:visited{
+    color:#041632;
+  }
+
+
   background: rgba(95, 103, 121, 0.7);
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 

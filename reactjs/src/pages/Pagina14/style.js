@@ -182,6 +182,8 @@ const Pagina14 = styled.div`
 }
 
 .div-mensagem{
+    display:none;
+
     font-size: 20px;
     font-family: Montserrat-Bold;
     margin-top: 3em;

@@ -33,7 +33,7 @@ background-color: #404756;
 }
 
 .msg-dtl {
-  margin-left: 3rem;
+  display: none;
 }
 .logo-dlt img {
   width: 65px;

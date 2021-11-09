@@ -1,8 +1,8 @@
 import Logo2 from "../../components/comun/Logo2";
 import Conteudo from "./Style"
-import Cabecalho2 from "../../components/comun/header4";
+import Cabecalho2 from "../../components/comun/header6";
 
-// import  { useEffect} from 'react'
+     import  { useEffect} from 'react'
 // import { confirmAlert } from 'react-confirm-alert'; 
 
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ const api = new Api();
 
 export default function Pagina3(){
 
-    // const [empresa, setEmpresa ] = useState([]);
+     const [empresa, setEmpresa ] = useState([]);
 
     
 

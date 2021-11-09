@@ -10,6 +10,7 @@ const Conteudo = styled.div`
     font-family: Montserrat-Bold;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+    .local {color:#041632;}
 
 img{
     width: 70px;
