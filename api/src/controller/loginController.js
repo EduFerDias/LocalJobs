@@ -30,7 +30,7 @@ app.post('/', async(req, resp) =>{
             return;
         } 
         else if(r && !r2){
-            resp.send({tp_conta:"pessoal", id:r.id_pessoal});
+            resp.send({tp_conta:"pessoal", id:r.id_pessoal, nome: r.nm_nome});
             return;
         } 
         else if(r2 && !r){

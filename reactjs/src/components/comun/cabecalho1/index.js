@@ -12,7 +12,7 @@ import { useState, useRef } from 'react';
 function lerUsuarioLogado(navigation) {
     let logado = Cookies.get('id_empre');
 
-    console.log(logado.id)
+    console.log(logado)
     if (logado == null) {
         return null;
     }
@@ -38,10 +38,8 @@ export default function Cabecalho1 (){
         else if (usuarioLogado.tp_conta === "pessoal" ) {
             navigation.push('/home-usu')
         }
-        else {
-            navigation.push('/login')
-        }
     }
+    
 
     console.log(Verificar())
 
