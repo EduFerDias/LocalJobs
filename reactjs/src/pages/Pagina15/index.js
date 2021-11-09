@@ -100,18 +100,20 @@ export default function Pagina15(props){
                             </div>
                         </div>
                         <div class="esquerda-baixo">
-                            <div class="div-mensagem">
-                                <h1>Mensagem</h1>
-                                <div class="box-mensagem">
-                                    <div class="usuario-chat">
-                                        <img src="./assets/images/Pagina15/usuarioempresa.png" alt="img-chat"/>
-                                        <h1>Empresa</h1>
-                                    </div>
-                                    <div class="box-mensagem-baixo">
-                                        <input type="text" placeholder="Enviar Mensagem"/>
-                                        <img src="./assets/images/Pagina15/enviar.png" alt="enviar"/>                   
-                                    </div>            
-                                </div>  
+                            <div class="dados-empresa">
+                                <h1>Dados da Empresa</h1>
+                                <div class="box-dados-empresa">
+                                    <p><span class="box-negrito">Nome:</span> {empresa.nm_nome} </p>
+                                    <p><span class="box-negrito">Ramo:</span> {empresa.nm_ramo} </p>
+                                </div>
+                            </div>
+
+                            <div class="enviar-curriculo-linkedin2">
+                                Enviar Currículo
+                            </div>
+
+                            <div class="enviar-email">
+                                Enviar Email 
                             </div>
                         </div>
                     </div>
@@ -140,24 +142,10 @@ export default function Pagina15(props){
                                 </p>
                             </div>
                         </div>
-
-                        <div class="dados-empresa">
-                            <h1>Dados da Empresa</h1>
-                            <div class="box-dados-empresa">
-                                <p><span class="box-negrito">Nome:</span> {empresa.nm_nome} </p>
-                                <p><span class="box-negrito">Ramo:</span> {empresa.nm_ramo} </p>
-                            </div>
-                        </div>
-
-                        <div class="enviar-curriculo-linkedin2">
-                            Enviar Currículo
-                        </div>
-
-                        <div class="enviar-curriculo-linkedin">
-                            Enviar Linkedin <img src="./assets/images/Pagina15/linkedin.png" alt="linkedin"/>
-                        </div>
-
                     </div>
+
+                
+                    
                 </div>
 
             </div>
