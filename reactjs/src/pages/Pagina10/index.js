@@ -23,16 +23,13 @@ export default function Pagina10 (){
         }
     }
     async function listar() {
-
         let Boxes = await api.listarUsu()
-        console.log(Boxes)
-        console.log(typeof(Boxes))
         setUsuario(Boxes);
     }
 
     useEffect(() => {
         listar();
-    }, []);
+    }, [])
 
     return(
         <Conteudo>
@@ -106,10 +103,3 @@ export default function Pagina10 (){
     );
 }
 
-/*
-                        {Boxes.map ((item) => {
-                            return(
-                                <UserBox empresa={item.empresa != null && item.empresa.length > 19 ?item.empresa.substr(0, 15) + '...' :item.empresa} cidade={item.cidade} area={item.area} salario={item.salario} profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} bt_empresa={false}/>
-                            );
-                        })};
-                        */

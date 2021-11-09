@@ -9,6 +9,9 @@ background-color: #404756;
   flex-direction: row;
 }
 
+.titulo-empr-dtl {
+  cursor:pointer
+}
 
 .cabe-dire-dlt {
   display: flex;

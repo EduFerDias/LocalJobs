@@ -6,6 +6,8 @@ import { InfoHolder } from "../../components/styled/JobHolder/infoholder";
 import { Link } from 'react-router-dom'
 import  { useEffect} from 'react'
 import React, { useState} from 'react';
+import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom'
 
 import Api from '../../services/Api';
 const api = new Api();
@@ -43,6 +45,18 @@ export default function Pagina19 (props){
     async function ListarEmpresa() {
         const x = await api.ListarEmpresaID(id)
         setEmpresa(x)
+    }
+
+
+
+    function lerUsuarioLogado(navigation) {
+        let logado = Cookies.get('empresa-logado');
+        if (logado == null) {
+            return null;
+        }
+        
+        let usuarioLogado = JSON.parse(logado);
+        return usuarioLogado;
     }
 
 

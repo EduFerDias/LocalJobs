@@ -7,6 +7,8 @@ import Vaga from "../../components/comun/vagas"
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css"
 
+import { Link } from 'react-router-dom'
+
 import  { useEffect} from 'react'
 import React, { useState} from 'react';
 
@@ -30,7 +32,8 @@ export default function Pagina18(props) {
         }
     }
 
-    console.log(resultado)
+
+    console.log(resultado.id)
     console.log(empresa)
     console.log(empresaconfig)
 
@@ -53,11 +56,9 @@ export default function Pagina18(props) {
     useEffect(() => {
         ListarEmpresaID();
         ListarVagas();
-    }, []);
-
-    useEffect(() => {
         listarEmpresaConfigID();
     }, []);
+
 
 
   return (
@@ -67,10 +68,10 @@ export default function Pagina18(props) {
             <div class="info-dtl">
             <div class="athena-dtl">
                 <div class="nome-empresa-dtl">
-                <div class="logo-empr-dtl">
-                    <img src="" alt="" />
-                </div>
-                <div class="titulo-empr-dtl">{empresa.nm_nome}</div>
+                    <div class="logo-empr-dtl">
+                        <img src="" alt="" />
+                    </div>
+                        <div class="titulo-empr-dtl">{empresa.nm_nome}</div>
                 </div>
 
                 <div class="titulo-athena-dtl">
@@ -189,12 +190,20 @@ export default function Pagina18(props) {
 
                 {vaga.map(item => 
                     <Vaga
-                        profissao= {item.ds_profissao != null && item.ds_profissao.length > 25 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} 
+                        descricao={item.ds_descricao} 
                         cidade={item.ds_local_trabalho} 
-                        descricao={item.ds_descricao}
+                        profissao={item.ds_profissao}
+                        salario={item.ds_salario_de}
                         salarioa={item.ds_salario_a}
-                        salariode={item.ds_salario_de}
-                        />
+                        id={item.id_empresa}
+                        idvaga={item.id_vaga} 
+                        formacao={item.ds_formacao}
+                        qualificacao={item.ds_qualificacao}
+                        tipocontrato={item.ds_tipo_contratacao}
+                        beneficios={item.ds_beneficios}
+                        hora={item.ds_hora_trabalho}
+                        bt_empresa={true}
+                    />
                 )}
 
 

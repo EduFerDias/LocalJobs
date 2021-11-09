@@ -14,28 +14,25 @@ export default function UsuBox (props) {
 
     const id = props.id
 
-    console.log(id)
-    console.log(vaga)
-    console.log(empresa)
-
-    async function ListarEmpresaID() {
+       async function ListarEmpresaID() {
         const x = await api.ListarEmpresaID(id)
         setEmpresa(x)
     }
 
     async function ListarVagas() {
         const x = await api.listarVagasIDempresa(id)
-        setVagas(x)
+        setVagas(x);
     }
 
 
     useEffect(() => {
         ListarVagas();
         ListarEmpresaID();
-    });
+    }, [])
 
 
-    let imagem = '';
+    let imagem ='';
+
 
     if(props.bt_empresa === true){
         imagem = 'f10-empresa.png'
@@ -49,28 +46,23 @@ export default function UsuBox (props) {
         return(
                 
         <Conteudo> 
-            <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
+            <Link to={{ pathname: '/empresa', state: props }}><div class="f10-fotofiltro"><img src={path} alt=""/> </div></Link>
 
             <div class="f10-texto">
                 
-            <Link to={{ pathname: '/vaga', state: props.idvaga}}>
-                <div class="f10-filtronome"><Link to={{ pathname: '/vaga', state: props.id }}> {empresa.nm_nome} </Link> </div>
+                <div class="f10-filtronome"><Link to={{ pathname: '/empresa', state: props }}> {empresa.nm_nome} </Link> </div>
 
                 <div class="f10-cidade">{props.cidade}</div>
                 
-                    <div class="f10-profissao">{props.profissao != null && props.profissao.length > 15 ? props.profissao.substr(0, 15) + '...' : props.profissao}
+                    <Link to={{ pathname: '/vaga', state: props }}><div class="f10-profissao">{props.profissao != null && props.profissao.length > 15 ? props.profissao.substr(0, 15) + '...' : props.profissao}
 
-                    <div class="f10-barra">
-                        -</div><div class="f10-filtroarea">{empresa.nm_ramo}</div>
-                    </div>
+                        <div class="f10-barra">
+                            -</div><div class="f10-filtroarea">{empresa.nm_ramo}</div>
+                        </div>
+                    </Link>
         
                     <div class="f10-data">{`R$ ${props.salario}`}</div>
-
-            </Link>
-
-                <div class="vazio"> {props.descricao}</div>
-                <div class="vazio"> {props.cnpj}</div>
-                <div class="vazio"> {props.ramo}</div>
+         <div class="vazio"> {props.ramo}</div>
             </div>   
         </Conteudo>
     );

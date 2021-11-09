@@ -2,6 +2,8 @@ import Conteudo from "./style";
 import Cabecalho from '../../components/comun/cabecalho3'
 import Rodape from '../../components/comun/rodapé'
 
+import { Link } from 'react-router-dom'
+
 import  { useEffect} from 'react'
 // import { useHistory } from 'react-router-dom'
 // import {useRef} from 'react';
@@ -21,32 +23,27 @@ export default function Pagina15(props){
 
     const [vagas, setVagas ] = useState([]);
     const [empresa, setEmpresa ] = useState([]);
+    const [resultado, SetResul] = useState(props.location.state)
 
-    let vaga = props.location.state;
 
-    const idvagas = vaga.idvaga
-    const idempresa = vaga.id
 
-    console.log(vagas)
-    console.log(idempresa)
-    console.log(idvagas)
-    console.log(empresa)
+    let id = Number(resultado.id)
 
-    async function ListarVagas() {
-        let x = await api.listarVagasID(idempresa, idvagas)
-        toast.success(x)
-        setVagas(x)
-    }
+
+
     async function ListarEmpresa(){
-        let x = await api.ListarEmpresaID(idempresa)
+        console.log(id)
+        let x = await api.ListarEmpresaID(id)
         setEmpresa(x)
     }
 
     useEffect(() =>{
-        ListarVagas();
         ListarEmpresa();
     }, [])
 
+    useEffect(() => {
+        console.log(id)
+    })
 
 
     return(
@@ -60,8 +57,9 @@ export default function Pagina15(props){
                         <img src="./assets/images/Pagina15/imagemempresa.png" alt="asda"/>
                     </div>
                     <div class="informacoes-usuario">
-                        <p class="nm">{vaga.profissao}</p>
-                        <p class="pr">{empresa.nm_nome} | {empresa.ds_estado_cidade}</p>
+                        <p class="nm">{resultado.profissao}</p>
+                            <p class="pr">{empresa.nm_nome} | {empresa.ds_estado_cidade}</p>
+                        
                     </div>
                 </div>
                 <div class="email-telefone">
@@ -79,25 +77,25 @@ export default function Pagina15(props){
                             <div class="caracteristicas">
                                 <h1>Descrição:</h1>
                                 <p>
-                                    {vaga.descricao}
+                                    {resultado.descricao}
                                 </p>
                             </div>
                             <div class="caracteristicas">
                                 <h1>Qualificação:</h1>
                                 <p>
-                                    {vaga.qualificacao}
+                                    {resultado.qualificacao}
                                 </p>
                             </div>
                             <div class="caracteristicas">
                                 <h1>Formação:</h1>
                                 <p>
-                                    {vaga.formacao}
+                                    {resultado.formacao}
                                 </p>
                             </div>
                             <div class="caracteristicas">
                                 <h1>Local de trabalho:</h1>
                                 <p>
-                                    {vaga.cidade}
+                                   {empresa.ds_estado_cidade	}
                                 </p>
                             </div>
                         </div>
@@ -121,19 +119,25 @@ export default function Pagina15(props){
                         <div class="descricao-direita">
                             <div class="caracteristicas-direita">
                                 <h1>Salário:</h1>
-                                <p>De R$ {vaga.salariode} a R$ {vaga.salarioa}</p>
+                                <p>De R${resultado.salario}  a R${resultado.salariode} </p>
                             </div>
                             <div class="caracteristicas-direita">
                                 <h1>Tipo de Contratação:</h1>
-                                <p>{vaga.tipocontrato}</p>
+                                <p>
+                                    {resultado.tipocontrato}
+                                </p>
                             </div>
                             <div class="caracteristicas-direita">
                                 <h1>Benefícios:</h1>
-                                <p>{vaga.beneficios}</p>
+                                <p>
+                                    {resultado.beneficios}
+                                </p>
                             </div>
                             <div class="caracteristicas-direita">
                                 <h1>Horas trabalhadas por dia:</h1>
-                                <p>{vaga.hora}</p>
+                                <p>
+                                    {resultado.hora}
+                                </p>
                             </div>
                         </div>
 
