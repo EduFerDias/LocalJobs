@@ -1,5 +1,5 @@
 import Conteudo from "./Style";
-import Cabecalho from "../../components/comun/cabecalho3";
+import Cabecalho from "../../components/comun/header4";
 import Rodape from "../../components/comun/rodapé";
 import Searchbar from "../../components/comun/SearchBar";
 

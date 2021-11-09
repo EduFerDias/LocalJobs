@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 
 function lerUsuarioLogado(navigation) {
-    let logado = Cookies.get('id_empr');
+    let logado = Cookies.get('id_empre');
     if (logado == null) {
         return null;
     }

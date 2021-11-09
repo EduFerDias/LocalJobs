@@ -37,6 +37,7 @@ export default function Pagina8(){
     async function logar(){
         loadin.current.continuousStart();
         let r = await api.login(email, senha)
+
         if(r.status === 'error'){
 
             toast.error(r.mensagem)
@@ -46,11 +47,11 @@ export default function Pagina8(){
         if(r.tp_conta === 'pessoal'){
             loadin.current.complete()
             nav.push('/home-usu')
-            Cookies.set('ud_usu', r.id)
+            Cookies.set('id_usu', JSON.stringify(r))
         }
         else if(r.tp_conta === 'empresarial'){
             loadin.current.complete()
-            Cookies.set('id_empre', r.id)
+            Cookies.set('id_empre', JSON.stringify(r))
             nav.push('/home-empresa')
         }
         return;

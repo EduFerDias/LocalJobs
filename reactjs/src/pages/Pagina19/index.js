@@ -1,6 +1,6 @@
 import Conteudo from "./style";
 import Rodape from '../../components/comun/rodapé'
-import Header6 from "../../components/comun/header6";
+import Header6 from "../../components/comun/header5";
 import { JobsHolder } from "../../components/styled/JobHolder/styled";
 import { InfoHolder } from "../../components/styled/JobHolder/infoholder";
 import { Link } from 'react-router-dom'
@@ -14,7 +14,8 @@ const api = new Api();
 
 
 function lerUsuarioLogado(navigation) {
-    let logado = Cookies.get('empresa-logado');
+    let logado = Cookies.get('id_empre');
+
     if (logado == null) {
         return null;
     }
@@ -25,12 +26,22 @@ function lerUsuarioLogado(navigation) {
 
 export default function Pagina19 (props){
 
-    const [a, setA] = useState([])
-
     const [vaga, setVagas] = useState([])
 
-    const [empresa, setEmpresa] = useState([])
+    const navigation = useHistory();
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+
+    const [id, setId] = useState(usuarioLogado.id);
+
+    
+
     const [empresaconfig, setEmpresaConfig] = useState([])
+    const [empresa, setEmpresa] = useState([])
+
+
+    console.log(id)
+    console.log(empresa)
+    
 
     const [nome, setNome ] = useState("");
     const [ramo, setRamo ] = useState("");
@@ -43,11 +54,11 @@ export default function Pagina19 (props){
     const [telefone, setTelefone ] = useState("");
     const [funcionarios, setFuncionarios] = useState("");
 
-    const id = 5
 
     async function ListarVagas() {
-        const x = await api.listarVagasIDempresa(5)
+        const x = await api.listarVagasIDempresa(id)
         setVagas(x)
+        Editar();
     }
 
     async function ListarEmpresa() {
@@ -76,7 +87,6 @@ export default function Pagina19 (props){
     async function SalvarConfig() {
         const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
         const a = await api.alterarEmpresa(id,nome,ramo,telefone)
-        return
         Editar();
     }
 
@@ -87,7 +97,6 @@ export default function Pagina19 (props){
 
     useEffect(() => {
         ListarVagas();
-        Editar();
         ListarEmpresa();
         ListarEmpresaConfig();
     }, []);
@@ -278,7 +287,7 @@ export default function Pagina19 (props){
                     <div className="vagasmsn">
                         <div className="vagas">
                             <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> 
-                            <Link to={{ pathname: '/criar-vaga', state: props }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
+                                <Link to={{ pathname: '/criar-vaga', state: props }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
                             </div>
                             
                             <JobsHolder className="darkgrey-scroll">

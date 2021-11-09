@@ -62,7 +62,7 @@ export default class Api {
         let empresa = {
             nm_nome: nome,
             nm_ramo: ramo,
-            nr_telefone: telefone, 
+            nr_telefone: telefone
        }
         console.log(empresa)
 

@@ -1,6 +1,6 @@
 import Logo2 from "../../components/comun/Logo2";
 import Conteudo from "./Style"
-import Cabecalho2 from "../../components/comun/cabecalho1";
+import Cabecalho2 from "../../components/comun/header4";
 
 // import  { useEffect} from 'react'
 // import { confirmAlert } from 'react-confirm-alert'; 
@@ -110,10 +110,10 @@ export default function Pagina3(){
             }  else {
                 navig.push('/login');
                 toast.success('Conta Empresarial Criada.')  
+                loading.current.complete()
             }
 
             console.log(x)
-            loading.current.complete()
         }
         
         setIdAlterado(0);       

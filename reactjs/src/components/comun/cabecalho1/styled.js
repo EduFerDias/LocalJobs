@@ -22,6 +22,7 @@ const conteudo = styled.div`
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 1.5em;
     color: white;
+    cursor: pointer;
 }
 .detalhe{
     background-color: white;
