@@ -63,7 +63,7 @@ export default function Pagina15(props){
                     </div>
                 </div>
                 <div class="email-telefone">
-                    <div class="et">usuário@gmail.com</div>
+                    <div class="et">{empresa.ds_email}</div>
                     <div class="et">{empresa.nr_telefone}</div>
                 </div>
             </div>

@@ -63,7 +63,7 @@ export default class Api {
             nm_nome: nome,
             nm_ramo: ramo,
             nr_telefone: telefone
-       }
+        }
         console.log(empresa)
 
         let r = await api.put(`/empresa/${id}`, empresa)
@@ -80,8 +80,8 @@ export default class Api {
             ds_porte: porte,
             ds_site: site,
             qtd_funcionarios: funcionarios
-       }
-        console.log(empresa)
+        }
+        console.log(id)
 
         let r = await api.put(`/empresa/${id}`, empresa)
         return r.data;

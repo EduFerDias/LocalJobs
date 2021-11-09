@@ -11,7 +11,6 @@ import { useState, useRef } from 'react';
 function lerUsuarioLogado(navigation) {
     let logado = Cookies.get('id_empre');
 
-    console.log(logado.id)
     if (logado == null) {
         return null;
     }

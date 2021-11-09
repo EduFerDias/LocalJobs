@@ -33,14 +33,10 @@ export default function Pagina19 (props){
 
     const [id, setId] = useState(usuarioLogado.id);
 
-    
+    console.log(id)
 
     const [empresaconfig, setEmpresaConfig] = useState([])
     const [empresa, setEmpresa] = useState([])
-
-
-    console.log(id)
-    console.log(empresa)
     
 
     const [nome, setNome ] = useState("");
@@ -88,11 +84,6 @@ export default function Pagina19 (props){
         const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
         const a = await api.alterarEmpresa(id,nome,ramo,telefone)
         Editar();
-    }
-
-    async function DeletarEmpresa(){
-        const a = await api.removerEmpresa(id)
-        return
     }
 
     useEffect(() => {
@@ -407,8 +398,8 @@ export default function Pagina19 (props){
                             </div>
                         </div>
                         <div className="gerenc-buttons">
-                            <button className="delete">Deletar perfil da empresa</button>
-                            <button className="save" onClick={() => SalvarConfig(5)}>Salvar</button>
+                            <button className="delete">Sair</button>
+                            <button className="save" onClick={() => SalvarConfig(id)}>Salvar</button>
                         </div>
                     </div>
                 </div>

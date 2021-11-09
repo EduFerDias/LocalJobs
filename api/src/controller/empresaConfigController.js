@@ -33,7 +33,9 @@ app.put("/:id", async (req, resp) => {
     try {
       let id = req.params.id;
       let a = req.body;
-
+    
+      console.log(a)
+      
       let r = await db.infoc_atn_tb_configuracoes_empresa.findOne({ where: { ds_instagram_empresa: a.ds_instagram_empresa, ds_twitter_empresa: a.ds_twitter_empresa,ds_site: a.ds_site } })
       if(r != null)
           return resp.send({erro:"Essa empresa ja existe"})

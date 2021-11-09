@@ -16,12 +16,12 @@ import Api from '../../services/Api';
 const api = new Api();
 
 
-export default function Pagina15(){
+export default function Pagina15(props){
 
-    const [vagaesp, setVagaEspecifica] = useState(17)
+    const [vagaesp, setVagaEspecifica] = useState(props.location.state.id_vaga)
 
     const [vaga, setVaga] = useState([])
-
+    const [id, setId] = useState(props.location.state)
     const [profissao, setProfissao] = useState('');
     const [descricao, setDescricao] = useState('');
     const [qualificacao, setQualificacao] = useState('');
@@ -34,8 +34,8 @@ export default function Pagina15(){
     const [horario, setHorario] = useState('');
 
     const loading = useRef(null)
-
-    var id = 5
+    console.log(id)
+    console.log(props)
 
     async function inserirVaga() { 
 
@@ -121,6 +121,7 @@ export default function Pagina15(){
     
     console.log(vagaesp)
     console.log(vaga)
+    
 
     return(
         
