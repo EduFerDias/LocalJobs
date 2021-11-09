@@ -20,7 +20,7 @@ export default function Cabecalho1 (){
             <div className="user-interac">
                 <div className="pic">
                     <img src="./assets/images/p1-Group 5.png" alt=""/>
-                    <div className="login" Onclick={''}>Entrar</div>
+                    <Link to='/login'><div className="login">Entrar</div></Link>
                 </div>
                 <div className="detalhe">&nbsp;</div>
                 <Link to="/cadastros"><button className="criar-conta">{'Criar Conta'}</button></Link>
