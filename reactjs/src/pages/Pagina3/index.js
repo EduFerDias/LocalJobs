@@ -4,7 +4,7 @@ import Cabecalho2 from "../../components/comun/cabecalho1";
 
 // import  { useEffect} from 'react'
 // import { confirmAlert } from 'react-confirm-alert'; 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
@@ -285,7 +285,7 @@ export default function Pagina3(){
                         <button class="button" type="button" onClick={ inserirEmpresa }>Cadastrar</button>
                     </form>
                     <div class="f1-conta">
-                        Já possui conta? &nbsp; <span>faça o login</span>
+                        Já possui conta? &nbsp; <Link to="/login"><span>faça o login</span></Link>
                         <div class="sobre">Sobre nós</div>
                     </div>
 
