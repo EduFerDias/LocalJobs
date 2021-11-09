@@ -26,7 +26,7 @@ function lerUsuarioLogado(navigation) {
 
 export default function Pagina19 (props){
 
-    const [vaga, setVagas] = useState([])
+    const [vaga, setVagas] = useState([]);
 
     const navigation = useHistory();
     let usuarioLogado = lerUsuarioLogado(navigation) || {};
@@ -52,9 +52,14 @@ export default function Pagina19 (props){
 
 
     async function ListarVagas() {
+
         const x = await api.listarVagasIDempresa(id)
-        console.log(x)
-        setVagas([x])
+        console.log(x);
+        if(x.erro  != undefined) {
+            console.log("oi")
+        }else {
+            setVagas(x)
+        }
         Editar();
     }
 
@@ -284,6 +289,7 @@ export default function Pagina19 (props){
                             
                             <JobsHolder className="darkgrey-scroll">
                                 {vaga.map(item => 
+                                    
                                     <div className="box-vaga">
                                         <Link to={{ pathname: '/criar-vaga', state: props }}>
                                                 <div className="box-titulo"> {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
@@ -296,6 +302,7 @@ export default function Pagina19 (props){
                                             <b>1 vaga | {item.ds_local_trabalho} |</b> De {item.ds_salario_de} a R$ {item.ds_salario_a}
                                         </div>
                                     </div>
+                                
                                 )}
                             </JobsHolder>
                         </div>
