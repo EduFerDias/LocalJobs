@@ -92,7 +92,7 @@ export default function Pagina8(){
                         <span class="sem-conta">não tem conta?</span>
                         <span><Link to="/cadastros" class="crie-aqui">crie aqui</Link></span>
                     </button>
-                        <button class="senha-login" onClick={enviarEmail}>esqueci minha senha</button>
+                        <Link to="/esqueceu-senha"><button class="senha-login">esqueci minha senha</button></Link>
                     </div>
 
                     <div class="botao-baixo">.
