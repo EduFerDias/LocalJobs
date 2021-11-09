@@ -5,35 +5,32 @@ export default function pagina (){
     return(
         <Conteudo>
             <div>
-                <button><Link to="/paginas">Home</Link></button>
+            <Link to="/paginas"><button>Home</button></Link>
 
-                <button><Link to="/cadastro-empresa">Cadastro Empresa</Link></button>
-                <button><Link to="/cadastro-candidato">Cadastro Candidato</Link></button>
-                <button><Link to="/cadastros">Cadastro</Link></button>
+            <Link to="/cadastro-empresa"><button>Cadastro Empresa</button></Link>
+            <Link to="/cadastro-candidato"><button>Cadastro Candidato</button></Link>
+            <Link to="/cadastros"><button>Cadastro</button></Link>
 
-                <button><Link to='/login'>Login</Link></button>
-                <button><Link to="/esqueceu-senha">Esqueceu Senha</Link></button>
-                <button><Link to="/codigo">Codigo de recuperação</Link></button>
-                <button><Link to="/recSenha">Troca de Senha</Link></button>
+            <Link to='/login'><button>Login</button></Link>
+            <Link to="/esqueceu-senha"><button>Esqueceu Senha</button></Link>
+            <Link to="/codigo"><button>Codigo de recuperação</button></Link>
+            <Link to="/recSenha"><button>Troca de Senha</button></Link>
 
-                <button><Link to="/buscar-usu">Busca(Empresa)</Link></button>
-                <button><Link to="/buscar-empresa">Busca(Candidato)</Link></button>
+            <Link to="/buscar-usu"><button>Busca(Empresa)</button></Link>
+            <Link to="/buscar-empresa"><button>Busca(Candidato)</button></Link>
+            <Link to="/home-empresa"><button>Home(Empresa)</button></Link>
+            <Link to="/home-usu"><button>Home(Candidato)</button></Link>
+            
+            <Link to="/vaga"><button>Pagina 15 de vaga</button></Link>
+            <Link to="/criar-vaga"><button>Pagina 16 de criar vaga</button></Link>
 
-                <button><Link to="/home-empresa">Home(Empresa)</Link></button>
-                <button><Link to="/home-usu">Home(Candidato)</Link></button>
-                
+            <Link to="/config-usuario"><button>Pagina 13 de config de usuario</button></Link>
+            <Link to="/config-empresa"><button>Pagina 19 de config de empresa </button></Link>
 
-                <button><Link to="/vaga">Pagina 15 de vaga</Link></button>
-                <button><Link to="/criar-vaga">Pagina 16 de criar vaga</Link></button>
- 
-                <button><Link to="/config-usuario">Pagina 13 de config de usuario</Link></button>
-                <button><Link to="/config-empresa">Pagina 19 de config de empresa </Link></button>
-  
-                <button><Link to="/empresa">Pagina 18 da Empresa</Link></button>
-                <button><Link to="/usuario">Pagina 14 de Usuario</Link></button>
-
-        
-                <button><Link to="/*">404 Not Found</Link></button>
+            <Link to="/empresa"><button>Pagina 18 da Empresa</button></Link>
+            <Link to="/usuario"><button>Pagina 14 de Usuario</button></Link>
+    
+            <button><Link to="/*">404 Not Found</Link></button>
               
             </div>
         </Conteudo>
