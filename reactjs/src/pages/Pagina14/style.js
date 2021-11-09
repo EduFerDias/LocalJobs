@@ -53,7 +53,7 @@ const Pagina14 = styled.div`
 .et{
     background-color: #0D62A7;
     border-radius: 40px;
-    width: 210px;
+    width: 20vw;
     min-height: 3em;
     text-align: center;
     margin-top: 1em;
@@ -171,9 +171,10 @@ const Pagina14 = styled.div`
 }
 
 .vaga{
-    font-size: 35px;
+    font-size: 32px;
     font-family: Montserrat-regular;
     background-color: #107AD1;
+    padding: 0.2em;
     border-radius: 40px;
     text-align: center  ;
     min-width: 10%;

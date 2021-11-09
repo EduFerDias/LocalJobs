@@ -17,7 +17,7 @@ app.get('/', async(req, resp) =>{
 app.get('/:id', async(req, resp) =>{
     try{
         let { id } = req.params;
-        let r = await db.infoc_atn_tb_configuracoes_pessoais.findAll({where:{id_pessoal:id}});
+        let r = await db.infoc_atn_tb_configuracoes_pessoais.findOne({where:{id_pessoal:id}});
         resp.send(r);
     } catch(e){
         resp.sendStatus(500)

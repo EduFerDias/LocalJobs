@@ -15,7 +15,7 @@ export default function Pagina14 (props) {
         let r = await api.buscaUsuConfigId(usuario)
         let y = await api.buscaUsuId(usuario)
 
-        console.log(usuario)
+        console.log(r)
 
         setUsuC(r)
         setUsuI(y)

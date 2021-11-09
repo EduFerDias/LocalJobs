@@ -35,7 +35,7 @@ app.get("/", async (req, resp) => {
 app.get('/', async(req, resp) => {
     try{
         let {area} = req.body
-        let a = await ds.infoc_atn_tb_empresa.findAll({where:{ds_area: area}})
+        let a = await ds.infoc_atn_tb_empresa.findOne({where:{ds_area: area}})
         resp.send(a.id_empresa)
     }catch(e){
         resp.send({erro:e})
@@ -73,7 +73,7 @@ app.post("/", async (req, resp) => {
         nr_telefone: a.nr_telefone,
         ds_estado_cidade: a.ds_estado_cidade,
         ds_email: a.ds_email,
-        ds_senha: crypto.SHA256(a.ds_senha).toString(crypto.getRandomValues.Base64)
+        ds_senha: crypto.SHA256(a.ds_senha).toString(crypto.enc.Base64)
     })
 
     const x = ""
@@ -92,6 +92,7 @@ app.post("/", async (req, resp) => {
     resp.send(empresa + empresaconfig);
 
     } catch (e) {
+        console.log(e)
         resp.send(e.toString());
     }
 });

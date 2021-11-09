@@ -9,12 +9,15 @@ import "react-multi-carousel/lib/styles.css"
 import { useState, useEffect } from 'react'
 
 import Api from "../../services/Api";
+import Cookies from "js-cookie";
 let api = new Api();
 
 
 export default function Pagina10 (){
     const [usuario, setUsuario] = useState([]);
     const [usuarioA, setUsuarioA] = useState([])
+
+    let id = Cookies.get('id_usu');
 
     const responsive = {
 
@@ -42,7 +45,7 @@ export default function Pagina10 (){
     return(
         <Conteudo>
             <div class="f10-tudo">
-                <Cabecalho/>
+                <Cabecalho id={2}/>
 
                 <div class="f10-filtro">
                     <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>

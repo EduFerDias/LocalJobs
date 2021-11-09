@@ -56,5 +56,12 @@ const Conteudo = styled.div`
   cursor: pointer;
 }
 
+a{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items:center; 
+}
+
 `
 export default Conteudo

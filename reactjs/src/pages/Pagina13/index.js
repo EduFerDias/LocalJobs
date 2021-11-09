@@ -2,17 +2,19 @@ import Conteudo from './styled'
 import Rodape from '../../components/comun/rodapé';
 import Cabecalho from "../../components/comun/cabecalho3"
 
+import {toast, ToastContainer} from 'react-toastify'
+
 import Api from '../../services/Api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 let api = new Api();
 
 export default function Pagina13(props){
 
     let id = 2;
 
-    const[nome, setNm] = useState('')
+    const[nome, setNm] = useState('');
     const[cargo, setCargo] = useState('');
-    const{area, setArea} = useState('');
+    const[area, setRamo] = useState('');
     const[telefone, setTele]= useState('');
     const[email, setEmail] = useState('');
     const[cidade, setCidade] = useState('');
@@ -30,17 +32,47 @@ export default function Pagina13(props){
     const[experiencias, setExp] = useState('');
     const[formacao, setFormacao] =  useState('');
 
-    api.buscaUsuConfigId(id)
-    api.buscaUsuId(id)
-    api.alterarUsu(id, nome, area, cargo, telefone, cidade, email)
-    api.alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, linkdin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacao)
+    async function buscarInfo(){
 
+        let r = await api.buscaUsuId(2)
+        let f = await api.buscaUsuConfigId(2) 
 
+        setNm(r.nm_nome)
+        setRamo(r.ds_area)
+        setCargo(r.ds_cargo)
+        setTele(r.nr_telefone)
+        setEmail(r.ds_email)
+        setCidade(r.ds_estado_cidade)
 
+        setSobre(f.ds_sobre)
+        setIdioma1(f.ds_idioma1)
+        setIdioma2(f.ds_idioma2)
+        setIdioma3(f.ds_idioma3)
+        setLinked(f.ds_linkedin)
+        setInsta(f.ds_instagram)
+        setTwitter(f.ds_twiter)
+        setVagaInt1(f.ds_vagas_interesse1)
+        setVagaInt2(f.ds_vagas_interesse2)
+        setVagaInt3(f.ds_vagas_interesse3)
+        setExp(f.ds_esperiencias)
+        setFormacao(f.ds_formacoes_academicas)
+
+    }
+
+    async function altDados(){
+        let r = api.alterarUsu(id, nome, area, cargo, telefone, cidade, email);
+        let f = api.alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, linkdin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacao);
+
+        return toast.success('deu', r, f)
+    }
+
+    useEffect(() => {
+        buscarInfo()
+    }, [])
 
     return(
-
         <Conteudo>
+            <ToastContainer />
             <div class="tela13" >
                 <Cabecalho></Cabecalho>
                 <div class="conteudo-tela13">
@@ -57,7 +89,7 @@ export default function Pagina13(props){
                             <div class="f1-campos">
                             <div class="f1campo"> <input value={nome} onChange={e => setNm(e.target.value)}/> </div>
                             <div class="f1campo"> <input value={cargo} onChange={e => setCargo(e.target.value)}/> </div>
-                            <div class="f1campo"> <select name="" id="" value={area} onChange={e => setArea(e.target.value)}>
+                            <div class="f1campo"> <select name="" id="" value={area} onChange={e => setRamo(e.target.value)}>
                                 <option value="" disabled selected hidden> </option>
                                 <option value="Administração">Administração</option>
                                 <option value="Antropologia">Antropologia</option>
@@ -188,7 +220,7 @@ export default function Pagina13(props){
 
                     <div class="faixa6">
                         <div class="btdelf6"> <button> Deletar úsuario </button> </div>
-                        <div class="btsavef6"> <button> Salvar </button> </div>
+                        <div class="btsavef6"> <button onClick={altDados}> Salvar </button> </div>
                     </div>
 
                 </div>
