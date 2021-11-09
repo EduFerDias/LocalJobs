@@ -53,7 +53,11 @@ export default function Pagina19 (props){
 
     async function ListarVagas() {
         const x = await api.listarVagasIDempresa(id)
-        setVagas(x)
+        if (x.length === 0) {
+            console.log("Oi")
+        } else {
+            setVagas(x)
+        }
         Editar();
     }
 
@@ -84,6 +88,11 @@ export default function Pagina19 (props){
         const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
         const a = await api.alterarEmpresa(id,nome,ramo,telefone)
         Editar();
+    }
+
+    const logoff = () => {
+        Cookies.remove('id_empre');
+        navigation.push('/');
     }
 
     useEffect(() => {
@@ -398,7 +407,7 @@ export default function Pagina19 (props){
                             </div>
                         </div>
                         <div className="gerenc-buttons">
-                            <button className="delete">Sair</button>
+                            <button className="delete" onClick={logoff}>Sair</button>
                             <button className="save" onClick={() => SalvarConfig(id)}>Salvar</button>
                         </div>
                     </div>
