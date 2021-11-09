@@ -57,7 +57,7 @@ export default function UsuBox (props) {
                     <Link to={{ pathname: '/vaga', state: props }}><div class="f10-profissao">{props.profissao != null && props.profissao.length > 15 ? props.profissao.substr(0, 15) + '...' : props.profissao}
 
                         <div class="f10-barra">
-                            -</div><div class="f10-filtroarea">{empresa.nm_ramo}</div>
+                            -</div><div class="f10-filtroarea">{empresa.nm_ramo != null && empresa.nm_ramo.length > 7 ?empresa.nm_ramo.substr(0,7) + '...' :empresa.nm_ramo}</div>
                         </div>
                     </Link>
         
