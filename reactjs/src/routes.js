@@ -20,7 +20,6 @@ import Pagina19 from "./pages/Pagina19";
 
 import Pagina13 from "./pages/Pagina13";
 import Pagina7_5 from "./pages/Pagina7.5";
-import Pagina8 from "./pages/Pagina8";
 /*
 As pgs 15 e 14 Precisam de uma revisão
 */
