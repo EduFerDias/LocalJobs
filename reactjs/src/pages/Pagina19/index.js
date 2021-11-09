@@ -13,7 +13,15 @@ import Api from '../../services/Api';
 const api = new Api();
 
 
-
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('empresa-logado');
+    if (logado == null) {
+        return null;
+    }
+    
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
 
 export default function Pagina19 (props){
 
@@ -46,19 +54,6 @@ export default function Pagina19 (props){
         const x = await api.ListarEmpresaID(id)
         setEmpresa(x)
     }
-
-
-
-    function lerUsuarioLogado(navigation) {
-        let logado = Cookies.get('empresa-logado');
-        if (logado == null) {
-            return null;
-        }
-        
-        let usuarioLogado = JSON.parse(logado);
-        return usuarioLogado;
-    }
-
 
     async function ListarEmpresaConfig() {
         const x = await api.listarEmpresaConfigID(id)

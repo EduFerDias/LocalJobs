@@ -4,15 +4,15 @@ import Cabecalho2 from "../../components/comun/cabecalho1";
 
 // import  { useEffect} from 'react'
 // import { confirmAlert } from 'react-confirm-alert'; 
+
 import { Link } from "react-router-dom";
 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
-
+import { useHistory } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 import React, { useState, useRef  } from 'react';
 
@@ -23,6 +23,8 @@ const api = new Api();
 export default function Pagina3(){
 
     // const [empresa, setEmpresa ] = useState([]);
+
+    
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -40,6 +42,7 @@ export default function Pagina3(){
     console.log(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
 
     const loading = useRef(null)
+    const navig = useHistory();
 
     const ValidarResposta = (x) => {
         console.log(x)
@@ -48,7 +51,6 @@ export default function Pagina3(){
             toast.error(`${x.erro}`)
 
         return false;
-
     }
 
     async function inserirEmpresa() {    
@@ -96,17 +98,22 @@ export default function Pagina3(){
             toast.error('Os numeros de telefone ou cpf não podem ser negativos')
         }
 
-        else if (idAlterado === 0) {
-            loading.current.continuousStart(); 
-            let x = await api.inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha)
-            console.log(x)
+        else {
+
+            loading.current.continuousStart();
+
+            let x = await api.inserirEmpresa(nome,cnpj,ramo,telefone,estado_cidade,email,senha)  
+            
             if (!ValidarResposta(x)){
                 loading.current.complete()
                 return  
-            }   
-            toast.success('Conta Empresarial Criada.')  
-            loading.current.complete()
+            }  else {
+                navig.push('/login');
+                toast.success('Conta Empresarial Criada.')  
+            }
 
+            console.log(x)
+            loading.current.complete()
         }
         
         setIdAlterado(0);       

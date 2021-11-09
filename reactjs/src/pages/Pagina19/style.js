@@ -73,6 +73,10 @@ const Conteudo = styled.div`
         height: 2.3em;
         margin-right: 0.8em;
     }
+
+    .save {
+        cursor: pointer
+    }
     .l2-interac input{
         height: 100%;
         width: 15em;
