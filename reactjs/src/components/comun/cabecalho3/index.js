@@ -3,7 +3,23 @@ import Conteudo from "./styled";
 import Api from "../../../services/Api";
 import { useEffect, useState } from "react";
 
+import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom'
+
 const api = new Api();
+
+
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('id_usu');
+
+    console.log(logado.id)
+    if (logado == null) {
+        return null;
+    }
+    
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
 
 
 
@@ -17,6 +33,11 @@ export default function Cabecalho3(props) {
         setNm(id.nm_nome)
     }
 
+    const navigation = useHistory();
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+
+    const [usuario, setUsuario] = useState(usuarioLogado.nome);
+    
     useEffect(() => {
         listar();
     }, [])
@@ -28,7 +49,7 @@ export default function Cabecalho3(props) {
                 <div class="nmSite-t6"> LocalJobs </div>
             </div>
             <div class="divisao-t6">
-                <div class="nmUsuario-t6"> Usuário </div>
+                <div class="nmUsuario-t6"> {usuario} </div>
                 <div class="imagenUsuario-t6"> <img src='../assets/images/pagina 5,6,7/imgÚsuario.png' alt="" /> </div>
             </div>
         </Conteudo>

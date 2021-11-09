@@ -38,10 +38,8 @@ export default function Cabecalho1 (){
         else if (usuarioLogado.tp_conta === "pessoal" ) {
             navigation.push('/home-usu')
         }
-        else {
-            navigation.push('/login')
-        }
     }
+    
 
     console.log(Verificar())
 
