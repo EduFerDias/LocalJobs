@@ -53,7 +53,8 @@ export default function Pagina19 (props){
 
     async function ListarVagas() {
         const x = await api.listarVagasIDempresa(id)
-        setVagas(x)
+        console.log(x)
+        setVagas([x])
         Editar();
     }
 

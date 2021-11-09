@@ -1,6 +1,6 @@
 import Conteudo from "./Style";
 import { Link } from "react-router-dom";
-import Cabecalho1 from "../../components/comun/header6";
+import Cabecalho1 from "../../components/comun/cabecalho1";
 import Rodape from "../../components/comun/rodapé";
 
 export default function Pagina1 (){

@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 const conteudo = styled.div`
+    a{color:#041632;}
+
 .user-interac, .pic{
     display: flex;
     flex-direction: row;
