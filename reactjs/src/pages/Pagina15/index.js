@@ -27,16 +27,12 @@ export default function Pagina15(props){
 
 
 
-    console.log(props)
-    console.log(resultado.idvaga)
-    console.log(resultado)
-    console.log(vagas)
-    let listvaga = vagas[0]
-    let id = resultado.id
-    console.log(empresa)
+    let id = Number(resultado.id)
+
 
 
     async function ListarEmpresa(){
+        console.log(id)
         let x = await api.ListarEmpresaID(id)
         setEmpresa(x)
     }
@@ -45,6 +41,9 @@ export default function Pagina15(props){
         ListarEmpresa();
     }, [])
 
+    useEffect(() => {
+        console.log(id)
+    })
 
 
     return(

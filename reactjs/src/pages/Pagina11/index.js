@@ -72,7 +72,8 @@ export default function Pagina11 (){
                         salario={item.ds_salario_de}
                         salarioa={item.ds_salario_a}
                         id={item.id_empresa}
-                        idvaga={item.id_vaga} 
+                        vaga={item.vaga} 
+                        idvaga={item.id_vaga}
                         formacao={item.ds_formacao}
                         qualificacao={item.ds_qualificacao}
                         tipocontrato={item.ds_tipo_contratacao}

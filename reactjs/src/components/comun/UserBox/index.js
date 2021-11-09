@@ -14,14 +14,14 @@ export default function UsuBox (props) {
 
     const id = props.id
 
-    async function ListarEmpresaID() {
+       async function ListarEmpresaID() {
         const x = await api.ListarEmpresaID(id)
         setEmpresa(x)
     }
 
     async function ListarVagas() {
         const x = await api.listarVagasIDempresa(id)
-        setVagas(x)
+        setVagas(x);
     }
 
 
@@ -31,7 +31,8 @@ export default function UsuBox (props) {
     }, [])
 
 
-    let imagem = '';
+    let imagem ='';
+
 
     if(props.bt_empresa === true){
         imagem = 'f10-empresa.png'
@@ -41,7 +42,7 @@ export default function UsuBox (props) {
 
     let path =  `../../assets/images/pagina 9,10,11,12/${imagem}`
 
-    if(props.bt_empresa === true){
+    if(props.bt_empresa == true){
         return(
                 
         <Conteudo> 
@@ -61,14 +62,11 @@ export default function UsuBox (props) {
                     </Link>
         
                     <div class="f10-data">{`R$ ${props.salario}`}</div>
-
-                <div class="vazio"> {props.descricao}</div>
-                <div class="vazio"> {props.cnpj}</div>
-                <div class="vazio"> {props.ramo}</div>
+         <div class="vazio"> {props.ramo}</div>
             </div>   
         </Conteudo>
     );
-    } else if(props.bt_empresa === false){
+    } else if(props.bt_empresa == false){
         return(     
             <Conteudo> 
                 <div class="f10-fotofiltro"><img src={path} alt=""/> </div>

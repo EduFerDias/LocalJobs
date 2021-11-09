@@ -43,16 +43,17 @@ export default function Pagina8(){
             loadin.current.complete()
             return;
         };
-        if(r.tb_conta === 'pessoal'){
+        if(r.tp_conta === 'pessoal'){
+            loadin.current.complete()
             nav.push('/home-usu')
             Cookies.set('ud_usu', r.id)
         }
-        else{
+        else if(r.tp_conta === 'empresarial'){
+            loadin.current.complete()
             Cookies.set('id_empre', r.id)
             nav.push('/home-empresa')
         }
-
-        loadin.current.complete()
+        return;
     }
 
 
@@ -92,7 +93,7 @@ export default function Pagina8(){
                         <span class="sem-conta">não tem conta?</span>
                         <span><Link to="/cadastros" class="crie-aqui">crie aqui</Link></span>
                     </button>
-                        <Link to="/esqueceu-senha"><button class="senha-login">esqueci minha senha</button></Link>
+                        <button onClick={enviarEmail} class="senha-login">esqueci minha senha</button>
                     </div>
 
                     <div class="botao-baixo">.
