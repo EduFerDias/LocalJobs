@@ -7,6 +7,7 @@ import Pagina4 from "./pages/Pagina4";
 import Pagina5 from "./pages/Pagina5";
 import Pagina6 from "./pages/Pagina6";
 import Pagina7 from "./pages/Pagina7";
+import Pagina8 from "./pages/Pagina8";
 import Pagina9 from "./pages/Pagina9";
 import Pagina10 from "./pages/Pagina10";
 import Pagina11 from "./pages/Pagina11";
@@ -40,6 +41,8 @@ export default function Rotas (){
                 <Route path="/esqueceu-senha" component={Pagina5} />
 
                 <Route path="/codigo" component={Pagina7} />
+
+                <Route path="/login" component={Pagina8} />
 
                 <Route path="/recSenha" component={Pagina7_5} />
 
