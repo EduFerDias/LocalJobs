@@ -21,7 +21,7 @@ import Pagina19 from "./pages/Pagina19";
 import Pagina13 from "./pages/Pagina13";
 import Pagina7_5 from "./pages/Pagina7.5";
 /*
-As pgs 15 e 14 Presizam de uma revisao
+As pgs 15 e 14 Precisam de uma revisão
 */
 
 export default function Rotas (){
