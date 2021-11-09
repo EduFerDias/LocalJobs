@@ -105,6 +105,12 @@ export default class Api {
         return r.data;
     }
 
+    async vagaBaseadaEmArea(area){
+        let y = api.get('/empresa', {area})
+        let r = await api.get(`/vaga/${y}`)
+        return r.data;        
+    }
+
     async EditarVaga(idvaga,idempresa,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
         let vaga = {
             ds_profissao: profissao,

@@ -43,7 +43,7 @@ app.get('/', async (req, resp) => {
             } else{
                 let r = await db.infoc_atn_tb_pessoal.findAll();        
                 delete r.ds_senha;       
-                resp.send({r:r, test:'sou eum'})
+                resp.send(r)
             }
 
     } catch (e){
