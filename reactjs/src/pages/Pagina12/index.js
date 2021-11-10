@@ -30,7 +30,12 @@ export default function Pagina12 (){
                     <div class="f10-boxes">
                         {Boxes.map ((item) => {
                             return(
-                            <UserBox empresa={item.empresa != null && item.empresa.length > 25 ?item.empresa.substr(0, 15) + '...' :item.empresa} cidade={item.cidade} area={item.area} salario={item.salario} profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} bt_empresa={true}/>
+                            <UserBox 
+                                empresa={item.empresa != null && item.empresa.length > 5 ?item.empresa.substr(0, 5) + '...' :item.empresa}
+                                cidade={item.cidade} area={item.area} 
+                                salario={item.salario} 
+                                profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} 
+                                bt_empresa={true}/>
                             );
                         })}
 

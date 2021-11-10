@@ -84,22 +84,23 @@ const Pagina15 = styled.div`
 
 .painel-central h1{
     font-family: Montserrat-Bold;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .caracteristicas h1{
-    font-size: 40px;
+    font-size: 25px;
     font-family: Montserrat-Bold;
 }
 
 .caracteristicas p{
-    font-size: 16px;
+    font-size: 20px;
     font-family: Montserrat-regular;
 }
 .caract-bold{
     font-family: Montserrat-Bold;
 }
 .esquerda-cima{
+    width: 29em;
     background-color: #2A3244;
     max-width: 40vw;
     border-radius: 20px;
@@ -113,6 +114,7 @@ const Pagina15 = styled.div`
 
 
 .descricao-direita{
+    width: 29em;
     background-color: #2A3244;
     border-radius: 20px;
     padding: 1em 2em 1em 2em;
@@ -129,12 +131,12 @@ const Pagina15 = styled.div`
 
 .caracteristicas-direita h1{
     font-family: Montserrat-Bold;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .caracteristicas-direita p{
     font-family: Montserrat-regular;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 
@@ -146,7 +148,7 @@ const Pagina15 = styled.div`
     flex-direction: column;
     line-height: 0em;
     padding: 1em 1em 1em 2em;
-    font-size: 30px;
+    font-size: 25px;
     font-family: Montserrat-regular;
 }
 
@@ -155,13 +157,14 @@ const Pagina15 = styled.div`
 }
 
 .dados-empresa h1{
-    font-size: 43px;
+    font-size: 35px;
     font-family: Montserrat-Bold;
     margin-left: 3rem;
 }
 
 
 .div-mensagem {
+    display: none;
     font-size: 20px;
     font-family: Montserrat-Bold;
     margin-top: 3em;
@@ -227,7 +230,7 @@ const Pagina15 = styled.div`
     color: white;
 }
 
-.enviar-curriculo-linkedin{
+.enviar-email{
     display: flex;
     flex-direction: row;
     background-color: #0D62A7;
@@ -243,7 +246,7 @@ const Pagina15 = styled.div`
     justify-content: center;
 }
 .enviar-curriculo-linkedin2{
-    display: flex;
+    display: none;
     flex-direction: row;
     background-color: #0D62A7;
     border-radius: 20px;
@@ -257,8 +260,7 @@ const Pagina15 = styled.div`
     align-items: center;
     justify-content: center;
 }
-.enviar-curriculo-linkedin img{
-    width: 38.5px;
-}`
+
+`
 
 export default Pagina15;

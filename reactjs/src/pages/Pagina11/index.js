@@ -80,7 +80,6 @@ export default function Pagina11 (){
                         beneficios={item.ds_beneficios}
                         hora={item.ds_hora_trabalho}
                         bt_empresa={true}
-
                     />
                     
                 )}
