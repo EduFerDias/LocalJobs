@@ -12,7 +12,7 @@ const api = new Api();
 function lerUsuarioLogado(navigation) {
     let logado = Cookies.get('id_usu');
 
-    console.log(logado.id)
+
     if (logado == null) {
         return null;
     }
