@@ -1,16 +1,30 @@
 import Conteudo from './styled'
 import Rodape from '../../components/comun/rodapé';
 import Cabecalho from "../../components/comun/cabecalho3"
-
+import Cookies from 'js-cookie';
+import { useHistory } from 'react-router-dom'
 import {toast, ToastContainer} from 'react-toastify'
-
-import Api from '../../services/Api';
 import { useEffect, useState } from 'react';
+import Api from '../../services/Api';
+
 let api = new Api();
 
-export default function Pagina13(props){
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('id_usu');
 
-    let id = 2;
+    if (logado == null) {
+        return null;
+    }
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
+    
+
+export default function Pagina13(props){
+    const navigation = useHistory();
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+    
+    const [id, setId] = useState(usuarioLogado.id);
 
     const[nome, setNm] = useState('');
     const[cargo, setCargo] = useState('');
