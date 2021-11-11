@@ -87,7 +87,7 @@ export default function Pagina10 (){
                                     <UserBox 
                                         nome={item.nm_nome != null && item.nm_nome.length > 19 ?item.nm_nome.substr(0, 15) + '...' :item.nm_nome} 
                                         cidade={item.ds_estado_cidade} 
-                                        area={item.ds_area != null && item.ds_area.length > 7 ?item.ds_area.substr(0,7) + '...' :item.ds_area.contains('Jornalismo') ?item.ds_area :''} 
+                                        area={item.ds_area != null && item.ds_area.length > 7 ?item.ds_area.substr(0,7) + '...' :item.ds_area} 
                                         profissao={item.ds_cargo != null && item.ds_cargo.length > 15 ?item.ds_cargo.substr(0, 15) + '...' :item.ds_cargo} 
                                         bt_empresa={false}
                                         info={item.id_pessoal}

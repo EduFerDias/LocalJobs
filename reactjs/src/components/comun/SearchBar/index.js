@@ -17,7 +17,7 @@ export default function Searchbar (props){
     async function buscampresa(){
         let pag_mae = props.pg
 
-        let r = await api.vagaBaseadaEmArea(area)
+        let r = await api.EmpresaBaseadaemArea(area)
         if(!r)
             toast.error('Não foram encontradas conrespondencias no nosso sistema')
 

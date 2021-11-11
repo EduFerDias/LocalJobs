@@ -13,11 +13,7 @@ export default function Pagina12 (props){
     let Parametros = props.location.state;
 
     let encontrarEmrpesa = async ()=> {
-        let y = api.listarEmpresa()
-        return y.filter((e) =>{
-            if(e.nm_ramo  == Parametros.area)
-            setId(e)
-        })    
+        let y = api.EmpresaBaseadaemArea(props.area) 
     }
 
     let ListarVagas = async () =>{

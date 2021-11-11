@@ -105,9 +105,10 @@ export default class Api {
         return r.data;
     }
 
-    async vagaBaseadaEmArea(area){
-        let y = await api.get('/empresa', {area})
-        let r = await api.get(`/vaga/${y.id_empresa}`)
+    async EmpresaBaseadaemArea(area){
+
+        let y = await api.post('/empresa', {area})
+        let r = await api.get(`/vaga/${y.data.id_empresa}`)
         return r.data;        
     }
 
