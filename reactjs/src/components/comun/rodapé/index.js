@@ -14,15 +14,15 @@ export default function rodape(){
                     <div className="nav">
                         Navegação
                         <div className="sobre">
-                            <Link to="/home"> Sobre nós </Link>
+                            <Link to="/paginas"> Sobre nós </Link>
                         </div>
 
                         <div className="perfil">
-                            Pefil
+                            <Link to="/paginas">Perfil</Link>
                         </div>
 
                         <div className="home">
-                            Home
+                            <Link to="/paginas">Home</Link>
                         </div>
 
                     </div>
@@ -31,17 +31,17 @@ export default function rodape(){
 
                         <div className="insta"> 
                             <img src="./assets/images/Cadastro e Login/p1-007-instagram-logo-white 1.png" alt="" />
-                            Instagram 
+                            <a href="https://www.instagram.com/localjobs_empregadora/">Instagram</a>
                         </div>
 
                         <div className="twitter">
                             <img src="../assets/images/pagina 9,10,11,12/f10-twitter.png" alt="" /> 
-                            Twitter 
+                            <a href="">Twitter</a>
                         </div>
 
                         <div className="facebook">
                             <img src="./assets/images/pagina 9,10,11,12/f10-face3.png" alt="" /> 
-                            Facebook 
+                            <a href="https://www.facebook.com/profile.php?id=100074045963628">Facebook </a>
                         </div>
 
                     </div>

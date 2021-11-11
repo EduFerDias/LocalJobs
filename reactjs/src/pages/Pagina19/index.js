@@ -50,6 +50,13 @@ export default function Pagina19 (props){
     const [telefone, setTelefone ] = useState("");
     const [funcionarios, setFuncionarios] = useState("");
 
+    const logoff = () => {
+        Cookies.remove('id_empre');
+        navigation.push('/paginas');
+    }
+
+
+    console.log(logoff())
 
     async function ListarVagas() {
 
@@ -406,7 +413,7 @@ export default function Pagina19 (props){
                             </div>
                         </div>
                         <div className="gerenc-buttons">
-                            <button className="delete">Sair</button>
+                            <button className="delete" Onclick={logoff}>Sair</button>
                             <button className="save" onClick={() => SalvarConfig(id)}>Salvar</button>
                         </div>
                     </div>

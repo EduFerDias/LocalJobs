@@ -61,6 +61,10 @@ const Conteudo = styled.div`
     .l1-select select:focus{
         background-image: url("./assets/images/Pagina19/perfil-de-usuario180.png");
     }
+
+    .delete {
+        cursor: pointer;
+    }
     .l2{
         display: flex;
         flex-direction: row;

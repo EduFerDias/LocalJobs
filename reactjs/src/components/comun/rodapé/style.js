@@ -43,14 +43,17 @@ a {
 .twitter img{
     height: 16px;
     padding-right: 15px;
+    cursor: pointer;
 }
 .facebook img{
     height: 20px;
     padding-right: 17px;
+    cursor: pointer;
 }
 .insta img{
     padding-top: 10px;
     padding-right: 10px;
+    cursor: pointer;
 }
 `
 
