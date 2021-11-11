@@ -4,24 +4,35 @@ import UserBox from '../../components/comun/UserBox';
 import Cabecalho from "../../components/comun/cabecalho pesquisa"
 import Api from '../../services/Api';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 let api = new Api();
 
 
 export default function Pagina12 (props){
-    const[id, setId] = useState([]);
-    const[vaga, setVaga] = useState([])
-    let Parametros = props.location.state;
+        const[id, setId] = useState();
+        const[vaga, setVaga] = useState([])
+        const[area, setArea] = useState('')
 
+        let Parametros = props.location.state;
+    
     let encontrarEmrpesa = async ()=> {
-        let y = api.EmpresaBaseadaemArea(props.area) 
+        let y = api.EmpresaBaseadaemArea(Parametros.area) 
+        console.log(Parametros.area)
+        setId(y.id_empresa)
     }
 
     let ListarVagas = async () =>{
-        let r = await api.listarVagasIDempresa(8)
+        console.log(id)
+        let r = await api.listarVagasIDempresa(id)
+        if(r.erro){
+            toast.error(r.erro)
+            return;
+        }
         setVaga(r)
     }
 
     useEffect(() =>{
+        encontrarEmrpesa();
         ListarVagas();
     },[])
 

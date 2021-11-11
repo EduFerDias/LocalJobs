@@ -16,14 +16,6 @@ export default function Searchbar (props){
 
     async function buscampresa(){
         let pag_mae = props.pg
-
-        let r = await api.EmpresaBaseadaemArea(area)
-        if(!r)
-            toast.error('Não foram encontradas conrespondencias no nosso sistema')
-
-        toast.success('FOI!')
-        console.log(r)
-
         if(props.ondeestoy === 'empresa'){
 
             if(pag_mae === true)
@@ -33,10 +25,7 @@ export default function Searchbar (props){
 
             if(pag_mae === true)
             nav.push({pathname:'/buscar-empresa', state:{area:area, cargo:cargo, cidade:cidade}})
-
         }
-
-        return r;
     }
 
 
