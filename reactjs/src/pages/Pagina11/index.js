@@ -104,7 +104,7 @@ export default function Pagina11 (){
                     responsive={responsive}
                 >
 
-                {/* {vagaE.map(item => 
+                {vagaE.map(item => 
                     <UserBox
                         descricao={item.ds_descricao} 
                         cidade={item.ds_local_trabalho != null && item.ds_local_trabalho.lenght > 20 ? item.ds_local_trabalho.substr(0, 20) :item.ds_local_trabalho} 
@@ -122,7 +122,11 @@ export default function Pagina11 (){
                         bt_empresa={true}
                     />
                     
+<<<<<<< HEAD
                 )} 
+=======
+                )}
+>>>>>>> 9f12645a80242760bbd37b6d348208ba08f84e47
 
             </Carousel> */}
 
