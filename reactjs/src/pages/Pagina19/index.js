@@ -60,7 +60,7 @@ export default function Pagina19 (props){
 
         const x = await api.listarVagasIDempresa(id)
         console.log(x);
-        if(x.erro  != "Não a vagas nessa empresa") {
+        if(x.erro  == "Não a vagas nessa empresa") {
             console.log("oi")
         }else {
             setVagas(x)
@@ -68,27 +68,23 @@ export default function Pagina19 (props){
     }
 
     async function ListarEmpresa() {
-        const x = await api.ListarEmpresaID(id)
-        setEmpresa(x)
-    }
-
-    async function ListarEmpresaConfig() {
+        const a = await api.ListarEmpresaID(id)
         const x = await api.listarEmpresaConfigID(id)
         setEmpresaConfig(x)
-    }
-
-    async function Editar() {
+        setEmpresa(a)
         setDescricao(empresaconfig.ds_descricao_empresa);
         setLinkdin(empresaconfig.ds_linkdin_empresa)
         setInsta(empresaconfig.ds_instagram_empresa)
         setTwitter(empresaconfig.ds_twitter_empresa)
         setPorte(empresaconfig.ds_porte)
         setSite(empresaconfig.ds_site)
+        setFuncionarios(empresaconfig.qtd_funcionarios)
         setRamo(empresa.nm_ramo)
         setNome(empresa.nm_nome)
         setTelefone(empresa.nr_telefone)
-        setFuncionarios(empresaconfig.qtd_funcionarios)
     }
+
+
 
     async function SalvarConfig() {
         const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
@@ -99,7 +95,6 @@ export default function Pagina19 (props){
     useEffect(() => {
         ListarVagas();
         ListarEmpresa();
-        ListarEmpresaConfig();
     }, []);
 
     return(
