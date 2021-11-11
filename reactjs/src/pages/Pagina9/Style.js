@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 const Pagina9 = styled.div`
 
+.f10-pesquisa{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 background-color: #404756;
 
 .f10-filtro1 {

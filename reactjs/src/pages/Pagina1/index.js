@@ -1,13 +1,13 @@
 import Conteudo from "./Style";
 import { Link } from "react-router-dom";
-import Cabecalho2 from "../../components/comun/cabecalho1"
+import Cabecalho1 from "../../components/comun/cabecalho1";
 import Rodape from "../../components/comun/rodapé";
 
 export default function Pagina1 (){
     return(
         <Conteudo>
                     <div className="faixa1">
-                        <Cabecalho2 />
+                        <Cabecalho1 />
 
                         <div className="corpo">
                             <div className="f1-text">

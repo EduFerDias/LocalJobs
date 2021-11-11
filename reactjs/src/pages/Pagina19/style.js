@@ -9,7 +9,12 @@ const Conteudo = styled.div`
     .p19-form{
         padding: 3em 15em;
     }
-
+    .logo a{
+        color: #041632;
+        font-size: 1em;
+        font-family: Montserrat-Bold;
+        text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    }
 
     .l1{
         display: flex;

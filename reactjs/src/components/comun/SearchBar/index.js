@@ -32,7 +32,7 @@ export default function Searchbar (props){
         } else if( props.ondeestoy === 'pessoal'){
 
             if(pag_mae === true)
-            nav.push('/buscar-empresa')
+            nav.push({pathname:'/buscar-empresa', state:{area:area, cargo:cargo, cidade:cidade}})
 
         }
 
