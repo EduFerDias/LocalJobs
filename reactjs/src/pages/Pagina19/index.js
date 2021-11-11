@@ -56,18 +56,15 @@ export default function Pagina19 (props){
     }
 
 
-    console.log(logoff())
-
     async function ListarVagas() {
 
         const x = await api.listarVagasIDempresa(id)
         console.log(x);
-        if(x.erro  != undefined) {
+        if(x.erro  != "Não a vagas nessa empresa") {
             console.log("oi")
         }else {
             setVagas(x)
         }
-        Editar();
     }
 
     async function ListarEmpresa() {

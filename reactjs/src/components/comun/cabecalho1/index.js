@@ -44,6 +44,8 @@ export default function Cabecalho1 (){
     
     let a = ""
 
+    const [empresa, setEmpresa] = useState(usuarioLogado.nome);
+
 
     return(
         <Conteudo>

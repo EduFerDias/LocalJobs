@@ -31,6 +31,7 @@ export default function Header5 (props){
 
     const [empresarial,setEmpresarial] = useState([])
 
+    console.log(usuarioLogado)
 
     return(
         <Conteudo>
