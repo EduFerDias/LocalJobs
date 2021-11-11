@@ -42,21 +42,16 @@ export default function Pagina11 (){
         setVagas(a)
     }
 
-    // async function listarVagasEspeci () {
-    //     const i = empresa.filter(e => {
-    //         if(e.nm_ramo.includes('Tarifas Bancárias'))
-    //         return e;
-    //     })
-    //     let id = i.id_empresa;
-    //     console.log(id)
-    //     let a = await api.listarVagasIDempresa(Number(8))
-    //     setVagae(a)
-    // }
+    async function listarVagasEspeci () {
+        let e = await api.EmpresaBaseadaemArea('Tarifas Bancárias')
+        console.log(e)
+        setVagae(e)
+    }
 
     useEffect(() => {
         listarEmpresa();
         ListarVagas();
-        // listarVagasEspeci();
+        listarVagasEspeci();
     }, []);
 
     return(
@@ -100,7 +95,7 @@ export default function Pagina11 (){
        
             <div class="f10-filtro1">Empresas do ramo da Informática</div>
 
-            {/* <Carousel 
+            {<Carousel 
                     responsive={responsive}
                 >
 
@@ -132,7 +127,7 @@ export default function Pagina11 (){
                 )} 
 >>>>>>> netliflyOFC
 
-            </Carousel> */}
+            </Carousel>}
 
 
 

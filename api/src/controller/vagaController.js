@@ -93,7 +93,6 @@ app.get('/', async (req, resp) => {
             resp.send(a);
         // }
     } catch (e) {
-        resp.send("Erro")
         resp.send(e.toString());
     }
 })
