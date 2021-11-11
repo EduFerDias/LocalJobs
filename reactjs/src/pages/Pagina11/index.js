@@ -100,7 +100,7 @@ export default function Pagina11 (){
        
             <div class="f10-filtro1">Empresas do ramo da Informática</div>
 
-            <Carousel 
+            {/* <Carousel 
                     responsive={responsive}
                 >
 
@@ -122,9 +122,9 @@ export default function Pagina11 (){
                         bt_empresa={true}
                     />
                     
-                )} */}
+                )} 
 
-            </Carousel>
+            </Carousel> */}
 
 
 
