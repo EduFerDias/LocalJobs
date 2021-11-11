@@ -17,6 +17,10 @@ const conteudo = styled.div`
     width: 70px;
     margin-right: 1em;
 }
+
+.criar-conta {
+    cursor: pointer;
+}
 .login{
     font-family: Montserrat-Bold;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
