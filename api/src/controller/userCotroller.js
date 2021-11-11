@@ -40,11 +40,11 @@ app.get('/', async (req, resp) => {
                 let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}, like:{ds_estado_cidade:cidade}})        
                 delete r.ds_senha;        
                 resp.send(r)
-            } else{
+             } else{
                 let r = await db.infoc_atn_tb_pessoal.findAll();        
                 delete r.ds_senha;       
                 resp.send(r)
-            }
+             }
 
     } catch (e){
         resp.sendStatus(500)

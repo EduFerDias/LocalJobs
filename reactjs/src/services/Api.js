@@ -1,6 +1,6 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL: 'https://loca1jobs.herokuapp.com'
+    baseURL: 'http://localhost:3030'
 })
 
 export default class Api {
@@ -106,8 +106,8 @@ export default class Api {
     }
 
     async vagaBaseadaEmArea(area){
-        let y = api.get('/empresa', {area})
-        let r = await api.get(`/vaga/${y}`)
+        let y = await api.get('/empresa', {area})
+        let r = await api.get(`/vaga/${y.id_empresa}`)
         return r.data;        
     }
 
@@ -229,6 +229,12 @@ export default class Api {
     }
 
     async buscaUsu(area, cargo, cidade){
+        if(area === '')
+            area = undefined
+        if(cargo === '')
+            cargo = undefined
+        if(cidade === '')
+            cidade = undefined
 
         let s = {
             area:area,

@@ -20,6 +20,8 @@ export default function Pagina11 (){
 
     const [vaga, setVagas] = useState([]);
 
+    const [vagaE, setVagae] = useState([])
+
     const responsive = {
 
         desktop:{
@@ -28,11 +30,6 @@ export default function Pagina11 (){
         }
     }
 
-    console.log(empresa)
-    console.log(vaga)
-    console.log(vaga.ds_local_trabalho)
-    
-    // const area = empresa.filter(e => e.nm_ramo === "Informática")
 
 
     async function listarEmpresa() {          
@@ -45,9 +42,21 @@ export default function Pagina11 (){
         setVagas(a)
     }
 
+    // async function listarVagasEspeci () {
+    //     const i = empresa.filter(e => {
+    //         if(e.nm_ramo.includes('Tarifas Bancárias'))
+    //         return e;
+    //     })
+    //     let id = i.id_empresa;
+    //     console.log(id)
+    //     let a = await api.listarVagasIDempresa(Number(8))
+    //     setVagae(a)
+    // }
+
     useEffect(() => {
         listarEmpresa();
         ListarVagas();
+        // listarVagasEspeci();
     }, []);
 
     return(
@@ -67,7 +76,7 @@ export default function Pagina11 (){
                 {vaga.map(item => 
                     <UserBox
                         descricao={item.ds_descricao} 
-                        cidade={item.ds_local_trabalho} 
+                        cidade={item.ds_local_trabalho != null && item.ds_local_trabalho.lenght > 20 ? item.ds_local_trabalho.substr(0, 20) :item.ds_local_trabalho} 
                         profissao={item.ds_profissao}
                         salario={item.ds_salario_de}
                         salarioa={item.ds_salario_a}
@@ -90,6 +99,32 @@ export default function Pagina11 (){
 
        
             <div class="f10-filtro1">Empresas do ramo da Informática</div>
+
+            <Carousel 
+                    responsive={responsive}
+                >
+
+                {/* {vagaE.map(item => 
+                    <UserBox
+                        descricao={item.ds_descricao} 
+                        cidade={item.ds_local_trabalho != null && item.ds_local_trabalho.lenght > 20 ? item.ds_local_trabalho.substr(0, 20) :item.ds_local_trabalho} 
+                        profissao={item.ds_profissao}
+                        salario={item.ds_salario_de}
+                        salarioa={item.ds_salario_a}
+                        id={item.id_empresa}
+                        vaga={item.vaga} 
+                        idvaga={item.id_vaga}
+                        formacao={item.ds_formacao}
+                        qualificacao={item.ds_qualificacao}
+                        tipocontrato={item.ds_tipo_contratacao}
+                        beneficios={item.ds_beneficios}
+                        hora={item.ds_hora_trabalho}
+                        bt_empresa={true}
+                    />
+                    
+                )} */}
+
+            </Carousel>
 
 
 

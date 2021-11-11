@@ -20,6 +20,7 @@ export default function Pagina13(props){
     const[cidade, setCidade] = useState('');
 
     const[sobre, setSobre] = useState('');
+    const[linkimg, setImg] = useState('')
     const[idioma1, setIdioma1] = useState('');
     const[idioma2, setIdioma2] = useState('');
     const[idioma3, setIdioma3] = useState('');
@@ -175,8 +176,8 @@ export default function Pagina13(props){
                             <div class="campof2"> <input value={telefone} onChange={e => setTele(e.target.value)}/> </div>
                             </div>
                             <div class="f2Caixa2">
-                            <div class="nomesf2"> Email: </div>
-                            <div class="campof2"> <input  value={email} onChange={e=> setEmail(e.target.value)}/> </div>
+                            <div class="nomesf2"> Link de Sua imagem de Perfil: </div>
+                            <div class="campof2"> <input  value={linkimg} onChange={e=> setImg(e.target.value)}/> </div>
                             </div>
                             <div class="f2Caixa3">
                             <div class="nomesf2"> Cidade: </div>

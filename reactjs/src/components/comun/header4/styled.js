@@ -14,11 +14,21 @@ const Conteudo = styled.div`
   padding: 0em 4em 0px 4em;
   color: white;
 
+  .nmUsuario-t6{
+    color: white;
+  }
+
 .divisao-t6 {
   display: flex;
   flex-direction: row;
 
   align-items: center;
+}
+
+.logo a{
+  display: flex;
+  align-items: center;
+  color: white;
 }
 
 .logo-t6 img {
@@ -56,12 +66,26 @@ const Conteudo = styled.div`
   cursor: pointer;
 }
 
-a{
-  color: white;
+.logo {
+  flex-grow: 1;
   display: flex;
   flex-direction: row;
-  align-items:center; 
+  align-items: center;
+}
+.logo {
+  color: #041632;
+  font-size: 1.7em;
+  font-family: Montserrat-Bold;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.logo img {
+  width: 70px;
+  margin-right: 0.5em;
+}
+.dark {
+  color: #107ad1;
 }
 
 `
+
 export default Conteudo

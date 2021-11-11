@@ -1,6 +1,5 @@
 import Conteudo from "./Style";
 import { Link } from "react-router-dom";
-import Cabecalho1 from "../../components/comun/header6";
 import Cabecalho2 from "../../components/comun/cabecalho2"
 import Rodape from "../../components/comun/rodapé";
 

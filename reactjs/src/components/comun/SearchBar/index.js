@@ -17,7 +17,7 @@ export default function Searchbar (props){
     async function buscampresa(){
         let pag_mae = props.pg
 
-        let r = await api.buscaUsu(area, cargo, cidade)
+        let r = await api.vagaBaseadaEmArea(area)
         if(!r)
             toast.error('Não foram encontradas conrespondencias no nosso sistema')
 
@@ -49,6 +49,7 @@ export default function Searchbar (props){
                     <select name="" id="" value={area} onChange={e => setArea(e.target.value)}>
                                     <option value="" disabled selected hidden>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
+                                    <option value="Historia">a</option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
                                     <option value="Artigos Religiosos">Artigos Religiosos </option>
                                     <option value="Assinaturas e Revistas">Assinaturas e Revistas </option>

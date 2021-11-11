@@ -37,7 +37,7 @@ export default function Header5 (props){
             <div class="logo">
             <Link to={{ pathname: '/home-empresa', state: props }}>
                 <img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> 
-                Local<span class="dark">jobs</span>
+                <span className="local">Local</span><span class="dark">jobs</span>
             </Link>
         </div>
 
