@@ -49,8 +49,8 @@ export default function Pagina13(props){
 
     async function buscarInfo(){
 
-        let r = await api.buscaUsuId(2)
-        let f = await api.buscaUsuConfigId(2) 
+        let r = await api.buscaUsuId(id)
+        let f = await api.buscaUsuConfigId(id) 
 
         setNm(r.nm_nome)
         setRamo(r.ds_area)
@@ -213,7 +213,7 @@ export default function Pagina13(props){
                                 <div class="campocx1f4"> <input value={vaga_interesse1} onChange={e => setVagaInt1(e.target.value)}/> </div>
                             </div>
                             <div class="f4Caixa2">
-                                <div class="campoidio2f4"> <input value={idioma2} onChange={e => setIdioma2(e.target.value)}/> </div>
+                                <div class="campokio2f4"> <input value={idioma2} onChange={e => setIdioma2(e.target.value)}/> </div>
                                 <div class="nomes2f4"> Instagram: </div>
                                 <div class="campoinstaf4"> <input value={instagram} onChang={e => setInsta(e.target.value)}/> </div>
                                 <div class="campovags2f4"> <input value={vaga_interesse2} onChange={e => setVagaInt2(e.target.value)}/> </div>
