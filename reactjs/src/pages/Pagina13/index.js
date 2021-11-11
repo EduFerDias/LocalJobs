@@ -1,16 +1,30 @@
 import Conteudo from './styled'
 import Rodape from '../../components/comun/rodapé';
 import Cabecalho from "../../components/comun/cabecalho3"
-
+import Cookies from 'js-cookie';
+import { useHistory } from 'react-router-dom'
 import {toast, ToastContainer} from 'react-toastify'
-
-import Api from '../../services/Api';
 import { useEffect, useState } from 'react';
+import Api from '../../services/Api';
+
 let api = new Api();
 
-export default function Pagina13(props){
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('id_usu');
 
-    let id = 2;
+    if (logado == null) {
+        return null;
+    }
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
+    
+
+export default function Pagina13(props){
+    const navigation = useHistory();
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+    
+    const [id, setId] = useState(usuarioLogado.id);
 
     const[nome, setNm] = useState('');
     const[cargo, setCargo] = useState('');
@@ -20,6 +34,7 @@ export default function Pagina13(props){
     const[cidade, setCidade] = useState('');
 
     const[sobre, setSobre] = useState('');
+    const[linkimg, setImg] = useState('')
     const[idioma1, setIdioma1] = useState('');
     const[idioma2, setIdioma2] = useState('');
     const[idioma3, setIdioma3] = useState('');
@@ -34,8 +49,8 @@ export default function Pagina13(props){
 
     async function buscarInfo(){
 
-        let r = await api.buscaUsuId(2)
-        let f = await api.buscaUsuConfigId(2) 
+        let r = await api.buscaUsuId(id)
+        let f = await api.buscaUsuConfigId(id) 
 
         setNm(r.nm_nome)
         setRamo(r.ds_area)
@@ -175,8 +190,8 @@ export default function Pagina13(props){
                             <div class="campof2"> <input value={telefone} onChange={e => setTele(e.target.value)}/> </div>
                             </div>
                             <div class="f2Caixa2">
-                            <div class="nomesf2"> Email: </div>
-                            <div class="campof2"> <input  value={email} onChange={e=> setEmail(e.target.value)}/> </div>
+                            <div class="nomesf2"> URL Foto de Perfil: </div>
+                            <div class="campof2"> <input  value={linkimg} onChange={e=> setImg(e.target.value)}/> </div>
                             </div>
                             <div class="f2Caixa3">
                             <div class="nomesf2"> Cidade: </div>
@@ -198,7 +213,7 @@ export default function Pagina13(props){
                                 <div class="campocx1f4"> <input value={vaga_interesse1} onChange={e => setVagaInt1(e.target.value)}/> </div>
                             </div>
                             <div class="f4Caixa2">
-                                <div class="campoidio2f4"> <input value={idioma2} onChange={e => setIdioma2(e.target.value)}/> </div>
+                                <div class="campokio2f4"> <input value={idioma2} onChange={e => setIdioma2(e.target.value)}/> </div>
                                 <div class="nomes2f4"> Instagram: </div>
                                 <div class="campoinstaf4"> <input value={instagram} onChang={e => setInsta(e.target.value)}/> </div>
                                 <div class="campovags2f4"> <input value={vaga_interesse2} onChange={e => setVagaInt2(e.target.value)}/> </div>

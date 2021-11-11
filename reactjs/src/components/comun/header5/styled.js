@@ -14,10 +14,22 @@ const Conteudo = styled.div`
   padding: 0em 4em 0px 4em;
   color: white;
 
+  .local{
+    color: #041632;
+  }
+  .nmUsuario-t6{
+    color: white;
+  }
+
 .divisao-t6 {
   display: flex;
   flex-direction: row;
 
+  align-items: center;
+}
+
+.logo a{
+  display: flex;
   align-items: center;
 }
 

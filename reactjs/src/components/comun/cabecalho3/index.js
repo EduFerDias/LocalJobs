@@ -1,17 +1,15 @@
-import { Link } from "react-router-dom";
 import Conteudo from "./styled";
-import Api from "../../../services/Api";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Cookies from 'js-cookie'
 import { useHistory } from 'react-router-dom'
 
-const api = new Api();
+import  { useEffect} from 'react'
+import { useState, useRef } from 'react';
 
 
 function lerUsuarioLogado(navigation) {
     let logado = Cookies.get('id_usu');
-
 
     if (logado == null) {
         return null;
@@ -23,34 +21,33 @@ function lerUsuarioLogado(navigation) {
 
 
 
-export default function Cabecalho3(props) {
-
-    const[nm, setNm] = useState('')
-    const[img, setImg] = useState('')
-
-    async function listar(){
-        let id = api.buscaUsuId(Number(props.id))
-        setNm(id.nm_nome)
-    }
+export default function Header5 (props){
 
     const navigation = useHistory();
     let usuarioLogado = lerUsuarioLogado(navigation) || {};
 
-    const [usuario, setUsuario] = useState(usuarioLogado.nome);
-    
-    useEffect(() => {
-        listar();
-    }, [])
+    console.log(usuarioLogado)
+
+
+    const [empresa, setEmpresa] = useState(usuarioLogado.nome);
+
+    const [empresarial,setEmpresarial] = useState([])
+
 
     return(
         <Conteudo>
+            <div class="logo">
+            <Link to={{ pathname: '/home-usu', state: props }}>
+                <img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> 
+                <span className="local">Localjobs</span>
+            </Link>
+        </div>
+
             <div class="divisao-t6">
-                <div class="logo-t6">  <Link to="/"><img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </Link></div>
-                <div class="nmSite-t6"> LocalJobs </div>
-            </div>
-            <div class="divisao-t6">
-                <div class="nmUsuario-t6"> {usuario} </div>
-                <div class="imagenUsuario-t6"> <img src='../assets/images/pagina 5,6,7/imgÚsuario.png' alt="" /> </div>
+            <Link to={{ pathname: '/config-usuario', state: props }}>
+                <div class="nmUsuario-t6"> {empresa} </div>
+                <div class="imagenUsuario-t6"> <img src="../../assets/images/pagina 5,6,7/imgÚsuario.png" alt="" /> </div>
+            </Link>
             </div>
         </Conteudo>
     );

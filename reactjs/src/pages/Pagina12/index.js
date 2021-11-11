@@ -1,20 +1,42 @@
 import Conteudo from './Style'
 import Rodape from '../../components/comun/rodapé';
-import UserBox from '../../components/comun/SearchUserBox';
+import UserBox from '../../components/comun/UserBox';
 import Cabecalho from "../../components/comun/cabecalho pesquisa"
+import Api from '../../services/Api';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+let api = new Api();
 
 
-const Boxes = [
-    {  empresa:"Marie Soluções tecnológicas",cidade: "São Paulo", area:"TI", salario:1000, profissao: "Desenvolvedor"},
-    {  empresa:"Padoca do Tobias",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Desenvolvedor"},
-    {  empresa:"St. Louis Studios",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Desenvolvedor"},
-    {  empresa:"Marie Soluções tecnológicas",cidade: "São Paulo", area:"TI", salario:1000, profissao: "Desenvolvedor"},
-    {  empresa:"Padoca do Tobias",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Desenvolvedor"},
-    {  empresa:"St. Louis Studios",cidade: "São Paulo", area:"TI", salario: 1000, profissao: "Desenvolvedor"},
-]
+export default function Pagina12 (props){
+        const[id, setId] = useState();
+        const[vaga, setVaga] = useState([])
+        const[area, setArea] = useState('')
+
+        let Parametros = props.location.state;
+    
+    let encontrarEmrpesa = async ()=> {
+        let y = api.EmpresaBaseadaemArea(Parametros.area) 
+        console.log(Parametros.area)
+        setId(y.id_empresa)
+    }
+
+    let ListarVagas = async () =>{
+        console.log(id)
+        let r = await api.listarVagasIDempresa(id)
+        if(r.erro){
+            toast.error(r.erro)
+            return;
+        }
+        setVaga(r)
+    }
+
+    useEffect(() =>{
+        encontrarEmrpesa();
+        ListarVagas();
+    },[])
 
 
-export default function Pagina12 (){
     return(
         <Conteudo>
             <div class="f10-tudo">
@@ -28,16 +50,25 @@ export default function Pagina12 (){
 
                 <div class="f10-setas">
                     <div class="f10-boxes">
-                        {Boxes.map ((item) => {
-                            return(
-                            <UserBox 
-                                empresa={item.empresa != null && item.empresa.length > 5 ?item.empresa.substr(0, 5) + '...' :item.empresa}
-                                cidade={item.cidade} area={item.area} 
-                                salario={item.salario} 
-                                profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} 
-                                bt_empresa={true}/>
-                            );
-                        })}
+                    {vaga.map(item => 
+                    <UserBox
+                        descricao={item.ds_descricao} 
+                        cidade={item.ds_local_trabalho != null && item.ds_local_trabalho.lenght > 20 ? item.ds_local_trabalho.substr(0, 20) :item.ds_local_trabalho} 
+                        profissao={item.ds_profissao}
+                        salario={item.ds_salario_de}
+                        salarioa={item.ds_salario_a}
+                        id={item.id_empresa}
+                        vaga={item.vaga} 
+                        idvaga={item.id_vaga}
+                        formacao={item.ds_formacao}
+                        qualificacao={item.ds_qualificacao}
+                        tipocontrato={item.ds_tipo_contratacao}
+                        beneficios={item.ds_beneficios}
+                        hora={item.ds_hora_trabalho}
+                        bt_empresa={true}
+                    />
+                    
+                )}
 
                     </div>
                         

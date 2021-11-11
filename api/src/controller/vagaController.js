@@ -86,10 +86,13 @@ app.get('/:idempresa/:id', async (req, resp) => {
 
 app.get('/', async (req, resp) => {
     try {
-        let a = await db.infoc_atn_tb_vagas.findAll({ order: [['id_vaga', 'desc']] });
-        resp.send(a);
+        // let {area} =
+
+        // if(area = ''){
+            let a = await db.infoc_atn_tb_vagas.findAll({ order: [['id_vaga', 'desc']] });
+            resp.send(a);
+        // }
     } catch (e) {
-        resp.send("Erro")
         resp.send(e.toString());
     }
 })

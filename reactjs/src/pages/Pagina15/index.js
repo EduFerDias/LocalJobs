@@ -108,10 +108,6 @@ export default function Pagina15(props){
                                 </div>
                             </div>
 
-                            <div class="enviar-curriculo-linkedin2">
-                                Enviar Currículo
-                            </div>
-
                             <div class="enviar-email">
                                 Enviar Email 
                             </div>

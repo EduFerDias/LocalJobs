@@ -56,53 +56,48 @@ export default function Pagina19 (props){
     }
 
 
-    console.log(logoff())
-
     async function ListarVagas() {
 
         const x = await api.listarVagasIDempresa(id)
         console.log(x);
-        if(x.erro  != undefined) {
+        if(x.erro  == "Não a vagas nessa empresa") {
             console.log("oi")
         }else {
             setVagas(x)
         }
-        Editar();
     }
 
     async function ListarEmpresa() {
-        const x = await api.ListarEmpresaID(id)
-        setEmpresa(x)
-    }
-
-    async function ListarEmpresaConfig() {
+        const a = await api.ListarEmpresaID(id)
         const x = await api.listarEmpresaConfigID(id)
         setEmpresaConfig(x)
+        setEmpresa(a)
+        setDescricao(x.ds_descricao_empresa);
+        setLinkdin(x.ds_linkdin_empresa)
+        setInsta(x.ds_instagram_empresa)
+        setTwitter(x.ds_twitter_empresa)
+        setPorte(x.ds_porte)
+        setSite(x.ds_site)
+        setFuncionarios(x.qtd_funcionarios)
+        setRamo(a.nm_ramo)
+        setNome(a.nm_nome)
+        setTelefone(a.nr_telefone)
+        console.log(a)
+        console.log(x)
     }
 
-    async function Editar() {
-        setDescricao(empresaconfig.ds_descricao_empresa);
-        setLinkdin(empresaconfig.ds_linkdin_empresa)
-        setInsta(empresaconfig.ds_instagram_empresa)
-        setTwitter(empresaconfig.ds_twitter_empresa)
-        setPorte(empresaconfig.ds_porte)
-        setSite(empresaconfig.ds_site)
-        setRamo(empresa.nm_ramo)
-        setNome(empresa.nm_nome)
-        setTelefone(empresa.nr_telefone)
-        setFuncionarios(empresaconfig.qtd_funcionarios)
-    }
+    console.log(descricao)
+
 
     async function SalvarConfig() {
         const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
         const a = await api.alterarEmpresa(id,nome,ramo,telefone)
-        Editar();
+        ListarEmpresa();
     }
 
     useEffect(() => {
         ListarVagas();
         ListarEmpresa();
-        ListarEmpresaConfig();
     }, []);
 
     return(
@@ -291,7 +286,7 @@ export default function Pagina19 (props){
                     <div className="vagasmsn">
                         <div className="vagas">
                             <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> 
-                                <Link to={{ pathname: '/criar-vaga', state: props }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
+                                <Link to={{ pathname: '/criar-vaga' }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
                             </div>
                             
                             <JobsHolder className="darkgrey-scroll">

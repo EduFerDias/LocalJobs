@@ -16,14 +16,6 @@ export default function Searchbar (props){
 
     async function buscampresa(){
         let pag_mae = props.pg
-
-        let r = await api.buscaUsu(area, cargo, cidade)
-        if(!r)
-            toast.error('Não foram encontradas conrespondencias no nosso sistema')
-
-        toast.success('FOI!')
-        console.log(r)
-
         if(props.ondeestoy === 'empresa'){
 
             if(pag_mae === true)
@@ -32,11 +24,8 @@ export default function Searchbar (props){
         } else if( props.ondeestoy === 'pessoal'){
 
             if(pag_mae === true)
-            nav.push('/buscar-empresa')
-
+            nav.push({pathname:'/buscar-empresa', state:{area:area, cargo:cargo, cidade:cidade}})
         }
-
-        return r;
     }
 
 
@@ -49,6 +38,7 @@ export default function Searchbar (props){
                     <select name="" id="" value={area} onChange={e => setArea(e.target.value)}>
                                     <option value="" disabled selected hidden>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
+                                    <option value="Historia">a</option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
                                     <option value="Artigos Religiosos">Artigos Religiosos </option>
                                     <option value="Assinaturas e Revistas">Assinaturas e Revistas </option>

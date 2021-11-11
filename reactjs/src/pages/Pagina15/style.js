@@ -53,7 +53,7 @@ const Pagina15 = styled.div`
 .et{
     background-color: #0D62A7;
     border-radius: 40px;
-    width: 150px;
+    width: 20vw;
     min-height: 3em;
     text-align: center;
     margin-top: 1em;
@@ -127,6 +127,7 @@ const Pagina15 = styled.div`
 
 .caracteristicas-direita{
     margin-top: 3em;
+    line-height: 25px;
 }
 
 .caracteristicas-direita h1{
@@ -139,12 +140,18 @@ const Pagina15 = styled.div`
     font-size: 20px;
 }
 
+.esquerda-baixo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 .box-dados-empresa{
     background-color: #2A3244;
     border-radius: 20px;
     margin-left: 3rem;
     display: flex;
+    width: 16em;
     flex-direction: column;
     line-height: 0em;
     padding: 1em 1em 1em 2em;
@@ -236,12 +243,12 @@ const Pagina15 = styled.div`
     background-color: #0D62A7;
     border-radius: 20px;
     margin-left: 3rem;
-    font-size: 35px;
+    font-size: 30px;
     font-family: Montserrat-Bold;
     text-align: center;
     margin-top: 1em;
-    min-width: 10vw;
-    min-height: 2em;
+    width: 16em;
+    height: 2em;
     align-items: center;
     justify-content: center;
 }
