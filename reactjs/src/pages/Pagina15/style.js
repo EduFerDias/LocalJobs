@@ -151,7 +151,7 @@ const Pagina15 = styled.div`
     border-radius: 20px;
     margin-left: 3rem;
     display: flex;
-    width: 10.8em;
+    width: 16em;
     flex-direction: column;
     line-height: 0em;
     padding: 1em 1em 1em 2em;
@@ -247,7 +247,7 @@ const Pagina15 = styled.div`
     font-family: Montserrat-Bold;
     text-align: center;
     margin-top: 1em;
-    width: 11.5em;
+    width: 16em;
     height: 2em;
     align-items: center;
     justify-content: center;
