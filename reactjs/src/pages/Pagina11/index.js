@@ -122,7 +122,11 @@ export default function Pagina11 (){
                         bt_empresa={true}
                     />
                     
+<<<<<<< HEAD
+                )} 
+=======
                 )}
+>>>>>>> 9f12645a80242760bbd37b6d348208ba08f84e47
 
             </Carousel> */}
 

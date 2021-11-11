@@ -46,9 +46,13 @@ export default function Header5 (props){
             <Link to={{ pathname: '/config-empresa', state: props }}>
                 <div class="nmUsuario-t6"> {empresa} </div>
             </Link>
+<<<<<<< HEAD
             <Link to={{ pathname: '/config-empresa', state: props }}>
                 <div class="imagenUsuario-t6"> <img src="../../assets/images/pagina 5,6,7/imgÚsuario.png" alt="" /> </div>
             </Link>
+=======
+            <Link to='/config-empresa'>  <div class="imagenUsuario-t6"> <img src="../../assets/images/pagina 5,6,7/imgÚsuario.png" alt="" /> </div> </Link>
+>>>>>>> 3fe0e81c194b2b9a4c7f6a5bf548b3e82b4e944a
             </div>
         
         </Conteudo>
