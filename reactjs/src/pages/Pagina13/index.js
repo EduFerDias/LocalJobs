@@ -190,7 +190,7 @@ export default function Pagina13(props){
                             <div class="campof2"> <input value={telefone} onChange={e => setTele(e.target.value)}/> </div>
                             </div>
                             <div class="f2Caixa2">
-                            <div class="nomesf2"> Link de Sua imagem de Perfil: </div>
+                            <div class="nomesf2"> URL Foto de Perfil: </div>
                             <div class="campof2"> <input  value={linkimg} onChange={e=> setImg(e.target.value)}/> </div>
                             </div>
                             <div class="f2Caixa3">
