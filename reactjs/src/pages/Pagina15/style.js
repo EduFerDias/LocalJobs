@@ -53,7 +53,7 @@ const Pagina15 = styled.div`
 .et{
     background-color: #0D62A7;
     border-radius: 40px;
-    width: 150px;
+    width: 20vw;
     min-height: 3em;
     text-align: center;
     margin-top: 1em;
@@ -127,6 +127,7 @@ const Pagina15 = styled.div`
 
 .caracteristicas-direita{
     margin-top: 3em;
+    line-height: 25px;
 }
 
 .caracteristicas-direita h1{

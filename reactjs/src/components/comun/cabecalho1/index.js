@@ -32,37 +32,17 @@ export default function Cabecalho1 (){
     console.log(usuarioLogado)
 
     function Verificar(){
-        if (usuarioLogado.tp_conta == "empresarial") {
+        if (usuarioLogado.tp_conta == "id_empr") {
             navigation.push('/home-empresa')
         }
-        else if (usuarioLogado.tp_conta === "pessoal" ) {
+        else if (usuarioLogado.tp_conta === "id_usu" ) {
             navigation.push('/home-usu')
         }
     }
-    
 
     console.log(Verificar())
-
     
     let a = ""
-
-    function Verificar2(){
-        if(usuarioLogado.tp_conta == "empresarial" ) {
-            return
-        }
-        if (usuarioLogado.tp_conta === "pessoal" ) {
-            return
-        }
-        else {
-            a = "Criar Conta"
-        }
-    }
-
-    useEffect(() => {
-        Verificar2();
-    }, [])
-
-
 
 
     return(
@@ -71,10 +51,10 @@ export default function Cabecalho1 (){
             <div className="user-interac">
                 <div className="pic">
                     <img src="./assets/images/p1-Group 5.png" alt=""/>
-                    <div className="login" Onclick={Verificar}>Entrar</div>
+                    <Link to="/login"><div className="login" Onclick={Verificar}>Entrar</div></Link>
                 </div>
                 <div className="detalhe">&nbsp;</div>
-                <Link to="/cadastros"><button className="criar-conta">{a}</button></Link>
+                <Link to="/cadastros"><button className="criar-conta"> Criar Conta</button></Link>
             </div>
         </Conteudo>
 

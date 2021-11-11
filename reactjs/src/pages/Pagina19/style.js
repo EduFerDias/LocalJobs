@@ -61,9 +61,14 @@ const Conteudo = styled.div`
     .l1-select select:focus{
         background-image: url("./assets/images/Pagina19/perfil-de-usuario180.png");
     }
+
+    .delete {
+        cursor: pointer;
+    }
     .l2{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         font-family: Montserrat-Bold;
         font-size: 1.5rem;
     }
@@ -268,14 +273,22 @@ const Conteudo = styled.div`
     .recib{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        align-items:center;
+        justify-content: center;
         padding: 2.5em 0em 2.5em 1em;
+    }
+    .curriculo{
+        display: none;
+    }
+    .darkgrey-scroll, .linkedin{
+        width: 100%;
     }
     .lkn-titulo, .cv-titulo{
         font-family: Montserrat-Bold;
         font-size: 1.7rem;
         padding-bottom: 1em;
     }
+    
     .linkedin-box, .curriculo-box{
         display:flex;
         flex-direction:row;
@@ -286,6 +299,9 @@ const Conteudo = styled.div`
         background-color: #107AD1;
         border-radius: 5px;
     }
+    .linkedin-box img{
+        height: 6em;
+    }
     .lkn-titulo{
         padding-left: 1rem;
     }
@@ -294,10 +310,10 @@ const Conteudo = styled.div`
     }
     .nome{
         font-family: Montserrat-Bold;
-        font-size: 1.5em;
+        font-size: 2em;
     }
     .vaga{
-        font-size: 1em;
+        font-size: 1.5em;
     }
 
     .gerenc-buttons{

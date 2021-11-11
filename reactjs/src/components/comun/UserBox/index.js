@@ -52,7 +52,7 @@ export default function UsuBox (props) {
                 
                 <div class="f10-filtronome"><Link to={{ pathname: '/empresa', state: props }}> {empresa.nm_nome} </Link> </div>
 
-                <div class="f10-cidade">{props.cidade}</div>
+                <div class="f10-cidade">{props.cidade != null && props.cidade.length > 20 ?props.cidade.substr(0,20) + '...' : props.cidade}</div>
                 
                     <Link to={{ pathname: '/vaga', state: props }}><div class="f10-profissao">{props.profissao != null && props.profissao.length > 15 ? props.profissao.substr(0, 15) + '...' : props.profissao}
 
