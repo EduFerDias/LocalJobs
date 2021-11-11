@@ -5,7 +5,10 @@ const Pagina12 = styled.div`
     background-color: #404756;
 
 /* input e select do filtro */ 
-
+.f10-pesquisa{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 .f10-filtro1 {
     color: white;
     font-family: Montserrat-Bold, sans-serif;
