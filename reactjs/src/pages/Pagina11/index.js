@@ -100,11 +100,11 @@ export default function Pagina11 (){
        
             <div class="f10-filtro1">Empresas do ramo da Informática</div>
 
-            <Carousel 
+            {/* <Carousel 
                     responsive={responsive}
                 >
 
-                {/* {vagaE.map(item => 
+                 {vagaE.map(item => 
                     <UserBox
                         descricao={item.ds_descricao} 
                         cidade={item.ds_local_trabalho != null && item.ds_local_trabalho.lenght > 20 ? item.ds_local_trabalho.substr(0, 20) :item.ds_local_trabalho} 
@@ -122,9 +122,9 @@ export default function Pagina11 (){
                         bt_empresa={true}
                     />
                     
-                )} */}
+                )} 
 
-            </Carousel>
+            </Carousel> */}
 
 
 

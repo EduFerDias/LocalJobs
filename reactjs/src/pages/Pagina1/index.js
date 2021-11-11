@@ -7,7 +7,7 @@ export default function Pagina1 (){
     return(
         <Conteudo>
                     <div className="faixa1">
-                        <Cabecalho2 />
+                        <Cabecalho1 />
 
                         <div className="corpo">
                             <div className="f1-text">
