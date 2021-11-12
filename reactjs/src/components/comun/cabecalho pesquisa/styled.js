@@ -88,6 +88,7 @@ f10-nome2 {
 }
 
 .f10-pesquisa {
+    width: 39em;
     justify-content: center;
     display: flex;
     background-color: white;
