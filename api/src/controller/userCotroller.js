@@ -9,43 +9,9 @@ const app = Router();
 
 app.get('/', async (req, resp) => {
     try {
-
-            let {area, cargo, cidade} = req.body;
-            
-            if(area && cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
-                delete r.ds_senha;        
-                resp.send(r)
-            }else if(!area && cargo && !cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}})        
-                delete r.ds_senha;        
-                resp.send(r)
-            }else if(!area && !cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({like:{ds_estado_cidade:cidade}})        
-                delete r.ds_senha;        
-                resp.send(r)
-            }else if(area && !cargo && !cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}})        
-                delete r.ds_senha;        
-                resp.send(r)
-            }else if(!area && cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
-                delete r.ds_senha;        
-                resp.send(r)
-            }else if(area && cargo && !cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area, ds_cargo:cargo}})        
-                delete r.ds_senha;
-                resp.send(r)
-            }else if(area && !cargo && cidade){
-                let r = await db.infoc_atn_tb_pessoal.findAll({where:{ds_area:area}, like:{ds_estado_cidade:cidade}})        
-                delete r.ds_senha;        
-                resp.send(r)
-             } else{
-                let r = await db.infoc_atn_tb_pessoal.findAll();        
-                delete r.ds_senha;       
-                resp.send(r)
-             }
-
+            let r = await db.infoc_atn_tb_pessoal.findOne();        
+            delete r.ds_senha;       
+            resp.send(r)
     } catch (e){
         resp.sendStatus(500)
         console.log(e)

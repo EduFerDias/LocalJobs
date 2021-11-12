@@ -9,7 +9,7 @@ const app = Router();
 
 app.get("/", async (req, resp) => {
     try {
-          let a = await db.infoc_atn_tb_configuracoes_empresa.findAll({ order: [['id_empresa', 'desc']] });
+          let a = await db.infoc_atn_tb_configuracoes_empresa.findOne({ order: [['id_empresa', 'desc']] });
           resp.send(a);
       } catch (e) {
           resp.send(e.toString());

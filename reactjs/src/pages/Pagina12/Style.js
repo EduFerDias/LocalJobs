@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Pagina12 = styled.div`
 
     background-color: #404756;
+    height: 100vh;
 
 /* input e select do filtro */ 
 .f10-pesquisa{

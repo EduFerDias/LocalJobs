@@ -35,6 +35,7 @@ export default function Pagina13(props){
 
     const[sobre, setSobre] = useState('');
     const[linkimg, setImg] = useState('')
+    const[link2, setImgF] = useState('');
     const[idioma1, setIdioma1] = useState('');
     const[idioma2, setIdioma2] = useState('');
     const[idioma3, setIdioma3] = useState('');
@@ -58,6 +59,9 @@ export default function Pagina13(props){
         setTele(r.nr_telefone)
         setEmail(r.ds_email)
         setCidade(r.ds_estado_cidade)
+        setImg(f.ds_link_imagem)
+        setImgF(f.ds_link_imagem)
+
 
         setSobre(f.ds_sobre)
         setIdioma1(f.ds_idioma1)
@@ -75,8 +79,8 @@ export default function Pagina13(props){
     }
 
     async function altDados(){
-        let r = api.alterarUsu(id, nome, area, cargo, telefone, cidade, email);
-        let f = api.alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, linkdin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacao);
+        let r = await api.alterarUsu(id, nome, area, cargo, telefone, cidade, email);
+        let f = await api.alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, linkdin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacao,linkimg);
 
         return toast.success('deu', r, f)
     }
@@ -94,7 +98,7 @@ export default function Pagina13(props){
                     <div class="faixas-tela13">
                         <div class="faixa1">
                             <div class="f1-foto">
-                            <img src="./assets/images/Pagina14/imagem-usuario.png" alt="" />
+                            <img src={link2} alt="" />
                             </div>
                             <div class="f1-nomes">
                             <div class="nomesf1"> Nome: </div>

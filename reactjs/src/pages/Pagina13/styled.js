@@ -123,6 +123,7 @@ body {
 .f1-foto img {
   width: 107px;
   height: 107px;
+  border-radius: 100%;
 }
 
 .f1-nomes{

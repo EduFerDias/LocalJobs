@@ -5,19 +5,29 @@ import Cabecalho from "../../components/comun/cabecalho pesquisa"
 import Api from '../../services/Api';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { useList } from '../../Contexts/searchContext';
+import { useCidade } from '../../Contexts/cidadeContext';
+import { useArea } from '../../Contexts/areaContext';
+import { useCargo } from '../../Contexts/cargoContext';
+
 let api = new Api();
 
 
 export default function Pagina12 (props){
         const[id, setId] = useState();
         const[vaga, setVaga] = useState([])
-        const[area, setArea] = useState('')
+
+        const {list} = useList();
+        const {cidade} = useCidade();
+        const {area} = useArea();
+        const {cargo} = useCargo();
 
         let Parametros = props.location.state;
+
     
     let encontrarEmrpesa = async ()=> {
-        let y = api.EmpresaBaseadaemArea(Parametros.area) 
-        console.log(Parametros.area)
+        let y = await api.buscaEmpresa(area, cargo, cidade);
         setId(y.id_empresa)
     }
 
@@ -34,7 +44,7 @@ export default function Pagina12 (props){
     useEffect(() =>{
         encontrarEmrpesa();
         ListarVagas();
-    },[])
+    },[list])
 
 
     return(
@@ -43,7 +53,7 @@ export default function Pagina12 (props){
                 
                 <Cabecalho onde={'pessoal'} pg={false}/>
 
-                <div class="f10-filtro1">Resultado:⠀  <div>Desenvolvedor</div></div>
+                <div class="f10-filtro1">Resultado:⠀  <div>{list}</div></div>
 
                 <div class="f10-areas">
 

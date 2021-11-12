@@ -1,6 +1,3 @@
-
-
-
 import db from '../db.js'
 import express from 'express'
 
@@ -11,7 +8,7 @@ const app = Router();
 
 app.get('/', async (req, resp) =>  {
     try{
-        let usuario = await db.infoc_atn_tb_curriculo.findAll();
+        let usuario = await db.infoc_atn_tb_curriculo.findOne();
         resp.send(usuario);
     } catch (e) {
         resp.send({ erro: e.toString })

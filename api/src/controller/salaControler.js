@@ -34,7 +34,7 @@ app.post("/", async (req, resp) =>{
 
 app.get('/', async (req, resp) => {
     try {
-        let r = await db.infoc_atn_tb_sala.findAll();
+        let r = await db.infoc_atn_tb_sala.findOne();
         resp.send(r);
     } catch (e) {
         resp.send("Erro")

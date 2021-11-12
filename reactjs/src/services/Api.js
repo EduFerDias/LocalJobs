@@ -210,7 +210,7 @@ export default class Api {
         let r = await api.get(`userconfig/${id}`)
         return r.data;
     }
-    async alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, likedin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacoes_academicas){
+    async alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, likedin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacoes_academicas, link_imagem){
         let y = {
             sobre: sobre, 
             idioma1: idioma1, 
@@ -224,6 +224,7 @@ export default class Api {
             vaga_interesse3: vaga_interesse3, 
             experiencias: experiencias, 
             formacoes_academicas: formacoes_academicas, 
+            link_imagem:link_imagem
         }
         let r = await api.put(`userconfig/${id}`, y)
         return r.data;
@@ -242,7 +243,23 @@ export default class Api {
             cargo:cargo,
             cidade:cidade
         }
-        let r = await api.get(`/usuario`, s)
+        let r = await api.post(`/buscarUsuario`, s)
+        return r.data;
+    }
+    async buscaEmpresa(area, cargo, cidade){
+        if(area === '')
+            area = undefined
+        if(cargo === '')
+            cargo = undefined
+        if(cidade === '')
+            cidade = undefined
+
+        let s = {
+            area,
+            cargo,
+            cidade,
+        } 
+        let r = await api.post(`/buscarEmpresa`, s)
         return r.data;
     }
 }

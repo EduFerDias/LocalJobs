@@ -10,6 +10,7 @@ import userConfigController from './controller/userConfigController.js'
 import curriculoController from './controller/curriculoController.js'
 
 import recuperacaoSenhaController from './controller/recuperaçãoSenhaController.js'
+import searchController from './controller/searchController.js'
 
 import express from "express";
 import cors from "cors";
@@ -26,7 +27,8 @@ server.use('/sala', salaController);
 server.use('/chat', chatController);
 server.use('/usuario', userController);
 server.use('/userconfig', userConfigController);
-server.use('/curriculo', curriculoController)
+server.use('/curriculo', curriculoController);
+server.use('/', searchController);
 server.use('/', recuperacaoSenhaController);
 
 

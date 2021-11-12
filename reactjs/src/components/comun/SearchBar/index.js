@@ -1,27 +1,52 @@
 import { useHistory } from "react-router-dom";
 import {toast, ToastContainer} from 'react-toastify'
+
+
 import Conteudo from "./styled";
 import Api from "../../../services/Api";
-import { useState } from "react";
+
+
+import { useContext, useState } from "react";
+
+import Cookies from "js-cookie";
+
+import { useCargo } from "../../../Contexts/cargoContext";
+import { useArea } from "../../../Contexts/areaContext";
+import { useCidade } from "../../../Contexts/cidadeContext";
+import { useList } from "../../../Contexts/searchContext";
 
 const api = new Api();
 
 export default function Searchbar (props){
-    const[area, setArea] = useState('');
-    const[cargo, setCargo] = useState('')
-    const[cidade, setCidade] = useState('')
+
+    const {list, setList} = useList();
+    const {cidade, setCidade} = useCidade();
+    const {area, setArea} = useArea();
+    const {cargo, setCargo} = useCargo();
+
+
 
     const nav = useHistory();
 
 
-    async function buscampresa(){
+
+    async function buscar(){
+
         let pag_mae = props.pg
+
+        if(list === true)
+            setList(false)
+        else
+            setList(true)
+
+
         if(props.ondeestoy === 'empresa'){
 
             if(pag_mae === true)
-            nav.push('/buscar-usu')
+            nav.push({pathname:'/buscar-usu', state:{area:area, cargo:cargo, cidade:cidade}})
 
         } else if( props.ondeestoy === 'pessoal'){
+            let r =  api.buscaUsu(area,cargo,cidade)
 
             if(pag_mae === true)
             nav.push({pathname:'/buscar-empresa', state:{area:area, cargo:cargo, cidade:cidade}})
@@ -31,10 +56,10 @@ export default function Searchbar (props){
 
     return(
         <Conteudo>
-            <ToastContainer />
+            <ToastContainer theme="dark"/>
             <div class="f10-pesquisa2">
                 <div class="f10-pesquisa">
-
+                    
                     <select name="" id="" value={area} onChange={e => setArea(e.target.value)}>
                                     <option value="" disabled selected hidden>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
@@ -154,7 +179,7 @@ export default function Searchbar (props){
                     <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
                     <hr />
                     <input class="f10-cidade" placeholder="Digite Uma Cidade" value={cidade} onChange={ e => setCidade(e.target.value)}/>
-                    <div class="f10-lupa"><img  onClick={buscampresa} src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
+                    <div class="f10-lupa"><img  onClick={buscar} src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
                 </div>
             </div>
         </Conteudo>

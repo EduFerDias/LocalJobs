@@ -50,14 +50,14 @@ export default function UsuBox (props) {
 
             <div class="f10-texto">
                 
-                <div class="f10-filtronome"><Link to={{ pathname: '/empresa', state: props }}> {empresa.nm_nome} </Link> </div>
+                <div class="f10-filtronome"><Link to={{ pathname: '/empresa', state: props }}> {empresa.nm_nome != null && empresa.nm_nome.length > 15 ?empresa.nm_nome.substr(0,15) :empresa.cidade} </Link> </div>
 
                 <div class="f10-cidade">{props.cidade != null && props.cidade.length > 20 ?props.cidade.substr(0,20) + '...' : props.cidade}</div>
                 
-                    <Link to={{ pathname: '/vaga', state: props }}><div class="f10-profissao">{props.profissao != null && props.profissao.length > 15 ? props.profissao.substr(0, 15) + '...' : props.profissao}
+                    <Link to={{ pathname: '/vaga', state: props }}><div class="f10-profissao">{props.profissao != null && props.profissao.length > 8 ? props.profissao.substr(0, 8) + '...' : props.profissao}
 
                         <div class="f10-barra">
-                            -</div><div class="f10-filtroarea">{empresa.nm_ramo != null && empresa.nm_ramo.length > 7 ?empresa.nm_ramo.substr(0,7) + '...' :empresa.nm_ramo}</div>
+                            -</div><div class="f10-filtroarea">{empresa.nm_ramo != null && empresa.nm_ramo.length > 5 ?empresa.nm_ramo.substr(0,5) + '...' :empresa.nm_ramo}</div>
                         </div>
                     </Link>
         

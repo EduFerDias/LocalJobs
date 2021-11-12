@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import Pagina from "./pages/paginass";
 import Pagina1 from "./pages/Pagina1";
 import Pagina2 from "./pages/Pagina2";
@@ -20,14 +21,21 @@ import Pagina19 from "./pages/Pagina19";
 
 import Pagina13 from "./pages/Pagina13";
 import Pagina7_5 from "./pages/Pagina7.5";
+import ListProvider from "./Contexts/searchContext";
+import AreaProvider from "./Contexts/areaContext";
+import CargoProvider from "./Contexts/cargoContext";
+import CidadeProvider from "./Contexts/cidadeContext";
 /*
 As pgs 15 e 14 Precisam de uma revisão
 */
 
 export default function Rotas (){
+
+
     return(
         <BrowserRouter>
             <Switch>
+            <ListProvider>
             <Route path="/" component={Pagina} exact={true}/>
 
                 <Route path="/paginas" component={Pagina1} />
@@ -48,13 +56,19 @@ export default function Rotas (){
 
                 <Route path="/recSenha" component={Pagina7_5} />
 
-                <Route path="/buscar-usu" component={Pagina9} />
+                <AreaProvider>
+                <CargoProvider>
+                <CidadeProvider >
+                    <Route path="/buscar-usu" component={Pagina9} />
 
-                <Route path="/home-empresa" component={Pagina10} />
+                    <Route path="/home-empresa" component={Pagina10} />
 
-                <Route path="/home-usu" component={Pagina11} />
+                    <Route path="/home-usu" component={Pagina11} />
 
-                <Route path="/buscar-empresa" component={Pagina12} />
+                    <Route path="/buscar-empresa" component={Pagina12} />
+                </CidadeProvider >
+                </CargoProvider>
+                </AreaProvider>
 
                 <Route path="/usuario" component={Pagina14} />
 
@@ -64,9 +78,10 @@ export default function Rotas (){
 
                 <Route path="/empresa" component={Pagina18} />
 
-                <Route path="/config-empresa" component={Pagina19} />
+                    <Route path="/config-empresa" component={Pagina19} />
 
-                <Route path="/config-usuario" component={Pagina13} />
+                    <Route path="/config-usuario" component={Pagina13} />
+                </ListProvider>
 
                 <Route path="*" component={Pagina6}/>
             </Switch>

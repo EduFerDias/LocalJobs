@@ -43,7 +43,7 @@ app.get('/:id', async (req, resp) => {
             return resp.send({ erro: 'Não a vagas nessa empresa' });
         
         let vaga = await
-            db.infoc_atn_tb_vagas.findAll({
+            db.infoc_atn_tb_vagas.findOne({
                 where: {
                     id_empresa: id.id_empresa
                 },
@@ -67,7 +67,7 @@ app.get('/:idempresa/:id', async (req, resp) => {
             return resp.send({ erro: 'Vaga não existe' });
         
         let vaga = await
-            db.infoc_atn_tb_vagas.findAll({
+            db.infoc_atn_tb_vagas.findOne({
                 where: {
                     id_vaga: id.id_vaga,
                     id_empresa: id.id_empresa
@@ -89,7 +89,7 @@ app.get('/', async (req, resp) => {
         // let {area} =
 
         // if(area = ''){
-            let a = await db.infoc_atn_tb_vagas.findAll({ order: [['id_vaga', 'desc']] });
+            let a = await db.infoc_atn_tb_vagas.findOne({ order: [['id_vaga', 'desc']] });
             resp.send(a);
         // }
     } catch (e) {
