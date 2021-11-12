@@ -45,7 +45,7 @@ export default function Pagina10 (){
                 <Cabecalho id={2}/>
 
                 <div class="f10-filtro">
-                    <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
+                    <div class="f10-textofiltro">Pesquise por área e<br/>cidade específica</div>
                     <Searchbar ondeestoy={'pessoal'} pg={true}/>
 
                 </div>
@@ -72,7 +72,7 @@ export default function Pagina10 (){
 
                         </Carousel>;
 
-                    <div class="f10-filtro1">Pessoas Na area de Jornalismo</div>
+                    <div class="f10-filtro1">Pessoas Na área de Jornalismo</div>
 
                         <Carousel 
                             responsive={responsive}

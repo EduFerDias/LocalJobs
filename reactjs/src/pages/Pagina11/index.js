@@ -58,7 +58,7 @@ export default function Pagina11 (){
         <Conteudo>
                 <Cabecalho3 />
                 
-        <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
+        <div class="f10-textofiltro">Pesquise por área e<br/>cidade específica</div>
        <Searchbar ondeestoy={'pessoal'} pg={true}/>
 
         <div class="f10-areas">

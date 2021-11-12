@@ -176,7 +176,7 @@ export default function Pagina15(props){
 
                             <div class="mensagemaviso"><h2>Mensagens: <span>2</span></h2></div>
                             <div class="f16-mensagens">
-                                <div class="imagem"><img src="./assets/images/pagina 9,10,11,12/f10-fotoperfil.png" alt=""/> <span class="uso">úsuario</span></div>
+                                <div class="imagem"><img src="./assets/images/pagina 9,10,11,12/f10-fotoperfil.png" alt=""/> <span class="uso">usuário</span></div>
                                 <div class="mensagem">Oi </div> 
 
                                 <div class="escrever"><input type="text"  placeholder="⠀responder..."/><button><img src="./assets/images/pagina 9,10,11,12/f16-enviar.png" alt=""/></button></div> 
@@ -210,10 +210,11 @@ export default function Pagina15(props){
                                         <option value="Terceirização"> Terceirização</option>
                                         <option value="Trabalho remoto"> Trabalho remoto</option>
                                         <option value="Trainee"> Trainee</option>
+                                        <option value="CNPJ"> CNPJ</option>
                                     </select>
                                 </div>
 
-                                <div class="beneficios">Beneficios </div>
+                                <div class="beneficios">Benefícios </div>
                                 <textarea name="" id="" cols="55" maxlength="250" rows="10" value={ beneficios } onChange={e => setBeneficios(e.target.value)}></textarea>
 
                                 <div class="hora">Horas Trabalhadas</div>
@@ -228,37 +229,37 @@ export default function Pagina15(props){
 
                                     <div class="linkcuriculo">
                                         <img src="../../assets/images/pagina 9,10,11,12/f10-linkdln.png" alt=""/>
-                                        <div class="linkusuario"><h2>úsuario</h2></div>
+                                        <div class="linkusuario"><h2>usuário</h2></div>
                                     </div>
 
                                     <div class="linkcuriculo">
                                         <img src="../../assets/images/pagina 9,10,11,12/f10-linkdln.png" alt=""/>
-                                        <div class="linkusuario"><h2>úsuario</h2></div>
+                                        <div class="linkusuario"><h2>usuário</h2></div>
                                     </div>
 
                                     <div class="linkcuriculo">
                                         <img src="../../assets/images/pagina 9,10,11,12/f10-linkdln.png" alt=""/>
-                                        <div class="linkusuario"><h2>úsuario</h2></div>
+                                        <div class="linkusuario"><h2>usuário</h2></div>
                                     </div>
 
                                     <div class="linkcuriculo">
                                         <img src="../../assets/images/pagina 9,10,11,12/f10-linkdln.png" alt=""/>
-                                        <div class="linkusuario"><h2>úsuario</h2></div>
+                                        <div class="linkusuario"><h2>usuário</h2></div>
                                     </div>
 
                                     <div class="linkcuriculo">
                                         <img src="../../assets/images/pagina 9,10,11,12/f10-linkdln.png" alt=""/>
-                                        <div class="linkusuario"><h2>úsuario</h2></div>
+                                        <div class="linkusuario"><h2>usuário</h2></div>
                                     </div>
 
                                     <div class="linkcuriculo">
                                         <img src="../../assets/images/pagina 9,10,11,12/f10-linkdln.png" alt=""/>
-                                        <div class="linkusuario"><h2>úsuario</h2></div>
+                                        <div class="linkusuario"><h2>usuário</h2></div>
                                     </div>
 
                                     <div class="linkcuriculo">
                                         <img src="../../assets/images/pagina 9,10,11,12/f10-linkdln.png" alt=""/>
-                                        <div class="linkusuario"><h2>úsuario</h2></div>
+                                        <div class="linkusuario"><h2>usuário</h2></div>
                                     </div>
 
                                 </div>
