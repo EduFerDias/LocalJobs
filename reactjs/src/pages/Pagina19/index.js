@@ -50,21 +50,16 @@ export default function Pagina19 (props){
     const [telefone, setTelefone ] = useState("");
     const [funcionarios, setFuncionarios] = useState("");
 
-    const logoff = () => {
-        Cookies.remove('id_empre');
-        navigation.push('/paginas');
-    }
-
 
     async function ListarVagas() {
 
         const x = await api.listarVagasIDempresa(id)
-        if (x.length === 0) {
+        console.log(x)
+        if (x.length == 0) {
             console.log("Oi")
         } else {
             setVagas(x)
         }
-        Editar();
     }
 
     async function ListarEmpresa() {

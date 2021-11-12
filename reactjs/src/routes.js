@@ -36,7 +36,11 @@ export default function Rotas (){
         <BrowserRouter>
             <Switch>
             <ListProvider>
+<<<<<<< HEAD
                 <Route path="/xsssssssssssssssssss" component={Pagina1} exact={true}/>
+=======
+                <Route path="/" component={Pagina} exact={true}/>
+>>>>>>> b64b28c9ac6307a72fad8bf2cf905a43526a0d84
 
                 <Route path="/" component={Pagina1} />
 
@@ -55,7 +59,8 @@ export default function Rotas (){
                 <Route path="/login" component={Pagina8} />
 
                 <Route path="/recSenha" component={Pagina7_5} />
-                <ListProvider>
+
+                
                     <AreaProvider>
                         <CargoProvider>
                             <CidadeProvider >
@@ -69,7 +74,6 @@ export default function Rotas (){
                             </CidadeProvider >
                         </CargoProvider>
                     </AreaProvider>
-                </ListProvider>
 
                     
 
@@ -86,6 +90,7 @@ export default function Rotas (){
                 <Route path="/config-usuario" component={Pagina13} />
 
                 <Route path="*" component={Pagina6}/>
+                </ListProvider>
             </Switch>
         </BrowserRouter>
     );
