@@ -2,8 +2,8 @@ import Logo2 from "../../components/comun/Logo2";
 import Conteudo from "./Style"
 import Cabecalho2 from "../../components/comun/header6";
 
-     import  { useEffect} from 'react'
-// import { confirmAlert } from 'react-confirm-alert'; 
+import  { useEffect} from 'react'
+import { confirmAlert } from 'react-confirm-alert'; 
 
 import { Link } from "react-router-dom";
 
