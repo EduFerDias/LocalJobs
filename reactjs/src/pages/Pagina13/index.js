@@ -48,6 +48,12 @@ export default function Pagina13(props){
     const[experiencias, setExp] = useState('');
     const[formacao, setFormacao] =  useState('');
 
+    const logoff = () => {
+        Cookies.remove('id_usu');
+        navigation.push('/');
+    }
+
+
     async function buscarInfo(){
 
         let r = await api.buscaUsuId(id)
@@ -238,7 +244,7 @@ export default function Pagina13(props){
                     </div>
 
                     <div class="faixa6">
-                        <div class="btdelf6"> <button> Deletar usuário </button> </div>
+                        <div class="btdelf6" onClick={logoff}> <button> Sair </button> </div>
                         <div class="btsavef6"> <button onClick={altDados}> Salvar </button> </div>
                     </div>
 

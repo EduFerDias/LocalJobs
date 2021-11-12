@@ -43,7 +43,7 @@ export default function Pagina11 (){
     }
 
     async function listarVagasEspeci () {
-        let e = await api.EmpresaBaseadaemArea('')
+        let e = await api.EmpresaBaseadaemArea('Serviços em Informática')
         console.log(e)
         setVagae(e)
     }

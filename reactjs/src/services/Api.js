@@ -1,6 +1,6 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL: 'https://loca1jobs.herokuapp.com/'
+    baseURL: 'http://localhost:3030'
 })
 
 export default class Api {
@@ -108,8 +108,12 @@ export default class Api {
     }
 
     async EmpresaBaseadaemArea(area){
+        let area3 = {
+            "area":area
+        }
 
-        let y = await api.post('/empresa', {area})
+        let y = await api.post('/search', area3)
+        console.log('aaa ' + y.data)
         let r = await api.get(`/vaga/${y.data.id_empresa}`)
         return r.data;        
     }

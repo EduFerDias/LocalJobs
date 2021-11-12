@@ -74,14 +74,14 @@ app.get('/:id', async (req, resp) => {
 
 app.get('/:idempresa/:id', async (req, resp) => {
     try {
-        let id = await db.infoc_atn_tb_vagas.findOne({ where: { id_empresa: req.params.idempresa, id_vaga: req.params.id } });
+        let id = await db.infoc_atn_tb_vagas.findAll({ where: { id_empresa: req.params.idempresa, id_vaga: req.params.id } });
 
 
         if (id == null)
             return resp.send({ erro: 'Vaga não existe' });
         
         let vaga = await
-            db.infoc_atn_tb_vagas.findOne({
+            db.infoc_atn_tb_vagas.findAll({
                 where: {
                     id_vaga: id.id_vaga,
                     id_empresa: id.id_empresa

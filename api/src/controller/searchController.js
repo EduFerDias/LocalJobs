@@ -4,6 +4,21 @@ import express from 'express'
 const Router = express.Router;
 const app = Router();
 
+app.post("/search", async (req, resp) => {
+    try {
+        let {area} = req.body;
+        console.log(area)
+        if(area){
+            let a = await db.infoc_atn_tb_empresa.findOne({like:{nm_ramo:area}})
+            resp.send(a)
+            return;
+        }
+      } catch (e) {
+          resp.send("Erro: " + e)
+      }
+  });
+
+
 app.post('/buscarUsuario', async(req, resp) =>{
     
     let {area, cargo, cidade} = req.body;
