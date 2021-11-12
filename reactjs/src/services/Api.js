@@ -73,17 +73,19 @@ export default class Api {
     async InserirConfigEmpresa(id,descricao,linkdin,insta,twitter,porte,site,funcionarios) {
 
         let empresa = {
+            ds_site: site,
             ds_descricao_empresa: descricao,
-            ds_linkdin_empresa: linkdin,
             ds_instagram_empresa: insta,
             ds_twitter_empresa: twitter,
+            ds_linkdin_empresa: linkdin,
+            ds_link_imagem: "",
             ds_porte: porte,
-            ds_site: site,
             qtd_funcionarios: funcionarios
         }
-        console.log(id)
 
-        let r = await api.put(`/empresa/${id}`, empresa)
+        console.log(empresa)
+
+        let r = await api.put(`/empresaconfig/${id}`, empresa)
         return r.data;
     }
     
@@ -112,7 +114,7 @@ export default class Api {
         return r.data;        
     }
 
-    async EditarVaga(idvaga,idempresa,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
+    async EditarVaga(idempresa,idvaga,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario){
         let vaga = {
             ds_profissao: profissao,
             ds_descricao: descricao,
@@ -126,6 +128,7 @@ export default class Api {
             ds_hora_trabalho: horario
         }
 
+        console.log(vaga)
         let r = await api.put(`/vaga/${idempresa}/${idvaga}`, vaga);
         return r.data;
     }

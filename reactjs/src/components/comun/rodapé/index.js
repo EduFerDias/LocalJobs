@@ -23,7 +23,7 @@ export default function rodape(){
 
                         <div className="home">
                             <Link to="/paginas">Home</Link>
-                        </div>
+                        </div> 
 
                     </div>
                     <div className="redes">

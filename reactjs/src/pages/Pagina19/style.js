@@ -24,6 +24,9 @@ const Conteudo = styled.div`
     .l1-image img{
         width: 10em;
     }
+    .box-vaga a {
+        color: white;
+    }
 
     .l1-interac{
         display: flex;
@@ -65,6 +68,22 @@ const Conteudo = styled.div`
     }
     .l1-select select:focus{
         background-image: url("./assets/images/Pagina19/perfil-de-usuario180.png");
+    }
+
+    .linkedin {
+        display: none;
+    }
+
+    .chat {
+        display: none;
+    }
+
+    .recib {
+        display: none;
+    }
+
+    .curriculo {
+        display: none;
     }
 
     .delete {
@@ -286,7 +305,8 @@ const Conteudo = styled.div`
         display: none;
     }
     .darkgrey-scroll, .linkedin{
-        width: 100%;
+        width: 230%;
+        margin-bottom: -5rem;
     }
     .lkn-titulo, .cv-titulo{
         font-family: Montserrat-Bold;
@@ -335,22 +355,23 @@ const Conteudo = styled.div`
         font-family: Montserrat-Bold;
         color:white;
 
-        font-size: 1em;
-        padding: 0.25em;
+        font-size: 1.3em;
+        padding: 0.30em;
         border-radius:5px;
 
         width:8em;
         transition: 0.5s;
+        margin-right: 1.8rem;
     }
     .save:hover{
         background-color: #1294ff;
     }
     .delete{
         font-family: Montserrat-Bold;
-        font-size: 1em;
+        font-size: 1.3em;
 
         width:8em;
-        padding: 0.25em;
+        padding: 0.30em;
 
         border-radius: 5px;
         background-color: darkred;
