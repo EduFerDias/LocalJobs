@@ -15,7 +15,6 @@ let api = new Api();
 
 export default function Pagina10 (){
     const [usuario, setUsuario] = useState([]);
-    const [usuarioA, setUsuarioA] = useState([])
 
     let id = Cookies.get('id_usu');
 
@@ -32,17 +31,15 @@ export default function Pagina10 (){
     }
 
  
-
-    console.log(usuarioA)
-
     useEffect(() => {
         listar();
+        console.log(usuario)
     }, [])
 
     return(
         <Conteudo>
             <div class="f10-tudo">
-                <Cabecalho id={2}/>
+                <Cabecalho/>
 
                 <div class="f10-filtro">
                     <div class="f10-textofiltro">Pesquise por área e<br/>cidade especifica</div>
@@ -72,7 +69,7 @@ export default function Pagina10 (){
 
                         </Carousel>;
 
-                    <div class="f10-filtro1">Pessoas Na area de Jornalismo</div>
+                    <div class="f10-filtro1">Pessoas Na area de Radio e Tv</div>
 
                         <Carousel 
                             responsive={responsive}
@@ -81,7 +78,7 @@ export default function Pagina10 (){
                         >
 
                             {usuario.filter((e) =>{
-                                if(e.ds_area.includes('Jornalismo'))
+                                if(e.ds_area.includes('Radio e Tv'))
                                 return e;
                             }).map(item => 
                                     <UserBox 

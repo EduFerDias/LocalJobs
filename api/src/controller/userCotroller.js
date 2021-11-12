@@ -9,7 +9,7 @@ const app = Router();
 
 app.get('/', async (req, resp) => {
     try {
-            let r = await db.infoc_atn_tb_pessoal.findOne();        
+            let r = await db.infoc_atn_tb_pessoal.findAll();        
             delete r.ds_senha;       
             resp.send(r)
     } catch (e){

@@ -16,7 +16,7 @@ import Pagina12 from "./pages/Pagina12";
 import Pagina14 from "./pages/Pagina14";
 import Pagina15 from "./pages/Pagina15";
 import Pagina16 from "./pages/Pagina16";
-import Pagina18 from "./pages/Pagina18";
+import Pagina18 from './pages/Pagina18'
 import Pagina19 from "./pages/Pagina19";
 
 import Pagina13 from "./pages/Pagina13";
@@ -35,7 +35,6 @@ export default function Rotas (){
     return(
         <BrowserRouter>
             <Switch>
-            <ListProvider>
             <Route path="/" component={Pagina} exact={true}/>
 
                 <Route path="/paginas" component={Pagina1} />
@@ -55,20 +54,23 @@ export default function Rotas (){
                 <Route path="/login" component={Pagina8} />
 
                 <Route path="/recSenha" component={Pagina7_5} />
+                <ListProvider>
+                    <AreaProvider>
+                        <CargoProvider>
+                            <CidadeProvider >
+                                <Route path="/buscar-usu" component={Pagina9} />
 
-                <AreaProvider>
-                <CargoProvider>
-                <CidadeProvider >
-                    <Route path="/buscar-usu" component={Pagina9} />
+                                <Route path="/home-empresa" component={Pagina10} />
 
-                    <Route path="/home-empresa" component={Pagina10} />
+                                <Route path="/home-usu" component={Pagina11} />
 
-                    <Route path="/home-usu" component={Pagina11} />
+                                <Route path="/buscar-empresa" component={Pagina12} />
+                            </CidadeProvider >
+                        </CargoProvider>
+                    </AreaProvider>
+                </ListProvider>
 
-                    <Route path="/buscar-empresa" component={Pagina12} />
-                </CidadeProvider >
-                </CargoProvider>
-                </AreaProvider>
+                    
 
                 <Route path="/usuario" component={Pagina14} />
 
@@ -78,10 +80,9 @@ export default function Rotas (){
 
                 <Route path="/empresa" component={Pagina18} />
 
-                    <Route path="/config-empresa" component={Pagina19} />
+                <Route path="/config-empresa" component={Pagina19} />
 
-                    <Route path="/config-usuario" component={Pagina13} />
-                </ListProvider>
+                <Route path="/config-usuario" component={Pagina13} />
 
                 <Route path="*" component={Pagina6}/>
             </Switch>

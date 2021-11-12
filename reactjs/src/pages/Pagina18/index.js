@@ -7,9 +7,8 @@ import Vaga from "../../components/comun/vagas"
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css"
 
-import { Link } from 'react-router-dom'
 
-import  { useEffect} from 'react'
+import  { useEffect } from 'react'
 import React, { useState} from 'react';
 
 import Api from '../../services/Api';
@@ -31,8 +30,6 @@ export default function Pagina18(props) {
             items: 3
         }
     }
-
-    // brunodeoliveira.22.10@gmail.com"
     console.log(resultado.id)
     console.log(empresa)
     console.log(empresaconfig)
@@ -54,9 +51,9 @@ export default function Pagina18(props) {
 
 
     useEffect(() => {
-        ListarEmpresaID();
-        ListarVagas();
-        listarEmpresaConfigID();
+        ListarEmpresaID()
+        ListarVagas()
+        listarEmpresaConfigID()
     }, []);
 
 
@@ -208,7 +205,6 @@ export default function Pagina18(props) {
 
 
             </Carousel>
-
 
         </div>
       </div>

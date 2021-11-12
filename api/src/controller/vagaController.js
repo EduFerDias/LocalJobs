@@ -5,6 +5,20 @@ const Router = express.Router;
 const app = Router();
 
 
+app.get('/', async (req, resp) => {
+    try {
+        // let {area} =
+
+        // if(area = ''){
+            let a = await db.infoc_atn_tb_vagas.findAll({ order: [['id_vaga', 'desc']] });
+            resp.send(a);
+        // }
+    } catch (e) {
+        resp.send(e.toString());
+    }
+})
+
+
 // POST TB VAGA
 
 app.post("/:id", async (req, resp) => {
@@ -37,7 +51,7 @@ app.post("/:id", async (req, resp) => {
 
 app.get('/:id', async (req, resp) => {
     try {
-        let id = await db.infoc_atn_tb_vagas.findOne({ where: { id_empresa: req.params.id } });
+        let id = await db.infoc_atn_tb_vagas.findAll({ where: { id_empresa: req.params.id } });
 
         if (id == null)
             return resp.send({ erro: 'Não a vagas nessa empresa' });
@@ -84,18 +98,6 @@ app.get('/:idempresa/:id', async (req, resp) => {
 
 // GET TB VAGA
 
-app.get('/', async (req, resp) => {
-    try {
-        // let {area} =
-
-        // if(area = ''){
-            let a = await db.infoc_atn_tb_vagas.findOne({ order: [['id_vaga', 'desc']] });
-            resp.send(a);
-        // }
-    } catch (e) {
-        resp.send(e.toString());
-    }
-})
 
 // DELETE TB VAGA
 

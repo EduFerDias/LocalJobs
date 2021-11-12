@@ -22,23 +22,12 @@ app.get("/:id", async (req, resp) => {
   });
 
 
-
-
-// GET TB EMPRESA
-app.get('/', async(req, resp) => {
-    try{
-        let a = await db.infoc_atn_tb_empresa.findOne({ order: [['id_empresa', 'desc']] });
-        resp.send(a)
-    } catch(e){
-        resp.send(e)
-    }
-})
-app.post("/", async (req, resp) => {
+  app.post("/", async (req, resp) => {
     try {
         let {area} = req.body;
         console.log(area)
         if(area){
-            let a = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area}})
+            let a = await db.infoc_atn_tb_empresa.findOne({like:{nm_ramo:area}})
             resp.send(a)
             return;
         }
@@ -46,6 +35,17 @@ app.post("/", async (req, resp) => {
           resp.send("Erro: " + e)
       }
   });
+
+// GET TB EMPRESA
+app.get('/', async(req, resp) => {
+    try{
+        let a = await db.infoc_atn_tb_empresa.findAll({ order: [['id_empresa', 'desc']] });
+        resp.send(a)
+    } catch(e){
+        resp.send(e)
+    }
+})
+
 
 
 // POST TB EMPRESA 

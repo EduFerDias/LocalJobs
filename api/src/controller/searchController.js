@@ -10,23 +10,18 @@ app.post('/buscarUsuario', async(req, resp) =>{
             
     if(area && cargo && cidade){
         let r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_area:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(!area && cargo && !cidade){
         let r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_cargo:cargo}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(!area && !cargo && cidade){
         let r = await db.infoc_atn_tb_pessoal.findOne({like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(area && !cargo && !cidade){
         let r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_area:area}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(!area && cargo && cidade){
         let r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(area && cargo && !cidade){
         let r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_area:area, ds_cargo:cargo}})        
@@ -34,32 +29,25 @@ app.post('/buscarUsuario', async(req, resp) =>{
         resp.send(r)
     }else if(area && !cargo && cidade){
         let r = await db.infoc_atn_tb_pessoal.findOne({where:{ds_area:area}, like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }
 });
 app.post('/buscarEmpresa', async(req, resp) =>{
-    let {area, cargo, cidade} = req.body;
-            
+    let {area, cargo, cidade} = req.body;         
     if(area && cargo && cidade){
         let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(!area && cargo && !cidade){
         let r = await db.infoc_atn_tb_empresa.findOne({where:{ds_cargo:cargo}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(!area && !cargo && cidade){
         let r = await db.infoc_atn_tb_empresa.findOne({like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(area && !cargo && !cidade){
         let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(!area && cargo && cidade){
         let r = await db.infoc_atn_tb_empresa.findOne({where:{ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }else if(area && cargo && !cidade){
         let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area, ds_cargo:cargo}})        
@@ -67,7 +55,6 @@ app.post('/buscarEmpresa', async(req, resp) =>{
         resp.send(r)
     }else if(area && !cargo && cidade){
         let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area}, like:{ds_estado_cidade:cidade}})        
-        delete r.ds_senha;        
         resp.send(r)
     }
 })
