@@ -231,14 +231,14 @@ export default function Pagina13(props){
                     </div>
 
                     <div class="faixa5">
-                        <div class="expf5"> Experiencias: </div>
+                        <div class="expf5"> Experiências: </div>
                         <div class="campotextt13"> <textarea value={experiencias} onChange={e => setExp(e.target.value)}> </textarea> </div>
-                        <div class="formsf5"> Formações Academicas: </div>
+                        <div class="formsf5"> Formações Acadêmicas: </div>
                         <div class="campotextt13"> <textarea value={formacao} onChange={e=> setFormacao(e.target.value)}> </textarea> </div>
                     </div>
 
                     <div class="faixa6">
-                        <div class="btdelf6"> <button> Deletar úsuario </button> </div>
+                        <div class="btdelf6"> <button> Deletar usuário </button> </div>
                         <div class="btsavef6"> <button onClick={altDados}> Salvar </button> </div>
                     </div>
 

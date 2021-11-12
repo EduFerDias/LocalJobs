@@ -70,7 +70,7 @@ export default function Pagina7 (){
             <div class="cadeado-t7">
               <img src="../../assets/images/pagina 5,6,7/cadeado-t5.png" alt=""/>
             </div>
-            <div class="TituloConteudo-t7">Problema para entrar?</div>
+            <div class="TituloConteudo-t7">Problemas para entrar?</div>
             <div class="TextoConteudo-t7">
               Enviaremos um código para o seu numero de telefone ou seu email para
               que possa voltar a acessar a sua conta.

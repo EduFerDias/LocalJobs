@@ -7,7 +7,7 @@ export default function Pagina6(){
           <Cabecalho3 />
           <div class="conteudo-t6">
             <div class="nrErro-t6"> 404 </div>
-            <div class="nmErro-t6"> Essa página nao foi encontrada </div>
+            <div class="nmErro-t6"> Essa página não foi encontrada </div>
           </div>
         </Conteudo>
   
