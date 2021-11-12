@@ -9,7 +9,23 @@ const Pagina15 = styled.div`
     color: white;
     font-family: 5em;
 }
+.mensagemaviso {
+    display: none;
+}
 
+.box-titulo a {
+    color: white;
+}
+
+h2 {
+    display: none
+}
+.currilosscrool {
+    display: none;
+}
+.f16-mensagens {
+    display: none;
+}
 @font-face {
     font-family: Regular;
     src: url(./assets/fonts/Montserrat-Regular.ttf);

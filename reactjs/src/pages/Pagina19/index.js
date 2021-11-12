@@ -1,11 +1,12 @@
 import Conteudo from "./style";
 import Rodape from '../../components/comun/rodapé'
 import Header6 from "../../components/comun/header5";
+import LoadingBar from 'react-top-loading-bar'
 import { JobsHolder } from "../../components/styled/JobHolder/styled";
 import { InfoHolder } from "../../components/styled/JobHolder/infoholder";
 import { Link } from 'react-router-dom'
 import  { useEffect} from 'react'
-import React, { useState} from 'react';
+import React, { useState, useRef  } from 'react';
 import Cookies from 'js-cookie'
 import { useHistory } from 'react-router-dom'
 
@@ -25,7 +26,6 @@ function lerUsuarioLogado(navigation) {
 }
 
 export default function Pagina19 (props){
-
     const [vaga, setVagas] = useState([]);
 
     const navigation = useHistory();
@@ -88,22 +88,30 @@ export default function Pagina19 (props){
 
     console.log(descricao)
 
+    const loading = useRef(null)
 
     async function SalvarConfig() {
+        loading.current.continuousStart(); 
         const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
         const a = await api.alterarEmpresa(id,nome,ramo,telefone)
+        console.log(a)
+        console.log(x)
         ListarEmpresa();
+        loading.current.complete()   
     }
+
 
     useEffect(() => {
         ListarVagas();
         ListarEmpresa();
     }, []);
 
+
+
     return(
         <Conteudo>
+             <LoadingBar color='#f11946' ref={loading} />
             <Header6 />
-
                 <div>
                     <div className="p19-form">
                         <form>
@@ -286,15 +294,15 @@ export default function Pagina19 (props){
                     <div className="vagasmsn">
                         <div className="vagas">
                             <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> 
-                                <Link to={{ pathname: '/criar-vaga' }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
+                                <Link to={{ pathname: '/criar-vaga', state: id}}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
                             </div>
                             
                             <JobsHolder className="darkgrey-scroll">
                                 {vaga.map(item => 
                                     
                                     <div className="box-vaga">
-                                        <Link to={{ pathname: '/criar-vaga', state: props }}>
-                                                <div className="box-titulo"> {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
+                                        <Link to={{ pathname: '/criar-vaga', state: item.id_vaga } }>
+                                                <div className="box-titulo" > {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
                                         </Link>
                                         <div className="box-paragrafo"> 
                                             {item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao} <span className="veja-m">Veja Mais</span>

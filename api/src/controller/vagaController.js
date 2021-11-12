@@ -116,14 +116,11 @@ app.delete("/:id", async (req, resp) => {
 app.put("/:idempresa/:id", async(req,resp) => {
 
     try { 
+
         let a = req.body;
-
-        let r = await db.infoc_atn_tb_vagas.findOne({ where: { id_empresa: req.params.idempresa, id_vaga: req.params.id } })
-
-
-
-        if(r != null)
-            return resp.send({erro:"Essa vaga não Existe!"})
+        let id = req.params.ide
+        let idempresa = req.params.idempresa
+        
 
         const vaga = await db.infoc_atn_tb_vagas.update ({
             ds_profissao: a.ds_profissao,
@@ -136,9 +133,9 @@ app.put("/:idempresa/:id", async(req,resp) => {
             ds_tipo_contratacao: a.ds_tipo_contratacao,
             ds_beneficios: a.ds_beneficios,
             ds_hora_trabalho: a.ds_hora_trabalho
-        })
+        }, {where: { id_empresa: idempresa, id_vaga: id}})
     
-        resp.sendStatus(vaga);
+        resp.send(vaga);
 
         } catch (e) {
             resp.send(e.toString(e))

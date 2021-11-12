@@ -289,7 +289,7 @@ export default function Pagina3(){
                         <input type="text"  maxlength="50" value={ email } onChange={e => setEmail(e.target.value)} placeholder="Email"/>
                         <input type="password" maxlength="30" value={ senha } onChange={e => setSenha(e.target.value)} placeholder="Senha"/> 
                         <input type="password" maxlength="30" value={ senha2 } onChange={e => setSenha2(e.target.value)} placeholder="Confirmar senha"/> 
-                        <button class="button" type="button" onClick={ inserirEmpresa }>Cadastrar</button>
+                        <button class="button" type="button" onClick={ inserirEmpresa} onKeyPress={inserirEmpresa}>Cadastrar</button>
                     </form>
                     <div class="f1-conta">
                         Já possui conta? &nbsp; <Link to="/login"><span>faça o login</span></Link>

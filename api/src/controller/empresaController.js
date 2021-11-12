@@ -125,19 +125,15 @@ app.put("/:id", async (req,resp) => {
         let id = req.params.id;
         let a = req.body;
 
-        let r = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome, nr_cnpj: a.nr_cnpj,ds_email: a.ds_email, } })
+        let r = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome} })
         if(r != null)
             return resp.send({erro:"Essa Empresa já Existe!"})
 
          
         let empresa = await db.infoc_atn_tb_empresa.update ({
             nm_nome: a.nm_nome,
-            nr_cnpj: a.nr_cnpj,
             nm_ramo: a.nm_ramo,
-            nr_telefone: a.nr_telefone,
-            ds_estado_cidade: a.ds_estado_cidade,
-            ds_email: a.ds_email,
-            ds_senha: a.ds_senha
+            nr_telefone: a.nr_telefone
         }, {where: { id_empresa: id } })
     
         resp.sendStatus(empresa);

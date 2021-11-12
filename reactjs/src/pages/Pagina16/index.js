@@ -1,10 +1,14 @@
 import Conteudo from "./styled";
 import Rodape from "../../components/comun/rodapé";
-import Cabecalho3 from "../../components/comun/cabecalho3";
+import Cabecalho3 from "../../components/comun/header4";
 import LoadingBar from 'react-top-loading-bar'
+import Cookies from 'js-cookie'
 
 import  { useEffect} from 'react'
 import React, { useState, useRef  } from 'react';
+
+import { useHistory } from 'react-router-dom'
+
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,10 +22,15 @@ const api = new Api();
 
 export default function Pagina15(props){
 
-    const [vagaesp, setVagaEspecifica] = useState(props.location.state.id_vaga)
+
+    const navigation = useHistory();
+
+    const [vagaesp, setVagaEspecifica] = useState(props.location.state)
+    const [id, setId] = useState(props.location.state)
+
 
     const [vaga, setVaga] = useState([])
-    const [id, setId] = useState(props.location.state)
+
     const [profissao, setProfissao] = useState('');
     const [descricao, setDescricao] = useState('');
     const [qualificacao, setQualificacao] = useState('');
@@ -34,8 +43,6 @@ export default function Pagina15(props){
     const [horario, setHorario] = useState('');
 
     const loading = useRef(null)
-    console.log(id)
-    console.log(props)
 
     async function inserirVaga() { 
 
@@ -54,12 +61,13 @@ export default function Pagina15(props){
         else if(horario > time){
             toast.error('Horario deve ser menor que 8 horas');
         }
-        else if(vagaesp > 0) {
+        else if(props.location.state > 0) {
             loading.current.continuousStart(); 
-            toast.success('Vaga Editada')
-            let x = await api.EditarVaga(vagaesp,id,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
-            loading.current.complete()      
+            let x = await api.EditarVaga(usuarioLogado,id,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
+            loading.current.complete()   
+            toast.success('Vaga Editada')   
             console.log(x)      
+            navigation.push('/config-empresa');
         }
         else{
             loading.current.continuousStart(); 
@@ -68,6 +76,7 @@ export default function Pagina15(props){
             toast.success('Vaga Cadastrada')
             loading.current.complete()      
             console.log(x)
+            navigation.push('/config-empresa');
         }
         
 
@@ -81,7 +90,7 @@ export default function Pagina15(props){
               {
                 label: 'Sim',
                 onClick: async () => {
-                    let r = await api.DeletarVaga(vagaesp)
+                    let r = await api.DeletarVaga(id)
                     if (r.erro)
                         toast.error(`${r.erro}`);
                     else {
@@ -98,29 +107,42 @@ export default function Pagina15(props){
     }
 
     async function ListarVagasEspecifica(){
-        let a = await api.listarVagasID(id,vagaesp)
+        let a = await api.listarVagasID(usuarioLogado.id,props.location.state)
         setVaga(a);
+        console.log(a[0])
+        a = a[0]
+        setProfissao(a.ds_profissao)
+        setDescricao(a.ds_descricao)
+        setQualificacao(a.ds_qualificacao)
+        setFormacoes(a.ds_formacao)
+        setLocal(a.ds_local_trabalho)
+        setSalario_a(a.ds_salario_a)
+        setSalario_de(a.ds_salario_de)
+        setTipoDeContratacao(a.ds_tipo_contratacao)
+        setBeneficios(a.ds_beneficios)
+        setHorario(a.ds_hora_trabalho)
     }
 
-    async function Editar() {
-        setProfissao(vaga.ds_profissao)
-        setDescricao(vaga.ds_descricao)
-        setQualificacao(vaga.ds_qualificacao)
-        setFormacoes(vaga.ds_formacao)
-        setLocal(vaga.ds_local_trabalho)
-        setSalario_a(vaga.ds_salario_a)
-        setSalario_de(vaga.ds_salario_de)
-        setTipoDeContratacao(vaga.ds_tipo_contratacao)
-        setBeneficios(vaga.ds_beneficios)
-        setHorario(vaga.ds_hora_trabalho)
+    function lerUsuarioLogado(navigation) {
+        let logado = Cookies.get('id_empre');
+    
+        if (logado == null) {
+            return null;
+        }
+        
+        let usuarioLogado = JSON.parse(logado);
+        return usuarioLogado;
     }
+
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+    console.log(usuarioLogado.id)
+    console.log(props.location.state)
 
     useEffect(() => {
         ListarVagasEspecifica();
     }, []);
     
-    console.log(vagaesp)
-    console.log(vaga)
+    console.log(vaga[0])
     
 
     return(
