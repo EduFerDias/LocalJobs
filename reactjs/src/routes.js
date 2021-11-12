@@ -36,13 +36,7 @@ export default function Rotas (){
         <BrowserRouter>
             <Switch>
             <ListProvider>
-<<<<<<< HEAD
-                <Route path="/xsssssssssssssssssss" component={Pagina1} exact={true}/>
-=======
-                <Route path="/" component={Pagina} exact={true}/>
->>>>>>> b64b28c9ac6307a72fad8bf2cf905a43526a0d84
-
-                <Route path="/" component={Pagina1} />
+                <Route path="/" component={Pagina1} exact={true}/>
 
                 <Route path="/cadastros" component={Pagina2} />
 

@@ -14,7 +14,7 @@ export default function rodape(){
                     <div className="nav">
                         Navegação
                         <div className="sobre">
-                            <Link to="/paginas"> Sobre nós </Link>
+                            <Link to="/"> Sobre nós </Link>
                         </div>
 
                         <div className="perfil">
