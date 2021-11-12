@@ -48,10 +48,13 @@ export default function Pagina8(){
             loadin.current.complete()
             nav.push('/home-usu')
             Cookies.set('id_usu', JSON.stringify(r))
+            Cookies.set('usuario-logado', JSON.stringify(r));
         }
         else if(r.tp_conta === 'empresarial'){
             loadin.current.complete()
+            
             Cookies.set('id_empre', JSON.stringify(r))
+            Cookies.set('usuario-logado', JSON.stringify(r));
             nav.push('/home-empresa')
         }
         return;

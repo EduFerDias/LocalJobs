@@ -12,13 +12,13 @@ export default function Pagina5 (){
             <div class="cadeado-t5">
               <img src="./assets/images/pagina 5,6,7/cadeado-t5.png"  alt="" />
             </div>
-            <div class="TituloConteudo-t5">Problema para entrar?</div>
+            <div class="TituloConteudo-t5">Problemas para entrar?</div>
             <div class="TextoConteudo-t5">
-              Enviaremos um código para o seu numero de telefone ou seu email para
+              Enviaremos um código para o seu número de telefone ou em seu email para
               que possa voltar a acessar a sua conta.
             </div>
             <div class="EnviarNoNumero">
-              <Link to="/pagina7">  <button>Enviar código no numero de celular</button> </Link>
+              <Link to="/pagina7">  <button>Enviar código no número de celular</button> </Link>
             </div>
             <div class="EnviarNoEmail">
               <Link to="/codigo">  <button>Enviar código no email</button> </Link>
