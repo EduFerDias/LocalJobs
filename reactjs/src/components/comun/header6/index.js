@@ -48,7 +48,7 @@ export default function Header6 (props){
         </div>
             <div className="divisao-t6">
                 <Link to={{ pathname: '/login', state: props }}>
-                    <div className="nmUsuario-t6"> Empresa </div>
+                    <div className="nmUsuario-t6"> {empresa} </div>
                 </Link>
                     <div className="imagenUsuario-t6"> <img src={link} alt="" /> </div>
             </div>

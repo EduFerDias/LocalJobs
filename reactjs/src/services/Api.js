@@ -1,6 +1,6 @@
 import axios from 'axios'
 const api = axios.create({
-    baseURL: 'https://loca1jobs.herokuapp.com/'
+    baseURL: 'http://localhost:3030'
 })
 
 export default class Api {
@@ -267,6 +267,17 @@ export default class Api {
             cidade,
         } 
         let r = await api.post(`/buscarEmpresa`, s)
+        return r.data;
+    }
+
+
+    async enviarEmail(para, assunto, mensagem){
+        let email = {
+            para:para,
+            assunto:assunto,
+            mensagem:mensagem
+        }
+        let r = await api.post(`/enviarEmail`, email)
         return r.data;
     }
 }

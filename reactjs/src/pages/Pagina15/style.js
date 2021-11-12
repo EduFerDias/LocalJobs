@@ -112,6 +112,10 @@ const Pagina15 = styled.div`
     flex-direction: row;
 }
 
+.enviar-email{
+    color:white;
+    border:none;
+}
 
 .descricao-direita{
     width: 29em;

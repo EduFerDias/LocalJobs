@@ -2,11 +2,11 @@ import Conteudo from "./style";
 import Cabecalho from '../../components/comun/cabecalho3'
 import Rodape from '../../components/comun/rodapé'
 
-import { Link } from 'react-router-dom'
+import Cookies from "js-cookie";
 
 import  { useEffect} from 'react'
-// import { useHistory } from 'react-router-dom'
-// import {useRef} from 'react';
+
+import { useHistory } from 'react-router-dom'
 
 
 import React, { useState } from 'react';
@@ -17,9 +17,26 @@ const api = new Api();
 
 
 
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('id_usu');
+
+    if (logado == null) {
+        return null;
+    }
+    
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
 
 
 export default function Pagina15(props){
+
+    const navigation = useHistory();
+
+
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+
+    let user = usuarioLogado.nome;
 
     const [vagas, setVagas ] = useState([]);
     const [empresa, setEmpresa ] = useState([]);
@@ -37,13 +54,18 @@ export default function Pagina15(props){
         setEmpresa(x)
     }
 
+    async function enviarEmail(){
+       let y = await api.enviarEmail('diasdu2011@outlook.com', `Interesse Na sua vaga para: ${resultado.profissao}`, `
+            <h2>O candidato ${user} ok eu to ok</h2>
+        `)
+        toast.success("enviei")
+        return y;
+    }
+
     useEffect(() =>{
         ListarEmpresa();
     }, [])
 
-    useEffect(() => {
-        console.log(id)
-    })
 
 
     return(
@@ -108,9 +130,9 @@ export default function Pagina15(props){
                                 </div>
                             </div>
 
-                            <div class="enviar-email">
+                            <button onClick={enviarEmail} class="enviar-email">
                                 Enviar Email 
-                            </div>
+                            </button>
                         </div>
                     </div>
                     <div class="paineis-direita">
