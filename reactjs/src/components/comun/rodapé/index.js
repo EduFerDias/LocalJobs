@@ -36,7 +36,7 @@ export default function rodape(){
 
                         <div className="twitter">
                             <img src="../assets/images/pagina 9,10,11,12/f10-twitter.png" alt="" /> 
-                            <a href="">Twitter</a>
+                            <a href="https://twitter.com/Localjobs_%22%3ETwitter"> Twitter</a>
                         </div>
 
                         <div className="facebook">
