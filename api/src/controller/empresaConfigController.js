@@ -46,7 +46,7 @@ app.put("/:id", async (req, resp) => {
             qtd_funcionarios: a.qtd_funcionarios
         }, {where: { id_empresa: id } })
 
-      resp.sendStatus(empresa);
+        resp.sendStatus(200);
   
       } catch (e) {
           resp.send(e.toString());

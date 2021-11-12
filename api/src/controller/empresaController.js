@@ -136,7 +136,7 @@ app.put("/:id", async (req,resp) => {
             nr_telefone: a.nr_telefone
         }, {where: { id_empresa: id } })
     
-        resp.sendStatus(empresa);
+        resp.sendStatus(200);
 
     } catch (error) {
         resp.send(error.toString("Erro"))

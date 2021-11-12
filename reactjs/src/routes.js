@@ -52,7 +52,6 @@ export default function Rotas (){
 
                 <Route path="/codigo" component={Pagina7} />
 
-                <Route path="/login" component={Pagina8} />
 
                 <Route path="/recSenha" component={Pagina7_5} />
 
@@ -84,9 +83,13 @@ export default function Rotas (){
                 <Route path="/config-empresa" component={Pagina19} />
 
                 <Route path="/config-usuario" component={Pagina13} />
+            </ListProvider>
+
+                <Route path="/login" component={Pagina8} />
+
 
                 <Route path="*" component={Pagina6}/>
-                </ListProvider>
+                
             </Switch>
         </BrowserRouter>
     );
