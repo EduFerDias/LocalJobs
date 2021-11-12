@@ -352,7 +352,7 @@ export default function Pagina19 (props){
                                     <div className="linkedin-box">
                                         <img src="./assets/images/Pagina19/LinkedIn (2).png" alt="" />
                                         <div className="nm-vaga">
-                                            <div className="nome">Usuário</div>
+                                            <div className="nome">Úsuario</div>
                                             <div className="vaga">Vagas</div>
                                         </div>
                                     </div>
@@ -360,7 +360,7 @@ export default function Pagina19 (props){
                                     <div className="linkedin-box">
                                         <img src="./assets/images/Pagina19/LinkedIn (2).png" alt="" />
                                         <div className="nm-vaga">
-                                            <div className="nome">Usuário</div>
+                                            <div className="nome">Úsuario</div>
                                             <div className="vaga">Vagas</div>
                                         </div>
                                     </div>
@@ -374,7 +374,7 @@ export default function Pagina19 (props){
                                     <div className="curriculo-box">
                                         <img src="./assets/images/Pagina19/Resume (1).png" alt="" />
                                         <div className="nm-vaga">
-                                            <div className="nome">Usuário</div>
+                                            <div className="nome">Úsuario</div>
                                             <div className="vaga">Vagas</div>
                                         </div>
                                     </div>
@@ -382,7 +382,7 @@ export default function Pagina19 (props){
                                     <div className="curriculo-box">
                                         <img src="./assets/images/Pagina19/Resume (1).png" alt="" />
                                         <div className="nm-vaga">
-                                            <div className="nome">Usuário</div>
+                                            <div className="nome">Úsuario</div>
                                             <div className="vaga">Vagas</div>
                                         </div>
                                     </div>
@@ -390,7 +390,7 @@ export default function Pagina19 (props){
                                     <div className="curriculo-box">
                                         <img src="./assets/images/Pagina19/Resume (1).png" alt="" />
                                         <div className="nm-vaga">
-                                            <div className="nome">Usuário</div>
+                                            <div className="nome">Úsuario</div>
                                             <div className="vaga">Vagas</div>
                                         </div>
                                     </div>
@@ -398,7 +398,7 @@ export default function Pagina19 (props){
                                     <div className="curriculo-box">
                                         <img src="./assets/images/Pagina19/Resume (1).png" alt="" />
                                         <div className="nm-vaga">
-                                            <div className="nome">Usuário</div>
+                                            <div className="nome">Úsuario</div>
                                             <div className="vaga">Vagas</div>
                                         </div>
                                     </div>
@@ -406,7 +406,7 @@ export default function Pagina19 (props){
                                     <div className="curriculo-box">
                                         <img src="./assets/images/Pagina19/Resume (1).png" alt="" />
                                         <div className="nm-vaga">
-                                            <div className="nome">Usuário</div>
+                                            <div className="nome">Úsuario</div>
                                             <div className="vaga">Vagas</div>
                                         </div>
                                     </div>

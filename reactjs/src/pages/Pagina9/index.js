@@ -5,23 +5,37 @@ import Cabecalho from "../../components/comun/cabecalho pesquisa"
 import Api from '../../services/Api';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-
+import { useHistory } from 'react-router-dom'; 
 import { useList } from '../../Contexts/searchContext';
 import { useCidade } from '../../Contexts/cidadeContext';
 import { useArea } from '../../Contexts/areaContext';
 import { useCargo } from '../../Contexts/cargoContext';
+import Cookies from 'js-cookie';
 
 let api = new Api();
 
 
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('usuario-logado');
+    if (logado == null) {
+        navigation.push('/');
+        return null;
+    }
+    
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
+
+
 export default function Pagina9 (){
     const[usuario, setUsuario] = useState([])
-
+    const navigation = useHistory();
     const {list} = useList();
     const {cidade} = useCidade();
     const {area} = useArea();
     const {cargo} = useCargo();
 
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
 
 
 let encontrarEmrpesa = async ()=> {

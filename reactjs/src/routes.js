@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Pagina from "./pages/paginass";
+//import Pagina from "./pages/paginass";
 import Pagina1 from "./pages/Pagina1";
 import Pagina2 from "./pages/Pagina2";
 import Pagina3 from "./pages/Pagina3";
@@ -36,9 +36,9 @@ export default function Rotas (){
         <BrowserRouter>
             <Switch>
             <ListProvider>
-            <Route path="/" component={Pagina} exact={true}/>
+                <Route path="/xsssssssssssssssssss" component={Pagina1} exact={true}/>
 
-                <Route path="/paginas" component={Pagina1} />
+                <Route path="/" component={Pagina1} />
 
                 <Route path="/cadastros" component={Pagina2} />
 
