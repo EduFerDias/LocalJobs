@@ -35,7 +35,8 @@ export default function Rotas (){
     return(
         <BrowserRouter>
             <Switch>
-            <Route path="/" component={Pagina} exact={true}/>
+            <ListProvider>
+                <Route path="/" component={Pagina} exact={true}/>
 
                 <Route path="/paginas" component={Pagina1} />
 
@@ -54,7 +55,8 @@ export default function Rotas (){
                 <Route path="/login" component={Pagina8} />
 
                 <Route path="/recSenha" component={Pagina7_5} />
-                <ListProvider>
+
+                
                     <AreaProvider>
                         <CargoProvider>
                             <CidadeProvider >
@@ -68,7 +70,6 @@ export default function Rotas (){
                             </CidadeProvider >
                         </CargoProvider>
                     </AreaProvider>
-                </ListProvider>
 
                     
 
@@ -85,6 +86,7 @@ export default function Rotas (){
                 <Route path="/config-usuario" component={Pagina13} />
 
                 <Route path="*" component={Pagina6}/>
+                </ListProvider>
             </Switch>
         </BrowserRouter>
     );
