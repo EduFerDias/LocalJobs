@@ -53,7 +53,7 @@ export default function Pagina12 (props){
                 
                 <Cabecalho onde={'pessoal'} pg={false}/>
 
-                <div class="f10-filtro1">   Resultado:⠀  <div>{list}</div></div>
+                <div class="f10-filtro1">   Resultado:{cargo}⠀  <div>{list}</div></div>
 
                 <div class="f10-areas">
 

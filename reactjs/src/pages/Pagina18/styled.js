@@ -4,6 +4,7 @@ const Conteudo = styled.div`
 
 background-color: #404756;
 display: flex;
+flex-direction:column;
 
 .cabe-esq-dlt {
   display: flex;

@@ -1,12 +1,42 @@
 import Conteudo from "./styled";
 import { Link } from 'react-router-dom'
 
-import Cookies from 'js-cookie'
+import Cookies, { set } from 'js-cookie'
+import { useState } from "react";
 import { useHistory } from 'react-router-dom'
+import Api from "../../../services/Api";
+let api = new Api();
 
+
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('id_empre');
+
+    if (logado == null) {
+        return null;
+    }
+    
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
 
 
 export default function Header6 (props){
+    const{link, setLink} = useState();
+
+    const navigation = useHistory();
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+
+    console.log(usuarioLogado)
+
+    let getIMG = ( ) =>{
+        let y = api.buscaUsuConfigId(usuarioLogado.id)
+        setLink(y.ds_link_imagem)
+    }
+
+
+    const [empresa, setEmpresa] = useState(usuarioLogado.nome);
+
+    const [empresarial,setEmpresarial] = useState([])
 
     return(
         <Conteudo>
@@ -20,7 +50,7 @@ export default function Header6 (props){
                 <Link to={{ pathname: '/login', state: props }}>
                     <div className="nmUsuario-t6"> Empresa </div>
                 </Link>
-                    <div className="imagenUsuario-t6"> <img src="../../assets/images/Pagina18/Group 8.png" alt="" /> </div>
+                    <div className="imagenUsuario-t6"> <img src={link} alt="" /> </div>
             </div>
         </Conteudo>
     );

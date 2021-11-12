@@ -63,7 +63,6 @@ export default function Searchbar (props){
                     <select name="" id="" value={area} onChange={e => setArea(e.target.value)}>
                                     <option value="" disabled selected hidden>Áreas</option>
                                     <option value="Alimentos e Bebidas">Alimentos e Bebidas </option>
-                                    <option value="Historia">a</option>
                                     <option value="Arte e Antiguidades">Arte e Antiguidades </option>
                                     <option value="Artigos Religiosos">Artigos Religiosos </option>
                                     <option value="Assinaturas e Revistas">Assinaturas e Revistas </option>
