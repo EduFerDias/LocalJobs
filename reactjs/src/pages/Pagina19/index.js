@@ -52,7 +52,6 @@ export default function Pagina19 (props){
 
 
     async function ListarVagas() {
-
         const x = await api.listarVagasIDempresa(id)
         console.log(x)
         if (x.length == 0) {
@@ -253,36 +252,36 @@ export default function Pagina19 (props){
                                 </div>
                                 <div className="l2-interac"> 
                                     <label>Site</label>
-                                    <input  value={ site } onChange={e => setSite(e.target.value)}/>
+                                    <input maxlength="50" value={ site } onChange={e => setSite(e.target.value)}/>
                                 </div>
                                 <div className="l2-interac"> 
                                     <label>Telefone</label>
-                                    <input  value={ telefone } onChange={e => setTelefone(e.target.value)}/>
+                                    <input  type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" maxlength="11" value={ telefone } onChange={e => setTelefone(e.target.value)}/>
                                 </div>
                                 <div className="l2-interac"> 
                                     <label>Funcionários</label>
-                                    <input  value={ funcionarios } onChange={e => setFuncionarios(e.target.value)}/>
+                                    <input maxlength="7" value={ funcionarios } onChange={e => setFuncionarios(e.target.value)}/>
                                 </div>
                             </div>
                             <div className="l3">
                                 <div className="l3-desc"> 
                                     <label>Descrição</label>
-                                    <textarea value={ descricao } onChange={e => setDescricao(e.target.value)}></textarea>
+                                    <textarea maxlength="255" value={ descricao } onChange={e => setDescricao(e.target.value)}></textarea>
                                 </div>
                                 <div className="l3-inputs">
                                     <span className="l3-input">
                                         <label>LinkedIn</label>
-                                        <input  value={ linkedin } onChange={e => setLinkdin(e.target.value)}/>
+                                        <input  maxlength="30" value={ linkedin } onChange={e => setLinkdin(e.target.value)}/>
                                     </span>
 
                                     <span className="l3-input">
                                         <label>Instagram</label>
-                                        <input value={ insta } onChange={e => setInsta(e.target.value)}/>
+                                        <input maxlength="30" value={ insta } onChange={e => setInsta(e.target.value)}/>
                                     </span>
 
                                     <span className="l3-input">
                                         <label>Twitter</label>
-                                        <input  value={ twitter } onChange={e => setTwitter(e.target.value)}/>
+                                        <input maxlength="30" value={ twitter } onChange={e => setTwitter(e.target.value)}/>
                                     </span>
                                 </div>
 
@@ -293,7 +292,7 @@ export default function Pagina19 (props){
                     <div className="vagasmsn">
                         <div className="vagas">
                             <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> 
-                                <Link to={{ pathname: '/criar-vaga', state: id}}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
+                                <Link to={{ pathname: '/criar-vaga', state: 0   }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
                             </div>
                             
                             <JobsHolder className="darkgrey-scroll">
@@ -304,7 +303,7 @@ export default function Pagina19 (props){
                                                 <div className="box-titulo" > {item.ds_profissao != null && item.ds_profissao.length > 80 ?item.ds_profissao.substr(0, 15) + '...' :item.ds_profissao} </div>
                                         </Link>
                                         <div className="box-paragrafo"> 
-                                            {item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao} <span className="veja-m">Veja Mais</span>
+                                            {item.ds_descricao != null && item.ds_descricao.length > 80 ?item.ds_descricao.substr(0, 15) + '...' :item.ds_descricao}
                                         </div>
 
                                         <div className="box-detalhes">

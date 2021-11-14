@@ -24,13 +24,30 @@ export default function Pagina15(props){
 
 
     const navigation = useHistory();
+    function lerUsuarioLogado(navigation) {
+        let logado = Cookies.get('id_empre');
+    
+        if (logado == null) {
+            return null;
+        }
+        
+        let usuarioLogado = JSON.parse(logado);
+        return usuarioLogado;
+    }
+
+    let usuarioLogado = lerUsuarioLogado(navigation) || {};
+
+    let id = usuarioLogado.id
 
     const [vagaesp, setVagaEspecifica] = useState(props.location.state)
-    const [id, setId] = useState(props.location.state)
+    
 
+    console.log(id)
+    console.log(props)
+    console.log(id)
+    console.log(vagaesp)
 
     const [vaga, setVaga] = useState([])
-
     const [profissao, setProfissao] = useState('');
     const [descricao, setDescricao] = useState('');
     const [qualificacao, setQualificacao] = useState('');
@@ -51,17 +68,17 @@ export default function Pagina15(props){
 
 
         if(a === true) {
-            toast.error('Todos os campos devem estar preenchidos!');
+            toast.error('Campos essências devem ser preenchidos');
         }
 
-        else if(salario_a < salario_de) {
+        else if(salario_de > salario_a) {
             toast.error('O Salario DE: ' + salario_de + " Deve ser menor que A: " + salario_a);
         }
 
         else if(horario > time){
             toast.error('Horario deve ser menor que 8 horas');
         }
-        else if(props.location.state > 0) {
+        else if(vagaesp < 0) {
             loading.current.continuousStart(); 
             let x = await api.EditarVaga(usuarioLogado,id,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
             loading.current.complete()   
@@ -69,11 +86,12 @@ export default function Pagina15(props){
             console.log(x)      
             navigation.push('/config-empresa');
         }
-        else{
+        else {
             loading.current.continuousStart(); 
-            toast.success('Vaga Cadastrada')
+            console.log("zap2")
             let x = await api.inserirVaga(id,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
             toast.success('Vaga Cadastrada')
+            console.log("zap")
             loading.current.complete()      
             console.log(x)
             navigation.push('/config-empresa');
@@ -107,10 +125,10 @@ export default function Pagina15(props){
     }
 
     async function ListarVagasEspecifica(){
-        let a = await api.listarVagasID(usuarioLogado.id,props.location.state)
-        setVaga(a);
-        console.log(a[0])
+        let a = await api.listarVagasID(id,vagaesp)
+        console.log(a)
         a = a[0]
+        setVaga(a);
         setProfissao(a.ds_profissao)
         setDescricao(a.ds_descricao)
         setQualificacao(a.ds_qualificacao)
@@ -123,27 +141,11 @@ export default function Pagina15(props){
         setHorario(a.ds_hora_trabalho)
     }
 
-    function lerUsuarioLogado(navigation) {
-        let logado = Cookies.get('id_empre');
-    
-        if (logado == null) {
-            return null;
-        }
-        
-        let usuarioLogado = JSON.parse(logado);
-        return usuarioLogado;
-    }
-
-    let usuarioLogado = lerUsuarioLogado(navigation) || {};
-    console.log(usuarioLogado.id)
-    console.log(props.location.state)
+    console.log(vaga)
 
     useEffect(() => {
         ListarVagasEspecifica();
     }, []);
-    
-    console.log(vaga[0])
-    
 
     return(
         
@@ -162,13 +164,13 @@ export default function Pagina15(props){
                                 <input type="text" maxlength="30" value={ profissao } onChange={e => setProfissao(e.target.value)} placeholder="⠀Profissão" /> 
 
                                 <div class="f16-descricao">Descrição:</div>
-                                <textarea name="" maxlength="250" value={ descricao } onChange={e => setDescricao(e.target.value)}  id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="255" value={ descricao } onChange={e => setDescricao(e.target.value)}  id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-descricao">Qualificação:</div>
-                                <textarea name="" maxlength="250" value={ qualificacao } onChange={e => setQualificacao(e.target.value)} id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="255" value={ qualificacao } onChange={e => setQualificacao(e.target.value)} id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-descricao">Formações</div>
-                                <textarea name="" maxlength="250"  value={ formacoes } onChange={e => setFormacoes(e.target.value)} id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="255"  value={ formacoes } onChange={e => setFormacoes(e.target.value)} id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-Local">Local de trabalho</div>
                                 <input class="trabalho"  maxlength="30" value={ local } onChange={e => setLocal(e.target.value)}  type="text" placeholder="⠀Local de trabalho"/>
@@ -217,7 +219,7 @@ export default function Pagina15(props){
                                 <div class="beneficios">Benefícios </div>
                                 <textarea name="" id="" cols="55" maxlength="250" rows="10" value={ beneficios } onChange={e => setBeneficios(e.target.value)}></textarea>
 
-                                <div class="hora">Horas Trabalhadas</div>
+                                <div class="hora">Carga horária diaria:</div>
                                 <input class="inputhoras" type="time" min="01:00" max="8:00" placeholder="⠀Horário de trabalho" value={ horario } onChange={e => setHorario(e.target.value)}/>
                             </div>
 

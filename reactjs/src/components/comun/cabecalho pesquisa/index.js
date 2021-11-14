@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import Searchbar from "../SearchBar";
 import Conteudo from './styled';
+import Cookies from 'js-cookie'
+
+function lerUsuarioLogado(navigation) {
+    let logado = Cookies.get('id_empre');
+
+    if (logado == null) {
+        return null;
+    }
+    
+    let usuarioLogado = JSON.parse(logado);
+    return usuarioLogado;
+}
+
 
 
 export default function Cabecalho2 (props){

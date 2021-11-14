@@ -45,11 +45,12 @@ app.post("/", async (req, resp) => {
     let nome = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome } })
     let cnpj = await db.infoc_atn_tb_empresa.findOne({ where: { nr_cnpj: a.nr_cnpj } })
     let email = await db.infoc_atn_tb_empresa.findOne({ where: { ds_email: a.ds_email } })
+    let email2 = await db.infoc_atn_tb_pessoal.findOne({ where: { ds_email: a.ds_email } })
 
     if(nome != null) {
         return resp.send({erro:"Esse nome já foi ultizado em nosso site, tente usar outro"})
     }
-    else if (email != null) {
+    else if (email != null || email2 != null) {
         return resp.send({erro:"Essa email já foi utizado em nosso site, tente usar outro"})
     }
     else if (cnpj != null) {

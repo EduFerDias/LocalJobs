@@ -27,7 +27,6 @@ app.post("/:id", async (req, resp) => {
         let empresa = req.params.id
 
         const vaga = await db.infoc_atn_tb_vagas.create ({
-            
             id_empresa: empresa,
             ds_profissao: a.ds_profissao,
             ds_descricao: a.ds_descricao,
@@ -40,6 +39,8 @@ app.post("/:id", async (req, resp) => {
             ds_beneficios: a.ds_beneficios,
             ds_hora_trabalho: a.ds_hora_trabalho
         })
+
+        resp.send(vaga);
 
     } catch (e) {
         resp.send(e.toString());
@@ -72,19 +73,16 @@ app.get('/:id', async (req, resp) => {
 
 // GET TB VAGA POR ID VAGA
 
-app.get('/:idempresa/:id', async (req, resp) => {
+app.get('/:idempresa/:idvaga', async (req, resp) => {
     try {
-        let id = await db.infoc_atn_tb_vagas.findAll({ where: { id_empresa: req.params.idempresa, id_vaga: req.params.id } });
-
-
-        if (id == null)
-            return resp.send({ erro: 'Vaga não existe' });
-        
+        let idempresa = req.params.idempresa
+        let idvaga = req.params.idvaga
+     
         let vaga = await
             db.infoc_atn_tb_vagas.findAll({
                 where: {
-                    id_vaga: id.id_vaga,
-                    id_empresa: id.id_empresa
+                    id_vaga: idvaga,
+                    id_empresa: idempresa
                 },
                 order: [['id_vaga', 'desc']]
             });

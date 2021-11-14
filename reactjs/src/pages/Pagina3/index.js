@@ -61,6 +61,9 @@ export default function Pagina3(){
         if(a === true ) {
             toast.error('Todos os campos devem estar preenchidos!'); 
         }
+        else if(!(email.includes('@') && email.includes('.com'))){
+            toast.error('O campo de email é invalido')
+        }
         else if (isNaN(cnpj) === true && isNaN(telefone) === true){
             toast.error('Os campos telefone e CNPJ devem conter números'); 
         }
@@ -293,7 +296,7 @@ export default function Pagina3(){
                     </form>
                     <div class="f1-conta">
                         Já possui conta? &nbsp; <Link to="/login"><span>faça o login</span></Link>
-                        <div class="sobre">Sobre nós</div>
+                        <Link to="/"><div class="sobre">Sobre nós</div></Link>
                     </div>
 
                 </div>

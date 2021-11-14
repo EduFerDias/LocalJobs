@@ -154,7 +154,7 @@ export default function Pagina15(props){
                                 </p>
                             </div>
                             <div class="caracteristicas-direita">
-                                <h1>Horas trabalhadas por dia:</h1>
+                                <h1>Carga horária diaria:</h1>
                                 <p>
                                     {resultado.hora}
                                 </p>
