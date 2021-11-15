@@ -13,7 +13,7 @@ app.get("/:sala", async (req, resp) =>{
             return resp.send({ erro: 'Sala não existe!' });
         resp.send(a);
 
-        let b = await db.infoc_atn_tb_chat.findAll({
+        let b = await db.infoc_atn_tb_chat.findOne({
             where: {
                 id_sala: sala.id_sala
             }, 

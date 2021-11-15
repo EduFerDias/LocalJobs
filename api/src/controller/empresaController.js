@@ -21,26 +21,19 @@ app.get("/:id", async (req, resp) => {
       }
   });
 
+
+
 // GET TB EMPRESA
-
-app.get("/", async (req, resp) => {
-    try {
-          let a = await db.infoc_atn_tb_empresa.findAll({ order: [['id_empresa', 'desc']] });
-          resp.send(a);
-      } catch (e) {
-          resp.send("Erro")
-      }
-  });
-
 app.get('/', async(req, resp) => {
     try{
-        let {area} = req.body
-        let a = await ds.infoc_atn_tb_empresa.findOne({where:{ds_area: area}})
-        resp.send(a.id_empresa)
-    }catch(e){
-        resp.send({erro:e})
+        let a = await db.infoc_atn_tb_empresa.findAll({ order: [['id_empresa', 'desc']] });
+        resp.send(a)
+    } catch(e){
+        resp.send(e)
     }
 })
+
+
 
 // POST TB EMPRESA 
 
@@ -52,12 +45,11 @@ app.post("/", async (req, resp) => {
     let nome = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome } })
     let cnpj = await db.infoc_atn_tb_empresa.findOne({ where: { nr_cnpj: a.nr_cnpj } })
     let email = await db.infoc_atn_tb_empresa.findOne({ where: { ds_email: a.ds_email } })
-    let emailJaUsado = await db.infoc_atn_tb_pessoal.findOne({where:{ds_email:a.ds_email}})
 
     if(nome != null) {
         return resp.send({erro:"Esse nome já foi ultizado em nosso site, tente usar outro"})
     }
-    else if (email != null || emailJaUsado != null) {
+    else if (email != null) {
         return resp.send({erro:"Essa email já foi utizado em nosso site, tente usar outro"})
     }
     else if (cnpj != null) {
@@ -120,22 +112,18 @@ app.put("/:id", async (req,resp) => {
         let id = req.params.id;
         let a = req.body;
 
-        let r = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome, nr_cnpj: a.nr_cnpj,ds_email: a.ds_email, } })
+        let r = await db.infoc_atn_tb_empresa.findOne({ where: { nm_nome: a.nm_nome} })
         if(r != null)
             return resp.send({erro:"Essa Empresa já Existe!"})
 
          
         let empresa = await db.infoc_atn_tb_empresa.update ({
             nm_nome: a.nm_nome,
-            nr_cnpj: a.nr_cnpj,
             nm_ramo: a.nm_ramo,
-            nr_telefone: a.nr_telefone,
-            ds_estado_cidade: a.ds_estado_cidade,
-            ds_email: a.ds_email,
-            ds_senha: a.ds_senha
+            nr_telefone: a.nr_telefone
         }, {where: { id_empresa: id } })
     
-        resp.sendStatus(empresa);
+        resp.sendStatus(200);
 
     } catch (error) {
         resp.send(error.toString("Erro"))

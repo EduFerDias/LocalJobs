@@ -7,7 +7,7 @@ const app = Router();
 
 app.get('/', async(req, resp) =>{
     try{
-        let r = await db.infoc_atn_tb_configuracoes_pessoais.findAll();
+        let r = await db.infoc_atn_tb_configuracoes_pessoais.findOne();
         resp.send(r);
     } catch(e){
         resp.sendStatus(500)

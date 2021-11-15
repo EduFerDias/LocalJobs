@@ -5,6 +5,20 @@ const Router = express.Router;
 const app = Router();
 
 
+app.get('/', async (req, resp) => {
+    try {
+        // let {area} =
+
+        // if(area = ''){
+            let a = await db.infoc_atn_tb_vagas.findAll({ order: [['id_vaga', 'desc']] });
+            resp.send(a);
+        // }
+    } catch (e) {
+        resp.send(e.toString());
+    }
+})
+
+
 // POST TB VAGA
 
 app.post("/:id", async (req, resp) => {
@@ -37,7 +51,7 @@ app.post("/:id", async (req, resp) => {
 
 app.get('/:id', async (req, resp) => {
     try {
-        let id = await db.infoc_atn_tb_vagas.findOne({ where: { id_empresa: req.params.id } });
+        let id = await db.infoc_atn_tb_vagas.findAll({ where: { id_empresa: req.params.id } });
 
         if (id == null)
             return resp.send({ erro: 'Não a vagas nessa empresa' });
@@ -45,7 +59,7 @@ app.get('/:id', async (req, resp) => {
         let vaga = await
             db.infoc_atn_tb_vagas.findAll({
                 where: {
-                    id_empresa: id.id_empresa
+                    id_empresa: req.params.id
                 },
                 order: [['id_empresa', 'desc']]
             });
@@ -60,7 +74,7 @@ app.get('/:id', async (req, resp) => {
 
 app.get('/:idempresa/:id', async (req, resp) => {
     try {
-        let id = await db.infoc_atn_tb_vagas.findOne({ where: { id_empresa: req.params.idempresa, id_vaga: req.params.id } });
+        let id = await db.infoc_atn_tb_vagas.findAll({ where: { id_empresa: req.params.idempresa, id_vaga: req.params.id } });
 
 
         if (id == null)
@@ -84,15 +98,6 @@ app.get('/:idempresa/:id', async (req, resp) => {
 
 // GET TB VAGA
 
-app.get('/', async (req, resp) => {
-    try {
-        let a = await db.infoc_atn_tb_vagas.findAll({ order: [['id_vaga', 'desc']] });
-        resp.send(a);
-    } catch (e) {
-        resp.send("Erro")
-        resp.send(e.toString());
-    }
-})
 
 // DELETE TB VAGA
 
@@ -113,14 +118,11 @@ app.delete("/:id", async (req, resp) => {
 app.put("/:idempresa/:id", async(req,resp) => {
 
     try { 
+
         let a = req.body;
-
-        let r = await db.infoc_atn_tb_vagas.findOne({ where: { id_empresa: req.params.idempresa, id_vaga: req.params.id } })
-
-
-
-        if(r != null)
-            return resp.send({erro:"Essa vaga não Existe!"})
+        let id = req.params.ide
+        let idempresa = req.params.idempresa
+        
 
         const vaga = await db.infoc_atn_tb_vagas.update ({
             ds_profissao: a.ds_profissao,
@@ -133,9 +135,9 @@ app.put("/:idempresa/:id", async(req,resp) => {
             ds_tipo_contratacao: a.ds_tipo_contratacao,
             ds_beneficios: a.ds_beneficios,
             ds_hora_trabalho: a.ds_hora_trabalho
-        })
+        }, {where: { id_empresa: idempresa, id_vaga: id}})
     
-        resp.sendStatus(vaga);
+        resp.send(vaga);
 
         } catch (e) {
             resp.send(e.toString(e))

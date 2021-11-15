@@ -8,6 +8,16 @@ const Router = express.Router;
 const app = Router();
 
 
+app.post('/enviarEmail', async(req, resp) =>{
+    try{
+    let {para, mensagem, assunto} = req.body;
+    enviarEmail(para, assunto ,mensagem)
+    resp.sendStatus(200)
+    }catch(e){
+        resp.send({erro:e})
+    }
+})
+
 app.post('/esqueceuSenha', async(req, resp) =>{
     try{
 
