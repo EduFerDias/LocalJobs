@@ -3,11 +3,12 @@ import styled from "styled-components";
 const Conteudo = styled.div`
 height: 100vh;
 
+
 .container-login {
   margin: auto; 
   padding: 0px;
-  background-image: url('./assets/images/Cadastro e Login/p1-estaiada.png');
-  background-size: 100%;
+  background-image: url("./assets/images/Cadastro\ e\ Login/p1-estaiada.png");
+    background-attachment:fixed;
   height: 100vh;
 }
 

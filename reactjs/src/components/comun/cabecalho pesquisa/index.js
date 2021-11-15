@@ -1,10 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Searchbar from "../SearchBar";
 import Conteudo from './styled';
-import Cookies from 'js-cookie'
+import Cookies, { set } from 'js-cookie'
 
-function lerUsuarioLogado(navigation) {
-    let logado = Cookies.get('id_empre');
+import { useEffect, useState } from "react";
+
+import Api from "../../../services/Api";
+const api = new Api();
+
+
+function lerUsuarioLogado(navigation, ondeestoy) {
+    let logado = ''
+    if(ondeestoy === 'pessoal')
+    logado = Cookies.get('id_usu');
+
+    else if(ondeestoy === 'empresa')
+    logado = Cookies.get('id_empre');
 
     if (logado == null) {
         return null;
@@ -17,11 +28,34 @@ function lerUsuarioLogado(navigation) {
 
 
 export default function Cabecalho2 (props){
+
+    const[link, setLink ]= useState();
+    const[home, setHome] = useState('');
+
+    const navigation = useHistory();
+    let usuarioLogado = lerUsuarioLogado(navigation, props.onde) || {};
+
+
+    let getIMG = ( ) =>{
+        let y = api.buscaUsuConfigId(usuarioLogado.id)
+        setLink(y.ds_link_imagem)
+    }
+    useEffect(()=>{
+    if(props.onde === 'pessoal')
+        setHome('/home-usu')
+    else if(props.onde === 'empresa')
+        setHome('/home-empresa')
+    
+    }, [])
+    const [empresa, setEmpresa] = useState(usuarioLogado.nome);
+
+    const [empresarial,setEmpresarial] = useState([])
+
     return(
         <Conteudo>
             <div class="f10-cabecario">
                 <div class="oi">
-                    <div class="f10-logo">  <Link to="/"><img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </Link></div>
+                    <div class="f10-logo">  <Link to={home}><img src="../../assets/images/pagina 5,6,7/logo.png" alt="" /> </Link></div>
                     <div class="f10-nome"> LocalJobs </div>
                 </div>
 
@@ -30,7 +64,7 @@ export default function Cabecalho2 (props){
                 </div>
 
                 <div class="f10-parte2">
-                    <div class="f10-nome2"> Úsuario </div>
+                    <div class="f10-nome2"> {empresa} </div>
                     <div class="f10-imagem"> <img src="../../assets/images/pagina 5,6,7/imgÚsuario.png" alt="" /> </div>
                 </div>
             </div>

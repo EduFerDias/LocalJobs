@@ -15,30 +15,33 @@ let api = new Api();
 
 
 export default function Pagina12 (props){
-        const[id, setId] = useState();
+        const[empresa, setEmpresa] = useState([]);
         const[vaga, setVaga] = useState([])
+        
 
         const {list} = useList();
         const {cidade} = useCidade();
         const {area} = useArea();
         const {cargo} = useCargo();
 
-        let Parametros = props.location.state;
-
     
     let encontrarEmrpesa = async ()=> {
         let y = await api.buscaEmpresa(area, cargo, cidade);
-        setId(y.id_empresa)
+        // console.log(area)
+        // console.log(cargo)
+        // console.log(cidade)
+        // console.log(y)
+        setEmpresa(y)
     }
 
-    let ListarVagas = async () =>{
-        console.log(id)
+    let ListarVagas = async (id) =>{
+
         let r = await api.listarVagasIDempresa(id)
+        setVaga(r.concat(vaga))
         if(r.erro){
             toast.error(r.erro)
             return;
         }
-        setVaga(r)
     }
 
     useEffect(() =>{
@@ -60,6 +63,7 @@ export default function Pagina12 (props){
 
                 <div class="f10-setas">
                     <div class="f10-boxes">
+                    {empresa.map(item => {ListarVagas(item.id_empresa)})}
                     {vaga.map(item => 
                     <UserBox
                         descricao={item.ds_descricao} 

@@ -2,9 +2,13 @@ import styled from "styled-components";
 
 const Pagina9 = styled.div`
 
-.f10-pesquisa{
+.f10-pesquisa2, .f10-pesquisa{
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+.container{
+    margin-top: 2em;
 }
 
 background-color: #404756;

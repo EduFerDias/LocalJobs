@@ -22,7 +22,7 @@ export default function Searchbar (props){
     const {list, setList} = useList();
     const {cidade, setCidade} = useCidade();
     const {area, setArea} = useArea();
-    const {cargo, setCargo} = useCargo();
+    const {Cargo, setCargo} = useCargo();
 
 
 
@@ -43,13 +43,11 @@ export default function Searchbar (props){
         if(props.ondeestoy === 'empresa'){
 
             if(pag_mae === true)
-            nav.push({pathname:'/buscar-usu', state:{area:area, cargo:cargo, cidade:cidade}})
+            nav.push({pathname:'/buscar-usu', state:{area:area, cargo:Cargo, cidade:cidade}})
 
         } else if( props.ondeestoy === 'pessoal'){
-            let r =  api.buscaUsu(area,cargo,cidade)
-
             if(pag_mae === true)
-            nav.push({pathname:'/buscar-empresa', state:{area:area, cargo:cargo, cidade:cidade}})
+            nav.push({pathname:'/buscar-empresa', state:{area:area, cargo:Cargo, cidade:cidade}})
         }
     }
 
@@ -174,10 +172,10 @@ export default function Searchbar (props){
                                     <option value="Turismo">Turismo</option>
                     </select>
                     <hr />
-                    <input class="f10-cargo" placeholder="Digite Um Cargo" value={cargo} onChange={e => setCargo(e.target.value)}/>
+                    <input class="f10-cargo" placeholder="Digite Uma Cidade" value={cidade} onChange={ e => setCidade(e.target.value)}/>
                     <div class="f10-filtrosimg"><img src="../../assets/images/pagina 9,10,11,12/f10-localidade.png" alt=""/></div>
                     <hr />
-                    <input class="f10-cidade" placeholder="Digite Uma Cidade" value={cidade} onChange={ e => setCidade(e.target.value)}/>
+                    <input class="f10-cidade" placeholder="Digite Um Cargo" value={Cargo} onChange={e => setCargo(e.target.value)}/>
                     <div class="f10-lupa"><img  onClick={buscar} src="../../assets/images/pagina 9,10,11,12/f10-lupa.png" alt=""/></div>
                 </div>
             </div>

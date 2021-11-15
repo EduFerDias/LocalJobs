@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from "react"
 const areaContext = createContext();
 
 export default function AreaProvider({children}){
-    const[area, setArea] = useState([])
+    const[area, setArea] = useState('')
     console.log()
 
     return(

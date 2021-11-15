@@ -45,7 +45,7 @@ export default function UsuBox (props) {
     if(props.bt_empresa == true){
         return(
                 
-        <Conteudo> 
+        <Conteudo className="container"> 
             <Link to={{ pathname: '/empresa', state: props }}><div class="f10-fotofiltro"><img src={path} alt=""/> </div></Link>
 
             <div class="f10-texto">
@@ -68,7 +68,7 @@ export default function UsuBox (props) {
     );
     } else if(props.bt_empresa == false){
         return(     
-            <Conteudo> 
+            <Conteudo className="container"> 
                 <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
     
                 <div class="f10-texto">
@@ -78,7 +78,7 @@ export default function UsuBox (props) {
     
                     <div class="f10-cidade">{props.cidade}</div>
                     
-                        <div class="f10-profissao">{props.profissao != null && props.profissao.length > 15 ? props.profissao.substr(0, 15) + '...' : props.profissao}
+                        <div class="f10-profissao">{props.profissao != null && props.profissao.length > 7 ? props.profissao.substr(0, 7) + '...' : props.profissao}
     
                         <div class="f10-barra">
                             -</div><div class="f10-filtroarea">{props.area != null && props.area.length > 7 ?props.area.substr(0,7) + '...' : props.area}</div>

@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from "react"
 const cidadeContext = createContext();
 
 export default function CidadeProvider({children}){
-    const[Cidade, setCidade] = useState([])
+    const[Cidade, setCidade] = useState('')
     console.log()
 
     return(
