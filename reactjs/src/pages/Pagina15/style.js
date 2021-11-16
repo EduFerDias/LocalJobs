@@ -40,6 +40,8 @@ const Pagina15 = styled.div`
 
 .imagem-cabecalho img{
     width: 125px;
+    border-radius:100%;
+    border: solid #404756 7px;
 }
 .imagem-cabecalho{
     margin-right: 2em;

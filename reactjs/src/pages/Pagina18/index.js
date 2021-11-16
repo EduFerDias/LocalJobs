@@ -45,6 +45,7 @@ export default function Pagina18(props) {
         setEmpresaConfig(x)
 
         let imgm = `../../assets/images/Pagina15/imagemempresa.png`
+        
         console.log(empresaconfig.ds_link_imagem)
         
         if (empresaconfig.ds_link_imagem == "") {

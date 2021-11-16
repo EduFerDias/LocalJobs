@@ -31,6 +31,8 @@ export default function Cabecalho2 (props){
 
     const navigation = useHistory();
     
+    let usuarioLogado = lerUsuarioLogado(navigation, props.onde) || {};
+
     const [link2, setImg] = useState('');
     const [nome, setNome] = useState(usuarioLogado.nome);
     const [empresa, setEmpresa] = useState(usuarioLogado.nome);
@@ -42,7 +44,6 @@ export default function Cabecalho2 (props){
         getIMG()
     }, [])
 
-    let usuarioLogado = lerUsuarioLogado(navigation, props.onde) || {};
 
 
     let getIMG = ( ) =>{

@@ -40,6 +40,7 @@ export default function Pagina15(props){
 
     const [vagas, setVagas ] = useState([]);
     const [empresa, setEmpresa ] = useState([]);
+    const[empresaconfig, setConig] = useState([]);
     const [resultado, SetResul] = useState(props.location.state)
 
 
@@ -49,11 +50,13 @@ export default function Pagina15(props){
     async function ListarEmpresa(){
         console.log(id)
         let x = await api.ListarEmpresaID(id)
+        let y = await api.listarEmpresaConfigID(id);
         setEmpresa(x)
+        setConig(y)
     }
 
     async function enviarEmail(){
-       let y = await api.enviarEmail('diasdu2011@outlook.com', `Interesse Na sua vaga para: ${resultado.profissao}`, `
+       let y = await api.enviarEmail(empresa.ds_email, `Interesse Na sua vaga para: ${resultado.profissao}`, `
             <h2>O candidato ${user} ok eu to ok</h2>
         `)
         toast.success("enviei")
@@ -74,7 +77,7 @@ export default function Pagina15(props){
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
-                        <img src="./assets/images/Pagina15/imagemempresa.png" alt="asda"/>
+                        <img src={empresaconfig.ds_link_imagem} alt="asda"/>
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{resultado.profissao}</p>
