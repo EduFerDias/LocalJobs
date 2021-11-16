@@ -78,20 +78,22 @@ export default function Pagina15(props){
             toast.error('Horario deve ser menor que 8 horas');
         }
         else if(vagaesp > 0) {
+            console.log("foi1")
             loading.current.continuousStart(); 
             let x = await api.EditarVaga(id,vagaesp,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
             console.log(x)
             loading.current.complete()   
             toast.success('Vaga Editada')       
             navigation.push('/config-empresa');
+            
         }
         else {
+            console.log("foi2")
             loading.current.continuousStart(); 
             let x = await api.inserirVaga(id,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
+            console.log(x)
             toast.success('Vaga Cadastrada')
-            console.log(x)
             loading.current.complete()      
-            console.log(x)
             navigation.push('/config-empresa');
         }
         
@@ -163,13 +165,13 @@ export default function Pagina15(props){
                                 <input type="text" maxlength="30" value={ profissao } onChange={e => setProfissao(e.target.value)} placeholder="⠀Profissão" /> 
 
                                 <div class="f16-descricao">Descrição:</div>
-                                <textarea name="" maxlength="255" value={ descricao } onChange={e => setDescricao(e.target.value)}  id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="250" value={ descricao } onChange={e => setDescricao(e.target.value)}  id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-descricao">Qualificação:</div>
-                                <textarea name="" maxlength="255" value={ qualificacao } onChange={e => setQualificacao(e.target.value)} id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="250" value={ qualificacao } onChange={e => setQualificacao(e.target.value)} id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-descricao">Formações</div>
-                                <textarea name="" maxlength="255"  value={ formacoes } onChange={e => setFormacoes(e.target.value)} id="" cols="55" rows="10"></textarea>
+                                <textarea name="" maxlength="250"  value={ formacoes } onChange={e => setFormacoes(e.target.value)} id="" cols="55" rows="10"></textarea>
 
                                 <div class="f16-Local">Local de trabalho</div>
                                 <input class="trabalho"  maxlength="30" value={ local } onChange={e => setLocal(e.target.value)}  type="text" placeholder="⠀Local de trabalho"/>

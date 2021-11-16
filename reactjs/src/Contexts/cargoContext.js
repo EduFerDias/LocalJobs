@@ -3,12 +3,12 @@ import { createContext, useState, useContext } from "react"
 const CargoContext = createContext();
 
 export default function CargoProvider({children}){
-    const[Cargo, setCargo] = useState([])
+    const[cargo, setCargo] = useState('')
     console.log()
 
     return(
         <CargoContext.Provider value={{
-            Cargo,
+            cargo,
             setCargo
         }}>
             {children}
@@ -18,7 +18,7 @@ export default function CargoProvider({children}){
 
 export function useCargo(){
     const context = useContext(CargoContext)
-    const {Cargo, setCargo} = context;
-    return{Cargo, setCargo};
+    const {cargo, setCargo} = context;
+    return{cargo, setCargo};
 }
 

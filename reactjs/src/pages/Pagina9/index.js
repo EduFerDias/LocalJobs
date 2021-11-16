@@ -10,7 +10,7 @@ import { useList } from '../../Contexts/searchContext';
 import { useCidade } from '../../Contexts/cidadeContext';
 import { useArea } from '../../Contexts/areaContext';
 import { useCargo } from '../../Contexts/cargoContext';
-import Cookies from 'js-cookie';
+import Cookies, { set } from 'js-cookie';
 
 let api = new Api();
 
@@ -39,8 +39,13 @@ export default function Pagina9 (){
 
 
 let encontrarEmrpesa = async ()=> {
+    console.log(area)
+    console.log(cargo)
+    console.log(cidade)
     let y = await api.buscaUsu(area, cargo, cidade);
+    console.log(y)
     setUsuario(y)
+
 }
 
 
@@ -54,7 +59,7 @@ useEffect(() =>{
                 <div class="f10-tudo">
                     <Cabecalho onde={'empresa'} pg={false}/>
 
-                    <div class="f10-filtro1">Resultado:⠀  <div>Desenvolvedor</div></div>
+                    <div class="f10-filtro1">Resultado:⠀  <div>{cargo}</div></div>
                 
                     <div class="f10-areas">
 
@@ -62,8 +67,14 @@ useEffect(() =>{
                             <div class="f10-boxes">                            
                                 {usuario.map ((item) => {
                                     return(
-                                        <UserBox empresa={item.empresa != null && item.empresa.length > 19 ?item.empresa.substr(0, 15) + '...' :item.empresa} cidade={item.cidade} area={item.area} salario={item.salario} profissao={item.profissao != null && item.profissao.length > 15 ?item.profissao.substr(0, 15) + '...' :item.profissao} bt_empresa={false}/>
-                                    );
+                                        <UserBox 
+                                        nome={item.nm_nome != null && item.nm_nome.length > 15 ?item.nm_nome.substr(0, 15) + '...' :item.nm_nome} 
+                                        cidade={item.ds_estado_cidade} 
+                                        area={item.ds_area != null && item.ds_area.length > 7 ?item.ds_area.substr(0,7) + '...' :item.ds_area} 
+                                        profissao={item.ds_cargo != null && item.ds_cargo.length > 15 ?item.ds_cargo.substr(0, 15) + '...' :item.ds_cargo} 
+                                        bt_empresa={false}
+                                        info={item.id_pessoal}
+                                    />                                    );
                                 })};
                             </div>
                         </div>
