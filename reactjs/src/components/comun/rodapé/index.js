@@ -18,11 +18,11 @@ export default function rodape(){
                         </div>
 
                         <div className="perfil">
-                            <Link to="/paginas">Perfil</Link>
+                            <Link to="/">Perfil</Link>
                         </div>
 
                         <div className="home">
-                            <Link to="/paginas">Home</Link>
+                            <Link to="/">Home</Link>
                         </div> 
 
                     </div>

@@ -88,7 +88,7 @@ export default function Pagina13(props){
         let r = await api.alterarUsu(id, nome, area, cargo, telefone, cidade, email);
         let f = await api.alterarUsuConfig(id, sobre, idioma1, idioma2, idioma3, linkdin, instagram, twitter, vaga_interesse1, vaga_interesse2, vaga_interesse3, experiencias, formacao,linkimg);
 
-        return toast.success('deu', r, f)
+        return toast.success('Usuário editado', r, f)
     }
 
     useEffect(() => {
@@ -222,14 +222,16 @@ export default function Pagina13(props){
                                 <div class="nomes3f4"> Vagas de Interese:</div>
                                 <div class="campocx1f4"> <input value={vaga_interesse1} onChange={e => setVagaInt1(e.target.value)}/> </div>
                             </div>
+
                             <div class="f4Caixa2">
-                                <div class="campokio2f4"> <input value={idioma2} onChange={e => setIdioma2(e.target.value)}/> </div>
+                                <div class="campokio2f4"> <input class="m3" value={idioma2} onChange={e => setIdioma2(e.target.value)}/> </div>
                                 <div class="nomes2f4"> Instagram: </div>
                                 <div class="campoinstaf4"> <input value={instagram} onChang={e => setInsta(e.target.value)}/> </div>
                                 <div class="campovags2f4"> <input value={vaga_interesse2} onChange={e => setVagaInt2(e.target.value)}/> </div>
                             </div>
+
                             <div class="f4Caixa3">
-                                <div class="campoidio3f4"> <input  value={idioma3} onChange={e => setIdioma3(e.target.value)}/> </div>
+                                <div class="campoidio3f4"> <input value={idioma3} onChange={e => setIdioma3(e.target.value)}/> </div>
                                 <div class="nomes2f4"> Twitter: </div>
                                 <div class="campotwttf4"> <input value={twitter} onChange={e => setTwitter(e.target.value)}/> </div>
                                 <div class="campovags3f4"> <input value={vaga_interesse3} onChange={e => setVagaInt3(e.target.value)}/> </div>

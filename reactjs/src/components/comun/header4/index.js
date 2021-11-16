@@ -7,6 +7,10 @@ import { useHistory } from 'react-router-dom'
 import  { useEffect} from 'react'
 import { useState, useRef } from 'react';
 
+import imagem from "../../src/usuarioempresa.png"
+
+import Api from "../../../services/Api";
+let api = new Api();
 
 function lerUsuarioLogado(navigation) {
     let logado = Cookies.get('id_empre');
@@ -25,13 +29,27 @@ export default function Header5 (props){
 
     const navigation = useHistory();
     let usuarioLogado = lerUsuarioLogado(navigation) || {};
+    const[link2, setImg] = useState('');
 
 
     const [empresa, setEmpresa] = useState(usuarioLogado.nome);
 
     const [empresarial,setEmpresarial] = useState([])
 
-    console.log(usuarioLogado)
+    async function buscarInfo(){
+        let f = await api.listarEmpresaConfigID(usuarioLogado.id)
+
+        if (f.ds_link_imagem == "") {
+            setImg(imagem)
+        }
+        else {
+            setImg(f.ds_link_imagem)
+        }
+    }
+
+    useEffect(() => {
+        buscarInfo()
+    }, [])
 
     return(
         <Conteudo>
@@ -48,7 +66,7 @@ export default function Header5 (props){
             </Link>
 
             <Link to={{ pathname: '/config-empresa', state: props }}>
-                <div class="imagenUsuario-t6"> <img src="../../assets/images/pagina 5,6,7/imgÚsuario.png" alt="" /> </div>
+                <div class="imagenUsuario-t6"> <img src={link2} alt="" /> </div>
             </Link>
             </div>
         

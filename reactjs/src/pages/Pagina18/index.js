@@ -21,6 +21,7 @@ export default function Pagina18(props) {
     const [vaga, setVagas] = useState([]);
     const [empresaconfig, setEmpresaConfig ] = useState([]);
     const [resultado, setResul ] = useState(props.location.state);
+    const [imagem, setImg] = useState("");
 
 
     const responsive = {
@@ -42,13 +43,23 @@ export default function Pagina18(props) {
     async function listarEmpresaConfigID(){
         const x = await api.listarEmpresaConfigID(resultado.id)
         setEmpresaConfig(x)
+
+        let imgm = `../../assets/images/Pagina15/imagemempresa.png`
+        console.log(empresaconfig.ds_link_imagem)
+        
+        if (empresaconfig.ds_link_imagem == "") {
+            setImg(imgm)
+        }
+        else {
+            setImg(empresaconfig.ds_link_imagem)
+        }
     }
 
     async function ListarEmpresaID(){
         const x = await api.ListarEmpresaID(resultado.id)
         setEmpresa(x)
     }
-
+  
 
     useEffect(() => {
         ListarEmpresaID()
@@ -66,9 +77,11 @@ export default function Pagina18(props) {
             <div class="athena-dtl">
                 <div class="nome-empresa-dtl">
                     <div class="logo-empr-dtl">
-                        <img src="" alt="" />
+                        <img src={imagem} alt="" />
                     </div>
+
                         <div class="titulo-empr-dtl">{empresa.nm_nome}</div>
+
                 </div>
 
                 <div class="titulo-athena-dtl">
@@ -178,7 +191,7 @@ export default function Pagina18(props) {
 
             <div class="carrossel-dtl">
             <div class="tit-csl-dtl">
-                <div class="tit-csl">7 vagas no(a) Athena Ti</div>
+                <div class="tit-csl">{vaga.lenght} Vagas no(a) {empresa.nm_nome}</div>
             </div>
             
             <Carousel 

@@ -9,6 +9,9 @@ const Pagina15 = styled.div`
     margin: 2em 6em 4em 5em;
     color: white;
 }
+.pr a {
+    color:white;
+}
 
 .cabecalho{
     background-color: #107AD1;

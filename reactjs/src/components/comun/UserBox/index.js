@@ -3,6 +3,8 @@ import Conteudo from "./styled";
 import { Link } from 'react-router-dom'
 
 import { useState,useEffect } from 'react'
+import imagemperfil from "../../src/Group 5.png"
+import imagemempresa from "../../src/usuarioempresa.png"
 
 import Api from '../../../services/Api';
 const api = new Api();
@@ -12,11 +14,16 @@ export default function UsuBox (props) {
     const [vaga, setVagas] = useState([]);
     const [empresa, setEmpresa ] = useState([]);
 
+    let imagem = imagemperfil
+    let imagememp = imagemempresa
+
+
     const id = props.id
 
        async function ListarEmpresaID() {
         const x = await api.ListarEmpresaID(id)
         setEmpresa(x)
+        console.log(x.ds_link_empresa)
     }
 
     async function ListarVagas() {
@@ -30,23 +37,22 @@ export default function UsuBox (props) {
         ListarEmpresaID();
     }, [])
 
-
-    let imagem ='';
-
-
-    if(props.bt_empresa === true){
-        imagem = 'f10-empresa.png'
-    } else{
-        imagem = 'f10-fotoperfil.png'
+    console.log(props.foto)
+    
+    if (props.foto == "") {
+        return
+    }
+    else {
+       imagem = props.foto
     }
 
-    let path =  `../../assets/images/pagina 9,10,11,12/${imagem}`
+ 
 
     if(props.bt_empresa == true){
         return(
                 
         <Conteudo> 
-            <Link to={{ pathname: '/empresa', state: props }}><div class="f10-fotofiltro"><img src={path} alt=""/> </div></Link>
+            <Link to={{ pathname: '/empresa', state: props }}><div class="f10-fotofiltro"><img src={imagemempresa} alt=""/> </div></Link>
 
             <div class="f10-texto">
                 
@@ -69,7 +75,7 @@ export default function UsuBox (props) {
     } else if(props.bt_empresa == false){
         return(     
             <Conteudo> 
-                <div class="f10-fotofiltro"><img src={path} alt=""/> </div>
+                <div class="f10-fotofiltro"><img src={imagemperfil} alt=""/> </div>
     
                 <div class="f10-texto">
                     

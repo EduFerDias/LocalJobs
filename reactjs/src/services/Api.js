@@ -70,7 +70,7 @@ export default class Api {
         return r.data;
     }
     
-    async InserirConfigEmpresa(id,descricao,linkdin,insta,twitter,porte,site,funcionarios) {
+    async InserirConfigEmpresa(id,descricao,linkdin,insta,twitter,porte,site,funcionarios,imagem) {
 
         let empresa = {
             ds_site: site,
@@ -78,7 +78,7 @@ export default class Api {
             ds_instagram_empresa: insta,
             ds_twitter_empresa: twitter,
             ds_linkdin_empresa: linkdin,
-            ds_link_imagem: "",
+            ds_link_imagem: imagem,
             ds_porte: porte,
             qtd_funcionarios: funcionarios
         }

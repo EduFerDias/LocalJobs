@@ -52,7 +52,6 @@ export default function Pagina10 (){
 
                         <Carousel 
                             responsive={responsive}
-                            infinite={true}
                             draggable={false}
                         >
 
@@ -64,6 +63,7 @@ export default function Pagina10 (){
                                         profissao={item.ds_cargo != null && item.ds_cargo.length > 15 ?item.ds_cargo.substr(0, 15) + '...' :item.ds_cargo} 
                                         bt_empresa={false}
                                         info={item.id_pessoal}
+                                        foto={item.ds_link_imagem}
                                     />
                             )}
 
@@ -73,12 +73,10 @@ export default function Pagina10 (){
 
                         <Carousel 
                             responsive={responsive}
-                            infinite={true}
                             draggable={false}
                         >
-
                             {usuario.filter((e) =>{
-                                if(e.ds_area.includes('Radio e Tv'))
+                                if(e.ds_area.includes('Rádio e TV'))
                                 return e;
                             }).map(item => 
                                     <UserBox 
@@ -88,6 +86,7 @@ export default function Pagina10 (){
                                         profissao={item.ds_cargo != null && item.ds_cargo.length > 15 ?item.ds_cargo.substr(0, 15) + '...' :item.ds_cargo} 
                                         bt_empresa={false}
                                         info={item.id_pessoal}
+                                        foto={item.ds_link_imagem}
                                     />
                             )}
 
@@ -99,7 +98,6 @@ export default function Pagina10 (){
 
                         <Carousel 
                             responsive={responsive}
-                            infinite={true}
                             draggable={false}
                         >
                             {usuario.filter((e) =>{
@@ -113,6 +111,7 @@ export default function Pagina10 (){
                                         profissao={item.ds_cargo != null && item.ds_cargo.length > 15 ?item.ds_cargo.substr(0, 15) + '...' :item.ds_cargo} 
                                         bt_empresa={false}
                                         info={item.id_pessoal}
+                                        foto={item.ds_link_imagem}
                                     />
                             )}
 

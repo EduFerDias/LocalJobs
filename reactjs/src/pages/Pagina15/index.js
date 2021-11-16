@@ -5,7 +5,7 @@ import Rodape from '../../components/comun/rodapé'
 import Cookies from "js-cookie";
 
 import  { useEffect} from 'react'
-
+import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 
@@ -46,8 +46,6 @@ export default function Pagina15(props){
 
     let id = Number(resultado.id)
 
-
-
     async function ListarEmpresa(){
         console.log(id)
         let x = await api.ListarEmpresaID(id)
@@ -80,7 +78,9 @@ export default function Pagina15(props){
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{resultado.profissao}</p>
+                        <Link to={{ pathname: '/empresa', state: empresa.id_empresa } }>
                             <p class="pr">{empresa.nm_nome} | {empresa.ds_estado_cidade}</p>
+                        </Link>
                         
                     </div>
                 </div>

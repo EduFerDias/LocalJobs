@@ -41,7 +41,7 @@ app.put("/:id", async (req, resp) => {
             ds_instagram_empresa: a.ds_instagram_empresa,
             ds_twitter_empresa: a.ds_twitter_empresa,
             ds_linkdin_empresa: a.ds_linkdin_empresa,
-            ds_link_imagem: "",
+            ds_link_imagem: a.ds_link_imagem,
             ds_porte: a.ds_porte,
             qtd_funcionarios: a.qtd_funcionarios
         }, {where: { id_empresa: id } })

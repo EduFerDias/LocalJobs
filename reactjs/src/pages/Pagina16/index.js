@@ -41,8 +41,6 @@ export default function Pagina15(props){
 
     const [vagaesp, setVagaEspecifica] = useState(props.location.state)
     
-
-    console.log(id)
     console.log(props)
     console.log(id)
     console.log(vagaesp)
@@ -63,12 +61,13 @@ export default function Pagina15(props){
 
     async function inserirVaga() { 
 
-        let a = profissao === '' || descricao === '' || qualificacao === '' || formacoes === '' || local === '' || salario_a === '' || salario_de === ''  || beneficios === '' || horario === ''
-        const time = "08:00"
+        let a = profissao === "" || salario_a === "" || salario_de === "" || horario === "" || descricao === ""
+        const time = "08:01"
 
-
+        console.log(descricao)
+        
         if(a === true) {
-            toast.error('Campos essências devem ser preenchidos');
+            toast.error('Campos essências como salarios,carga horária diaria e profissão devem ser preenchidos');
         }
 
         else if(salario_de > salario_a) {
@@ -78,20 +77,19 @@ export default function Pagina15(props){
         else if(horario > time){
             toast.error('Horario deve ser menor que 8 horas');
         }
-        else if(vagaesp < 0) {
+        else if(vagaesp > 0) {
             loading.current.continuousStart(); 
-            let x = await api.EditarVaga(usuarioLogado,id,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
+            let x = await api.EditarVaga(id,vagaesp,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
+            console.log(x)
             loading.current.complete()   
-            toast.success('Vaga Editada')   
-            console.log(x)      
+            toast.success('Vaga Editada')       
             navigation.push('/config-empresa');
         }
         else {
             loading.current.continuousStart(); 
-            console.log("zap2")
             let x = await api.inserirVaga(id,profissao,descricao,qualificacao,formacoes,local,salario_a,salario_de,tipodecontrato,beneficios,horario)
             toast.success('Vaga Cadastrada')
-            console.log("zap")
+            console.log(x)
             loading.current.complete()      
             console.log(x)
             navigation.push('/config-empresa');
@@ -103,17 +101,15 @@ export default function Pagina15(props){
     async function DeletarVaga() {
         confirmAlert({
             title: 'Remover vaga',
-            message: `Tem certeza que deseja remover essa Vaga?`,
+            message: `Tem certeza que deseja remover vaga de:  ${profissao} ?`,
             buttons: [
               {
                 label: 'Sim',
                 onClick: async () => {
-                    let r = await api.DeletarVaga(id)
-                    if (r.erro)
-                        toast.error(`${r.erro}`);
-                    else {
-                        toast.dark('Vaga Deletada');
-                    }
+                    navigation.push('/config-empresa');
+                    toast.dark('Vaga Deletada');
+                    let r = await api.DeletarVaga(vagaesp)
+                    navigation.push('/config-empresa');
                 }
               },
               {
@@ -127,7 +123,10 @@ export default function Pagina15(props){
     async function ListarVagasEspecifica(){
         let a = await api.listarVagasID(id,vagaesp)
         console.log(a)
-        a = a[0]
+        
+        if(vagaesp != 0){
+            a = a[0]
+        }
         setVaga(a);
         setProfissao(a.ds_profissao)
         setDescricao(a.ds_descricao)
@@ -269,9 +268,7 @@ export default function Pagina15(props){
                             
                             <div class="botoes"> 
 
-                                    <button class={ vagaesp === 0 ? "nodelete" : "nodelete" } onClick={() => DeletarVaga(vagaesp)} > Deletar Vaga </button> 
-
-
+                                <button class={ vagaesp == 0 ? "nodelete" : "delete" } onClick={() => DeletarVaga(vagaesp)} > Deletar Vaga </button> 
                                 <button class="save" onClick={ inserirVaga } > Salvar </button>
 
                             </div>

@@ -10,7 +10,11 @@ flex-direction:column;
   display: flex;
   flex-direction: row;
 }
-
+.logo-empr-dtl img {
+  border-radius: 100%
+  width: 40px;
+  height: 40px;
+}
 .titulo-empr-dtl {
   cursor:pointer
 }
@@ -459,6 +463,7 @@ flex-direction:column;
 .box-athena-dtl {
   font-family: Montserrat-regular;
   color: white;
+  width: 250px;
 }
 
 .ou-dtl {

@@ -1,7 +1,8 @@
 import Conteudo from "./style";
 import Rodape from '../../components/comun/rodapé'
-import Header6 from "../../components/comun/header5";
+import Header6 from "../../components/comun/header4";
 import LoadingBar from 'react-top-loading-bar'
+
 import { JobsHolder } from "../../components/styled/JobHolder/styled";
 import { InfoHolder } from "../../components/styled/JobHolder/infoholder";
 import { Link } from 'react-router-dom'
@@ -11,6 +12,7 @@ import Cookies from 'js-cookie'
 import { useHistory } from 'react-router-dom'
 
 import Api from '../../services/Api';
+
 const api = new Api();
 
 
@@ -24,6 +26,8 @@ function lerUsuarioLogado(navigation) {
     let usuarioLogado = JSON.parse(logado);
     return usuarioLogado;
 }
+
+
 
 export default function Pagina19 (props){
     const [vaga, setVagas] = useState([]);
@@ -49,7 +53,8 @@ export default function Pagina19 (props){
     const [twitter, setTwitter ] = useState("");
     const [telefone, setTelefone ] = useState("");
     const [funcionarios, setFuncionarios] = useState("");
-
+    const [imagem, setImagem] = useState("");
+    const [img, setImg] = useState("");
 
     async function ListarVagas() {
         const x = await api.listarVagasIDempresa(id)
@@ -75,9 +80,19 @@ export default function Pagina19 (props){
         setFuncionarios(x.qtd_funcionarios)
         setRamo(a.nm_ramo)
         setNome(a.nm_nome)
+        setImagem(x.ds_link_imagem)
         setTelefone(a.nr_telefone)
         console.log(a)
         console.log(x)
+
+        let imgm = `../../assets/images/Pagina15/imagemempresa.png`
+
+        if (x.ds_link_imagem == "") {
+            setImg(imgm)
+        }
+        else {
+            setImg(x.ds_link_imagem)
+        }
     }
 
     console.log(descricao)
@@ -86,7 +101,7 @@ export default function Pagina19 (props){
 
     async function SalvarConfig() {
         loading.current.continuousStart(); 
-        const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios)
+        const x = await api.InserirConfigEmpresa(id,descricao,linkedin,insta,twitter,porte,site,funcionarios,imagem)
         const a = await api.alterarEmpresa(id,nome,ramo,telefone)
         console.log(a)
         console.log(x)
@@ -115,7 +130,7 @@ export default function Pagina19 (props){
                         <form>
                             <div className="l1"> 
                                 <span className="l1-image">
-                                    <img src="./assets/images/Pagina18/Group 8.png" alt=""/>
+                                    <img src={img} alt=""/>
                                 </span>
                                 <span className="l1-interac">
                                     <span className="l1-input">
@@ -238,6 +253,12 @@ export default function Pagina19 (props){
                                             <option value="Turismo">Turismo</option>
                                         </select>
                                     </span>
+
+                                    <span className="l1-input" id="imagem">
+                                        <label class="img">Imagem:</label>
+                                        <input name="name" value={ imagem } onChange={e => setImagem(e.target.value)}/>
+                                    </span>
+
 
                                 </span>
                             </div>
