@@ -7,6 +7,7 @@ import Vaga from "../../components/comun/vagas"
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css"
 
+import imgm from "../../components/src/Group 8.png"
 
 import  { useEffect } from 'react'
 import React, { useState} from 'react';
@@ -43,16 +44,12 @@ export default function Pagina18(props) {
     async function listarEmpresaConfigID(){
         const x = await api.listarEmpresaConfigID(resultado.id)
         setEmpresaConfig(x)
-
-        let imgm = `../../assets/images/Pagina15/imagemempresa.png`
         
-        console.log(empresaconfig.ds_link_imagem)
-        
-        if (empresaconfig.ds_link_imagem == "") {
+        if (x.ds_link_imagem == "") {
             setImg(imgm)
         }
         else {
-            setImg(empresaconfig.ds_link_imagem)
+            setImg(x.ds_link_imagem)
         }
     }
 

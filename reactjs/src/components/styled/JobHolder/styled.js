@@ -8,7 +8,7 @@ const JobsHolder = styled.div`
     padding: 0px 0.8em;
 
     height: 20rem;
-    width: 53.5rem;
+    width: 50rem;
 `
 
 export { JobsHolder } ;

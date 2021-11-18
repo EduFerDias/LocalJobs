@@ -42,6 +42,7 @@ export default function Pagina15(props){
     const [empresa, setEmpresa ] = useState([]);
     const[empresaconfig, setConig] = useState([]);
     const [resultado, SetResul] = useState(props.location.state)
+    const[link2, setImg] = useState('');
 
 
 
@@ -53,6 +54,15 @@ export default function Pagina15(props){
         let y = await api.listarEmpresaConfigID(id);
         setEmpresa(x)
         setConig(y)
+
+        let imagem = `../../assets/images/Pagina15/imagemempresa.png`
+
+        if (y.ds_link_imagem == "") {
+            setImg(imagem)
+        }
+        else {
+            setImg(y.ds_link_imagem)
+        }
     }
 
     async function enviarEmail(){
@@ -77,7 +87,7 @@ export default function Pagina15(props){
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
-                        <img src={empresaconfig.ds_link_imagem} alt="asda"/>
+                        <img src={link2} alt="asda"/>
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{resultado.profissao}</p>

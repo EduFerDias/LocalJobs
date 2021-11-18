@@ -3,7 +3,7 @@ import Conteudo from "./styled";
 import { Link } from 'react-router-dom'
 
 import { useState,useEffect } from 'react'
-import imagemperfil from "../../src/Group 5.png"
+import imagemperfil from "../../src/Group 8.png"
 import imagemempresa from "../../src/usuarioempresa.png"
 
 import Api from '../../../services/Api';

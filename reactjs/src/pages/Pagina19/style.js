@@ -154,7 +154,7 @@ const Conteudo = styled.div`
         font-family: Montserrat-regular;
         margin-top: 1em;
         border-radius: 5px;
-        width:100%;
+        width: 66em;
         height:15em;
     }
     .l3-inputs{
@@ -315,7 +315,7 @@ const Conteudo = styled.div`
         display: none;
     }
     .darkgrey-scroll, .linkedin{
-        width: 230%;
+        width: 53.5em;
         margin-bottom: -5rem;
     }
     .lkn-titulo, .cv-titulo{

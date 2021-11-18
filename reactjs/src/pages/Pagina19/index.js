@@ -312,7 +312,7 @@ export default function Pagina19 (props){
                     <div className="chat-vagas">
                     <div className="vagasmsn">
                         <div className="vagas">
-                            <div className="vagas-titulo"> <h1>Vagas da Athena TI</h1> 
+                            <div className="vagas-titulo"> <h1> Vagas do(a) {nome}</h1> 
                                 <Link to={{ pathname: '/criar-vaga', state: 0   }}> <img src="./assets/images/Pagina19/Add.png" alt=""/></Link>
                             </div>
                             

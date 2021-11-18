@@ -11,6 +11,9 @@ const Conteudo = styled.div`
 
   height: 90px;
 
+  .local {
+    color: white;
+  }
   padding: 0em 4em 0px 4em;
   color: white;
 
