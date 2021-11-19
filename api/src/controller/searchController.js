@@ -51,28 +51,17 @@ app.post('/buscarUsuario', async(req, resp) =>{
     }
 });
 app.post('/buscarEmpresa', async(req, resp) =>{
-    let {area, cargo, cidade} = req.body;         
-    if(area && cargo && cidade){
-        let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area, ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
+    let {area, cidade} = req.body;         
+    if(area &&  cidade){
+        let r = await db.infoc_atn_tb_empresa.findAll({where:{nm_ramo:area, ds_estado_cidade:{[Op.like]:`%${cidade}%`}}})        
         resp.send(r)
-    }else if(!area && cargo && !cidade){
-        let r = await db.infoc_atn_tb_empresa.findOne({where:{ds_cargo:cargo}})        
+    }else if(!area && !cidade){
+        return;
+    }else if(!area &&  cidade){
+        let r = await db.infoc_atn_tb_empresa.findAll({where:{ds_estado_cidade:{[Op.like]:`%${cidade}%`}}})          
         resp.send(r)
-    }else if(!area && !cargo && cidade){
-        let r = await db.infoc_atn_tb_empresa.findOne({like:{ds_estado_cidade:cidade}})        
-        resp.send(r)
-    }else if(area && !cargo && !cidade){
-        let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area}})        
-        resp.send(r)
-    }else if(!area && cargo && cidade){
-        let r = await db.infoc_atn_tb_empresa.findOne({where:{ds_cargo:cargo}, like:{ds_estado_cidade:cidade}})        
-        resp.send(r)
-    }else if(area && cargo && !cidade){
-        let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area, ds_cargo:cargo}})        
-        delete r.ds_senha;
-        resp.send(r)
-    }else if(area && !cargo && cidade){
-        let r = await db.infoc_atn_tb_empresa.findOne({where:{nm_ramo:area}, like:{ds_estado_cidade:cidade}})        
+    }else if(area &&  !cidade){
+        let r = await db.infoc_atn_tb_empresa.findAll({where:{nm_ramo:area}})        
         resp.send(r)
     }
 })

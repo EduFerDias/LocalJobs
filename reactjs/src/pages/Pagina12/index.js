@@ -15,7 +15,8 @@ let api = new Api();
 
 
 export default function Pagina12 (props){
-        const[id, setId] = useState();
+        const[empresas, setEmpre] = useState([]);
+        const[cargo2, setCargo2] = useState();
         const[vaga, setVaga] = useState([])
 
         const {list} = useList();
@@ -28,22 +29,23 @@ export default function Pagina12 (props){
     
     let encontrarEmrpesa = async ()=> {
         let y = await api.buscaEmpresa(area, cargo, cidade);
-        setId(y.id_empresa)
+        setEmpre(y)
+        setCargo2(cargo);
+        ListarVagas();
     }
 
     let ListarVagas = async () =>{
-        console.log(id)
-        let r = await api.listarVagasIDempresa(id)
-        if(r.erro){
-            toast.error(r.erro)
+        if(empresas.erro){
+            toast.error(empresas.erro)
             return;
         }
-        setVaga(r)
+        let vaha = await api.listarVagas();
+        console.log('as')     
+        setVaga(vaha)
     }
 
     useEffect(() =>{
         encontrarEmrpesa();
-        ListarVagas();
     },[list])
 
 
@@ -53,14 +55,21 @@ export default function Pagina12 (props){
                 
                 <Cabecalho onde={'pessoal'} pg={false}/>
 
-                <div class="f10-filtro1">   Resultado:{cargo}⠀  <div>{list}</div></div>
+                <div class="f10-filtro1">   Resultado:{cargo2}⠀  <div>{list}</div></div>
 
                 <div class="f10-areas">
 
 
                 <div class="f10-setas">
                     <div class="f10-boxes">
-                    {vaga.map(item => 
+                    {vaga.filter(e =>{
+                        for(var i = 0; i < empresas.length; i++){
+                        if(String(e.id_empresa).includes(String(empresas[i].id_empresa)) || e.ds_profissao.includes(cargo2)){
+                            console.log('5')     
+                            return e;
+                        }
+                        }
+                    }).map(item => 
                     <UserBox
                         descricao={item.ds_descricao} 
                         cidade={item.ds_local_trabalho != null && item.ds_local_trabalho.lenght > 20 ? item.ds_local_trabalho.substr(0, 20) :item.ds_local_trabalho} 
