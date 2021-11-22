@@ -12,26 +12,30 @@ export default class infoc_atn_tb_vagas extends Model {
     },
     id_empresa: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'infoc_atn_tb_empresa',
+        key: 'id_empresa'
+      }
     },
     ds_profissao: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     ds_descricao: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     ds_qualificacao: {
-      type: DataTypes.STRING(100),
-      allowNull: true
-    },
-    ds_local_trabalho: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     ds_formacao: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    ds_local_trabalho: {
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     ds_salario_de: {
@@ -43,11 +47,11 @@ export default class infoc_atn_tb_vagas extends Model {
       allowNull: true
     },
     ds_tipo_contratacao: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     ds_beneficios: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     ds_hora_trabalho: {

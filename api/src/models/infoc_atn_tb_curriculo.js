@@ -12,18 +12,22 @@ export default class infoc_atn_tb_curriculo extends Model {
     },
     id_pessoal: {
       type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    id_empresa: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'infoc_atn_tb_pessoal',
+        key: 'id_pessoal'
+      }
     },
     id_vaga: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'infoc_atn_tb_vagas',
+        key: 'id_vaga'
+      }
     },
     ds_curriculo: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING(255),
       allowNull: true
     }
   }, {
@@ -37,13 +41,6 @@ export default class infoc_atn_tb_curriculo extends Model {
         using: "BTREE",
         fields: [
           { name: "id_curriculo" },
-        ]
-      },
-      {
-        name: "id_empresa",
-        using: "BTREE",
-        fields: [
-          { name: "id_empresa" },
         ]
       },
       {
