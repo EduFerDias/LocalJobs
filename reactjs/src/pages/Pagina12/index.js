@@ -31,6 +31,9 @@ export default function Pagina12 (props){
         let y = await api.buscaEmpresa(area, cargo, cidade);
         setEmpre(y)
         setCargo2(cargo);
+        if(cargo = ''){
+            setCargo2(undefined)
+        }
         ListarVagas();
     }
 
