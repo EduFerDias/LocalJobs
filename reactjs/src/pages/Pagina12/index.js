@@ -31,6 +31,9 @@ export default function Pagina12 (props){
         let y = await api.buscaEmpresa(area, cargo, cidade);
         setEmpre(y)
         setCargo2(cargo);
+        if(cargo = ''){
+            setCargo2(undefined)
+        }
         ListarVagas();
     }
 
@@ -55,7 +58,7 @@ export default function Pagina12 (props){
                 
                 <Cabecalho onde={'pessoal'} pg={false}/>
 
-                <div class="f10-filtro1">   Resultado:{cargo2}⠀  <div>{list}</div></div>
+                <div class="f10-filtro1">   Resultados para:{cargo2}⠀  <div>{list}</div></div>
 
                 <div class="f10-areas">
 
