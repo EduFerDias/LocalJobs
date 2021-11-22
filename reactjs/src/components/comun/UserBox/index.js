@@ -39,7 +39,8 @@ export default function UsuBox (props) {
 
     console.log(props.foto)
     
-    if (props.foto == "") {
+    if (props.foto == "") {  
+
         return
     }
     else {
@@ -51,8 +52,8 @@ export default function UsuBox (props) {
     if(props.bt_empresa == true){
         return(
         <Conteudo className="container"> 
-            <div class="f10-texto">
             <Link to={{ pathname: '/empresa', state: props }}><div class="f10-fotofiltro"><img src={imagemempresa} alt=""/> </div></Link>
+            <div class="f10-texto">
                 <div class="f10-filtronome"><Link to={{ pathname: '/empresa', state: props }}> {empresa.nm_nome != null && empresa.nm_nome.length > 15 ?empresa.nm_nome.substr(0,15) :empresa.cidade} </Link> </div>
 
                 <div class="f10-cidade">{props.cidade != null && props.cidade.length > 20 ?props.cidade.substr(0,20) + '...' : props.cidade}</div>

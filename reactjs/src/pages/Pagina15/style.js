@@ -13,6 +13,10 @@ const Pagina15 = styled.div`
     color:white;
 }
 
+a {
+    color:white;
+}
+
 .cabecalho{
     background-color: #107AD1;
     display: flex;

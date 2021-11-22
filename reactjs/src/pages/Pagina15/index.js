@@ -47,6 +47,9 @@ export default function Pagina15(props){
 
 
     let id = Number(resultado.id)
+    let id2 = empresa.id_empresaç
+
+    
 
     async function ListarEmpresa(){
         console.log(id)
@@ -66,8 +69,7 @@ export default function Pagina15(props){
     }
 
     async function enviarEmail(){
-       let y = await api.enviarEmail(empresa.ds_email, `Interesse Na sua vaga para: ${resultado.profissao}`, `
-            <h2>O candidato ${user} ok eu to ok</h2>
+       let y = await api.enviarEmail(empresa.ds_email, `Interesse Na sua vaga           <p>O candidato ${user} demonstrou interesse na sua vaga paraÇ</p>
         `)
         toast.success("enviei")
         return y;
@@ -87,11 +89,11 @@ export default function Pagina15(props){
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
-                        <img src={link2} alt="asda"/>
+                        <img src={link2} alt=""/>
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{resultado.profissao}</p>
-                        <Link to={{ pathname: '/empresa', state: empresa.id_empresa } }>
+                        <Link to={{ pathname: '/empresa', state: {id: empresa.id_empresa} } }>
                             <p class="pr">{empresa.nm_nome} | {empresa.ds_estado_cidade}</p>
                         </Link>
                         
