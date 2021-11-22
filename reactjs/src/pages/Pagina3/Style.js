@@ -6,7 +6,10 @@ background-image: url("./assets/images/Cadastro\ e\ Login/p1-estaiada.png");
 background-repeat: no-repeat;
 background-attachment:fixed;
 
-
+.sobre {
+    color:white;
+    margin-left: 12rem;
+}
 .corpo{
     display: flex;
     flex-direction: row;

@@ -1,11 +1,13 @@
 import Conteudo from "./styled";
 import { Link } from "react-router-dom";
-
 import Cookies from 'js-cookie'
 import { useHistory } from 'react-router-dom'
-
 import  { useEffect} from 'react'
 import { useState, useRef } from 'react';
+
+import Api from '../../../services/Api';
+let api = new Api();
+
 
 
 function lerUsuarioLogado(navigation) {
@@ -21,6 +23,7 @@ function lerUsuarioLogado(navigation) {
 
 
 
+
 export default function Header5 (props){
 
     const navigation = useHistory();
@@ -28,10 +31,25 @@ export default function Header5 (props){
 
     console.log(usuarioLogado)
 
-
+    const[link2, setImg] = useState('');
     const [empresa, setEmpresa] = useState(usuarioLogado.nome);
-
     const [empresarial,setEmpresarial] = useState([])
+
+    async function buscarInfo(){
+        let f = await api.buscaUsuConfigId(usuarioLogado.id)
+        let imagem = `../../assets/images/Pagina15/imagemempresa.png`
+
+        if (f.ds_link_imagem == "") {
+            setImg(imagem)
+        }
+        else {
+            setImg(f.ds_link_imagem)
+        }
+    }
+
+    useEffect(() => {
+        buscarInfo()
+    }, [])
 
 
     return(
@@ -49,7 +67,7 @@ export default function Header5 (props){
             </Link>
 
             <Link to={{ pathname: '/config-usuario', state: props }}>
-                <div class="imagenUsuario-t6"> <img src="../../assets/images/pagina 5,6,7/imgÚsuario.png" alt="" /> </div>
+                <div class="imagenUsuario-t6"> <img src={link2} alt="" /> </div>
             </Link>
 
             </div>

@@ -2,6 +2,7 @@ import Conteudo from "./style"
 import Cabecalho3 from "../../components/comun/header4";
 import Rodape from "../../components/comun/rodapé";
 import { useEffect, useState } from "react";
+import imagem from "../../components/src/Group 5.png"
 import Api from "../../services/Api";
 let api  = new Api();
 
@@ -11,6 +12,8 @@ export default function Pagina14 (props) {
     const[userConfig, setUsuC] = useState([]);
     const[usuInfo, setUsuI] = useState([])
 
+    const[link2, setImg] = useState('');
+
     async function listarUsu() {
         let r = await api.buscaUsuConfigId(usuario)
         let y = await api.buscaUsuId(usuario)
@@ -19,11 +22,21 @@ export default function Pagina14 (props) {
 
         setUsuC(r)
         setUsuI(y)
+
+        if (r.ds_link_imagem == "") {
+            setImg(imagem)
+        }
+        else {
+            setImg(r.ds_link_imagem)
+        }
+
     }
+
 
     useEffect(() => {
         listarUsu();
     }, [])
+
 
 
 
@@ -35,7 +48,7 @@ export default function Pagina14 (props) {
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
-                        <img src="./assets/images/Pagina14/imagem-usuario.png" alt="asda"/>
+                        <img src={link2} alt="asda"/>
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{usuInfo.nm_nome}</p>

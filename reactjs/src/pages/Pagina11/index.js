@@ -42,8 +42,9 @@ export default function Pagina11 (){
         setVagas(a)
     }
 
+    
     async function listarVagasEspeci () {
-        let e = await api.EmpresaBaseadaemArea('Serviços em Informática')
+        let e = await api.EmpresaBaseadaemArea('Informática')
         console.log(e)
         setVagae(e)
     }
@@ -84,16 +85,44 @@ export default function Pagina11 (){
                         beneficios={item.ds_beneficios}
                         hora={item.ds_hora_trabalho}
                         bt_empresa={true}
+                        foto={item.ds_link_imagem}
                     />
                     
                 )}
 
             </Carousel>
 
-            <div class="f10-filtro1">Vagas de diversas áreas</div>
+            <div class="f10-filtro1">Vagas em São Paulo</div>
+
+            <Carousel 
+                    responsive={responsive}
+                >
+
+                {vaga.map(item => 
+                    <UserBox
+                        descricao={item.ds_descricao} 
+                        cidade={item.ds_local_trabalho != null && item.ds_local_trabalho.lenght > 20 ? item.ds_local_trabalho.substr(0, 20) :item.ds_local_trabalho} 
+                        profissao={item.ds_profissao}
+                        salario={item.ds_salario_de}
+                        salarioa={item.ds_salario_a}
+                        id={item.id_empresa}
+                        vaga={item.vaga} 
+                        idvaga={item.id_vaga}
+                        formacao={item.ds_formacao}
+                        qualificacao={item.ds_qualificacao}
+                        tipocontrato={item.ds_tipo_contratacao}
+                        beneficios={item.ds_beneficios}
+                        hora={item.ds_hora_trabalho}
+                        bt_empresa={true}
+                    />
+                    
+                )}
+
+            </Carousel>
+
 
        
-            <div class="f10-filtro1">Empresas do ramo da Informática</div>
+            <div class="f10-filtro1">Vagas no ramo da Informática</div>
 
             {<Carousel 
                     responsive={responsive}

@@ -49,7 +49,9 @@ f10-nome {
     cursor: pointer;
     margin-left: 2em;
 }
-
+select {
+    width: 150px;
+}
 f10-nome2 {
     margin-right: 2em;
     cursor: pointer;
@@ -88,7 +90,7 @@ f10-nome2 {
 }
 
 .f10-pesquisa {
-    width: 39em;
+    width: 30em;
     justify-content: center;
     display: flex;
     background-color: white;
@@ -96,6 +98,19 @@ f10-nome2 {
     padding-left: px;
     align-items: center;
     height: 50px;
+}
+
+.f10-nome2 a {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+.f10-imagem img {
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -137,6 +152,10 @@ input {
     width: 29px;
     height: 29px;
     margin-right: 1em;
+}
+
+hr {
+    display: none;
 }
 
 .f10-lupa img {

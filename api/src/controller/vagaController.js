@@ -94,9 +94,6 @@ app.get('/:idempresa/:idvaga', async (req, resp) => {
 })
 
 
-// GET TB VAGA
-
-
 // DELETE TB VAGA
 
 app.delete("/:id", async (req, resp) => {
@@ -118,7 +115,7 @@ app.put("/:idempresa/:id", async(req,resp) => {
     try { 
 
         let a = req.body;
-        let id = req.params.ide
+        let id = req.params.id
         let idempresa = req.params.idempresa
         
 

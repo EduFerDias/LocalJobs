@@ -11,6 +11,9 @@ const Conteudo = styled.div`
 
   height: 90px;
 
+  .local {
+    color: white;
+  }
   padding: 0em 4em 0px 4em;
   color: white;
 
@@ -73,7 +76,7 @@ const Conteudo = styled.div`
   align-items: center;
 }
 .logo {
-  color: #041632;
+  color: white;
   font-size: 1.7em;
   font-family: Montserrat-Bold;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -82,10 +85,18 @@ const Conteudo = styled.div`
   width: 70px;
   margin-right: 0.5em;
 }
+
+.imagenUsuario-t6 img {
+  border-radius: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 .dark {
-  color: #107ad1;
+  color: white;
 }
 
+.local span {
+  color: white;
+}
 `
 
 export default Conteudo

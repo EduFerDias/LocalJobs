@@ -5,7 +5,7 @@ import Rodape from '../../components/comun/rodapé'
 import Cookies from "js-cookie";
 
 import  { useEffect} from 'react'
-
+import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 
@@ -40,22 +40,33 @@ export default function Pagina15(props){
 
     const [vagas, setVagas ] = useState([]);
     const [empresa, setEmpresa ] = useState([]);
+    const[empresaconfig, setConig] = useState([]);
     const [resultado, SetResul] = useState(props.location.state)
+    const[link2, setImg] = useState('');
 
 
 
     let id = Number(resultado.id)
 
-
-
     async function ListarEmpresa(){
         console.log(id)
         let x = await api.ListarEmpresaID(id)
+        let y = await api.listarEmpresaConfigID(id);
         setEmpresa(x)
+        setConig(y)
+
+        let imagem = `../../assets/images/Pagina15/imagemempresa.png`
+
+        if (y.ds_link_imagem == "") {
+            setImg(imagem)
+        }
+        else {
+            setImg(y.ds_link_imagem)
+        }
     }
 
     async function enviarEmail(){
-       let y = await api.enviarEmail('diasdu2011@outlook.com', `Interesse Na sua vaga para: ${resultado.profissao}`, `
+       let y = await api.enviarEmail(empresa.ds_email, `Interesse Na sua vaga para: ${resultado.profissao}`, `
             <h2>O candidato ${user} ok eu to ok</h2>
         `)
         toast.success("enviei")
@@ -76,11 +87,13 @@ export default function Pagina15(props){
             <div class="cabecalho"> 
                 <div class="cab-esquerda">
                     <div class="imagem-cabecalho">
-                        <img src="./assets/images/Pagina15/imagemempresa.png" alt="asda"/>
+                        <img src={link2} alt="asda"/>
                     </div>
                     <div class="informacoes-usuario">
                         <p class="nm">{resultado.profissao}</p>
+                        <Link to={{ pathname: '/empresa', state: empresa.id_empresa } }>
                             <p class="pr">{empresa.nm_nome} | {empresa.ds_estado_cidade}</p>
+                        </Link>
                         
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import db from '../db.js'
 import express from 'express'
-import { Sequelize } from 'sequelize';
+import Sequelize from 'sequelize';
+
 
 const Router = express.Router;
 const app = Router();

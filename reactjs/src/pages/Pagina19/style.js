@@ -6,9 +6,18 @@ const Conteudo = styled.div`
 
     font-family: Montserrat-regular;
 
+    .l1-image img {
+        border-radius: 100%;
+        margin-left: 2.5rem;
+    }
     .p19-form{
         padding: 3em 15em;
     }
+
+    #imagem {
+        margin-bottom: 3rem;
+    }
+    
     .logo a{
         color: #041632;
         font-size: 1em;
@@ -22,7 +31,8 @@ const Conteudo = styled.div`
         justify-content: space-between;
     }
     .l1-image img{
-        width: 10em;
+        width: 12em;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     .box-vaga a {
         color: white;
@@ -144,7 +154,7 @@ const Conteudo = styled.div`
         font-family: Montserrat-regular;
         margin-top: 1em;
         border-radius: 5px;
-        width:100%;
+        width: 66em;
         height:15em;
     }
     .l3-inputs{
@@ -305,7 +315,7 @@ const Conteudo = styled.div`
         display: none;
     }
     .darkgrey-scroll, .linkedin{
-        width: 230%;
+        width: 53.5em;
         margin-bottom: -5rem;
     }
     .lkn-titulo, .cv-titulo{

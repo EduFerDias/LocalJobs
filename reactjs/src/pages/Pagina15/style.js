@@ -9,6 +9,9 @@ const Pagina15 = styled.div`
     margin: 2em 6em 4em 5em;
     color: white;
 }
+.pr a {
+    color:white;
+}
 
 .cabecalho{
     background-color: #107AD1;
@@ -37,6 +40,8 @@ const Pagina15 = styled.div`
 
 .imagem-cabecalho img{
     width: 125px;
+    border-radius:100%;
+    border: solid #404756 7px;
 }
 .imagem-cabecalho{
     margin-right: 2em;

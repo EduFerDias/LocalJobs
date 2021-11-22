@@ -6,9 +6,17 @@ background-color: #404756;
 display: flex;
 flex-direction:column;
 
+
 .cabe-esq-dlt {
   display: flex;
   flex-direction: row;
+}
+
+.logo-empr-dtl img {
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  margin-right: 1rem;
 }
 
 .titulo-empr-dtl {
@@ -62,11 +70,6 @@ flex-direction:column;
   border-radius: 10px;
 }
 
-.logo-empr-dtl img {
-  border-radius: 70px;
-  width: 60px;
-  padding-right: 10px;
-}
 
 .nome-empresa-dtl {
   display: flex;
@@ -459,6 +462,7 @@ flex-direction:column;
 .box-athena-dtl {
   font-family: Montserrat-regular;
   color: white;
+  width: 250px;
 }
 
 .ou-dtl {

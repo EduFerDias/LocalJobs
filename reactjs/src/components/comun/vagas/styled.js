@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 const Conteudo = styled.div`
 padding: 1em 1em;
+height: 220px;
 
 .bloco {
   background-color: #107ad1;

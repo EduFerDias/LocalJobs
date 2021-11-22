@@ -79,8 +79,18 @@ body {
 }
 
 .campoidio3f4 input {
-    margin-right: 1.2rem;
+  margin-right: 1.2rem;
 }
+
+.m3 {
+  width: 165px;
+}
+
+.f4Caixa2 {
+  margin-right: 1rem;
+  margin-top: 1.2rem;
+}
+
 .nmUsuario-t13 {
   font-family: Montserrat-Bold;
   font-style: normal;
@@ -95,6 +105,7 @@ body {
   width: 75px;
   height: 75px;
   cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .conteudo-tela13 {
@@ -124,6 +135,7 @@ body {
   width: 107px;
   height: 107px;
   border-radius: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .f1-nomes{
@@ -304,7 +316,7 @@ body {
   font-family: Montserrat-Bold;
   font-style: normal;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 15px;
 
 
   background-color: #8C0000;

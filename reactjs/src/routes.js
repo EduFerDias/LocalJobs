@@ -86,7 +86,7 @@ export default function Rotas (){
                 <Route path="/login" component={Pagina8} />
 
 
-                <Route path="*" component={Pagina6}/>
+                <Route path="/*" component={Pagina6}/>
                 
             </Switch>
         </BrowserRouter>

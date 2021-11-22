@@ -18,6 +18,15 @@ const Conteudo = styled.div`
     color: white;
   }
 
+  .imagenUsuario-t6 img {
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .local {
+    cursor:pointer
+  }
+
 .divisao-t6 {
   display: flex;
   flex-direction: row;

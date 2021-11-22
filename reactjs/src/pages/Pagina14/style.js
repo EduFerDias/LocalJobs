@@ -10,6 +10,13 @@ const Pagina14 = styled.div`
     color: white;
 }
 
+.imagem-cabecalho img {
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 150px;
+    height: 150px;
+}
+
 .cabecalho{
     background-color: #107AD1;
     display: flex;
@@ -35,13 +42,10 @@ const Pagina14 = styled.div`
     margin: 5px;
 }
 
-.imagem-cabecalho img{
-    width: 150px;
-}
 .imagem-cabecalho{
-    margin-right: 2em;
+    margin-left: 1em;
     position: absolute;
-    margin-top: 4em;
+    margin-top: -1em;
 }
 
 .email-telefone{
