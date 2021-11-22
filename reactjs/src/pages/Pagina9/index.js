@@ -29,6 +29,7 @@ function lerUsuarioLogado(navigation) {
 
 export default function Pagina9 (){
     const[usuario, setUsuario] = useState([])
+    const[cargo2, setCargo2] = useState();
     const navigation = useHistory();
     const {list} = useList();
     const {cidade} = useCidade();
@@ -39,11 +40,14 @@ export default function Pagina9 (){
 
 
 let encontrarEmrpesa = async ()=> {
-    console.log(area)
-    console.log(cargo)
-    console.log(cidade)
-    let y = await api.buscaUsu(area, cargo, cidade);
-    console.log(y)
+    setCargo2(cargo)
+    if(cargo = ''){
+        setCargo2(undefined)
+    }
+
+    let y = await api.buscaUsu(area, cargo2, cidade);
+
+
     setUsuario(y)
 
 }
@@ -59,7 +63,7 @@ useEffect(() =>{
                 <div class="f10-tudo">
                     <Cabecalho onde={'empresa'} pg={false}/>
 
-                    <div class="f10-filtro1">Resultado:⠀  <div>{cargo}</div></div>
+                    <div class="f10-filtro1">Resultados para:⠀  <div>{cargo2}</div></div>
                 
                     <div class="f10-areas">
 
